@@ -7,8 +7,7 @@ include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-$crear = new tools();
-$crear->autoconexion();
+$crear = new tools('db');
 
 ?>
 
@@ -151,7 +150,4 @@ $crear->autoconexion();
 </body>
 </html>
 
-<?
-
-
-?>
+<? $crear->cerrar(); ?>

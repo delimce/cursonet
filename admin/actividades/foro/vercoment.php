@@ -13,7 +13,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 $crear->autoconexion();
 
 
-		if(isset($_REQUEST['foro']))$_SESSION['tema_id'] = $_REQUEST['foro'];
+		if(!empty($_REQUEST['foro'])) $_SESSION['tema_id'] = $_REQUEST['foro'];
 		
 		$titulo = $crear->array_query2("select titulo,content from foro where id = '{$_SESSION['tema_id']}'");
 		
@@ -218,6 +218,8 @@ $crear->autoconexion();
             <td colspan="2"><input name="b1" type="button" id="b1" onClick="javascript:location.href='comentario.php';"  value="<?=LANG_back?>">
               &nbsp;
               <input type="button" name="Button" value="<?=LANG_foro_add?>" onClick="window.location.href='agregar.php';">
+              &nbsp;
+              <input name="Button2" type="button" class="no_back" onClick="window.location.href='<?=$PHP_SELF?>';" value="<?=LANG_refresh?>">
               <br>
               <br></td>
             </tr>
@@ -328,7 +330,9 @@ $crear->autoconexion();
           <tr>
             <td colspan="2"><input name="b1" type="button" id="b1" onClick="javascript:location.href='comentario.php';"  value="<?=LANG_back?>">
               &nbsp;
-              <input type="button" name="Button" value="<?=LANG_foro_add?>" onClick="window.location.href='agregar.php';"></td>
+              <input type="button" name="Button" value="<?=LANG_foro_add?>" onClick="window.location.href='agregar.php';">
+              &nbsp;
+              <input name="Button3" type="button" class="no_back" onClick="window.location.href='<?=$PHP_SELF?>';" value="<?=LANG_refresh?>"></td>
             </tr>
         </table>
           <br>&nbsp;

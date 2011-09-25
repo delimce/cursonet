@@ -4,8 +4,7 @@ include("../../../config/setup.php"); ////////setup
 include("../../../class/tools.php"); ////////clase
 include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-$tool = new tools();
-$tool->autoconexion();
+$tool = new tools('db');
 
 $dato = $tool->array_query2("select ifnull((select nombre from grupo where id = f.grupo_id),'".LANG_all."'),(select titulo from contenido where id = f.contenido_id),f.resumen, (select count(*) from foro_comentario where foro_id = f.id),f.leido,f.id from foro f where f.id = '{$_REQUEST['id']}' ");
 if($tool->nreg==0){
@@ -14,8 +13,8 @@ if($tool->nreg==0){
 	$leido = '-';
 
 }else{
-	
-	$leido = $dato[3] - $dato[4]; ///comentarios nuevos
+	$leido = ($dato[3] > $dato[4]) ? $dato[3] - $dato[4]: 0;
+	//$leido = $dato[3] - $dato[4]; ///comentarios nuevos
 	
 }
 

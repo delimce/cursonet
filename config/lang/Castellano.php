@@ -66,6 +66,7 @@ define(LANG_borrar,"Esta seguro de que desea borrar el registro");
 define(LANG_is_active,"Activo");
 define(LANG_is_noactive,"Inactivo");
 define(LANG_status,"Estatus");
+define(LANG_refresh,"Refrescar");
 define(LANG_select_all,"Seleccionar todos/ninguno");
 define(LANG_noresutlts,"Actualmente no hay registros, intente insertar un nuevo Registro");
 define(LANG_noresutlts2,"Actualmente no hay registros");
