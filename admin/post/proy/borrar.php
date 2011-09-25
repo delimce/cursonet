@@ -1,0 +1,37 @@
+<?
+session_start();
+$profile = 'admin'; /////////////// perfil requerido
+include("../../../config/setup.php"); ////////setup
+include("../../../class/tools.php"); ////////clase
+include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
+
+
+  $grabar = new tools();
+  $grabar->autoconexion(); 
+  
+  
+   if(isset($_GET['itemID'])){
+  
+   $data  = $grabar->simple_db("SELECT DISTINCT 
+ 								 p.rec_id,
+  r.dir
+FROM
+  proyecto_estudiante p
+  INNER JOIN recurso r ON (p.rec_id = r.id)
+WHERE
+  p.id = {$_GET['itemID']}");
+   
+   
+   $datos = $grabar->query("delete from proyecto_estudiante where id = '{$_GET['itemID']}'");
+   $datos = $grabar->query("delete from recurso where id = '{$data['rec_id']}'"); //borra el recurso de la tabla
+   @unlink('../../recursos/est/proy'.$data['dir']); //borra el recurso fisicamente
+   
+   $grabar->cerrar();
+   
+   $grabar->javaviso(LANG_drop_msg,"proys.php");
+  
+  
+  }
+  
+  
+?>

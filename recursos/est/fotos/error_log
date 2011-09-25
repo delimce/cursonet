@@ -1,0 +1,1 @@
+[29-Jan-2011 17:07:18] PHP Warning:  opendir(../../recursos/est/proy) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory in /home/curs0net/public_html/ujap/class/tools.php on line 645

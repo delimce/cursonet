@@ -1,0 +1,8 @@
+[06-Jun-2011 13:58:03] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/curs0net/public_html/ujap/admin/post/foro/foro.php on line 155
+[06-Jun-2011 13:58:03] PHP Warning:  mysql_close(): 9 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
+[07-Jun-2011 09:54:15] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/curs0net/public_html/ujap/admin/post/foro/foro.php on line 155
+[07-Jun-2011 09:54:15] PHP Warning:  mysql_close(): 9 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
+[07-Jun-2011 10:27:37] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/curs0net/public_html/ujap/admin/post/foro/foro.php on line 155
+[07-Jun-2011 10:27:37] PHP Warning:  mysql_close(): 9 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
+[07-Jun-2011 10:37:50] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/curs0net/public_html/ujap/admin/post/foro/foro.php on line 155
+[07-Jun-2011 10:37:50] PHP Warning:  mysql_close(): 9 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
