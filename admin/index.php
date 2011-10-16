@@ -84,12 +84,12 @@ function validar(form1) {
 <table width="637" height="307" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="366" rowspan="3" valign="bottom"><img src="../images/backend/p001.jpg" width="366" height="313"></td>
-    <td height="170" colspan="2" valign="top"><img src="../images/backend/p002.jpg" width="271" height="170"></td>
+    <td height="170" colspan="2" valign="bottom"><img src="../images/backend/p002.jpg" width="271" height="170"></td>
   </tr>
   <tr>
     <td width="206" height="83" valign="middle" bgcolor="#FFFFFF">
 	<form name="form1" method="post" action="" onSubmit="return validar();">
-	  <table width="100%" border="0" cellpadding="0" cellspacing="1" class="small" title="<?php echo LANG_enter_admin ?>">
+	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="small" title="<?php echo LANG_enter_admin ?>">
 
         <tr>
           <td width="31%" class="small"><strong><?php echo LANG_user?></strong></td>
@@ -110,7 +110,7 @@ function validar(form1) {
       </table>
     </form>
     </td>
-    <td width="65" align="left"><img src="../images/backend/p004.jpg" width="65" height="94"></td>
+    <td width="65" align="left" valign="bottom"><img src="../images/backend/p004.jpg" width="65" height="94"></td>
   </tr>
   <tr>
     <td height="18" colspan="2" valign="bottom"><img src="../images/backend/p003.jpg" width="271" height="49"></td>
