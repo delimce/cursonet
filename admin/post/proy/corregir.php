@@ -55,7 +55,7 @@ $menu = new menu($menu_struct);
  }else{
 
 	  $datos   = $prueba->array_query2($queryd);
-	  $recurso = $prueba->array_query2("select dir,fecha from recurso where id = $datos[1]");
+	  $recurso = $prueba->array_query2("select dir,fecha from tbl_recurso where id = $datos[1]");
 	  
  }
 

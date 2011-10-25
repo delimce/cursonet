@@ -12,7 +12,7 @@ include("security.php"); ///seguridad para el admin
  $crear = new tools();
  $crear->autoconexion();
  
-   $horario = $crear->simple_db("select timezone from setup ");
+   $horario = $crear->simple_db("select timezone from tbl_setup ");
    // @date_default_timezone_set($horario);
 
 
@@ -30,11 +30,11 @@ include("security.php"); ///seguridad para el admin
 		$valores2[5] = $_REQUEST['desc'];
 		$valores2[6] = $_REQUEST['notas'];
 	
-		$crear->insertar2("curso","nombre, alias, resp, fecha_creado, duracion, descripcion, notas",$valores2); 
+		$crear->insertar2("tbl_curso","nombre, alias, resp, fecha_creado, duracion, descripcion, notas",$valores2); 
 		$crear->javaviso(LANG_cambios);
 		
 		///////////si es el 1er caso
-		$cuantos_cursos = $crear->simple_db("select count(*) from curso");
+		$cuantos_cursos = $crear->simple_db("select count(*) from tbl_curso");
 		if($cuantos_cursos==1){ $_SESSION['CURSOID'] = $crear->ultimoID; }
 		
 		

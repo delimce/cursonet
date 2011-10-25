@@ -3,7 +3,7 @@
  include("class/clases.php");
  $nuevo = new tools('db');
  
- $val = $nuevo->array_query2("select modo,lenguaje,titulo,formato_fecha,formato_fecha_db,version from setup"); //// modo
+ $val = $nuevo->array_query2("select modo,lenguaje,titulo,formato_fecha,formato_fecha_db,version from tbl_setup"); //// modo
  
  $_SESSION['LENGUAJE'] = $val[1];
  $_SESSION['DB_FORMATO_DB'] = $data[4];

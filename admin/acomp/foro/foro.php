@@ -12,7 +12,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 	$aco = new tools();
 	$aco->autoconexion();
 	
-	$horario = $aco->simple_db("select timezone from setup ");
+	$horario = $aco->simple_db("select timezone from tbl_setup ");
     // @date_default_timezone_set($horario);
 
 	if(isset($_GET['idpro'])){

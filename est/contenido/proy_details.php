@@ -13,7 +13,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
  $query = "	SELECT
 `p`.`id`,
 `p`.`nombre`,
-ifnull((select concat(nombre,' ',apellido) from admin where id = p.autor),'".LANG_content_autor_unknow."') as autor,
+ifnull((select concat(nombre,' ',apellido) from tbl_admin where id = p.autor),'".LANG_content_autor_unknow."') as autor,
 date_format(`p`.`fecha_entrega`,'{$_SESSION['DB_FORMATO_DB']}'),
 `p`.`enunciado`,
 DATEDIFF(fecha_entrega,NOW()),

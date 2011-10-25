@@ -30,7 +30,7 @@ $menu = new menu($menu_struct);
  
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = "select c.id,titulo,ifnull((select concat(nombre,' ',apellido) from admin where id = c.autor),'".LANG_content_autor_unknow."') as autor,(select count(*) from contenido_recurso where contenido_id = c.id and tipo = 0 ) as archivos,
+  $query = "select c.id,titulo,ifnull((select concat(nombre,' ',apellido) from tbl_admin where id = c.autor),'".LANG_content_autor_unknow."') as autor,(select count(*) from contenido_recurso where contenido_id = c.id and tipo = 0 ) as archivos,
   (select count(*) from contenido_recurso where contenido_id = c.id and tipo = 1 ) as enlaces,
   (select count(*) from contenido_recurso where contenido_id = c.id and tipo = 2 ) as Videos from contenido c where c.curso_id = {$_SESSION['CURSOID']} ";
 

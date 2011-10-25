@@ -29,7 +29,7 @@ $menu = new menu($menu_struct);
 								 $valores[5] = $_SESSION['USERID'];
 								 $valores[6] = $_POST['desc'];
 								 
-								 $crear->insertar2("recurso","tipo, fecha, size, dir, add_by, persona,descripcion",$valores);
+								 $crear->insertar2("tbl_recurso","tipo, fecha, size, dir, add_by, persona,descripcion",$valores);
 								 $crear->javaviso(LANG_cambios,"index.php");
 				 
 				 }

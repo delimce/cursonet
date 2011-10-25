@@ -8,10 +8,10 @@ $datos = new formulario('db');
 	$datos->abrir_transaccion();
 	
 	$idrec = $datos->getvar("rec"); //id del recurso	
-	$dir = $datos->simple_db("select dir from recurso where id = '$idrec' ");
+	$dir = $datos->simple_db("select dir from tbl_recurso where id = '$idrec' ");
 	$datos->query("update recurso set download = download+1 where id = '$idrec' ");
-	$datos->query("update log_est set ndescargas = ndescargas+1 where id = {$_SESSION['EST_ACTUAL']} ");
-	$datos->query("update log_est set descargas = concat(descargas,',',$idrec) where id = {$_SESSION['EST_ACTUAL']} "); ///para contar las descargas
+	$datos->query("update tbl_log_est set ndescargas = ndescargas+1 where id = {$_SESSION['EST_ACTUAL']} ");
+	$datos->query("update tbl_log_est set descargas = concat(descargas,',',$idrec) where id = {$_SESSION['EST_ACTUAL']} "); ///para contar las descargas
 	
 	$datos->cerrar_transaccion();
 

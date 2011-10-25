@@ -20,9 +20,9 @@ if(isset($_GET['id'])){
 
 	 	if(empty($_SESSION['CONTARCONT'])){
 	
-			   $datos->query("update log_est set ncontenidos = ncontenidos+1 where id = {$_SESSION['EST_ACTUAL']} ");
+			   $datos->query("update tbl_log_est set ncontenidos = ncontenidos+1 where id = {$_SESSION['EST_ACTUAL']} ");
 			   ///////////se agrega el contenido a la lista de contenidos visitados (solo se cuenta 1 vez por sesion)
-			   $datos->query("update log_est set contenidos = concat(contenidos,',',$ide) where id = {$_SESSION['EST_ACTUAL']} ");
+			   $datos->query("update tbl_log_est set contenidos = concat(contenidos,',',$ide) where id = {$_SESSION['EST_ACTUAL']} ");
 			   
 			   $_SESSION['CONTARCONT'] = 1; ///PARA ASEGURARME QUE CUENTE SOLO UNA VEZ POR SESION PARA LOS INDICADORES
 	 

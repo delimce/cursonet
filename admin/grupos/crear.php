@@ -82,7 +82,7 @@ $menu = new menu($menu_struct);
 </tr>
   <tr>
   <td class="style3"><?php echo LANG_group_prof; ?></td>
-  <td><?php echo $crear->combo_db("prof_id","select id,concat(nombre,' ',apellido) as nombre from admin","nombre","id",false,$_SESSION['USERID']); ?></td>
+  <td><?php echo $crear->combo_db("prof_id","select id,concat(nombre,' ',apellido) as nombre from tbl_admin","nombre","id",false,$_SESSION['USERID']); ?></td>
 </tr>
   <tr>
   <td width="27%" class="style3"><?php echo LANG_group_nombre; ?></td>

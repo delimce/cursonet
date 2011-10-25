@@ -10,7 +10,7 @@ include("security.php"); ///seguridad para el admin
 
  $modo = new tools();
  $modo->autoconexion();
-   $horario = $modo->simple_db("select timezone from setup ");
+   $horario = $modo->simple_db("select timezone from tbl_setup ");
    // @date_default_timezone_set($horario);
 
 $conn = mysql_connect($HOSTNAME,$DBUSER,$DBPASS);

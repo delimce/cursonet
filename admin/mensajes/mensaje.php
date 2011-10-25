@@ -11,8 +11,8 @@ $menu = new menu($menu_struct);
  $ver->autoconexion();
  
   $query = "select id,subject as titulo,
-  IF(tipo=0,(select concat('".LANG_msg_prefa."',nombre,' ',apellido) from admin where id = de ),(select concat('".LANG_msg_prefs."',nombre,' ',apellido) from estudiante where id = de )) as Remite,
-   IF(tipo=0,(select foto from admin where id = de ),(select foto from estudiante where id = de )) as foto
+  IF(tipo=0,(select concat('".LANG_msg_prefa."',nombre,' ',apellido) from tbl_admin where id = de ),(select concat('".LANG_msg_prefs."',nombre,' ',apellido) from estudiante where id = de )) as Remite,
+   IF(tipo=0,(select foto from tbl_admin where id = de ),(select foto from estudiante where id = de )) as foto
   ,date_format(fecha,'".$_SESSION['DB_FORMATO_DB']."') as fecha,leido,content,urgencia,tipo,de from mensaje_admin where id = '{$_GET['id']}'";
 
 $datos = $ver->simple_db($query);

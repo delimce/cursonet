@@ -65,7 +65,7 @@ $menu = new menu($menu_struct);
 									   GROUP_CONCAT(contenidos) as cont,
 									   GROUP_CONCAT(descargas) as des
 									   FROM
-										log_est e
+										tbl_log_est e
 										where e.est_id = $est  
 										GROUP BY  e.est_id");						
 										 
@@ -82,7 +82,7 @@ $menu = new menu($menu_struct);
 											  }
 											  
 											  $down = explode(',',$data['des']);
-											  $udown = $tool->estructura_db("select id,dir from recurso where id in ({$data['des']}) ");	  
+											  $udown = $tool->estructura_db("select id,dir from tbl_recurso where id in ({$data['des']}) ");	  
 											  
 											   for($i=0;$i<count($udown);$i++){
 												  

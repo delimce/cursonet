@@ -12,9 +12,9 @@ $menu = new menu($menu_struct);
 	
 	/////////////data general
 	$query1 = " select
-	(select count(*) from log_est) as vs,
-	(select count(distinct est_id) from log_est) as vi,
-	(select sum(ndescargas) from log_est) as des
+	(select count(*) from tbl_log_est) as vs,
+	(select count(distinct est_id) from tbl_log_est) as vi,
+	(select sum(ndescargas) from tbl_log_est) as des
 	               ";
 
 	$data_general = $est->array_query2($query1);

@@ -12,7 +12,7 @@
    }
  //////////////////
 
- $datos = $nuevo->simple_db("select titulo_admin,lenguaje,version from setup ");
+ $datos = $nuevo->simple_db("select titulo_admin,lenguaje,version from tbl_setup ");
 
  $_SESSION['LENGUAJE'] = $datos['lenguaje'];
 
@@ -102,7 +102,7 @@ function validar(form1) {
         <tr>
           <td height="18" align="left" class="small"><strong><?php echo LANG_curso_id?></strong></td>
           <td height="18" align="left" class="small">
-		  <?php echo $nuevo->combo_db("curso","select id,alias from curso","alias","id",false,$_SESSION['CURSOID'],false,LANG_curso_nocurso.'<input name="curso" type="hidden" id="curso" value="-1">'); ?>		  </td>
+		  <?php echo $nuevo->combo_db("curso","select id,alias from tbl_curso","alias","id",false,$_SESSION['CURSOID'],false,LANG_curso_nocurso.'<input name="curso" type="hidden" id="curso" value="-1">'); ?>		  </td>
           </tr>
         <tr>
           <td colspan="2" align="left" class="style3"><?php echo '<input name="Submit" id="submit" type="submit" class="style1" value="'.LANG_enter.'">'; ?></td>

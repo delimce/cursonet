@@ -6,7 +6,7 @@ include("../../class/formulario.php");
 	$datos = new formulario('db');
 	
 		$id = $datos->getvar("id");
-		$dir = $datos->simple_db("select dir from recurso where id = '$id' ");
+		$dir = $datos->simple_db("select dir from tbl_recurso where id = '$id' ");
 	
 	$datos->cerrar();
 	

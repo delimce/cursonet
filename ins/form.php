@@ -6,7 +6,7 @@
  $nuevo = new tools();
  $nuevo->autoconexion();
  
- $val = $nuevo->array_query2("select modo,lenguaje,signature from setup");
+ $val = $nuevo->array_query2("select modo,lenguaje,signature from tbl_setup");
 
 /*permitir inscripcion en modo curso 
  if($val[0]!=0){

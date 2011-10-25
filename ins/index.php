@@ -4,7 +4,7 @@
  $nuevo = new tools();
  $nuevo->autoconexion();
 
- $val = $nuevo->array_query2("select modo,lenguaje,formato_fecha,envio_email,titulo_ins from setup");
+ $val = $nuevo->array_query2("select modo,lenguaje,formato_fecha,envio_email,titulo_ins from tbl_setup");
  
   include("../config/lang/$val[1]"); ///idioma
 

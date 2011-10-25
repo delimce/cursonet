@@ -13,9 +13,9 @@ $grabar->autoconexion();
 
 if(isset($_GET['itemID'])){
 
-	$datos = $grabar->simple_db("select fuente,dir from recurso where id = {$_GET['itemID']}");
+	$datos = $grabar->simple_db("select fuente,dir from tbl_recurso where id = {$_GET['itemID']}");
 
-	$grabar->query("delete from recurso where id = '{$_GET['itemID']}'");
+	$grabar->query("delete from tbl_recurso where id = '{$_GET['itemID']}'");
 
 	if($datos['fuente']==LANG_local){
 

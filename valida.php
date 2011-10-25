@@ -38,7 +38,7 @@
 		$vector[2] = $_SERVER['REMOTE_ADDR'];
 		$vector[3] = $_SERVER['HTTP_USER_AGENT'];
 		
-		$i->insertar2("log_est","est_id,fecha_in,ip_acc,info_cliente",$vector);
+		$i->insertar2("tbl_log_est","est_id,fecha_in,ip_acc,info_cliente",$vector);
 		$_SESSION['EST_ACTUAL'] = $i->ultimoID; ////ESTUDIANTE QUE RECIEN INGRESO EN EL LOG
 		////////////////////////////
 

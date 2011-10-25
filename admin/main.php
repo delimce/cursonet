@@ -13,9 +13,9 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
  }
  
   	 $data = $datos->simple_db("select c.id,c.nombre,c.alias,date_format(fecha_creado,'{$_SESSION['DB_FORMATO_DB']}') as fechac,
-					 (select concat(nombre,' ',apellido) from admin where id = c.resp) as creador,
+					 (select concat(nombre,' ',apellido) from tbl_admin where id = c.resp) as creador,
 					 (select count(*) from mensaje_admin where para = '{$_SESSION['USERID']}' and leido = 0 ) as sinleer
-					  from curso c
+					  from tbl_curso c
 			  		  where  id = '{$_SESSION['CURSOID']}' ");
   	 
 	 $_SESSION['CURSOALIAS'] = $data['alias'];

@@ -34,7 +34,7 @@ include("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
  $grid->autoconexion();
  
   $query = "select id,subject as titulo,
-  IF(tipo=1,(select concat('".LANG_msg_prefa."',nombre,' ',apellido) from admin where id = de ),(select concat('".LANG_msg_prefs."',nombre,' ',apellido) from estudiante where id = de )) as Remite
+  IF(tipo=1,(select concat('".LANG_msg_prefa."',nombre,' ',apellido) from tbl_admin where id = de ),(select concat('".LANG_msg_prefs."',nombre,' ',apellido) from estudiante where id = de )) as Remite
   ,date_format(fecha,'".$_SESSION['DB_FORMATO_DB']."') as fecha,if(leido=0,'<font color=\"blue\">".LANG_new."</font>','".LANG_old."') as Estado from mensaje_est where para = '{$_SESSION['USER']}'";
 
  

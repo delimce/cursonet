@@ -12,7 +12,7 @@ if(!empty($ide)){
 	
   $dato = $tool->simple_db("SELECT 
   date_format(c.fecha, '{$_SESSION['DB_FORMATO_DB']}') AS fecha,
-  ifnull((select concat(a.nombre, ' ', a.apellido) from admin a where a.id = c.autor),'".LANG_content_autor_unknow."') as prof,
+  ifnull((select concat(a.nombre, ' ', a.apellido) from tbl_admin a where a.id = c.autor),'".LANG_content_autor_unknow."') as prof,
   (select count(*) from contenido_recurso where contenido_id = c.id  ) AS cant,
   c.leido,
   c.titulo,

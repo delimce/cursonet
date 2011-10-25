@@ -42,7 +42,7 @@ include("security.php"); ///seguridad para el admin
  $campos[15] = 'titulo_ins'; $vector[15] = trim($_POST['tituloi']);
  $campos[16] = 'timezone'; $vector[16] = trim($_POST['timezone']);
 
- $modo->update("setup",$campos,$vector,"");
+ $modo->update("tbl_setup",$campos,$vector,"");
  $modo->javaviso(LANG_cambios,"pref.php");
 
 
@@ -50,7 +50,7 @@ include("security.php"); ///seguridad para el admin
 
  ///////// los datos
 
- $datos = $modo->estructura_db("select  admin_email,titulo,titulo_admin,titulo_ins, SUBSTRING_INDEX(lenguaje, '.',1) as lenguaje, formato_fecha,envio_email,signature,bienvenido_est,fin_inscripcion,uni_nombre,uni_telefono,uni_fax,uni_website,uni_dir,timezone    from setup");
+ $datos = $modo->estructura_db("select  admin_email,titulo,titulo_admin,titulo_ins, SUBSTRING_INDEX(lenguaje, '.',1) as lenguaje, formato_fecha,envio_email,signature,bienvenido_est,fin_inscripcion,uni_nombre,uni_telefono,uni_fax,uni_website,uni_dir,timezone    from tbl_setup");
 
 ?>
 <html>

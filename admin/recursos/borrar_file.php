@@ -13,9 +13,9 @@ $menu = new menu($menu_struct);
   
    if(isset($_GET['itemID'])){
    
-   $file = $grabar->array_query("select dir from recurso where id = '{$_GET['itemID']}'");
+   $file = $grabar->array_query("select dir from tbl_recurso where id = '{$_GET['itemID']}'");
     
-   $grabar->query("delete from recurso where id = '{$_GET['itemID']}'");
+   $grabar->query("delete from tbl_recurso where id = '{$_GET['itemID']}'");
    $path = "../../".$ADMINPATH.'archivos/'.$file[0];
    @unlink($path);
    $grabar->javaviso(LANG_content_delfiles,"index.php");

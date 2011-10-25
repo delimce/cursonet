@@ -26,7 +26,7 @@ $crear->autoconexion();
 				  ( SELECT DISTINCT 
 							   c.id,
 							   r.content,
-							   (select concat('".LANG_msg_prefa." ',nombre, ' ', apellido) from admin where id = r.prof_id) as sujeto,
+							   (select concat('".LANG_msg_prefa." ',nombre, ' ', apellido) from tbl_admin where id = r.prof_id) as sujeto,
 							   '' as foto,
 							   'No aplica' as grupo,
 							   'admin' as tsujeto,
@@ -45,8 +45,8 @@ $crear->autoconexion();
 				  SELECT 
 				  c.id,
 				  c.content,
-				  if(c.tipo_sujeto = 'admin',(select concat('".LANG_msg_prefa." ',nombre, ' ', apellido) from admin where id = c.sujeto_id),(select concat('".LANG_msg_prefs." ',nombre, ' ', apellido) from estudiante where id = c.sujeto_id)) AS sujeto,
-				  if(c.tipo_sujeto = 'admin',(select foto from admin where id = c.sujeto_id),(select foto from estudiante where id = c.sujeto_id)) AS foto,
+				  if(c.tipo_sujeto = 'admin',(select concat('".LANG_msg_prefa." ',nombre, ' ', apellido) from tbl_admin where id = c.sujeto_id),(select concat('".LANG_msg_prefs." ',nombre, ' ', apellido) from estudiante where id = c.sujeto_id)) AS sujeto,
+				  if(c.tipo_sujeto = 'admin',(select foto from tbl_admin where id = c.sujeto_id),(select foto from estudiante where id = c.sujeto_id)) AS foto,
 				  (SELECT 
 					  g.nombre
 					FROM

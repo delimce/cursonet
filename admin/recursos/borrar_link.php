@@ -14,7 +14,7 @@ $menu = new menu($menu_struct);
    if(isset($_GET['itemID'])){
    
     
-   $grabar->query("delete from recurso where id = '{$_GET['itemID']}'");
+   $grabar->query("delete from tbl_recurso where id = '{$_GET['itemID']}'");
    $grabar->javaviso(LANG_drop_msg,"links.php");
   
      

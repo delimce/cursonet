@@ -23,7 +23,7 @@ $menu = new menu($menu_struct);
  $crear = new tools();
  $crear->autoconexion();
  
- $horario = $crear->simple_db("select timezone from setup ");
+ $horario = $crear->simple_db("select timezone from tbl_setup ");
  // @date_default_timezone_set($horario);
 
 

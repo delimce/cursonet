@@ -44,7 +44,7 @@ if(isset($_POST['enlace'])){
 				$valores[6] = $_POST['desc'];
 		        $valores[7] = $_POST['fuente'];
 
-				$crear->insertar2("recurso","tipo, fecha, size, dir, add_by, persona,descripcion,fuente",$valores);
+				$crear->insertar2("tbl_recurso","tipo, fecha, size, dir, add_by, persona,descripcion,fuente",$valores);
 				$crear->javaviso(LANG_cambios,"videos.php");
 
 
@@ -70,7 +70,7 @@ if(isset($_POST['enlace'])){
 		$valores[5] = $_POST['desc'];
 		$valores[6] = $_POST['fuente'];
 
-		$crear->insertar2("recurso","tipo, fecha, dir, add_by, persona,descripcion,fuente",$valores);
+		$crear->insertar2("tbl_recurso","tipo, fecha, dir, add_by, persona,descripcion,fuente",$valores);
 		$crear->javaviso(LANG_cambios,"videos.php");
 
 	}

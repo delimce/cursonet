@@ -37,7 +37,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 								 $valores[4] = 'est';
 								 $valores[5] = $_SESSION['USER'];
 								 
-								 $crear->insertar2("recurso","tipo, fecha, size, dir, add_by, persona",$valores);
+								 $crear->insertar2("tbl_recurso","tipo, fecha, size, dir, add_by, persona",$valores);
 								 
 								
 								 $valores2[0] = $_SESSION['PROY_ID'];

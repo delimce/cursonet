@@ -17,8 +17,7 @@ $tool->query("SELECT
   a.cursos,
   a.telefono,
   a.sintesis
-  FROM
-  admin a $extra ");
+  from tbl_admin a $extra ");
 
 
 ?>

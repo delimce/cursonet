@@ -6,7 +6,7 @@ include("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 $tool = new tools('db');
 
-$data = $tool->simple_db("select id,admin_email from setup");
+$data = $tool->simple_db("select id,admin_email from tbl_setup");
 
 ?>
 <html>

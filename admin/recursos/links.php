@@ -35,8 +35,8 @@ $menu = new menu($menu_struct);
   $rec = new tools();
   $grid->autoconexion();
   $rec->dbc = $grid->dbc;
-  $nrec = $rec->simple_db("select count(*) from recurso where add_by = 'admin'");
-  $query = "select id,dir as enlace,fecha  from recurso where tipo = 1 and add_by = 'admin'";
+  $nrec = $rec->simple_db("select count(*) from tbl_recurso where add_by = 'admin'");
+  $query = "select id,dir as enlace,fecha  from tbl_recurso where tipo = 1 and add_by = 'admin'";
 
 
 

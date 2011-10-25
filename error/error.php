@@ -3,7 +3,7 @@
  include("../class/tools.php");
  $nuevo = new tools('db');
  
- $lengua = $nuevo->simple_db("select lenguaje from setup"); //// modo
+ $lengua = $nuevo->simple_db("select lenguaje from tbl_setup"); //// modo
  
  $lenguaje1 = '../config/lang/'.$lengua;///verifico el lenguaje
  include ($lenguaje1); 

@@ -20,10 +20,10 @@ include("security.php"); ///seguridad para el admin
  (select count(*) from proyecto),
  (select count(*) from mensaje_est),
  (select count(*) from mensaje_admin),
- (select count(*) from recurso where add_by = 'admin'),
+ (select count(*) from tbl_recurso where add_by = 'admin'),
  (select count(*) from plan_evaluador),
  (select count(*) from evaluacion_pregunta where tipo = 1),
- (select count(*) from log_est)
+ (select count(*) from tbl_log_est)
  
  ");
 
@@ -149,7 +149,7 @@ function resetea(tabla,nombre) {
 		    <td colspan="3" class="style3">&nbsp;</td>
 		    </tr>
 		  <tr>
-		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('recurso','<?=LANG_RES_rec?>?');"><?php echo LANG_RES_rec ?></span></td>
+		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_recurso','<?=LANG_RES_rec?>?');"><?php echo LANG_RES_rec ?></span></td>
 		    <td class="style1"><?php echo LANG_RES_rec_del ?></td>
 		    <td align="center" class="style1"><?php echo $valores[8]; ?></td>
 		  </tr>
@@ -162,7 +162,7 @@ function resetea(tabla,nombre) {
 		    <td colspan="3" class="style1">&nbsp;</td>
 		    </tr>
             <tr>
-		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('log_est','<?php echo LANG_RES_loges ?>?');"><?php echo LANG_RES_loges ?></span></td>
+		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_log_est','<?php echo LANG_RES_loges ?>?');"><?php echo LANG_RES_loges ?></span></td>
 		    <td class="style1"><?php echo LANG_RES_loges_del ?></td>
 		    <td align="center" class="style1"><?php echo $valores[11]; ?></td>
 		  </tr>

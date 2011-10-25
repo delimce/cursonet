@@ -32,7 +32,7 @@ $menu = new menu($menu_struct);
  
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = "select id,dir as video,fuente,descripcion  from recurso where tipo = 2 and add_by = 'admin'";
+  $query = "select id,dir as video,fuente,descripcion  from tbl_recurso where tipo = 2 and add_by = 'admin'";
 
 
 

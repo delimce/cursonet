@@ -10,7 +10,7 @@
 		 $usuario = $i->getvar("user",$_POST);
 		 $curso2 = $_POST['curso'];
 		 
-		 $DATOS = $i->simple_db("select lenguaje,cursos,a.id,CONCAT(nombre,' ',apellido) as nombre,es_admin,date_format(fecha_ult_acc,'%d/%m/%y %h:%i %p') as acc from admin a,setup where user = '$usuario' and pass = MD5('{$_POST['pass']}')");
+		 $DATOS = $i->simple_db("select lenguaje,cursos,a.id,CONCAT(nombre,' ',apellido) as nombre,es_admin,date_format(fecha_ult_acc,'%d/%m/%y %h:%i %p') as acc from tbl_admin a,setup where user = '$usuario' and pass = MD5('{$_POST['pass']}')");
  
 		 if($i->nreg>0){
 		 
@@ -47,7 +47,7 @@
 				
 				}
 				
-				$i->query("update admin set fecha_ult_acc = NOW() where id = {$DATOS['id']}"); ///guarda el ultimo acceso
+				$i->query("update tbl_admin set fecha_ult_acc = NOW() where id = {$DATOS['id']}"); ///guarda el ultimo acceso
 
 		
 		 

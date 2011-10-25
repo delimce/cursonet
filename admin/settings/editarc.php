@@ -12,12 +12,12 @@ include("security.php"); ///seguridad para el admin
  $crear = new tools();
  $crear->autoconexion();
 
-   $horario = $crear->simple_db("select timezone from setup ");
+   $horario = $crear->simple_db("select timezone from tbl_setup ");
    // @date_default_timezone_set($horario);
  
     if(isset($_REQUEST['ItemID'])){
 	
-	 $query = "select nombre,alias,duracion,descripcion,notas from curso where id = '{$_REQUEST['ItemID']}'";
+	 $query = "select nombre,alias,duracion,descripcion,notas from tbl_curso where id = '{$_REQUEST['ItemID']}'";
 	 $data = $crear->simple_db($query);
 	
 	}
@@ -35,7 +35,7 @@ include("security.php"); ///seguridad para el admin
 		$valores2[4] = $_POST['desc'];
 		$valores2[5] = $_POST['notas'];
 	
-		$crear->update("curso",$campos,$valores2,"id = '{$_POST['id']}'");
+		$crear->update("tbl_curso",$campos,$valores2,"id = '{$_POST['id']}'");
 		$crear->javaviso(LANG_cambios,"curso.php");
 
  

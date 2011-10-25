@@ -6,7 +6,7 @@ include("../../class/clases.php");
 $tool = new tools('db');
 
 /////cuenta las veces que se pide soporte tecnico
-$tool->query("update log_est set soporte_t = soporte_t+1 where id = {$_SESSION['EST_ACTUAL']} ");
+$tool->query("update tbl_log_est set soporte_t = soporte_t+1 where id = {$_SESSION['EST_ACTUAL']} ");
 
 $tool->cerrar();
 ?>

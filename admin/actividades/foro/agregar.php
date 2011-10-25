@@ -10,7 +10,7 @@ $menu = new menu($menu_struct);
 $crear = new tools();
 $crear->autoconexion();
 
- $horario = $crear->simple_db("select timezone from setup ");
+ $horario = $crear->simple_db("select timezone from tbl_setup ");
  // @date_default_timezone_set($horario);
 
         if(isset($_REQUEST['foro']))$_SESSION['tema_id'] = $_REQUEST['foro'];

@@ -10,7 +10,7 @@
  $i->autoconexion();
  
  
- $val = $i->array_query2("select modo,lenguaje,timezone from setup");
+ $val = $i->array_query2("select modo,lenguaje,timezone from tbl_setup");
  
   
  // @date_default_timezone_set($val[2]);

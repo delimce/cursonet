@@ -36,7 +36,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 	}
 	
 	/////INDICADORES: para saber si contabilizo las veces en que el estudiante hace una consulta
-	if(isset($_POST['consulta']))  $crear->query("update log_est set soporte_a = soporte_a+1 where id = {$_SESSION['EST_ACTUAL']} ");
+	if(isset($_POST['consulta']))  $crear->query("update tbl_log_est set soporte_a = soporte_a+1 where id = {$_SESSION['EST_ACTUAL']} ");
 	
 	$crear->cerrar_transaccion(); 
 

@@ -19,7 +19,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
   
  }
  
- $infocurso = $datos->simple_db("select nombre,duracion,descripcion from curso where id = '{$_SESSION['CURSOID']}' ");
+ $infocurso = $datos->simple_db("select nombre,duracion,descripcion from tbl_curso where id = '{$_SESSION['CURSOID']}' ");
  $mensajes = $datos->estructura_db("select id, IF(LENGTH(subject)>60,concat(SUBSTRING(subject,1,60),'...'),subject) as subject, date_format(fecha,'{$_SESSION['DB_FORMATO_DB']}') as fecha from mensaje_est where para = {$_SESSION['USER']} and leido = 0 order by id desc");
 
 

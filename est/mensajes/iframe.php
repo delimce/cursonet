@@ -13,7 +13,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 	switch ($_REQUEST['tipo']) {
 	case 0: ///admin
-	   $query = "select id, concat(nombre,' ',apellido) as nombre from admin order by nombre";
+	   $query = "select id, concat(nombre,' ',apellido) as nombre from tbl_admin order by nombre";
 	   break;
 	case 1: //est
 	 $query = "select id, concat(nombre,' ',apellido,' - ',id_number) as nombre from estudiante where id != {$_SESSION['USER']} and id in (select est_id from grupo_estudiante where grupo_id in ({$_SESSION['GRUPOSID']}) ) and activo = 1 order by nombre";

@@ -14,7 +14,7 @@ include("../../class/fecha.php"); ////////clase
 	if($_POST['hasta']!="") $hasta = "and fecha_in <= '".$fecha->fecha_db($_POST['hasta'])."'";
 	
 	
-	$total = $est->array_query("select count(*) from log_est where id > 0 $desde $hasta  ");
+	$total = $est->array_query("select count(*) from tbl_log_est where id > 0 $desde $hasta  ");
 	
 	echo $total[0];
 	

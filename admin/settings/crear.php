@@ -11,13 +11,13 @@ include("security.php"); ///seguridad para el admin
 
  $crear = new tools();
  $crear->autoconexion();
-   $horario = $crear->simple_db("select timezone from setup ");
+   $horario = $crear->simple_db("select timezone from tbl_setup ");
    // @date_default_timezone_set($horario);
 
 
  if(isset($_POST['login12'])){
  
-      $crear->query("select id from admin where user = '{$_POST['login12']}'");
+      $crear->query("select id from tbl_admin where user = '{$_POST['login12']}'");
  
 		 if($crear->nreg>0){
 		 
@@ -43,7 +43,7 @@ include("security.php"); ///seguridad para el admin
 		if(count($_POST['curso'])>0)$valores2[10] = implode(",",$_POST['curso']); else $valores2[10] = 0;
 		$valores2[11] = $_POST['sintesis'];
 		
-		$crear->insertar2("admin","id, nombre, apellido, user, pass, es_admin, email, telefono, fax, fecha,cursos,sintesis",$valores2); 
+		$crear->insertar2("tbl_admin","id, nombre, apellido, user, pass, es_admin, email, telefono, fax, fecha,cursos,sintesis",$valores2); 
 		$crear->javaviso(LANG_cambios,"index.php");
 				
 		 
@@ -52,7 +52,7 @@ include("security.php"); ///seguridad para el admin
  }else{
  
  
- 	$cursos =	$crear->estructura_db("select id,nombre,alias from curso");
+ 	$cursos =	$crear->estructura_db("select id,nombre,alias from tbl_curso");
  
  
  }

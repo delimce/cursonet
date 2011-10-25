@@ -14,10 +14,10 @@ include("security.php"); ///seguridad para el admin
   
    if(isset($_GET['itemID'])){
    
-   $foto = $grabar->simple_db("select foto from admin where id = '{$_GET['itemID']}' ");
+   $foto = $grabar->simple_db("select foto from tbl_admin where id = '{$_GET['itemID']}' ");
    @unlink('../../recursos/admin/fotos/'.$foto); ///borra la imagen
   
-   $datos = $grabar->query("delete from admin where id = '{$_GET['itemID']}'");
+   $datos = $grabar->query("delete from tbl_admin where id = '{$_GET['itemID']}'");
    $grabar->javaviso(LANG_drop_msg,"index.php");
   
   

@@ -34,7 +34,7 @@ $menu = new menu($menu_struct);
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
   $query = "select id, nombre, alias, date_format(fecha_creado,'{$_SESSION['DB_FORMATO_DB']}') as fecha
-   from curso";
+   from tbl_curso";
 
 
 

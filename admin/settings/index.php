@@ -33,7 +33,7 @@ $menu = new menu($menu_struct);
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
   $query = "select id, concat(nombre,' ',apellido) as nombre, user as usuario, email, if(es_admin=1,'<img border=\"0\" title=\"".LANG_is_active."\" src=\"../../images/backend/checkmark.gif\">','<img border=\"0\" title=\"".LANG_is_noactive."\" src=\"../../images/backend/x.gif\">') as admin
-   from admin where id != {$_SESSION['USERID']} ";
+   from tbl_admin where id != {$_SESSION['USERID']} ";
 
 
 

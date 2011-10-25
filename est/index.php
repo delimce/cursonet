@@ -7,7 +7,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
  $datos = new tools();
  $datos->autoconexion();
- $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo,version from setup");
+ $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo,version from tbl_setup");
  $_SESSION['DB_FORMATO_DB'] = $data[2];
  $_SESSION['DB_FORMATO'] = $data[1];
 
@@ -40,7 +40,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
           </span></b>
           <?
 		
-		echo $datos->combo_db("curso","select id,alias from curso where id in ({$_SESSION['CURSOSID']})","alias","id",LANG_select,$_SESSION['CURSOID'],"content.location.replace('main.php?curso='+this.value);",LANG_curso_nocurso);
+		echo $datos->combo_db("curso","select id,alias from tbl_curso where id in ({$_SESSION['CURSOSID']})","alias","id",LANG_select,$_SESSION['CURSOID'],"content.location.replace('main.php?curso='+this.value);",LANG_curso_nocurso);
 		
 		?></td>
         </tr>

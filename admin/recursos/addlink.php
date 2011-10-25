@@ -24,7 +24,7 @@ if(isset($_POST['link'])){
 	$valores[4] = $_SESSION['USERID'];
 	$valores[5] = $_POST['desc'];
 
-	$crear->insertar2("recurso","tipo, fecha, dir, add_by, persona,descripcion",$valores);
+	$crear->insertar2("tbl_recurso","tipo, fecha, dir, add_by, persona,descripcion",$valores);
 	$crear->javaviso(LANG_cambios,"links.php");
 
 }

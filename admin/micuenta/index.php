@@ -12,7 +12,7 @@ $menu = new menu($menu_struct);
 
  $crear = new formulario();
  $crear->autoconexion();
- $horario = $crear->simple_db("select timezone from setup ");
+ $horario = $crear->simple_db("select timezone from tbl_setup ");
    // @date_default_timezone_set($horario);
 
 
@@ -59,13 +59,13 @@ $menu = new menu($menu_struct);
 		
 
 		
-		$crear->update_data('r','4','admin',$_POST,"id = '{$_SESSION['USERID']}'");
+		$crear->update_data('r','4','tbl_admin',$_POST,"id = '{$_SESSION['USERID']}'");
 		$crear->javaviso(LANG_cambios,"index.php");
 				
  
  }else{
  
- 		$data = $crear->simple_db("select * from admin where id = '{$_SESSION['USERID']}' ");
+ 		$data = $crear->simple_db("select * from tbl_admin where id = '{$_SESSION['USERID']}' ");
  
  
  }

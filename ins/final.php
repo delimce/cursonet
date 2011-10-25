@@ -13,7 +13,7 @@
  
  }
  
- $val = $nuevo->array_query2("select fin_inscripcion,lenguaje from setup");
+ $val = $nuevo->array_query2("select fin_inscripcion,lenguaje from tbl_setup");
  
  
   include("../config/lang/$val[1]"); ///idioma

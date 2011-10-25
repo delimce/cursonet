@@ -11,11 +11,11 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 	$query = "select
 	
-	(select count(*) from log_est where est_id = '{$_REQUEST['id']}') as totalv,
-	ifnull((select DATE_FORMAT(fecha_in,' {$_SESSION['DB_FORMATO_DB']}, ".LANG_hora." %h: %i %p') from log_est where est_id = '{$_REQUEST['id']}' order by id desc limit 1),'".LANG_npi."') as ultimav,
-	ifnull((select info_cliente from log_est where est_id = '{$_REQUEST['id']}' order by id desc limit 1),'".LANG_npi."') as cliente,
-	ifnull((select sum(ndescargas) from log_est where est_id = '{$_REQUEST['id']}'),'0'),
-	ifnull((select sum(ncontenidos) from log_est where est_id = '{$_REQUEST['id']}'),'0')
+	(select count(*) from tbl_log_est where est_id = '{$_REQUEST['id']}') as totalv,
+	ifnull((select DATE_FORMAT(fecha_in,' {$_SESSION['DB_FORMATO_DB']}, ".LANG_hora." %h: %i %p') from tbl_log_est where est_id = '{$_REQUEST['id']}' order by id desc limit 1),'".LANG_npi."') as ultimav,
+	ifnull((select info_cliente from tbl_log_est where est_id = '{$_REQUEST['id']}' order by id desc limit 1),'".LANG_npi."') as cliente,
+	ifnull((select sum(ndescargas) from tbl_log_est where est_id = '{$_REQUEST['id']}'),'0'),
+	ifnull((select sum(ncontenidos) from tbl_log_est where est_id = '{$_REQUEST['id']}'),'0')
 	  ";
 	
 	$dato = $est->array_query2($query);

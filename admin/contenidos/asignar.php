@@ -14,9 +14,9 @@ $menu = new menu($menu_struct);
   
   if(isset($_REQUEST['ItemID'])){
   
-   $files = $asig->estructura_db("select id,dir,descripcion from recurso where tipo = 0 and add_by = 'admin'");
-   $links = $asig->estructura_db("select id,dir,descripcion from recurso where tipo = 1 and add_by = 'admin'");
-   $vid   = $asig->estructura_db("select id,dir,descripcion from recurso where tipo = 2 and add_by = 'admin'");
+   $files = $asig->estructura_db("select id,dir,descripcion from tbl_recurso where tipo = 0 and add_by = 'admin'");
+   $links = $asig->estructura_db("select id,dir,descripcion from tbl_recurso where tipo = 1 and add_by = 'admin'");
+   $vid   = $asig->estructura_db("select id,dir,descripcion from tbl_recurso where tipo = 2 and add_by = 'admin'");
  
    $arselect = $asig->array_query("select recurso_id from contenido_recurso where contenido_id = '{$_REQUEST['ItemID']}' and tipo = 0"); //archivos
    $linkselect = $asig->array_query("select recurso_id from contenido_recurso where contenido_id = '{$_REQUEST['ItemID']}' and tipo = 1"); //enlaces

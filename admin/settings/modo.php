@@ -10,12 +10,12 @@ include("security.php"); ///seguridad para el admin
 
  $modo = new tools();
  $modo->autoconexion();
- $valor = $modo->array_query("select modo from setup");
+ $valor = $modo->array_query("select modo from tbl_setup");
 
  if(isset($_POST['modo'])){
  
  $campos[0] = 'modo'; $vector[0] = $_POST['modo']; 
- $modo->update("setup",$campos,$vector,"");
+ $modo->update("tbl_setup",$campos,$vector,"");
  $modo->javaviso(LANG_cambios,"modo.php");
 
  

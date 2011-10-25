@@ -35,12 +35,12 @@ $menu = new menu($menu_struct);
   $rec = new tools();
   $grid->autoconexion();
   $rec->dbc = $grid->dbc;
-  $nrec = $rec->simple_db("select count(*) from recurso where add_by = 'admin'");
+  $nrec = $rec->simple_db("select count(*) from tbl_recurso where add_by = 'admin'");
   
    
   $query = "select id,dir as archivo,size as peso,fecha,download as descargas,
    if({$_SESSION['ADMIN']}>2,'1','0') as condicion_editar
-   from recurso where tipo = 0 and add_by = 'admin'";
+   from tbl_recurso where tipo = 0 and add_by = 'admin'";
 
 
 

@@ -33,7 +33,7 @@ $menu = new menu($menu_struct);
   $grid->autoconexion();
   
   $query = "select c.id,c.titulo,
-   ifnull((select concat(a.nombre, ' ', a.apellido) from admin a where a.id = c.autor),'".LANG_content_autor_unknow."') as autor, c.leido as lecturas,
+   ifnull((select concat(a.nombre, ' ', a.apellido) from tbl_admin a where a.id = c.autor),'".LANG_content_autor_unknow."') as autor, c.leido as lecturas,
    c.fecha,
    if({$_SESSION['ADMIN']}>2,'1','0') as condicion_editar
    from contenido c where c.curso_id = {$_SESSION['CURSOID']} ";

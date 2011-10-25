@@ -23,7 +23,7 @@ WHERE
    
    
    $datos = $grabar->query("delete from proyecto_estudiante where id = '{$_GET['itemID']}'");
-   $datos = $grabar->query("delete from recurso where id = '{$data['rec_id']}'"); //borra el recurso de la tabla
+   $datos = $grabar->query("delete from tbl_recurso where id = '{$data['rec_id']}'"); //borra el recurso de la tabla
    @unlink('../../recursos/est/proy'.$data['dir']); //borra el recurso fisicamente
    
    $grabar->cerrar();

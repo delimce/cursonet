@@ -5,12 +5,12 @@ include("../class/tools.php");
 include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
  $datos = new tools('db');
- $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo_admin,(SELECT alias FROM curso WHERE id = '{$_SESSION['CURSOID']}'),version from setup");
+ $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo_admin,(SELECT alias from tbl_curso WHERE id = '{$_SESSION['CURSOID']}'),version from tbl_setup");
  
  ///////////////////
  $datamenu = $datos->simple_db("select (select count(*) from estudiante) as nest, (select count(*) from mensaje_admin where para = {$_SESSION['USERID']} ) as nmens,
  (select count(*) from contenido where curso_id = '{$_SESSION['CURSOID']}') as ntemas, 
- (select count(*) from recurso where add_by = 'admin') as recursos  ");
+ (select count(*) from tbl_recurso where add_by = 'admin') as recursos  ");
   
  
  $_SESSION['DB_FORMATO_DB'] = $data[2];
@@ -56,12 +56,12 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
     <?php  
 	if($_SESSION['ADMIN']  == 1){
 	
-		echo $datos->combo_db("curso","select id,alias from curso","alias","id",false,$_SESSION['CURSOID'],"content.location.replace('main.php?curso='+this.value)",LANG_curso_nocurso);	
+		echo $datos->combo_db("curso","select id,alias from tbl_curso","alias","id",false,$_SESSION['CURSOID'],"content.location.replace('main.php?curso='+this.value)",LANG_curso_nocurso);	
 		
 			
 	}else{
 	
-		echo $datos->combo_db("curso","select id,alias from curso where id in ({$_SESSION['CURSOSP']})","alias","id",false,$_SESSION['CURSOID'],"content.location.replace('main.php?curso='+this.value)",LANG_curso_nocurso);		
+		echo $datos->combo_db("curso","select id,alias from tbl_curso where id in ({$_SESSION['CURSOSP']})","alias","id",false,$_SESSION['CURSOID'],"content.location.replace('main.php?curso='+this.value)",LANG_curso_nocurso);		
 	
 	}
 	

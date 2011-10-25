@@ -12,16 +12,16 @@ include("security.php"); ///seguridad para el admin
  $crear = new tools();
  $crear->autoconexion();
  
-  $horario = $crear->simple_db("select timezone from setup ");
+  $horario = $crear->simple_db("select timezone from tbl_setup ");
    // @date_default_timezone_set($horario);
 
 
     if(isset($_REQUEST['ItemID'])){
 	
-	 $query = "select nombre,apellido,email,telefono,fax,user,es_admin,cursos,sintesis from admin where id = '{$_REQUEST['ItemID']}'";
+	 $query = "select nombre,apellido,email,telefono,fax,user,es_admin,cursos,sintesis from tbl_admin where id = '{$_REQUEST['ItemID']}'";
 	 $data = $crear->array_query2($query);
 	 $cursos2 = @explode(',',$data[7]);
-	 $cursos =	$crear->estructura_db("select id,nombre,alias from curso");
+	 $cursos =	$crear->estructura_db("select id,nombre,alias from tbl_curso");
 	}
 
 
@@ -41,12 +41,12 @@ include("security.php"); ///seguridad para el admin
 		if(count($_POST['curso'])>0)$valores2[8] = implode(",",$_POST['curso']); else $valores2[8] = 0;	
 		$valores2[9] = $_POST['sintesis'];
 		
-		$crear->update("admin",$campos,$valores2,"id = '{$_POST['id']}'"); 
+		$crear->update("tbl_admin",$campos,$valores2,"id = '{$_POST['id']}'"); 
 		
 		 if($_POST['boton']==1){
 	
 	        $npass = md5($_POST['pass1']);
-	        $crear->query("update admin set pass = '$npass' where id = '{$_POST['id']}'");
+	        $crear->query("update tbl_admin set pass = '$npass' where id = '{$_POST['id']}'");
 		 
 		 }
 		

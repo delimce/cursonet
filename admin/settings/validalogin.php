@@ -8,7 +8,7 @@
   $val->autoconexion();
   
   
-  $algo = $val->array_query("select id from admin where user = trim('{$_REQUEST['nombre']}')  limit 1");
+  $algo = $val->array_query("select id from tbl_admin where user = trim('{$_REQUEST['nombre']}')  limit 1");
   
   $val->cerrar();
   

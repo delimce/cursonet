@@ -14,7 +14,7 @@ include("security.php"); ///seguridad para el admin
   
    if(isset($_GET['itemID'])){
   
-   $datos = $grabar->query("delete from curso where id = '{$_GET['itemID']}'");
+   $datos = $grabar->query("delete from tbl_curso where id = '{$_GET['itemID']}'");
    $grabar->cerrar(); 
     
    if($_GET['itemID']==$_SESSION['CURSOID']){

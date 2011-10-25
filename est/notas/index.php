@@ -11,8 +11,7 @@ $tool->query("SELECT DISTINCT
   c.nombre,
   c.descripcion as des,
   p.id
-FROM
-  curso c
+from tbl_curso c
   INNER JOIN grupo_estudiante g ON (c.id = g.curso_id)
   INNER JOIN plan_evaluador p ON (g.grupo_id = p.grupo_id)
 WHERE
