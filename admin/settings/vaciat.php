@@ -1,7 +1,7 @@
 <?php session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
-include("../../class/tools.php");
+include("../../class/clases.php");
 include("security.php"); ///seguridad para el admin
 
  $datos = new tools('db');

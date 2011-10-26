@@ -1,7 +1,7 @@
 <?php session_start();
 $profile = 'est'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
-include("../../class/formulario.php");
+include("../../class/clases.php");
 
 $datos = new formulario('db');
 

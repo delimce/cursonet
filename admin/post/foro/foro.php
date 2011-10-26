@@ -1,7 +1,7 @@
 <?php session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../../config/setup.php"); ////////setup
-include("../../../class/tools.php"); ////////clase
+include("../../../class/clases.php"); ////////clase
 include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 require_once("menu.php"); ////////menu
@@ -155,7 +155,7 @@ WHERE
 			while ($row = mysql_fetch_assoc($grid->result)) {
 			
 			?>
-			<tr class="td_whbk" onmouseover="this.style.backgroundColor = '#CCCCCC'" onmouseout="this.style.backgroundColor = '#FFFFFF'">
+			<tr class="td_whbk" onMouseOver="this.style.backgroundColor = '#CCCCCC'" onMouseOut="this.style.backgroundColor = '#FFFFFF'">
 				
 				<td class="style1" align="left"><?=$row['nombre']?>
 				  <input name="est[]" type="hidden" id="est[]" value="<?=$row['id']?>"></td>

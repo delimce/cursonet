@@ -1,7 +1,7 @@
 <?php session_start();
 $profile = 'est'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
-include("../../class/tools.php");
+include("../../class/clases.php");
 include("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 $tool = new tools('db');
 

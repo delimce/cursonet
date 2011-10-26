@@ -1,6 +1,6 @@
 <?php session_start();
  include("../config/dbconfig.php");
- include("../class/formulario.php");
+ include("../class/clases.php");
  
  $i = new formulario('db');
  

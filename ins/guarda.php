@@ -1,8 +1,6 @@
 <?php session_start();
  include("../config/dbconfig.php");
- include("../class/tools.php");
-  include("../class/fecha.php");
- 
+ include("../class/clases.php");
 
  
  $i = new tools();

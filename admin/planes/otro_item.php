@@ -1,7 +1,7 @@
 <?php session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
-include("../../class/tools.php"); ////////clase
+include("../../class/clases.php"); ////////clase
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 require_once("menu.php"); ////////menu
@@ -121,7 +121,7 @@ $tool->autoconexion();
 				while ($row = mysql_fetch_assoc($tool->result)) {
 				
 				?>
-                <tr class="td_whbk" onmouseover="this.style.backgroundColor = '#CCCCCC'" onmouseout="this.style.backgroundColor = '#FFFFFF'">
+                <tr class="td_whbk" onMouseOver="this.style.backgroundColor = '#CCCCCC'" onMouseOut="this.style.backgroundColor = '#FFFFFF'">
                   <td class="style1"><b><?php echo $row['nombre'] ?></b> - <?php echo $row['id_number'] ?>
                       <input name="esid[]" type="hidden" id="esid[]" value="<?=$row['id']?>"></td>
                   <td align="center"><input name="nota[]" type="text" style="text-align:center" id="nota[]" value="<?=$row['nota'] ?>" size="5" maxlength="6"></td>

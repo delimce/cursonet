@@ -1,7 +1,7 @@
 <? session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../../../config/setup.php"); ////////setup
-include("../../../../class/tools.php"); ////////clase
+include("../../../../class/clases.php"); ////////clase
 include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 require_once("menu.php"); ////////menu

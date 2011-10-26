@@ -20,23 +20,35 @@ class database {
  /***********************************************************************metodos y propiedades*/
 
  /************************************************************************* PROPIEDADES ****/
+ 
+ 
+ private function __construct (){ ///constructor de la clase
+
+       if($this->dbc!=null)$this->cerrar();
+       $this->db_HOST = '';
+       $this->db_USER = '';
+       $this->db_PASS = '';
+       $this->dbase   = '';
+
+    }
+ 
+ 
 //********************************************************cierra conexion y liberar recursos
 
 
  ///metodo para cerrar la conexion con la base de datos
-  function cerrar()
+  public function cerrar()
    {//cierra la conexion
 
-    @mysql_free_result($this->result);
-    mysql_close($this->dbc);
+    $this->liberar();
+    mysqli_close($this->dbc);
 
    }
 
-  ///metodo para liberar el objeto que retorna el valor del query
-   function liberar ()
+ ///metodo para liberar el objeto que retorna el valor del query
+   public function liberar ()
    {//cierra la conexion
-
-     mysql_free_result($this->result);
+     @mysqli_free_result($this->result);
 
    }
 
@@ -53,7 +65,7 @@ class database {
                  global $DBPASS;
                  global $DATABASE;
 
-                  $this->conectar($HOSTNAME,$DBUSER,$DBPASS,$DATABASE);
+                 $this->conectar($HOSTNAME,$DBUSER,$DBPASS,$DATABASE);
     }
 
 
@@ -71,10 +83,10 @@ class database {
    // metodo que ejecuta un query de creacion o modificacion o devuelve un error  el segundo parametro es para liberar el recurso de una vez
   //utilizado ideal para sentencias insert, update, delete etc
 
-    function query($sql,$lib=false)
+    public function query($sql,$lib=false)
    {// ejecuta un query o devuelve un error
-     $this->result = @mysql_query($sql,$this->dbc) or die('<font color=#FF0000> invalid query: </font>'. mysql_error());
-     $this->nreg = @mysql_num_rows($this->result);
+     $this->result = @mysqli_query($this->dbc,$sql) or die('<font color=#FF0000> error en query: </font>'. mysqli_error($this->dbc));
+     $this->nreg = $this->total_registros();
 
        if($lib) $this->liberar();
    }
@@ -84,15 +96,15 @@ class database {
 
    public function db_vector_num(){
 
-        return @mysql_fetch_row($this->result);
+        return @mysqli_fetch_row($this->result);
 
    }
 
-  ////funcion para obtener el valor del registro en tipo cadena o nombre
+   ////funcion para obtener el valor del registro en tipo cadena o nombre
 
    public function db_vector_nom(){
 
-      return @mysql_fetch_assoc($this->result);
+      return @mysqli_fetch_assoc($this->result);
 
 
    }
@@ -102,7 +114,7 @@ class database {
    /// propiedad que cambia la conexion a una nueva database o server  con solo invocarla se
    //// cambia la conexion el ultimo parametro determina si la conexion es persistente o no.
 
-   function conectar($host,$user,$pwd,$db,$persiste=false)
+   public function conectar($host,$user,$pwd,$db)
    {
 
      if($this->dbc!=null)$this->cerrar();
@@ -111,44 +123,71 @@ class database {
      $this->db_PASS = $pwd;
      $this->dbase   = $db;
 
-    //conexion  persistente o no
-
-   if($persiste)
-    $this->dbc = mysql_pconnect($this->db_HOST,$this->db_USER,$this->db_PASS)  or die('<font color=#FF0000> conection failed: </font>'. mysql_error());
-   else
-    $this->dbc = mysql_connect($this->db_HOST,$this->db_USER,$this->db_PASS)  or die('<font color=#FF0000> conection failed: </font>'. mysql_error());
+    $this->dbc = mysqli_connect($this->db_HOST,$this->db_USER,$this->db_PASS,$this->dbase)  or die('<font color=#FF0000> conection failed: </font>'. mysqli_connect_error());
 
    //////////////
 
-    $m = @mysql_select_db($this->dbase,$this->dbc) or die('<font color=#FF0000> wrong database name: </font>'. mysql_error());
-    return($m);
+
+   }
+   
+   
+   //// Metodo que retorna informacion del dbserver donde esta conectado el objeto
+
+   public function dbserver_info()
+   {
+        printf("Datos de la conexi?n: %s\n", mysqli_get_host_info($this->dbc));
+   }
 
 
+
+    //// Metodo que retorna informacion del cliente, las librerias que se estan usando para conectarse con mysql
+
+   public function dbclient_info()
+   {
+        printf("Datos del cliente mysql: %s\n", mysqli_get_client_info());
    }
 
 
 
  //// Metodo que retorna el ultimo id de de un insert
 
-   function ultimo_id()
+   public function ultimo_id()
    {
-     return @mysql_insert_id($this->dbc)or die('<font color=#FF0000> Error </font>'. mysql_error());
+     return @mysqli_insert_id($this->dbc)or die('<font color=#FF0000> Error </font>'. mysqli_error($this->dbc));
    }
 
 
-    function numero_filas_afecc()
+    public function numero_filas_afecc()
    {//retorna el numero de las filas afectadas por el ultimo query
-    $tmp = mysql_affected_rows($this->$dbc);
+    $tmp = mysqli_affected_rows($this->dbc);
     return($tmp);
    }
 
 
  ///lista el numero de registros traidos en el ultimo query
-  function total_registros()
+  public function total_registros()
    {
-     $tmp = mysql_num_rows($this->result)or die('<font color=#FF0000> 0 rows: </font>'. mysql_error());
+     $tmp = @mysqli_num_rows($this->result);
      return($tmp);
    }
+
+
+//devuelve un arreglo con el nombre de los campos consultados enpezando desde la pos 0
+
+   public function campos_query(){
+
+        $x=0;
+
+        while ($finfo = mysqli_fetch_field($this->result)) {
+
+           $resultado[$x] =  $finfo->name;
+           $x++;
+       }
+
+      return $resultado;
+
+  }
+
 
 
 
@@ -167,32 +206,28 @@ class database {
 // funcion que realiza un insert simple
 // tabla, campos, valores y boqueo true o false (opcional)
 
-      function insertar($tabla,$campos,$valores,$block=false){
+      public function insertar($tabla,$campos,$valores,$block=false){
 
-     $valores2 = explode(",",$valores);
+        $valores2 = explode(",",$valores);
 
+            for($i=0;$i<count($valores2);$i++){
 
+                    $valor = mysqli_real_escape_string($this->dbc,$valores2[$i]);  //// me aseguro de que no se inserten valores invalidos
+                    $valores2[$i] = "'$valor'";
 
-     for($i=0;$i<count($valores2);$i++){
-	 
-	 	$valori = trim($valores2[$i]);
-
-       $valor = mysql_real_escape_string($valori);  //// me aseguro de que no se inserten valores invalidos
-       $valores2[$i] = "'$valor'";
-
-     }
+            }
 
 
 
-    $valores3 = implode(",",$valores2);
+            $valores3 = implode(",",$valores2);
 
-    $query = 'INSERT INTO '.$tabla.' ('.$campos.') VALUES ('.$valores3.')';
+            $query = 'INSERT INTO '.$tabla.' ('.$campos.') VALUES ('.$valores3.')';
 
-    ////////////////// bloqueo de tabla
-    if($block) $this->query("LOCK TABLES ".$tabla." WRITE");
-    $this->query($query);
-    $this->ultimoID = mysql_insert_id();
-    if($block) $this->query("UNLOCK TABLES");
+            ////////////////// bloqueo de tabla
+            if($block) $this->query("LOCK TABLES ".$tabla." WRITE");
+            $this->query($query);
+            $this->ultimoID = mysqli_insert_id($this->dbc);
+            if($block) $this->query("UNLOCK TABLES");
 
     }
 
@@ -203,13 +238,12 @@ class database {
    // esta funcion es una mejora de insertar 1 ya que previene errores si los valores poseen ,
 
 
-      function insertar2($tabla,$campos,$vector,$block=false){
+    public function insertar2($tabla,$campos,$vector,$block=false){
 
 
      for($i=0;$i<count($vector);$i++){
 
-       $valori = trim($vector[$i]);
-	   $valor = mysql_real_escape_string($valori);  //// me aseguro de que no se inserten valores invalidos
+       $valor = mysqli_real_escape_string($this->dbc,$vector[$i]);  //// me aseguro de que no se inserten valores invalidos
        $vector[$i] = "'$valor'";
        $valores.= $vector[$i].',';
      }
@@ -221,7 +255,7 @@ class database {
     ////////////////// bloqueo de tabla
     if($block) $this->query("LOCK TABLES ".$tabla." WRITE");
     $this->query($query);
-    $this->ultimoID = mysql_insert_id();
+    $this->ultimoID = mysqli_insert_id($this->dbc);
     if($block) $this->query("UNLOCK TABLES");
 
     }
@@ -232,12 +266,12 @@ class database {
    //  previene errores si los valores poseen ,
 
 
-      function update($tabla,$campos,$vector,$where,$block=false){
+      public function update($tabla,$campos,$vector,$where,$block=false){
 
 
         for($i=0;$i<count($vector);$i++){
 
-          $valor = mysql_real_escape_string($vector[$i]);  //// me aseguro de que no se inserten valores invalidos
+          $valor = mysqli_real_escape_string($this->dbc,$vector[$i]);  //// me aseguro de que no se inserten valores invalidos
           $data = "$campos[$i] = '$valor'";
           $valores.= $data.',';
         }
@@ -257,41 +291,24 @@ class database {
 
     }
 
-
-
- //devuelve un arreglo con el nombre de los campos consultados enpezando desde la pos 0
-
-   function campos_query(){
-
-  //  $rowcount=mysql_num_rows($this->result);
-    $y = mysql_num_fields($this->result);
-
-   for ($x=0; $x<$y; $x++) $resultado[$x] = (string) mysql_field_name($this->result, $x);
-
-    return $resultado;
-
-  }
-  
-  
   
     ///////////////////////////////METODOS PARA TRANSACCIONES
   
   public function abrir_transaccion(){
-	  
-	  	$this->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
-        $this->query("START TRANSACTION");
-	  
-  }
-  
-  
-  
-   public function cerrar_transaccion($result=true){
-	  
-	  	if($result) $this->query("COMMIT"); else $this->query("ROLLBACK"); ////finalizando la transaccion
-	  
-  }
-  
 
+    ////iniciando la transaccion
+        mysqli_autocommit($this->dbc, FALSE);
+
+  }
+
+
+   public function cerrar_transaccion($result=true){
+
+        if($result) mysqli_commit($this->dbc); else mysqli_rollback($this->dbc); ////finalizando la transaccion
+        mysqli_autocommit($this->dbc, TRUE);
+  }
+
+  
 
 
 };   //fin de la super clase

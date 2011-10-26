@@ -2,7 +2,7 @@
  
   $profile = 'admin'; /////////////// perfil requerido
   include("../../config/setup.php"); ////////setup
-  include("../../class/tools.php"); ////////clase
+  include("../../class/clases.php"); ////////clase
  
   $val = new tools();
   $val->autoconexion();

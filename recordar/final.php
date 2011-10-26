@@ -1,6 +1,6 @@
 <?php session_start();
  include("../config/dbconfig.php");
- include("../class/tools.php");
+ include("../class/clases.php");
  $nuevo = new tools();
  
  if(!isset($_SESSION['RLOGIN'])) $nuevo->redirect('../index.php');
