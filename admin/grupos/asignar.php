@@ -9,9 +9,7 @@ $menu = new menu($menu_struct);
 
 
  
-  $asig = new tools();
-  $asig->autoconexion();
-  
+  $asig = new tools("db");
   
   if(isset($_REQUEST['ItemID'])) $asig->query("select id,concat(nombre,' ',apellido) as nombre,id_number,concat(nivel,' ',carrera,' ',universidad) as extra,(select grupo_id from grupo_estudiante where est_id = ee.id and curso_id = {$_SESSION['CURSOID']} ) as grupo from estudiante ee
   where id in (select est_id from grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and grupo_id = {$_REQUEST['ItemID']} ) or id not in (select est_id from grupo_estudiante where curso_id = {$_SESSION['CURSOID']}) order by id ");

@@ -5,10 +5,8 @@ include("../../class/clases.php"); ////////clase
 include("../../class/fecha.php"); ////////clase
 
 
-	$est = new tools();
+	$est = new tools("db");
 	$fecha = new fecha($_SESSION['DB_FORMATO']);
-	$est->autoconexion();
-	
 	
 	if($_POST['desde']!="") $desde = "and fecha_in >= '".$fecha->fecha_db($_POST['desde'],1)."'";
 	if($_POST['hasta']!="") $hasta = "and fecha_in <= '".$fecha->fecha_db($_POST['hasta'])."'";

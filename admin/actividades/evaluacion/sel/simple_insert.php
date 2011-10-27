@@ -7,10 +7,8 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-$eva  = new tools();
+$eva  = new tools("db");
 
-
-	$eva->autoconexion();
 
 		$_SESSION['OPCIONES'] = '';
 		$_SESSION['CORRECT'] = '';

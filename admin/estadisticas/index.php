@@ -7,9 +7,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-	$est = new tools();
-	$est->autoconexion();
-	
+	$est = new tools("db");
 	/////////////data general
 	$query1 = " select
 	(select count(*) from tbl_log_est) as vs,

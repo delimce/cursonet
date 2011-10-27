@@ -5,8 +5,7 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-  $grupo = new tools();
-  $grupo->autoconexion();
+  $grupo = new tools("db");
 
 
 

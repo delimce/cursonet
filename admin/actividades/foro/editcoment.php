@@ -4,8 +4,7 @@ include("../../../config/setup.php"); ////////setup
 include("../../../class/clases.php"); ////////clase
 include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-$tool = new tools();
-$tool->autoconexion();
+$tool = new tools("db");
 
         if(isset($_REQUEST['id'])){ $com = $tool->array_query("select content from foro_comentario where id = '{$_REQUEST['id']}'");
 

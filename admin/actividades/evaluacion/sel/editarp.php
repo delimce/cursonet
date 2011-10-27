@@ -7,8 +7,7 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 		
 		
 		
-	$eva  = new tools();
-	$eva->autoconexion();
+	$eva  = new tools("db");
 
 
    if(isset($_POST['enum'])){

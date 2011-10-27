@@ -7,8 +7,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 		if(isset($_REQUEST['delete0'])){ ////borrar todos los mensajes
 		
-				$tool = new tools();
-				$tool->autoconexion();
+				$tool = new tools("db");
 				$tool->query("delete from mensaje_admin where para = '{$_SESSION['USERID']}' ");
 				$tool->cerrar();
 				$tool->javaviso("Todos sus mensajes han sido borrados","index.php");

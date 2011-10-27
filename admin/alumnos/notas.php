@@ -10,9 +10,7 @@ $menu = new menu($menu_struct);
 
  
  
-  $tool = new tools();
-  $tool->autoconexion();
-  
+  $tool = new tools("db");
  
 	$planinfo = $tool->simple_db("select en_base from plan_evaluador where id = {$_REQUEST['id']} ");
 

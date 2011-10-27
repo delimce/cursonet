@@ -10,11 +10,8 @@ $menu = new menu($menu_struct);
 
  
  
-  $det = new tools();
-  $det->autoconexion();
-  
-  
-  
+  $det = new tools("db");
+ 
   
  $query = "select *,
  concat(nombre,' ',apellido) as nombre,date_format(fecha_nac,'".$_SESSION['DB_FORMATO_DB']."') as nac,(SELECT 

@@ -7,8 +7,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
- $ver = new tools();
- $ver->autoconexion();
+ $ver = new tools("db");
  
   $query = "select id,subject as titulo,
   IF(tipo=0,(select concat('".LANG_msg_prefa."',nombre,' ',apellido) from tbl_admin where id = de ),(select concat('".LANG_msg_prefs."',nombre,' ',apellido) from estudiante where id = de )) as Remite,

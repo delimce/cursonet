@@ -7,13 +7,12 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-$eva  = new tools();
+$eva  = new tools("db");
 
  ///niveles de complejidad
  $nivel  = $eva->llenar_array(LANG_eva_level2.','.LANG_eva_level3.','.LANG_eva_level4);
  $nivelv = $eva->llenar_array('1,2,3');
 
-	$eva->autoconexion();
 	
 	$datos = $eva->simple_db("select eval_id,pregunta,nivel from evaluacion_pregunta where id = {$_REQUEST['ItemID']} ");
 	

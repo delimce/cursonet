@@ -4,8 +4,7 @@ include("../../../config/setup.php"); ////////setup
 include("../../../class/clases.php"); ////////clase
 include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-$tool = new tools();
-$tool->autoconexion();
+$tool = new tools("db");
  $horario = $tool->simple_db("select timezone from tbl_setup ");
  // @date_default_timezone_set($horario);
 

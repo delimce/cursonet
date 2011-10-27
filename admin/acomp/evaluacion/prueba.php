@@ -7,8 +7,7 @@ include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-	$aco = new tools();
-	$aco->autoconexion();
+	$aco = new tools("db");
 	
 	if(isset($_GET['idpru'])){
 	

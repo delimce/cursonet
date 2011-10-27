@@ -27,10 +27,9 @@ $menu = new menu($menu_struct);
 	   "dateformat"   => array("pos" => "3", "formato" => $_SESSION['DB_FORMATO'])
  );
 
-  $combo = new tools();
+  $combo = new tools("db");
   $grid = new grid("99%","*","center",$features);
-  $grid->autoconexion();
-  $combo->dbc = $grid->dbc;
+  $grid->dbc = $combo->dbc;
 
   if($_GET['seccion']=="")$filtro = ''; else $filtro = "and e.grupo_id = {$_GET['seccion']}"; ///se asume que el defecto de grupo_id de evaluacion es 0
 

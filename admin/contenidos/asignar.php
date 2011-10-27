@@ -9,8 +9,7 @@ $menu = new menu($menu_struct);
 
 
  
-  $asig = new tools();
-  $asig->autoconexion();
+  $asig = new tools("db");
   
   if(isset($_REQUEST['ItemID'])){
   

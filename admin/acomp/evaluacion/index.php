@@ -28,10 +28,9 @@ $menu = new menu($menu_struct);
  );
  
  
-  $combo = new tools();
+  $combo = new tools("db");
   $grid = new grid("99%","*","center",$features);
-  $grid->autoconexion();
-  $combo->dbc = $grid->dbc;
+  $grid->dbc = $combo->dbc;
   
   if($_GET['seccion']=="")$filtro = ''; else $filtro = "and e.grupo_id = {$_GET['seccion']}"; ///se asume que el defecto de grupo_id de evaluacion es 0
   

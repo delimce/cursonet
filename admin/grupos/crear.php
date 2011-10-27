@@ -8,8 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
 
- $crear = new tools();
- $crear->autoconexion();
+ $crear = new tools("db");
 
  $turno1 = $crear->llenar_array("Presencial,Semipresencial,A distancia");
  $turno2 = $crear->llenar_array("0,1,2");

@@ -26,7 +26,7 @@
                if(!empty($conect)){
 
                       /////conexion de dos vistas
-                      if($conect=="db") $this->autoconexion(); else $this->autoconexion2(); 
+                      if($conect=="db") $this->autoconexion();
 
                }
 		

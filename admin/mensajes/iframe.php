@@ -4,8 +4,7 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
- $combo = new tools();
- $combo->autoconexion();
+ $combo = new tools("db");
 
  $defecto = LANG_select;
 

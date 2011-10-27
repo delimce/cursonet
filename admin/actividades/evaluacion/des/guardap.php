@@ -5,8 +5,7 @@ include("../../../../class/clases.php"); ////////clase
 include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
  
  
- $crear = new tools();
- $crear->autoconexion();
+ $crear = new tools("db");
  
  
    			/////fecha

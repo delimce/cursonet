@@ -5,10 +5,7 @@ include("../../class/clases.php"); ////////clase
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 
-	$est = new tools();
-	$est->autoconexion();
-	
-
+	$est = new tools("db");
 	$query = "select
 	
 	(select count(*) from tbl_log_est where est_id = '{$_REQUEST['id']}') as totalv,

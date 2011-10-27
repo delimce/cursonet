@@ -7,8 +7,8 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-  $pru = new tools();
-  $pru->autoconexion();
+  $pru = new tools("db");
+
   $query = " select e.nombre, c.titulo as caso, IFNULL((select nombre from grupo where id = e.grupo_id),'Todas') as seccion, date_format(e.fecha,'{$_SESSION['DB_FORMATO_DB']} %h:%i %p') as fecha
   			from evaluacion e inner join contenido c on (e.contenido_id = c.id and e.id = {$_REQUEST['id']})";
 

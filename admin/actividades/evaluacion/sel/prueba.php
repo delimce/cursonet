@@ -8,8 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
 
-  $pro = new tools();
-  $pro->autoconexion();
+  $pro = new tools("db");
  	
 	$data = $pro->simple_db("select nombre from evaluacion where id = {$_REQUEST['id']} ");
 	

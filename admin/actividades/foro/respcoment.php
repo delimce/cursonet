@@ -4,8 +4,7 @@ include("../../../config/setup.php"); ////////setup
 include("../../../class/clases.php"); ////////clase
 include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-$tool = new formulario();
-$tool->autoconexion();
+$tool = new formulario("db");
 
         if(isset($_POST['Submit'])){ 
 		

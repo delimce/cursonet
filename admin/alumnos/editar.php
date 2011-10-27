@@ -8,8 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
 
- $crear = new tools();
- $crear->autoconexion();
+ $crear = new tools("db");
  $fecha = new fecha($_SESSION['DB_FORMATO']);
  $sexo1 = $crear->llenar_array("".LANG_male.",".LANG_female."");
  $sexo2 = $crear->llenar_array("M,F");

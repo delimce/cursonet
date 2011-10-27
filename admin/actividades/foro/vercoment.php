@@ -7,9 +7,8 @@ include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-$crear = new tools();
+$crear = new tools("db");
 $fecha = new fecha($_SESSION['DB_FORMATO']);
-$crear->autoconexion();
 
 
 		if(!empty($_REQUEST['foro'])) $_SESSION['tema_id'] = $_REQUEST['foro'];

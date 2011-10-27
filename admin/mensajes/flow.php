@@ -5,8 +5,7 @@ include("../../class/clases.php"); ////////clase
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 
- $crear = new tools();
- $crear->autoconexion();
+ $crear = new tools("db");
  
   $horario = $crear->simple_db("select timezone from tbl_setup ");
   // @date_default_timezone_set($horario);

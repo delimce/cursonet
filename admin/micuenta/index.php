@@ -9,8 +9,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
 
- $crear = new formulario();
- $crear->autoconexion();
+ $crear = new formulario("db");
  $horario = $crear->simple_db("select timezone from tbl_setup ");
    // @date_default_timezone_set($horario);
 

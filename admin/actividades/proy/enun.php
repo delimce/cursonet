@@ -8,8 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
 
-  $pru = new tools();
-  $pru->autoconexion();
+  $pru = new tools("db");
   $query = " select p.nombre,ifnull((select nombre from grupo where id = p.grupo),'".LANG_all."') as seccion, enunciado,(select titulo from contenido where id = p.contenido_id) as caso from proyecto p where p.id = {$_REQUEST['id']}";
 
  $datos = $pru->array_query2($query);
