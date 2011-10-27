@@ -46,12 +46,6 @@ $menu = new menu($menu_struct);
  }
  
  
- 
- 
- 
- 
- $horario = $crear->simple_db("select timezone from tbl_setup ");
- // @date_default_timezone_set($horario);
 
 
  ///niveles de complejidad

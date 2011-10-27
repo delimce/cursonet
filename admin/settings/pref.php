@@ -8,8 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 include("security.php"); ///seguridad para el admin
 
- $modo = new tools();
- $modo->autoconexion();
+ $modo = new tools("db");
 
  //////////////lenguaje
  $lenguajes = $modo->listar_archivos('../../config/lang/');

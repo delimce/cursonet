@@ -11,9 +11,6 @@ $menu = new menu($menu_struct);
 
  $prueba = new tools('db');
  
-  $horario = $prueba->simple_db("select timezone from tbl_setup ");
-  // @date_default_timezone_set($horario);
-
 
   /////////////////////////guarda o consulta
 

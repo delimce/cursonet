@@ -4,9 +4,8 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php");
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
- $datos = new tools();
+ $datos = new tools("db");
  $notas = new tools(); //para ver las notas
- $datos->autoconexion();
  $notas->dbc = $datos->dbc;
  
  function statuscolor($estatus){

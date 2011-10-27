@@ -4,8 +4,7 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php");
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-$datos = new tools();
-$datos->autoconexion();
+$datos = new tools("db");
 
 	$rev = $datos->simple_db("select correccion from evaluacion_revision where id = {$_REQUEST['id']}");
 

@@ -7,9 +7,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
- $crear = new tools();
- $crear->autoconexion();
- 
+ $crear = new tools("db");
  
  $datos = $crear->simple_db("select titulo,en_base from plan_evaluador where id = {$_REQUEST['id']}");
  

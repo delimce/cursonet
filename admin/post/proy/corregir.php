@@ -9,9 +9,8 @@ $menu = new menu($menu_struct);
 
  if(isset($_REQUEST['id'])) $_SESSION['PRO_ID2'] = $_REQUEST['id'];
 
- $prueba = new tools();
+ $prueba = new tools("db");
  $fecha = new fecha($_SESSION['DB_FORMATO']);
- $prueba->autoconexion();
 
 
 	 $queryd = "SELECT

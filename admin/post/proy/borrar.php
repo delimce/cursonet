@@ -6,8 +6,7 @@ include("../../../class/clases.php"); ////////clase
 include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 
-  $grabar = new tools();
-  $grabar->autoconexion(); 
+  $grabar = new tools("db");
   
   
    if(isset($_GET['itemID'])){

@@ -10,8 +10,6 @@ $menu = new menu($menu_struct);
 
  $crear = new tools("db");
  
-  $horario = $crear->simple_db("select timezone from tbl_setup ");
-  // @date_default_timezone_set($horario);
  
  $fecha = new fecha($_SESSION['DB_FORMATO']);
  $sexo1 = $crear->llenar_array("".LANG_male.",".LANG_female."");

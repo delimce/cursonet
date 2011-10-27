@@ -7,9 +7,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
- $crear = new tools();
- $crear->autoconexion();
- 
+ $crear = new tools("db");
  
  $datos = $crear->simple_db("select titulo,tipo,id_act,round(porcentaje,2) as porcentaje ,round(en_base,2) as en_base from plan_item where id = '{$_REQUEST['id']}' ");
  

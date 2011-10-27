@@ -3,8 +3,7 @@
  include("../class/clases.php");
 
  
- $nuevo = new tools();
- $nuevo->autoconexion();
+ $nuevo = new tools("db");
  
  $val = $nuevo->array_query2("select modo,lenguaje,signature from tbl_setup");
 

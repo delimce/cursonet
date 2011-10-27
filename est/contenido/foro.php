@@ -5,9 +5,7 @@ include("../../class/clases.php");
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 unset($_SESSION['FORO_ID']);
 
- $datos = new tools();
- $datos->autoconexion();
-
+ $datos = new tools("db");
 
 
  	$query = "

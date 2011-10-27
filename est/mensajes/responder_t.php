@@ -6,8 +6,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 	/////duda o inquietud desde el contenido del tema seleccionado.
 	
- $crear = new tools();
- $crear->autoconexion();
+ $crear = new tools("db");
  $prioridad = $crear->llenar_array(LANG_msg_priority_l.",".LANG_msg_priority_n.",".LANG_msg_priority_h);
 
 	$data1 = $crear->simple_db("SELECT 

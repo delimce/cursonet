@@ -4,10 +4,7 @@
   include("../../config/setup.php"); ////////setup
   include("../../class/clases.php"); ////////clase
  
-  $val = new tools();
-  $val->autoconexion();
-  
-  
+  $val = new tools("db");
   $algo = $val->array_query("select id from tbl_admin where user = trim('{$_REQUEST['nombre']}')  limit 1");
   
   $val->cerrar();

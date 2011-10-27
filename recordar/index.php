@@ -1,8 +1,7 @@
 <?php session_start();
  include("../config/dbconfig.php");
  include("../class/clases.php");
- $nuevo = new tools();
- $nuevo->autoconexion();
+ $nuevo = new tools("db");
 
  $val = $nuevo->array_query2("select lenguaje,formato_fecha,envio_email,titulo from tbl_setup");
  

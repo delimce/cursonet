@@ -5,8 +5,7 @@ include("../class/clases.php");
 include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 
- $datos = new tools();
- $datos->autoconexion();
+ $datos = new tools("db");
  
  if(isset($_REQUEST['curso'])){
   $_SESSION['CURSOID'] = $_REQUEST['curso'];

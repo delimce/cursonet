@@ -15,8 +15,7 @@ if(!empty($_POST['comentario'])){ ///se envia el comentario
 	$valores[3] = trim(stripcslashes(nl2br($_POST['comentario'])));
     $valores[4] = date('Y-m-d H:i:s');
     
-    $insert = new tools();
-    $insert->autoconexion();
+    $insert = new tools("db");
     $insert->insertar2("foro_comentario","foro_id,tipo_sujeto,sujeto_id,content,fecha_post",$valores);
     $insert->cerrar();
     

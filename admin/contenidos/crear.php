@@ -10,8 +10,6 @@ $menu = new menu($menu_struct);
 
  $crear = new tools('db');
  
-  $horario = $crear->simple_db("select timezone from tbl_setup ");
-  // @date_default_timezone_set($horario);
 
  if($_POST['nombre']){
 

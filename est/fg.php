@@ -4,9 +4,8 @@ include("../config/setup.php"); ////////setup
 include("../class/clases.php");
 include("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-$est = new tools();
+$est = new tools("db");
 $fecha = new fecha($_SESSION['DB_FORMATO']);
-$est->autoconexion();
 
      $valores[0] = $_SESSION['NOMBRE'];
 	 $valores[1] = 'est';

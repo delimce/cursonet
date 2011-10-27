@@ -8,8 +8,8 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 include("security.php"); ///seguridad para el admin
 
- $modo = new tools();
- $modo->autoconexion();
+ $modo = new tools("db");
+
  $valor = $modo->array_query("select modo from tbl_setup");
 
  if(isset($_POST['modo'])){

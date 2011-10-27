@@ -3,8 +3,7 @@
  include("../class/clases.php");
 
  
- $nuevo = new tools();
- $nuevo->autoconexion();
+ $nuevo = new tools("db");
  
   if(!isset($_SESSION['USUARIO'])){
   

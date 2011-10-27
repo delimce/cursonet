@@ -8,9 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
 
- $prueba = new tools();
- $prueba->autoconexion();
- 
+ $prueba = new tools("db");
 
  
  if(isset($_GET['ItemID']))$_SESSION['PRO_ID'] = $_GET['ItemID'];

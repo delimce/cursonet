@@ -8,8 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
  
-  $grid = new tools();
-  $grid->autoconexion();
+  $grid = new tools("db");
   $query = "SELECT  e.id,LOWER(concat(e.nombre,' ',e.apellido)) as nombre,e.id_number,
   (SELECT count(*) FROM foro_comentario ff WHERE (ff.sujeto_id = e.id) AND (ff.tipo_sujeto = 'est') and (ff.foro_id = f.id)) AS comentarios,
   (select count(*) from foro_comentario where foro_id = f.id and valido = 1 and tipo_sujeto = 'est' and sujeto_id = e.id) as val,

@@ -8,8 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 include("security.php"); ///seguridad para el admin
 
-  $grabar = new tools();
-  $grabar->autoconexion(); 
+  $grabar = new tools("db");
   
   
    if(isset($_GET['itemID'])){

@@ -4,8 +4,7 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php");
 include("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-$tool = new tools();
-$tool->autoconexion();
+$tool = new tools("db");
 
 $tool->query("SELECT DISTINCT 
   c.nombre,

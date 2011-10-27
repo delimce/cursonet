@@ -4,8 +4,7 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
- $crear = new tools();
- $crear->autoconexion();
+ $crear = new tools("db");
  $prioridad = $crear->llenar_array(LANG_msg_priority_l.",".LANG_msg_priority_n.",".LANG_msg_priority_h);
 
 ?>

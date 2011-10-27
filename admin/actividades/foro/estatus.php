@@ -5,8 +5,6 @@ include("../../../class/clases.php"); ////////clase
 include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 $tool = new tools("db");
- $horario = $tool->simple_db("select timezone from tbl_setup ");
- // @date_default_timezone_set($horario);
 
  $id = $tool->array_query2("select valido,sujeto_id,(select titulo from foro where id = foro_id) from foro_comentario where id = '{$_REQUEST['id']}'");
  

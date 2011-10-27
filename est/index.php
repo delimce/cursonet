@@ -5,8 +5,7 @@ include("../class/clases.php");
 include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 
- $datos = new tools();
- $datos->autoconexion();
+ $datos = new tools("db");
  $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo,version from tbl_setup");
  $_SESSION['DB_FORMATO_DB'] = $data[2];
  $_SESSION['DB_FORMATO'] = $data[1];

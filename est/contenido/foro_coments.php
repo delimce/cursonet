@@ -7,9 +7,8 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 		////si viene el id del foro
 		if(!empty($_REQUEST['idf'])) $_SESSION['FORO_ID'] = $_REQUEST['idf'];
 
- $datos = new tools();
+ $datos = new tools("db");
  $resp = new tools();
- $datos->autoconexion();
  
  ///objeto para las respuestas
  $resp->dbc = $datos->dbc;

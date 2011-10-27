@@ -4,8 +4,7 @@ include("../../../config/setup.php"); ////////setup
 include("../../../class/clases.php"); ////////clase
 include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
- $prueba = new tools();
- $prueba->autoconexion();
+ $prueba = new tools("db");
  
  $dato = $prueba->array_query("select pregunta from evaluacion_pregunta where id = '{$_REQUEST['id']}'");
  

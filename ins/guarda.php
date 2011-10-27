@@ -3,10 +3,8 @@
  include("../class/clases.php");
 
  
- $i = new tools();
+ $i = new tools("db");
  $fecha = new fecha($_SESSION['FECHA']);
- $i->autoconexion();
- 
  
  $val = $i->array_query2("select modo,lenguaje,timezone from tbl_setup");
  

@@ -8,10 +8,8 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 include("security.php"); ///seguridad para el admin
 
- $modo = new tools();
- $modo->autoconexion();
-   $horario = $modo->simple_db("select timezone from tbl_setup ");
-   // @date_default_timezone_set($horario);
+ $modo = new tools("db");
+
 
 $conn = mysql_connect($HOSTNAME,$DBUSER,$DBPASS);
 

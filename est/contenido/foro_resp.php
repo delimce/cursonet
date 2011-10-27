@@ -4,8 +4,7 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
 include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
- $insert = new tools();
- $insert->autoconexion();
+ $insert = new tools("db");
 
 
 if(isset($_POST['Submit'])){ ///se envia el comentario

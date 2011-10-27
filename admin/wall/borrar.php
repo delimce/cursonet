@@ -7,11 +7,8 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-  $grabar = new tools();
-  $grabar->autoconexion(); 
-  
-  
-  
+  $grabar = new tools("db");
+ 
    if(isset($_GET['itemID'])){
    
     $grabar->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion

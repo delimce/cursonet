@@ -8,8 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
 
- $crear = new formulario();
- $crear->autoconexion();
+ $crear = new formulario("db");
 
 	if(isset($_POST['Submit'])){
 	

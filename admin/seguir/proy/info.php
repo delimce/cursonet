@@ -7,8 +7,8 @@ include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-  $pru = new tools();
-  $pru->autoconexion();
+  $pru = new tools("db");
+
 
   $seccion = $pru->simple_db("select grupo from proyecto where id = '{$_GET['id']}'");
   if($seccion>0) $filtro = "and grupo_id = $seccion"; else $filtro = "";

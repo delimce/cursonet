@@ -8,10 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
 
-$crear = new tools();
-$crear->autoconexion();
-
-
+$crear = new tools("db");
 
 if(isset($_POST['link'])){
 
