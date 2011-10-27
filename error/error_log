@@ -1,1 +1,0 @@
-[29-Mar-2011 16:39:18] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) in /home/curs0net/public_html/ujap/class/database.php on line 119

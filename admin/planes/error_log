@@ -1,8 +1,0 @@
-[06-Jul-2011 21:07:42] PHP Warning:  mysql_close(): 10 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
-[06-Jul-2011 21:08:04] PHP Warning:  mysql_close(): 10 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
-[06-Jul-2011 21:08:20] PHP Warning:  mysql_close(): 10 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
-[06-Jul-2011 21:09:00] PHP Warning:  mysql_close(): 10 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
-[06-Jul-2011 21:09:30] PHP Warning:  mysql_close(): 10 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
-[06-Jul-2011 21:09:53] PHP Warning:  mysql_close(): 10 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
-[06-Jul-2011 21:10:18] PHP Warning:  mysql_close(): 10 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
-[06-Jul-2011 21:10:45] PHP Warning:  mysql_close(): 10 is not a valid MySQL-Link resource in /home/curs0net/public_html/ujap/class/database.php on line 31
