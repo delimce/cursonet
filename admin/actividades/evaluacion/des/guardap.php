@@ -34,7 +34,7 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
                                    $crear->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
                                    $crear->query("START TRANSACTION");
 
-                                   $crear->query("LOCK TABLES evaluacion WRITE, evaluacion_pregunta WRITE");
+                                   $crear->query("LOCK TABLES tbl_evaluacion WRITE, tbl_evaluacion_pregunta WRITE");
 
                                    $valores[0] = $_SESSION['eva_nombre'];
                                    $valores[1] = $_SESSION['eva_caso'];
@@ -46,7 +46,7 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 								   $valores[7] = 2; ///tipo desarrollo
 								   $valores[8] = $_SESSION['eva_preg'];
 
-                                  $crear->insertar2("evaluacion","nombre, contenido_id, grupo_id, fecha, fecha_fin, autor,curso_id,tipo,npreg",$valores);
+                                  $crear->insertar2("tbl_evaluacion","nombre, contenido_id, grupo_id, fecha, fecha_fin, autor,curso_id,tipo,npreg",$valores);
                                   $idexp = $crear->ultimoID;
 
                                    ///////////////insertar preg
@@ -58,7 +58,7 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
                                                    $valores2[2] = $valores3[$j];
 												   $valores2[3] = $_SESSION['CURSOID']; ///se guarda la pregunta por curso
 
-                                                $crear->insertar2("evaluacion_pregunta","eval_id,tipo,pregunta,curso_id",$valores2);
+                                                $crear->insertar2("tbl_evaluacion_pregunta","eval_id,tipo,pregunta,curso_id",$valores2);
 
                                    }
                                    ////////////////////

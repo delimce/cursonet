@@ -11,7 +11,7 @@ unset($_SESSION['PROY_ID']);
 	SELECT id,nombre,date_format(fecha_entrega,'{$_SESSION['DB_FORMATO_DB']}') as fecha,nota,
 	(case when (fecha_entrega<= NOW()) then 'Aplicada' when (fecha_entrega > NOW()) then 'Pendiente' end) as estatus
 
-	FROM   proyecto
+	FROM   tbl_proyecto
 
 	WHERE
 

@@ -38,7 +38,7 @@ $menu = new menu($menu_struct);
 		   $valores[8] = $_POST['nivel'];
 		   $valores[9] = $_POST['preguntas'];
 
-		  $crear->insertar2("evaluacion","nombre, contenido_id, grupo_id, fecha, autor, fecha_fin, curso_id,tipo,nivel,npreg",$valores);
+		  $crear->insertar2("tbl_evaluacion","nombre, contenido_id, grupo_id, fecha, autor, fecha_fin, curso_id,tipo,nivel,npreg",$valores);
  		  $crear->javaviso(LANG_cambios,"index.php");
  	
  
@@ -199,7 +199,7 @@ $menu = new menu($menu_struct);
   </tr>
   <tr>
   <td width="28%" class="style3"><?php echo LANG_content_name; ?></td>
-  <td colspan="2"><? echo $crear->combo_db("caso","select id,titulo from contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",LANG_select,false,"ajaxcombo('grupox','seccion','../../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');",'<input name="caso" type="hidden" value="">'.LANG_content_theme); ?></td>
+  <td colspan="2"><? echo $crear->combo_db("caso","select id,titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",LANG_select,false,"ajaxcombo('grupox','seccion','../../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');",'<input name="caso" type="hidden" value="">'.LANG_content_theme); ?></td>
  </tr>
    <tr>
     <td class="style3"><?php echo LANG_group_nombre; ?></td>

@@ -29,9 +29,9 @@ $menu = new menu($menu_struct);
  
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = "select id,nombre,ifnull((select nombre from grupo where id = p.grupo),'".LANG_all."') as seccion,fecha_entrega as entrega, concat(format(p.nota,1),'%') as porc,
-  (select count(*) from proyecto_recurso where proy_id = p.id and tipo = 0 ) as archivos,
-  (select count(*) from proyecto_recurso where proy_id = p.id and tipo = 1 ) as enlaces from proyecto p where p.curso_id = {$_SESSION['CURSOID']} ";
+  $query = "select id,nombre,ifnull((select nombre from tbl_grupo where id = p.grupo),'".LANG_all."') as seccion,fecha_entrega as entrega, concat(format(p.nota,1),'%') as porc,
+  (select count(*) from tbl_proyecto_recurso where proy_id = p.id and tipo = 0 ) as archivos,
+  (select count(*) from tbl_proyecto_recurso where proy_id = p.id and tipo = 1 ) as enlaces from tbl_proyecto p where p.curso_id = {$_SESSION['CURSOID']} ";
 
 
 

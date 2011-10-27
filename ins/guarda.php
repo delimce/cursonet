@@ -43,7 +43,7 @@ body {
 
  if(isset($_POST['login1'])){
  
- $i->query("select id from estudiante where user = '{$_POST['login1']}' or id_number = '{$_POST['ci']}'");
+ $i->query("select id from tbl_estudiante where user = '{$_POST['login1']}' or id_number = '{$_POST['ci']}'");
  
 		 if($i->nreg>0){
 		 
@@ -78,7 +78,7 @@ body {
 		$valores2[19]= strtolower($_POST['resp']); //se guarda en minuscula para comparar en minuscula
 		
 		
-		$i->insertar2("estudiante","id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, yahoo, carrera, nivel, universidad, internet_acc, internet_zona, user, pass, fecha_creado,clave_preg,clave_resp",$valores2); 
+		$i->insertar2("tbl_estudiante","id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, yahoo, carrera, nivel, universidad, internet_acc, internet_zona, user, pass, fecha_creado,clave_preg,clave_resp",$valores2); 
 		$_SESSION['USUARIO'] =  $_POST['nombre'];
 		
 		

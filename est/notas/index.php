@@ -11,8 +11,8 @@ $tool->query("SELECT DISTINCT
   c.descripcion as des,
   p.id
 from tbl_curso c
-  INNER JOIN grupo_estudiante g ON (c.id = g.curso_id)
-  INNER JOIN plan_evaluador p ON (g.grupo_id = p.grupo_id)
+  INNER JOIN tbl_grupo_estudiante g ON (c.id = g.curso_id)
+  INNER JOIN tbl_plan_evaluador p ON (g.grupo_id = p.grupo_id)
 WHERE
   g.est_id = '{$_SESSION['USER']}'");
 

@@ -15,8 +15,8 @@ $menu = new menu($menu_struct);
    
    $grabar->abrir_transaccion();
    
-   	$grabar->query("delete from evaluacion where id = '{$_GET['itemID']}'");
-	$grabar->query("delete from plan_item where tipo = 'eval' and id_act = '{$_GET['itemID']}'"); ///borrar del plan de evaluacion
+   	$grabar->query("delete from tbl_evaluacion where id = '{$_GET['itemID']}'");
+	$grabar->query("delete from tbl_plan_item where tipo = 'eval' and id_act = '{$_GET['itemID']}'"); ///borrar del plan de evaluacion
    
    $grabar->cerrar_transaccion();
    

@@ -9,7 +9,7 @@ $menu = new menu($menu_struct);
 
  $crear = new tools("db");
  
- $datos = $crear->simple_db("select titulo,tipo,id_act,round(porcentaje,2) as porcentaje ,round(en_base,2) as en_base from plan_item where id = '{$_REQUEST['id']}' ");
+ $datos = $crear->simple_db("select titulo,tipo,id_act,round(porcentaje,2) as porcentaje ,round(en_base,2) as en_base from tbl_plan_item where id = '{$_REQUEST['id']}' ");
  
  
  $tlabel = $crear->llenar_array("Foro,Proyecto,Evaluación,Otro");
@@ -19,13 +19,13 @@ $menu = new menu($menu_struct);
 
 	switch ($datos['tipo']) { ///para saber la actividad
 	case 'foro': ///foro
-	   $query = "select id, titulo as nombre from foro where curso_id = '{$_SESSION['CURSOID']}' and (grupo_id = '{$_SESSION['GRUPOPLAN']}' or grupo_id = 0) order by titulo";
+	   $query = "select id, titulo as nombre from tbl_foro where curso_id = '{$_SESSION['CURSOID']}' and (grupo_id = '{$_SESSION['GRUPOPLAN']}' or grupo_id = 0) order by titulo";
 	   break;
 	case 'proy': //proy
-	 $query = "select id, nombre from proyecto where curso_id = '{$_SESSION['CURSOID']}' and (grupo = '{$_SESSION['GRUPOPLAN']}' or grupo = 0) order by nombre";
+	 $query = "select id, nombre from tbl_proyecto where curso_id = '{$_SESSION['CURSOID']}' and (grupo = '{$_SESSION['GRUPOPLAN']}' or grupo = 0) order by nombre";
 	   break;
 	case 'eval':
-	  $query = "select id, nombre from evaluacion where curso_id = '{$_SESSION['CURSOID']}' and (grupo_id = '{$_SESSION['GRUPOPLAN']}' or grupo_id = 0) order by nombre";
+	  $query = "select id, nombre from tbl_evaluacion where curso_id = '{$_SESSION['CURSOID']}' and (grupo_id = '{$_SESSION['GRUPOPLAN']}' or grupo_id = 0) order by nombre";
 	   break;  
 	}
 	
@@ -44,7 +44,7 @@ $menu = new menu($menu_struct);
 				  		$valores[3] = $_POST['nota'];
 				  		$valores[4] = $_POST['base'];
 				
-					 $crear->update("plan_item",$campos,$valores,"id = '{$_POST['id']}'",true);
+					 $crear->update("tbl_plan_item",$campos,$valores,"id = '{$_POST['id']}'",true);
 		
 					 $crear->cerrar();
 				  

@@ -13,12 +13,12 @@ if(!empty($ide)){
   $dato = $tool->simple_db("SELECT 
   date_format(c.fecha, '{$_SESSION['DB_FORMATO_DB']}') AS fecha,
   ifnull((select concat(a.nombre, ' ', a.apellido) from tbl_admin a where a.id = c.autor),'".LANG_content_autor_unknow."') as prof,
-  (select count(*) from contenido_recurso where contenido_id = c.id  ) AS cant,
+  (select count(*) from tbl_contenido_recurso where contenido_id = c.id  ) AS cant,
   c.leido,
   c.titulo,
   c.autor
   FROM
-  contenido c
+  tbl_contenido c
   WHERE  (c.id = '$ide')");
   
   ////VACIA LA VARIABLE PARA CONTAR CASOS

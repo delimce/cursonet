@@ -13,7 +13,7 @@ $menu = new menu($menu_struct);
   
    if(isset($_GET['itemID'])){
    
-    $grabar->query("delete from plan_item where id = {$_GET['itemID']}");
+    $grabar->query("delete from tbl_plan_item where id = {$_GET['itemID']}");
    
    
   }

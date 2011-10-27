@@ -17,7 +17,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 	 $valores[7] = $_POST["contras"];
 	 $valores[8] = '';
 
-     $est->insertar2("feedback","nombre, perfil, email, fecha, tipo_com, comentario, pro, contra, suject_extra_info",$valores);
+     $est->insertar2("tbl_feedback","nombre, perfil, email, fecha, tipo_com, comentario, pro, contra, suject_extra_info",$valores);
 
 
 $est->cerrar();

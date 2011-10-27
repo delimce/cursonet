@@ -10,9 +10,9 @@ unset($_SESSION['FORO_ID']);
 
  	$query = "
 
-	SELECT f.id,titulo,date_format(fecha_post,'{$_SESSION['DB_FORMATO_DB']}') as fecha1,date_format(fecha_fin,'{$_SESSION['DB_FORMATO_DB']}') as fecha2,resumen,nota,(select count(*) from foro_comentario where foro_id = f.id) as comentarios
+	SELECT f.id,titulo,date_format(fecha_post,'{$_SESSION['DB_FORMATO_DB']}') as fecha1,date_format(fecha_fin,'{$_SESSION['DB_FORMATO_DB']}') as fecha2,resumen,nota,(select count(*) from tbl_foro_comentario where foro_id = f.id) as comentarios
 
-	FROM   foro f
+	FROM   tbl_foro f
 
 	WHERE
 

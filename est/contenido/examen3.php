@@ -62,7 +62,7 @@ document.onmouseup=reEnable
 
 <?php 
 
-	$data = $pro->simple_db("select nombre, nivel,npreg from evaluacion where id = {$_REQUEST['eval_id']} ");
+	$data = $pro->simple_db("select nombre, nivel,npreg from tbl_evaluacion where id = {$_REQUEST['eval_id']} ");
 	
 	if($data['nivel']>0) $pperg = " and p.nivel = {$data['nivel']} "; ////para seleccionar preguntas por nivel
 	$preguntas = $pro->estructura_db("SELECT 
@@ -71,8 +71,8 @@ document.onmouseup=reEnable
 									  p.tipo,
 									  RAND() AS numero
 									FROM
-									  evaluacion_pregunta p
-									  INNER JOIN evaluacion e ON (p.eval_id = e.id)
+									  tbl_evaluacion_pregunta p
+									  INNER JOIN tbl_evaluacion e ON (p.eval_id = e.id)
 									WHERE
 									  e.id = {$_REQUEST['eval_id']} $pperg order by numero limit {$data['npreg']}");
 	
@@ -89,9 +89,9 @@ document.onmouseup=reEnable
 											  o.preg_id,
 											   RAND() AS numero
 											FROM
-											  pregunta_opcion o
-											  INNER JOIN evaluacion_pregunta p ON (o.preg_id = p.id)
-											  INNER JOIN evaluacion e ON (p.eval_id = e.id)
+											  tbl_pregunta_opcion o
+											  INNER JOIN tbl_evaluacion_pregunta p ON (o.preg_id = p.id)
+											  INNER JOIN tbl_evaluacion e ON (p.eval_id = e.id)
 											WHERE
 											  e.id = {$_REQUEST['eval_id']} order by numero");
 			

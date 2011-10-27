@@ -210,7 +210,7 @@ $menu = new menu($menu_struct);
           <td valign="middle" class="style3">
             <?= LANG_esta_est_select ?>
           </td>
-          <td colspan="5" valign="middle" class="style1"><?php echo $est->combo_db("est","select id,concat(nombre,' ',apellido,' - ',id_number) as nombre from estudiante order by nombre,id_number","nombre","id",LANG_select,false,"info_est(this.value)",LANG_modo_noest);?></td>
+          <td colspan="5" valign="middle" class="style1"><?php echo $est->combo_db("est","select id,concat(nombre,' ',apellido,' - ',id_number) as nombre from tbl_estudiante order by nombre,id_number","nombre","id",LANG_select,false,"info_est(this.value)",LANG_modo_noest);?></td>
           </tr>
           <tr>
           <td valign="middle" class="style3">

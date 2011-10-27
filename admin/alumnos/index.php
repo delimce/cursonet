@@ -38,11 +38,11 @@ $menu = new menu($menu_struct);
   /////////filtro
    if(empty($_GET['seccion'])){
    
-   $filtro = "where e.id in (select est_id from grupo_estudiante where curso_id = {$_SESSION['CURSOID']} )"; 
+   $filtro = "where e.id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} )"; 
 
    }else if($_GET['seccion']>0){
    
-    $filtro = "where e.id in (select est_id from grupo_estudiante where grupo_id = {$_GET['seccion']} and curso_id = {$_SESSION['CURSOID']} )";
+    $filtro = "where e.id in (select est_id from tbl_grupo_estudiante where grupo_id = {$_GET['seccion']} and curso_id = {$_SESSION['CURSOID']} )";
   
   }
   ////////////
@@ -52,12 +52,12 @@ $menu = new menu($menu_struct);
   (SELECT 
   g.nombre
 FROM
-  `grupo_estudiante` ge
-  INNER JOIN `grupo` g ON (ge.grupo_id = g.id)
+  `tbl_grupo_estudiante` ge
+  INNER JOIN `tbl_grupo` g ON (ge.grupo_id = g.id)
 where ge.curso_id = {$_SESSION['CURSOID']} and est_id = e.id )as Grupo,
   (if (activo=1,'<img border=\"0\" title=\"".LANG_is_active."\" src=\"../../images/backend/checkmark.gif\">','<img border=\"0\" title=\"".LANG_is_noactive."\" src=\"../../images/backend/x.gif\">')) as Activo,
    if({$_SESSION['ADMIN']}>2,'1','0') as condicion_editar
-  from estudiante e $filtro ";
+  from tbl_estudiante e $filtro ";
 
 
 	$grid->query($query); //////se ejecuta el query
@@ -109,7 +109,7 @@ where ge.curso_id = {$_SESSION['CURSOID']} and est_id = e.id )as Grupo,
 	
 	<table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td><br>&nbsp;<?=LANG_group_filter ?> <form name="se" action="index.php" method="get"><?  echo  $combo->combo_db("seccion","select nombre,id from grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre","nombre","id",LANG_all,false,"submit();");  ?></form><br>
+        <td><br>&nbsp;<?=LANG_group_filter ?> <form name="se" action="index.php" method="get"><?  echo  $combo->combo_db("seccion","select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre","nombre","id",LANG_all,false,"submit();");  ?></form><br>
           <br><?php $grid->cargar($query,false,true);?>&nbsp;</td>
       </tr>
     </table>	</td>

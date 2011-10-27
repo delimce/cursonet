@@ -43,13 +43,13 @@ $menu = new menu($menu_struct);
 				   $valores[6] = $fecha->fecha_db($_POST['fin']);
 				   $valores[7] = $_POST['nota'];
 
-				  $crear->update("foro",$campos,$valores,"id = '{$_POST['id']}'");
+				  $crear->update("tbl_foro",$campos,$valores,"id = '{$_POST['id']}'");
 				  $crear->javaviso(LANG_cambios,"index.php");
 
 	}else{
 
 
-				  $datos = $crear->array_query2("select id, titulo, grupo_id, contenido_id, fecha_post, fecha_fin, nota, resumen, content from foro where id = '{$_GET['ItemID']}'");
+				  $datos = $crear->array_query2("select id, titulo, grupo_id, contenido_id, fecha_post, fecha_fin, nota, resumen, content from tbl_foro where id = '{$_GET['ItemID']}'");
 
 	}
 
@@ -208,7 +208,7 @@ $menu = new menu($menu_struct);
   <tr>
 
    <td width="28%" class="style3"><?php echo LANG_content_name; ?></td>
-  <td><?php echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from contenido where curso_id = '{$_SESSION['CURSOID']}'","titulo","id",false,$datos[3],"ajaxcombo('grupox','seccion','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
+  <td><?php echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = '{$_SESSION['CURSOID']}'","titulo","id",false,$datos[3],"ajaxcombo('grupox','seccion','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
 </tr>
   <tr>
 
@@ -217,7 +217,7 @@ $menu = new menu($menu_struct);
   <td>
 
      <div id="grupox">
-    <?php echo $crear->combo_db("seccion","(select 0 as id,'Todas' as nombre )union(select id, nombre from grupo where curso_id = {$_SESSION['CURSOID']}) ","nombre","id",false,$datos[2],false,LANG_all); ?>    </div>  </td>
+    <?php echo $crear->combo_db("seccion","(select 0 as id,'Todas' as nombre )union(select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}) ","nombre","id",false,$datos[2],false,LANG_all); ?>    </div>  </td>
 </tr>
 
   <tr>

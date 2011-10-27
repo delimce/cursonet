@@ -20,7 +20,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 	SELECT titulo,content,date_format(fecha_post,'{$_SESSION['DB_FORMATO_DB']}') as fecha1,date_format(fecha_fin,'{$_SESSION['DB_FORMATO_DB']}') as fecha2,
 	if(fecha_post <= NOW() and fecha_fin >= NOW(),0,1) as finalizo
 
-	FROM   foro f
+	FROM   tbl_foro f
 
 	WHERE
 
@@ -149,13 +149,13 @@ content="text/html; charset=iso-8859-1">
    
 		$query2 = "SELECT 
 				  c.content, c.id,
-				  if(c.tipo_sujeto = 'admin',(select concat('<b>".LANG_ADMIN_teacher."</b> ',nombre, ' ', apellido) from tbl_admin where id = c.sujeto_id),(select concat('<b>".LANG_est."</b> ',nombre, ' ', apellido) from estudiante where id = c.sujeto_id)) AS sujeto,
-				  if(c.tipo_sujeto = 'admin',(select foto from tbl_admin where id = c.sujeto_id),(select foto from estudiante where id = c.sujeto_id)) AS foto, c.tipo_sujeto as tsujeto,
+				  if(c.tipo_sujeto = 'admin',(select concat('<b>".LANG_ADMIN_teacher."</b> ',nombre, ' ', apellido) from tbl_admin where id = c.sujeto_id),(select concat('<b>".LANG_est."</b> ',nombre, ' ', apellido) from tbl_estudiante where id = c.sujeto_id)) AS sujeto,
+				  if(c.tipo_sujeto = 'admin',(select foto from tbl_admin where id = c.sujeto_id),(select foto from tbl_estudiante where id = c.sujeto_id)) AS foto, c.tipo_sujeto as tsujeto,
 				  date_format(c.fecha_post,'{$_SESSION['DB_FORMATO_DB']} %h:%i %p') as fecha_post, if(c.valido = 0,'<img style=\"vertical-align:bottom\" src=\"../../images/backend/x.gif\" title=\"".LANG_foro_status_nv."\">','<img style=\"vertical-align:bottom\" src=\"../../images/backend/checkmark.gif\" title=\"".LANG_foro_status_v."\">') as valido,
-				  (select count(*) from foro_respuesta where com_id = c.id) as nresp
+				  (select count(*) from tbl_foro_respuesta where com_id = c.id) as nresp
 				  FROM 
-				  foro f
-				  INNER JOIN foro_comentario c ON (f.id = c.foro_id) where f.id = '{$_SESSION['FORO_ID']}' 
+				  tbl_foro f
+				  INNER JOIN tbl_foro_comentario c ON (f.id = c.foro_id) where f.id = '{$_SESSION['FORO_ID']}' 
 				  
 				  order by id desc";
    
@@ -209,7 +209,7 @@ content="text/html; charset=iso-8859-1">
 							   (select concat('".LANG_msg_prefa." ',nombre, ' ', apellido) from tbl_admin where id = r.prof_id) as sujeto,
 							   date_format(r.fecha,'{$_SESSION['DB_FORMATO_DB']} %h:%i %p') as fecha				 
 							  FROM
-							  foro_respuesta r 	WHERE
+							  tbl_foro_respuesta r 	WHERE
 							  r.com_id = '{$row['id']}'");
 	 
 		 

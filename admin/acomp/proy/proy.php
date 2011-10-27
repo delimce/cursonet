@@ -11,7 +11,7 @@ $menu = new menu($menu_struct);
 
 	if(isset($_GET['idpro'])){
 
-		$data = $aco->array_query2("select id, nombre, date_format(fecha_entrega,'{$_SESSION['DB_FORMATO_DB']}') as fecha, grupo from proyecto where id = {$_GET['idpro']}");
+		$data = $aco->array_query2("select id, nombre, date_format(fecha_entrega,'{$_SESSION['DB_FORMATO_DB']}') as fecha, grupo from tbl_proyecto where id = {$_GET['idpro']}");
 		$acom = $aco->array_query2("select nota_min,coment_min,nota_max,coment_max,alerta,coment_alerta from acomp where tipo = 'proy' and act_id = {$_GET['idpro']} ");
 
 	}else if(isset($_POST['Submit'])){

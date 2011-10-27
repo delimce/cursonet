@@ -48,8 +48,8 @@ $menu = new menu($menu_struct);
 				   $valores[4] = $FECHA2.' 23:59'; ///para que sea todo el dia
 				   $valores[5] = $_SESSION['eva_preg'];
 
-				  $crear->update("evaluacion",$campos,$valores,"id = '{$_SESSION['eval_id']}'");
-				  $idspreg = $crear->array_query("select id from evaluacion_pregunta where eval_id = '{$_SESSION['eval_id']}' order by id ");
+				  $crear->update("tbl_evaluacion",$campos,$valores,"id = '{$_SESSION['eval_id']}'");
+				  $idspreg = $crear->array_query("select id from tbl_evaluacion_pregunta where eval_id = '{$_SESSION['eval_id']}' order by id ");
 
 				   ///////////////editar preg
 
@@ -60,14 +60,14 @@ $menu = new menu($menu_struct);
 
 						   $campos2[0] = 'pregunta';
 						   $valores2[0] = $valores3[$j];
-					       $crear->update("evaluacion_pregunta",$campos2,$valores2,"id = '$idspreg[$j]'");
+					       $crear->update("tbl_evaluacion_pregunta",$campos2,$valores2,"id = '$idspreg[$j]'");
 
 				        }else{
 
 				           $valores4[0] = $valores3[$j];
 				           $valores4[1] = $_SESSION['eval_id'];
 	 
-					      $crear->insertar2("evaluacion_pregunta","pregunta,eval_id",$valores4);
+					      $crear->insertar2("tbl_evaluacion_pregunta","pregunta,eval_id",$valores4);
 
 
 				        }

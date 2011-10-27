@@ -9,7 +9,7 @@ $menu = new menu($menu_struct);
 
  $crear = new tools("db");
  
- $datos = $crear->simple_db("select titulo,en_base from plan_evaluador where id = {$_REQUEST['id']}");
+ $datos = $crear->simple_db("select titulo,en_base from tbl_plan_evaluador where id = {$_REQUEST['id']}");
  
  
  $tlabel = $crear->llenar_array("Foro,Proyecto,Evaluación,Otro");
@@ -26,7 +26,7 @@ $menu = new menu($menu_struct);
 				  $valores[4] = $_POST['nota'];
 				  $valores[5] = $_POST['base'];
 
-				  $crear->insertar2("plan_item","plan_id,titulo,tipo,id_act,porcentaje,en_base",$valores);
+				  $crear->insertar2("tbl_plan_item","plan_id,titulo,tipo,id_act,porcentaje,en_base",$valores);
 				  $crear->cerrar();
 				  
 				  ?>

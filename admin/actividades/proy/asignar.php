@@ -15,8 +15,8 @@ $menu = new menu($menu_struct);
   
    $files = $asig->estructura_db("select id,dir,descripcion from tbl_recurso where tipo = 0 and add_by = 'admin'");
    $links = $asig->estructura_db("select id,dir,descripcion from tbl_recurso where tipo = 1 and add_by = 'admin'");
-   $arselect = $asig->array_query("select rec_id from proyecto_recurso where proy_id = '{$_REQUEST['ItemID']}' and tipo = 0"); //archivos
-   $linkselect = $asig->array_query("select rec_id from proyecto_recurso where proy_id = '{$_REQUEST['ItemID']}' and tipo = 1"); //enlaces
+   $arselect = $asig->array_query("select rec_id from tbl_proyecto_recurso where proy_id = '{$_REQUEST['ItemID']}' and tipo = 0"); //archivos
+   $linkselect = $asig->array_query("select rec_id from tbl_proyecto_recurso where proy_id = '{$_REQUEST['ItemID']}' and tipo = 1"); //enlaces
   
   }
   
@@ -25,7 +25,7 @@ $menu = new menu($menu_struct);
   
       $asig->abrir_transaccion(); ////iniciando la transaccion
   
-	  $asig->query("delete from proyecto_recurso where proy_id = '{$_POST['id']}'");
+	  $asig->query("delete from tbl_proyecto_recurso where proy_id = '{$_POST['id']}'");
 	 
 	  $valores[0] = $_POST['id'];
 	  
@@ -34,7 +34,7 @@ $menu = new menu($menu_struct);
 	  for($i=0;$i<count($_POST['archi']);$i++){
 	    $valores[1] = $_POST['archi'][$i];
 	    $valores[2] = 0;
-	  	$asig->insertar2("proyecto_recurso","proy_id, rec_id, tipo",$valores);
+	  	$asig->insertar2("tbl_proyecto_recurso","proy_id, rec_id, tipo",$valores);
 	  }
 	  
 	  
@@ -42,7 +42,7 @@ $menu = new menu($menu_struct);
 	  
 	    $valores[1] = $_POST['enlace'][$j];
 	    $valores[2] = 1;
-	  	$asig->insertar2("proyecto_recurso","proy_id, rec_id, tipo",$valores);
+	  	$asig->insertar2("tbl_proyecto_recurso","proy_id, rec_id, tipo",$valores);
 	  
 	  }
 	  

@@ -11,15 +11,15 @@ $menu = new menu($menu_struct);
  
   $asig = new tools("db");
   
-  if(isset($_REQUEST['ItemID'])) $asig->query("select id,concat(nombre,' ',apellido) as nombre,id_number,concat(nivel,' ',carrera,' ',universidad) as extra,(select grupo_id from grupo_estudiante where est_id = ee.id and curso_id = {$_SESSION['CURSOID']} ) as grupo from estudiante ee
-  where id in (select est_id from grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and grupo_id = {$_REQUEST['ItemID']} ) or id not in (select est_id from grupo_estudiante where curso_id = {$_SESSION['CURSOID']}) order by id ");
+  if(isset($_REQUEST['ItemID'])) $asig->query("select id,concat(nombre,' ',apellido) as nombre,id_number,concat(nivel,' ',carrera,' ',universidad) as extra,(select grupo_id from tbl_grupo_estudiante where est_id = ee.id and curso_id = {$_SESSION['CURSOID']} ) as tbl_grupo from tbl_estudiante ee
+  where id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and grupo_id = {$_REQUEST['ItemID']} ) or id not in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']}) order by id ");
   
   if(isset($_POST['select']) or isset($_POST['id'])){
   
       $asig->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
       $asig->query("START TRANSACTION");
   
-	  $asig->query("delete from grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and grupo_id = '{$_POST['id']}'");
+	  $asig->query("delete from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and grupo_id = '{$_POST['id']}'");
 	  
   
 	 	 if(count($_POST['select'])>0){
@@ -30,7 +30,7 @@ $menu = new menu($menu_struct);
 			 for($z=0;$z<count($_POST['select']);$z++){
 			 
 				 $valores[0] = $_POST['select'][$z];
-			     $asig->insertar2("grupo_estudiante","est_id, curso_id, grupo_id",$valores);
+			     $asig->insertar2("tbl_grupo_estudiante","est_id, curso_id, grupo_id",$valores);
 			 
 			 }
 	  	 

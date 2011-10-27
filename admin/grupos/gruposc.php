@@ -9,7 +9,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 
 
-  $query = "select id, nombre from grupo where curso_id = {$_SESSION['CURSOID']}";
+  $query = "select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}";
   $grupos = $grupo->estructura_db($query);
 
 

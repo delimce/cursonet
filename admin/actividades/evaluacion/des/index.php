@@ -31,10 +31,10 @@ $menu = new menu($menu_struct);
 
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = " select e.id, e.nombre, c.titulo as caso, IFNULL((select nombre from grupo where id = e.grupo_id),'".LANG_all."') as seccion, e.fecha as inicio, e.fecha_fin as fin,
+  $query = " select e.id, e.nombre, c.titulo as caso, IFNULL((select nombre from tbl_grupo where id = e.grupo_id),'".LANG_all."') as seccion, e.fecha as inicio, e.fecha_fin as fin,
   (CASE WHEN e.fecha > NOW() THEN '<font color=\"#000099\">Pendiente</font>' WHEN (e.fecha <= NOW() AND NOW() <= e.fecha_fin  )  THEN '<font color=\"#009900\">Aplicandose</font>' ELSE '<font color=\"#FF0000\">aplicada</font>' END) as estatus,
   if(NOW() >= e.fecha_fin,'0','1') as condicion_editar
-  from evaluacion e,contenido c where e.contenido_id = c.id and e.curso_id = {$_SESSION['CURSOID']} and tipo = 2 ";
+  from tbl_evaluacion e,tbl_contenido c where e.contenido_id = c.id and e.curso_id = {$_SESSION['CURSOID']} and tipo = 2 ";
 
 
 ?>

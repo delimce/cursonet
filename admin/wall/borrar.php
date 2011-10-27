@@ -14,7 +14,7 @@ $menu = new menu($menu_struct);
     $grabar->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
     $grabar->query("START TRANSACTION");
   
-   $grabar->query("delete from cartelera where id = {$_GET['itemID']}");
+   $grabar->query("delete from tbl_cartelera where id = {$_GET['itemID']}");
  
    
   

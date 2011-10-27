@@ -8,7 +8,7 @@
 
 
  /***************************************************************************
-  clase que cosntruye diversas herramientas fopara usar en la construccion de forms
+  clase que cosntruye diversas herramientas para usar en la construccion de forms
   IMPORTANTE: por defecto se asume que se esta conectado a la base de datos
   en caso de que desee llamar herramientas del tipo database
  ****************************************************************************/

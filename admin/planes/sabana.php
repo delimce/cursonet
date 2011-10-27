@@ -14,7 +14,7 @@ $menu = new menu($menu_struct);
 			$toolest->dbc  = $toolitem->dbc;
 			
 			
-			$planinfo = $toolest->simple_db("select titulo,en_base,redondeo from plan_evaluador where id = {$_REQUEST['id']} ");
+			$planinfo = $toolest->simple_db("select titulo,en_base,redondeo from tbl_plan_evaluador where id = {$_REQUEST['id']} ");
 
 			$query_item = "SELECT DISTINCT 
 		  p.id,
@@ -24,7 +24,7 @@ $menu = new menu($menu_struct);
 		  p.porcentaje,
 		  p.en_base
 		FROM
-		  plan_item p
+		  tbl_plan_item p
 		WHERE
 		  p.plan_id = '{$_REQUEST['id']}' order by id";
   
@@ -34,9 +34,9 @@ $menu = new menu($menu_struct);
 		  LOWER(concat(e.apellido, ' ', e.nombre)) AS nombre,
 		  e.id
 		FROM
-		  plan_evaluador p
-		  INNER JOIN grupo_estudiante ge ON (p.grupo_id = ge.grupo_id)
-		  INNER JOIN estudiante e ON (ge.est_id = e.id)
+		  tbl_plan_evaluador p
+		  INNER JOIN tbl_grupo_estudiante ge ON (p.grupo_id = ge.grupo_id)
+		  INNER JOIN tbl_estudiante e ON (ge.est_id = e.id)
 		WHERE
 		  p.id = '{$_REQUEST['id']}' order by nombre";
 		  

@@ -13,7 +13,7 @@ $menu = new menu($menu_struct);
  
  if(isset($_GET['ItemID']))$_SESSION['PRO_ID'] = $_GET['ItemID'];
  
- $totales = $prueba->array_query2("select (select count(*) from proyecto_estudiante where nota = -1 and proy_id = '{$_SESSION['PRO_ID']}') as sin, (select count(*) from proyecto_estudiante where nota != -1 and proy_id = '{$_SESSION['PRO_ID']}') as listos");
+ $totales = $prueba->array_query2("select (select count(*) from tbl_proyecto_estudiante where nota = -1 and proy_id = '{$_SESSION['PRO_ID']}') as sin, (select count(*) from tbl_proyecto_estudiante where nota != -1 and proy_id = '{$_SESSION['PRO_ID']}') as listos");
  
  if($totales[0]>$totales[1]) $total = $totales[0]; else $total = $totales[1];
 
@@ -23,8 +23,8 @@ $menu = new menu($menu_struct);
   e.id_number,
   a.nota
 FROM
-  proyecto_estudiante a,
-  estudiante e
+  tbl_proyecto_estudiante a,
+  tbl_estudiante e
 WHERE
   (a.est_id = e.id)  and a.proy_id = '{$_SESSION['PRO_ID']}' order by nombre");
    

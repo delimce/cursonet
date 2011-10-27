@@ -23,7 +23,7 @@ include("security.php"); ///seguridad para el admin
 			}
 		 
 		 
-		 	if($_POST['table']=="estudiante"){ //////triger en caso de que se vacien los estudiantes, borra las fotos
+		 	if($_POST['table']=="tbl_estudiante"){ //////triger en caso de que se vacien los estudiantes, borra las fotos
 			
 					$datos->del_archivos_dir('../../recursos/est/fotos'); /// vacia el directorio
 					$datos->del_archivos_dir('../../recursos/est/proy'); /// vacia el directorio
@@ -33,17 +33,17 @@ include("security.php"); ///seguridad para el admin
 		 	 
 			 if($_POST['table']=="grupo"){ //////triger en caso de que se vacien los grupo
 				
-				$datos->query("update estudiante set grupo = ''");
-				$datos->query("update foro set grupo_id = ''");
-				$datos->query("update evaluacion set grupo_id = ''");
-				$datos->query("update proyecto set grupo = ''");
+				$datos->query("update tbl_estudiante set grupo = ''");
+				$datos->query("update tbl_foro set grupo_id = ''");
+				$datos->query("update tbl_evaluacion set grupo_id = ''");
+				$datos->query("update tbl_proyecto set grupo = ''");
 			
 			 }
 			 
 			
 			 if($_POST['table']=="evaluacion"){ //////triger que borra las evaluaciones de desarrollo
 			 
-			 		$datos->query("delete from evaluacion_pregunta where tipo = 0");
+			 		$datos->query("delete from tbl_evaluacion_pregunta where tipo = 0");
 			 
 			 }
 			 

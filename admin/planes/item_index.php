@@ -42,7 +42,7 @@ $menu = new menu($menu_struct);
     <td class="style3"><?php echo LANG_planes_selectplan ?>&nbsp;</td>
     </tr>
   <tr>
-    <td><? echo $crear->combo_db("plan","select id,titulo from plan_evaluador where grupo_id in (select id from grupo where curso_id = {$_SESSION['CURSOID']})","titulo","id",LANG_select,false,false); ?></td>
+    <td><? echo $crear->combo_db("plan","select id,titulo from tbl_plan_evaluador where grupo_id in (select id from tbl_grupo where curso_id = {$_SESSION['CURSOID']})","titulo","id",LANG_select,false,false); ?></td>
     </tr>
 </table>
 <br>

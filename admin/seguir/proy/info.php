@@ -10,14 +10,14 @@ $menu = new menu($menu_struct);
   $pru = new tools("db");
 
 
-  $seccion = $pru->simple_db("select grupo from proyecto where id = '{$_GET['id']}'");
+  $seccion = $pru->simple_db("select grupo from tbl_proyecto where id = '{$_GET['id']}'");
   if($seccion>0) $filtro = "and grupo_id = $seccion"; else $filtro = "";
 
 
   $query = " SELECT concat(e.nombre,' ',e.apellido,' - ',id_number) as nombre2,
-  					ifnull((select id from proyecto_estudiante where proy_id = '{$_GET['id']}' and est_id = e.id limit 1 ),'NO') as presento,
-					ifnull((select nota from proyecto_estudiante where proy_id = '{$_GET['id']}' and est_id = e.id limit 1),'NO') as revision
-					FROM estudiante e where e.id in (select est_id from grupo_estudiante where curso_id = {$_SESSION['CURSOID']} $filtro ) order by nombre2";
+  					ifnull((select id from tbl_proyecto_estudiante where proy_id = '{$_GET['id']}' and est_id = e.id limit 1 ),'NO') as presento,
+					ifnull((select nota from tbl_proyecto_estudiante where proy_id = '{$_GET['id']}' and est_id = e.id limit 1),'NO') as revision
+					FROM tbl_estudiante e where e.id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} $filtro ) order by nombre2";
 
 
 	$pru->query($query);

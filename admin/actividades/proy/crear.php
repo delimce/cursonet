@@ -24,7 +24,7 @@ $menu = new menu($menu_struct);
          $valores[7] = $_POST['caso'];
 		 $valores[8] = $_SESSION['CURSOID'];
 
-         $crear->insertar2("proyecto","nombre,autor,grupo,enunciado,fecha_entrega,fecha_edit,nota,contenido_id,curso_id",$valores);
+         $crear->insertar2("tbl_proyecto","nombre,autor,grupo,enunciado,fecha_entrega,fecha_edit,nota,contenido_id,curso_id",$valores);
          if($_POST['grupo']=='') $todos = 1; ///si el contenido es para todos
 
 
@@ -200,7 +200,7 @@ $menu = new menu($menu_struct);
   </tr>
   <tr>
     <td valign="top" class="style1"><span class="style3"><?php echo LANG_content_name; ?></span></td>
-    <td class="style1" colspan="2"><? echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",LANG_select,false,"ajaxcombo('grupox','grupo','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');",'<input name="caso" type="hidden" value="">'); ?></td>
+    <td class="style1" colspan="2"><? echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",LANG_select,false,"ajaxcombo('grupox','grupo','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');",'<input name="caso" type="hidden" value="">'); ?></td>
   </tr>
   <tr>
     <td width="18%" valign="top" class="style1"><span class="style3"><?php echo LANG_seccion ?></span></td>

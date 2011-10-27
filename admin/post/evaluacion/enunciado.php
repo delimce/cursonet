@@ -6,7 +6,7 @@ include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
  $prueba = new tools("db");
  
- $dato = $prueba->array_query("select pregunta from evaluacion_pregunta where id = '{$_REQUEST['id']}'");
+ $dato = $prueba->array_query("select pregunta from tbl_evaluacion_pregunta where id = '{$_REQUEST['id']}'");
  
 
 ?>

@@ -1,7 +1,7 @@
 <?php 
 
 
-	$datoseval = $prueba->array_query2("select est_id,eval_id from evaluacion_estudiante where id = '{$_SESSION['EVAL_REV']}' ");
+	$datoseval = $prueba->array_query2("select est_id,eval_id from tbl_evaluacion_estudiante where id = '{$_SESSION['EVAL_REV']}' ");
 	
 	$adata = $prueba->array_query2("select nota_min, coment_min, nota_max, coment_max from acomp where tipo = 'prueba' and  act_id = $datoseval[1] ");
 
@@ -31,7 +31,7 @@
 			$datosmens[4] = $mens;
 			$datosmens[5] = date('Y-m-d H:i:s');
 						
-			$prueba->insertar2("mensaje_est","tipo,de,para,subject,content,fecha",$datosmens,true);
+			$prueba->insertar2("tbl_mensaje_est","tipo,de,para,subject,content,fecha",$datosmens,true);
 			
 			
 			//////////////////////////

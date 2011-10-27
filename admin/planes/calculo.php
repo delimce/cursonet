@@ -5,25 +5,25 @@ switch ($iteninfo[$i]['tipo']) {
 
 				case 'proy':
 				 				   
-				    $nota = $toolitem->simple_db("select round(nota,2) from proyecto_estudiante where est_id = {$est['id']} and proy_id = {$iteninfo[$i]['id_act']} ");
+				    $nota = $toolitem->simple_db("select round(nota,2) from tbl_proyecto_estudiante where est_id = {$est['id']} and proy_id = {$iteninfo[$i]['id_act']} ");
 				   
 				   break;
 				case 'foro':
 				   
-				  $nota = $toolitem->simple_db("select round(nota,2) from foro_estudiante where est_id = {$est['id']} and foro_id = {$iteninfo[$i]['id_act']} ");
+				  $nota = $toolitem->simple_db("select round(nota,2) from tbl_foro_estudiante where est_id = {$est['id']} and foro_id = {$iteninfo[$i]['id_act']} ");
 				 
 				   
 				   break;
 				case 'eval':
 				///////////////// calculo de las evaluaciones
-				  $nota = $toolitem->simple_db("select round(nota,2) from evaluacion_estudiante where est_id = {$est['id']} and eval_id = {$iteninfo[$i]['id_act']} ");
+				  $nota = $toolitem->simple_db("select round(nota,2) from tbl_evaluacion_estudiante where est_id = {$est['id']} and eval_id = {$iteninfo[$i]['id_act']} ");
 				
 				
 				   break;
 				  
 				  default:
 				  
-				  $nota = $toolitem->simple_db("select round(nota,2) from plan_estudiante where est_id = {$est['id']} and item_id = {$iteninfo[$i]['id']} ");
+				  $nota = $toolitem->simple_db("select round(nota,2) from tbl_plan_estudiante where est_id = {$est['id']} and item_id = {$iteninfo[$i]['id']} ");
 				
 			}
 			

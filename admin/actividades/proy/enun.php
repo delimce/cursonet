@@ -9,7 +9,7 @@ $menu = new menu($menu_struct);
 
 
   $pru = new tools("db");
-  $query = " select p.nombre,ifnull((select nombre from grupo where id = p.grupo),'".LANG_all."') as seccion, enunciado,(select titulo from contenido where id = p.contenido_id) as caso from proyecto p where p.id = {$_REQUEST['id']}";
+  $query = " select p.nombre,ifnull((select nombre from tbl_grupo where id = p.grupo),'".LANG_all."') as seccion, enunciado,(select titulo from tbl_contenido where id = p.contenido_id) as caso from tbl_proyecto p where p.id = {$_REQUEST['id']}";
 
  $datos = $pru->array_query2($query);
 

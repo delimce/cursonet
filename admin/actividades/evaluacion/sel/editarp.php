@@ -20,12 +20,12 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 				 
 				 $eva->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
                  $eva->query("START TRANSACTION");
-                 $eva->query("LOCK TABLES evaluacion_pregunta WRITE, pregunta_opcion WRITE");
+                 $eva->query("LOCK TABLES tbl_evaluacion_pregunta WRITE, tbl_pregunta_opcion WRITE");
  
 				 
-				$eva->update("evaluacion_pregunta",$campos,$valores,"id = '{$_SESSION['PREGUNTA_ID']}'");
+				$eva->update("tbl_evaluacion_pregunta",$campos,$valores,"id = '{$_SESSION['PREGUNTA_ID']}'");
 				
-				$eva->query("delete from pregunta_opcion where preg_id = {$_SESSION['PREGUNTA_ID']} ");
+				$eva->query("delete from tbl_pregunta_opcion where preg_id = {$_SESSION['PREGUNTA_ID']} ");
 				
 				$nuevap = $_SESSION['PREGUNTA_ID'];
 		
@@ -37,7 +37,7 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 					$valores2[1] = $_SESSION['OPCIONES'][$j]; //seleccion
 					$valores2[2] = $correcto;
 				
-					$eva->insertar2("pregunta_opcion","preg_id,opcion,correcta",$valores2);
+					$eva->insertar2("tbl_pregunta_opcion","preg_id,opcion,correcta",$valores2);
 				
 				}
 				

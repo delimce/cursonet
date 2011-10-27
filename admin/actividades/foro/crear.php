@@ -31,7 +31,7 @@ $menu = new menu($menu_struct);
 				   $valores[8] = $_SESSION['USERID'];
 				   $valores[9] = $_SESSION['CURSOID'];
 
-				  $crear->insertar2("foro","titulo,contenido_id, grupo_id, resumen, content, fecha_post, fecha_fin, nota, autor,curso_id",$valores);
+				  $crear->insertar2("tbl_foro","titulo,contenido_id, grupo_id, resumen, content, fecha_post, fecha_fin, nota, autor,curso_id",$valores);
  
 				  $crear->javaviso(LANG_foro_created,"index.php");
 
@@ -190,7 +190,7 @@ $menu = new menu($menu_struct);
   <tr>
 
     <td width="28%" class="style3">Capitulo</td>
-  <td><? echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from contenido where curso_id = {$_SESSION['CURSOID']}","titulo","id",LANG_select,false,"ajaxcombo('grupox','seccion','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');",'<input name="caso" type="hidden" value="">'); ?></td>
+  <td><? echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']}","titulo","id",LANG_select,false,"ajaxcombo('grupox','seccion','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');",'<input name="caso" type="hidden" value="">'); ?></td>
 </tr>
   <tr>
   <td class="style3"><?php echo LANG_group_nombre; ?></td>

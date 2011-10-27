@@ -11,7 +11,7 @@ $menu = new menu($menu_struct);
   
    if(isset($_GET['itemID'])){
    
-      $grabar->query("delete from mensaje_admin where id = {$_GET['itemID']}");
+      $grabar->query("delete from tbl_mensaje_admin where id = {$_GET['itemID']}");
  
       
   }

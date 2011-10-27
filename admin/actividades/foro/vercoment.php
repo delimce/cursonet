@@ -13,10 +13,10 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 
 		if(!empty($_REQUEST['foro'])) $_SESSION['tema_id'] = $_REQUEST['foro'];
 		
-		$titulo = $crear->array_query2("select titulo,content from foro where id = '{$_SESSION['tema_id']}'");
+		$titulo = $crear->array_query2("select titulo,content from tbl_foro where id = '{$_SESSION['tema_id']}'");
 		
 		////cuando se ven los comentarios se actualiza el campo de leido con el numero de comentarios para determinar los nuevos en la seleccion del foro
-		$crear->query("update foro set leido = (select count(*) from foro_comentario where foro_id = '{$_SESSION['tema_id']}' ) where id = '{$_SESSION['tema_id']}'");
+		$crear->query("update tbl_foro set leido = (select count(*) from tbl_foro_comentario where foro_id = '{$_SESSION['tema_id']}' ) where id = '{$_SESSION['tema_id']}'");
 		
 		$query = "
 		
@@ -34,8 +34,8 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 							   'respuesta' as tipo,
 							   r.id as id2
 							FROM
-							  foro_comentario c
-							  INNER JOIN foro_respuesta r ON (c.id = r.com_id)
+							  tbl_foro_comentario c
+							  INNER JOIN tbl_foro_respuesta r ON (c.id = r.com_id)
 							WHERE
 							  c.foro_id = '{$_SESSION['tema_id']}'
 					)UNION(	
@@ -43,13 +43,13 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 				  SELECT 
 				  c.id,
 				  c.content,
-				  if(c.tipo_sujeto = 'admin',(select concat('".LANG_msg_prefa." ',nombre, ' ', apellido) from tbl_admin where id = c.sujeto_id),(select concat('".LANG_msg_prefs." ',nombre, ' ', apellido) from estudiante where id = c.sujeto_id)) AS sujeto,
-				  if(c.tipo_sujeto = 'admin',(select foto from tbl_admin where id = c.sujeto_id),(select foto from estudiante where id = c.sujeto_id)) AS foto,
+				  if(c.tipo_sujeto = 'admin',(select concat('".LANG_msg_prefa." ',nombre, ' ', apellido) from tbl_admin where id = c.sujeto_id),(select concat('".LANG_msg_prefs." ',nombre, ' ', apellido) from tbl_estudiante where id = c.sujeto_id)) AS sujeto,
+				  if(c.tipo_sujeto = 'admin',(select foto from tbl_admin where id = c.sujeto_id),(select foto from tbl_estudiante where id = c.sujeto_id)) AS foto,
 				  (SELECT 
 					  g.nombre
 					FROM
-					  grupo g
-					  INNER JOIN grupo_estudiante e ON (g.id = e.grupo_id)
+					  tbl_grupo g
+					  INNER JOIN tbl_grupo_estudiante e ON (g.id = e.grupo_id)
 					WHERE
 					  e.est_id = c.sujeto_id and e.curso_id = '{$_SESSION['CURSOID']}' ) as grupo,
 				  c.tipo_sujeto as tsujeto,
@@ -59,8 +59,8 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 				   'comentario' as tipo,
 				   0 as id2
 				  FROM
-				  foro f
-				  INNER JOIN foro_comentario c ON (f.id = c.foro_id) where f.id = '{$_SESSION['tema_id']}'
+				  tbl_foro f
+				  INNER JOIN tbl_foro_comentario c ON (f.id = c.foro_id) where f.id = '{$_SESSION['tema_id']}'
 				  order by c.fecha_post desc
 				  
 				  ) order by id desc, tipo, fecha asc

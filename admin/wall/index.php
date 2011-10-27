@@ -32,10 +32,10 @@ $_SESSION['tema_id'] = ''; /////tema
  
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = "select id,fecha_c as fecha,IFNULL((select nombre from grupo where id = p.grupo_id),'".LANG_all."') as grupo,
+  $query = "select id,fecha_c as fecha,IFNULL((select nombre from tbl_grupo where id = p.grupo_id),'".LANG_all."') as grupo,
   SUBSTRING(mensaje,1,100) as mensaje,
   IF(destaca=1,'<b>".LANG_wall_imp."</b>','".LANG_wall_imp_no."') as destaca
-   from cartelera p where p.curso_id = {$_SESSION['CURSOID']} ";
+   from tbl_cartelera p where p.curso_id = {$_SESSION['CURSOID']} ";
 
 
 

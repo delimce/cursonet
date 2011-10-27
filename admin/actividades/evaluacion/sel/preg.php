@@ -38,8 +38,8 @@ $menu = new menu($menu_struct);
 			ifnull(e.nombre,'-') as evaluación,
 			(CASE WHEN p.nivel = 1 THEN '".LANG_eva_level2."' WHEN p.nivel = 2  THEN '".LANG_eva_level3."' ELSE '".LANG_eva_level4."' END) as nivel
 			FROM
-			evaluacion_pregunta p
-			left Join evaluacion e  ON e.id = p.eval_id
+			tbl_evaluacion_pregunta p
+			left Join tbl_evaluacion e  ON e.id = p.eval_id
 			WHERE
 			p.tipo =  '1'
 			AND p.curso_id = {$_SESSION['CURSOID']} ";

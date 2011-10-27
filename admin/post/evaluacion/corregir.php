@@ -19,7 +19,7 @@ $menu = new menu($menu_struct);
 
         $campos[0] = "correccion"; $campos[1] = "nota";
 		$vector[0] = $_POST['revi']; $vector[1] = $_POST['nota'];
- 		$prueba->update("evaluacion_estudiante",$campos,$vector,"id = '{$_SESSION['EVAL_REV']}'");
+ 		$prueba->update("tbl_evaluacion_estudiante",$campos,$vector,"id = '{$_SESSION['EVAL_REV']}'");
   	    
 		
 		//////////////////acompanamiento de pruebas
@@ -45,9 +45,9 @@ $menu = new menu($menu_struct);
 		  eva.est_id,
 		  e.npreg
 		FROM
-		  evaluacion e
-		  INNER JOIN evaluacion_estudiante eva ON (e.id = eva.eval_id)
-		  INNER JOIN estudiante est ON (eva.est_id = est.id) and eva.id = '{$_SESSION['EVAL_REV']}' ";
+		  tbl_evaluacion e
+		  INNER JOIN tbl_evaluacion_estudiante eva ON (e.id = eva.eval_id)
+		  INNER JOIN tbl_estudiante est ON (eva.est_id = est.id) and eva.id = '{$_SESSION['EVAL_REV']}' ";
 		
 		$datos = $prueba->array_query2($queryd); ////query para los datos
 		
@@ -58,8 +58,8 @@ $menu = new menu($menu_struct);
 						  r.preg_id,
 						  r.respuesta
 						FROM
-						  evaluacion_pregunta p
-						  INNER JOIN evaluacion_respuesta r ON (p.id = r.preg_id)
+						  tbl_evaluacion_pregunta p
+						  INNER JOIN tbl_evaluacion_respuesta r ON (p.id = r.preg_id)
 						WHERE
 						  p.eval_id = $datos[5] and est_id = $datos[6] order by r.preg_id";
 		  
@@ -69,11 +69,11 @@ $menu = new menu($menu_struct);
 			 $query1 = "    SELECT
 						    (select count(*)
 							FROM
-							evaluacion_pregunta AS e
-							Inner Join evaluacion_respuesta_s AS r ON e.id = r.preg_id
-							Inner Join pregunta_opcion AS o ON e.id = o.preg_id
+							tbl_evaluacion_pregunta AS e
+							Inner Join tbl_evaluacion_respuesta_s AS r ON e.id = r.preg_id
+							Inner Join tbl_pregunta_opcion AS o ON e.id = o.preg_id
 							where o.correcta = 1 and eval_id = $datos[5] and (o.id = r.resp_opc) and r.est_id = $datos[6] ) as buenas,						 
-			  			   (select count(*) from evaluacion_pregunta where eval_id = $datos[5] ) as total ";
+			  			   (select count(*) from tbl_evaluacion_pregunta where eval_id = $datos[5] ) as total ";
 		
 		
 		}

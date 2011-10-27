@@ -15,12 +15,12 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
   
   e.duracion
 FROM
-  `evaluacion` e
+  `tbl_evaluacion` e
 WHERE
   (e.id = {$_REQUEST['idp']})");
   
   
-  $datos->query("SELECT e.id,e.pregunta as preg FROM `evaluacion_pregunta` e WHERE  (e.eval_id = {$_REQUEST['idp']} ) order by id");
+  $datos->query("SELECT e.id,e.pregunta as preg FROM `tbl_evaluacion_pregunta` e WHERE  (e.eval_id = {$_REQUEST['idp']} ) order by id");
   
 
 ?>

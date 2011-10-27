@@ -6,7 +6,7 @@ include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 $tool = new tools("db");
 
- $id = $tool->array_query2("select valido,sujeto_id,(select titulo from foro where id = foro_id) from foro_comentario where id = '{$_REQUEST['id']}'");
+ $id = $tool->array_query2("select valido,sujeto_id,(select titulo from tbl_foro where id = foro_id) from tbl_foro_comentario where id = '{$_REQUEST['id']}'");
  
  
 
@@ -27,14 +27,14 @@ $tool = new tools("db");
 			$datosmens[5] = date('Y-m-d H:i:s');
 			$datosmens[6] = LANG_msg_priority_n;
 						
-			$tool->insertar2("mensaje_est","tipo,de,para,subject,content,fecha,urgencia",$datosmens,true);
+			$tool->insertar2("tbl_mensaje_est","tipo,de,para,subject,content,fecha,urgencia",$datosmens,true);
 		
 
  
  }
  
  
- $tool->query("update foro_comentario set valido = $est where id = '{$_REQUEST['id']}' ");
+ $tool->query("update tbl_foro_comentario set valido = $est where id = '{$_REQUEST['id']}' ");
  echo $est;
   
 

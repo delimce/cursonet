@@ -35,7 +35,7 @@ $menu = new menu($menu_struct);
    ifnull((select concat(a.nombre, ' ', a.apellido) from tbl_admin a where a.id = c.autor),'".LANG_content_autor_unknow."') as autor, c.leido as lecturas,
    c.fecha,
    if({$_SESSION['ADMIN']}>2,'1','0') as condicion_editar
-   from contenido c where c.curso_id = {$_SESSION['CURSOID']} ";
+   from tbl_contenido c where c.curso_id = {$_SESSION['CURSOID']} ";
    
 
 	$grid->query($query); //////se ejecuta el query

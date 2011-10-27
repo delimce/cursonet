@@ -9,7 +9,7 @@
  		$login = $i->getvar("login1",$_POST);
 
 		 $DATOS = $i->simple_db("select lenguaje,e.id,concat(nombre,' ',apellido) as nombre,id_number,activo,email,sexo
-		 from estudiante e,setup where user = '$login' and pass = MD5('{$_POST['pass1']}')");
+		 from tbl_estudiante e,setup where user = '$login' and pass = MD5('{$_POST['pass1']}')");
 		 
 		 
 		 $_SESSION['LENGUAJE'] = $DATOS['lenguaje']; //lenguaje
@@ -23,8 +23,8 @@
 		$_SESSION['EMAIL'] = $DATOS['email'];
 		$_SESSION['SEXO'] = $DATOS['sexo'];
 		
-		$CURSOS = $i->array_query("select distinct curso_id from grupo_estudiante where est_id = {$_SESSION['USER']} ");
-		$GRUPOS = $i->array_query("select distinct grupo_id from grupo_estudiante where est_id = {$_SESSION['USER']} ");
+		$CURSOS = $i->array_query("select distinct curso_id from tbl_grupo_estudiante where est_id = {$_SESSION['USER']} ");
+		$GRUPOS = $i->array_query("select distinct grupo_id from tbl_grupo_estudiante where est_id = {$_SESSION['USER']} ");
 		
 		$_SESSION['CURSOSID'] = @implode(',',$CURSOS); 
 		$_SESSION['GRUPOSID'] = @implode(',',$GRUPOS);  //////asumiendo que grupo es 0 por defecto

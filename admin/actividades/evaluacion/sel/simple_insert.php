@@ -95,7 +95,7 @@ $eva  = new tools("db");
 				</tr>
 			  <tr>
 				<td width="35%" class="style3"><?php echo LANG_eva_name_sel?></td>
-				<td width="65%" class="small"><? echo $eva->combo_db("evalu","select id,nombre from evaluacion where tipo = 1 AND curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,false,false,'<input name="eval" type="hidden" value="">'.LANG_eva_noquestions); ?></td>
+				<td width="65%" class="small"><? echo $eva->combo_db("evalu","select id,nombre from tbl_evaluacion where tipo = 1 AND curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,false,false,'<input name="eval" type="hidden" value="">'.LANG_eva_noquestions); ?></td>
 			  </tr>
 			  <tr>
 			    <td class="style3"><?php echo LANG_eva_level; ?></td>

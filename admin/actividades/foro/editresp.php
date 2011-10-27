@@ -8,13 +8,13 @@ $tool = new formulario("db");
 
         if(!isset($_POST['Submit'])){ 
 		
-			$com = $tool->array_query("select content from foro_respuesta where id = '{$_REQUEST['id']}'");
+			$com = $tool->array_query("select content from tbl_foro_respuesta where id = '{$_REQUEST['id']}'");
 
         }else{
 
         $comentario = mysql_escape_string($_POST['comm']);
 
-        $tool->query("update foro_respuesta set content = '$comentario' where id = {$_POST['id2']} ");
+        $tool->query("update tbl_foro_respuesta set content = '$comentario' where id = {$_POST['id2']} ");
 
         ?>
 

@@ -10,15 +10,15 @@ $menu = new menu($menu_struct);
  
   $grid = new tools("db");
   $query = "SELECT  e.id,LOWER(concat(e.nombre,' ',e.apellido)) as nombre,e.id_number,
-  (SELECT count(*) FROM foro_comentario ff WHERE (ff.sujeto_id = e.id) AND (ff.tipo_sujeto = 'est') and (ff.foro_id = f.id)) AS comentarios,
-  (select count(*) from foro_comentario where foro_id = f.id and valido = 1 and tipo_sujeto = 'est' and sujeto_id = e.id) as val,
+  (SELECT count(*) FROM tbl_foro_comentario ff WHERE (ff.sujeto_id = e.id) AND (ff.tipo_sujeto = 'est') and (ff.foro_id = f.id)) AS comentarios,
+  (select count(*) from tbl_foro_comentario where foro_id = f.id and valido = 1 and tipo_sujeto = 'est' and sujeto_id = e.id) as val,
 					
-  (select nota from foro_estudiante where est_id = e.id and foro_id = f.id ) as nota
+  (select nota from tbl_foro_estudiante where est_id = e.id and foro_id = f.id ) as nota
 FROM
-  estudiante e,
-  foro f
+  tbl_estudiante e,
+  tbl_foro f
 WHERE
-    (e.id in (select est_id from grupo_estudiante where grupo_id = f.grupo_id ) or f.grupo_id = 0) and
+    (e.id in (select est_id from tbl_grupo_estudiante where grupo_id = f.grupo_id ) or f.grupo_id = 0) and
     f.id = {$_REQUEST['ItemID']} order by e.id ";
 	
 	
@@ -27,7 +27,7 @@ WHERE
 	
 	if(isset($_REQUEST['ItemID'])){
 	
-		 $data1 = $grid->array_query("select round(nota,1) from foro_estudiante where foro_id = {$_REQUEST['ItemID']} order by est_id");
+		 $data1 = $grid->array_query("select round(nota,1) from tbl_foro_estudiante where foro_id = {$_REQUEST['ItemID']} order by est_id");
 		 $grid->query($query);
 		 
 	}else if(isset($_POST['notas'])){
@@ -42,16 +42,16 @@ WHERE
 				$valores[2]=$_POST['notas'][$j];
 				
 				
-				$foroid2 = $grid->simple_db("select id from foro_estudiante where est_id = '$valores[0]' and foro_id = '$valores[1]' ");
+				$foroid2 = $grid->simple_db("select id from tbl_foro_estudiante where est_id = '$valores[0]' and foro_id = '$valores[1]' ");
 				
 					if($grid->nreg==0){
 					
-						$grid->insertar2("foro_estudiante","est_id,foro_id,nota",$valores);
+						$grid->insertar2("tbl_foro_estudiante","est_id,foro_id,nota",$valores);
 						
 					}else{
 					
 					
-						$grid->query("update foro_estudiante set nota = '$valores[2]' where id = '$foroid2'");
+						$grid->query("update tbl_foro_estudiante set nota = '$valores[2]' where id = '$foroid2'");
 					
 					
 					}	

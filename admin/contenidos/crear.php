@@ -24,7 +24,7 @@ $menu = new menu($menu_struct);
 	 $crear->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
      $crear->query("START TRANSACTION");
 
-	 $crear->insertar2("contenido","autor, titulo, contenido, borrador, fecha, leido,curso_id",$valores);
+	 $crear->insertar2("tbl_contenido","autor, titulo, contenido, borrador, fecha, leido,curso_id",$valores);
 
 	 
 	 $crear->query("COMMIT");

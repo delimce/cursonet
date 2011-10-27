@@ -112,7 +112,7 @@ $menu = new menu($menu_struct);
 
 		   <?php
 
-		   $datos = $crear->estructura_db("select id,pregunta from evaluacion_pregunta where eval_id  = '{$_SESSION['eval_id']}'");
+		   $datos = $crear->estructura_db("select id,pregunta from tbl_evaluacion_pregunta where eval_id  = '{$_SESSION['eval_id']}'");
 
 		   for($i=0;$i<$_GET['preguntas'];$i++){
 

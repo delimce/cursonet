@@ -13,7 +13,7 @@ $menu = new menu($menu_struct);
    if(isset($_GET['itemID'])){
    
     
-   $grabar->query("delete from evaluacion_pregunta where id = '{$_GET['itemID']}'");
+   $grabar->query("delete from tbl_evaluacion_pregunta where id = '{$_GET['itemID']}'");
    
    $grabar->javaviso(LANG_eva_delsel2,"preg.php");
   

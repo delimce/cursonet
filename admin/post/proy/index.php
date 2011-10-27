@@ -31,8 +31,8 @@ $menu = new menu($menu_struct);
   
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = "select distinct p.id,nombre,IFNULL((select nombre from grupo where id = p.grupo),'".LANG_all."') as seccion, concat((select count(*) from proyecto_estudiante where proy_id = p.id and nota > -1),'/',(select count(*) from proyecto_estudiante where proy_id = p.id )) as evaluados
-   from proyecto p inner join proyecto_estudiante e on (p.id = e.proy_id) and p.curso_id = {$_SESSION['CURSOID']}";
+  $query = "select distinct p.id,nombre,IFNULL((select nombre from tbl_grupo where id = p.grupo),'".LANG_all."') as seccion, concat((select count(*) from tbl_proyecto_estudiante where proy_id = p.id and nota > -1),'/',(select count(*) from tbl_proyecto_estudiante where proy_id = p.id )) as evaluados
+   from tbl_proyecto p inner join tbl_proyecto_estudiante e on (p.id = e.proy_id) and p.curso_id = {$_SESSION['CURSOID']}";
 
 
 

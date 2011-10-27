@@ -34,7 +34,7 @@ $menu = new menu($menu_struct);
 				   $valores[5] = $_POST['preguntas'];
 				   $valores[6] = $_POST['nivel'];
 
-				  $crear->update("evaluacion",$campos,$valores,"id = '{$_SESSION['eval_id']}'");
+				  $crear->update("tbl_evaluacion",$campos,$valores,"id = '{$_SESSION['eval_id']}'");
  				  unset($_SESSION['eval_id']);
 				  $crear->javaviso(LANG_cambios,"index.php");
 				  
@@ -57,7 +57,7 @@ $menu = new menu($menu_struct);
 
 
  				$datos = $crear->simple_db("select nombre, contenido_id, grupo_id, date_format(fecha,'{$_SESSION['DB_FORMATO_DB']}') as fecha, date_format(fecha_fin,'{$_SESSION['DB_FORMATO_DB']}') as fecha2,
-									  				npreg,nivel from evaluacion where id = '{$_GET['ItemID']}'");
+									  				npreg,nivel from tbl_evaluacion where id = '{$_GET['ItemID']}'");
 
   }
 
@@ -214,12 +214,12 @@ $menu = new menu($menu_struct);
   </tr>
   <tr>
   <td width="28%" class="style3"><?php echo LANG_content_name; ?></td>
-  <td colspan="2"><? echo $crear->combo_db("caso","select id,titulo from contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",LANG_select,$datos['contenido_id'],false,'<input name="caso" type="hidden" value="">'.LANG_content_theme); ?></td>
+  <td colspan="2"><? echo $crear->combo_db("caso","select id,titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",LANG_select,$datos['contenido_id'],false,'<input name="caso" type="hidden" value="">'.LANG_content_theme); ?></td>
  </tr>
    <tr>
     <td class="style3"><?php echo LANG_group_nombre; ?></td>
   <td colspan="2">
-    <? echo $crear->combo_db("grupo","select id, nombre from grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_all,$datos['grupo_id'],false,'<input name="grupo" type="hidden" value="">'); ?> </td>
+    <? echo $crear->combo_db("grupo","select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_all,$datos['grupo_id'],false,'<input name="grupo" type="hidden" value="">'); ?> </td>
 </tr>
   <tr>
   <td class="style3">&nbsp;</td>

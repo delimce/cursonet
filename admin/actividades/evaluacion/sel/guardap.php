@@ -23,10 +23,10 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 				 
 				 $eva->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
                  $eva->query("START TRANSACTION");
-                 $eva->query("LOCK TABLES evaluacion_pregunta WRITE, pregunta_opcion WRITE");
+                 $eva->query("LOCK TABLES tbl_evaluacion_pregunta WRITE, tbl_pregunta_opcion WRITE");
  
 				 
-				$eva->insertar2("evaluacion_pregunta","eval_id,tipo,pregunta,nivel,curso_id",$valores);
+				$eva->insertar2("tbl_evaluacion_pregunta","eval_id,tipo,pregunta,nivel,curso_id",$valores);
 				$nuevap = $eva->ultimoID;
 		
 				for($j=0;$j<count($_SESSION['OPCIONES']);$j++){
@@ -37,7 +37,7 @@ include ("../../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 					$valores2[1] = $_SESSION['OPCIONES'][$j]; //seleccion
 					$valores2[2] = $correcto;
 				
-					$eva->insertar2("pregunta_opcion","preg_id,opcion,correcta",$valores2);
+					$eva->insertar2("tbl_pregunta_opcion","preg_id,opcion,correcta",$valores2);
 				
 				}
 				

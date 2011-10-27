@@ -31,12 +31,12 @@ unset($_SESSION['EVAL_ID']);
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
   $query = "SELECT  distinct e.id, e.nombre,
-  (select titulo from contenido where id = e.contenido_id) AS caso,
-  ifnull((select nombre from grupo where id = e.grupo_id),'todas') AS seccion,e.fecha,
-  concat((select count(*) from evaluacion_estudiante where eval_id = e.id and nota != -1),'/',
-  (select count(*) from evaluacion_estudiante where eval_id = e.id)) AS eval
+  (select titulo from tbl_contenido where id = e.contenido_id) AS caso,
+  ifnull((select nombre from tbl_grupo where id = e.grupo_id),'todas') AS seccion,e.fecha,
+  concat((select count(*) from tbl_evaluacion_estudiante where eval_id = e.id and nota != -1),'/',
+  (select count(*) from tbl_evaluacion_estudiante where eval_id = e.id)) AS eval
   FROM
-  evaluacion e
+  tbl_evaluacion e
   WHERE
   now() > e.fecha_fin ";
 

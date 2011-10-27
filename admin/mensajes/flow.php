@@ -24,12 +24,12 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 	
 		case 0: ///admin
 		  
-		   $crear->insertar2("mensaje_admin","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
+		   $crear->insertar2("tbl_mensaje_admin","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
 		   break;
 		   
 		case 1: //est
 		
-		   $crear->insertar2("mensaje_est","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
+		   $crear->insertar2("tbl_mensaje_est","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
 		   break;
 		   
 		case 2:
@@ -39,13 +39,13 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 		   	
 		   			 $est = $crear->array_query("SELECT  distinct e.id
 										FROM
- 										 grupo_estudiante g
-  										 INNER JOIN estudiante e ON (g.est_id = e.id)
+ 										 tbl_grupo_estudiante g
+  										 INNER JOIN tbl_estudiante e ON (g.est_id = e.id)
 										WHERE
 										 g.grupo_id = '{$_POST['persona']}' AND 
   										 g.curso_id = '{$_SESSION['CURSOID']}' ");
 		   			 
-		   			$admin1 = $crear->simple_db("SELECT g.prof_id  FROM  grupo g  WHERE  g.id = {$_POST['persona']}"); 
+		   			$admin1 = $crear->simple_db("SELECT g.prof_id  FROM  tbl_grupo g  WHERE  g.id = {$_POST['persona']}"); 
 		   	
 		   
 		   
@@ -59,14 +59,14 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 		   for($i=0;$i<count($est);$i++){
 		   
 		   		$valores[3] = $est[$i];
-		   		$crear->insertar2("mensaje_est","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
+		   		$crear->insertar2("tbl_mensaje_est","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
 		   }
 		   
 		  		if($admin1>0){
 		  					  			
 		  			$valores[0] = 0;
 		  			$valores[3] = $admin1;		
-		   			$crear->insertar2("mensaje_admin","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
+		   			$crear->insertar2("tbl_mensaje_admin","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
 		
 		  		}
 		   			   	   

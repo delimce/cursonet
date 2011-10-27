@@ -10,14 +10,14 @@ $menu = new menu($menu_struct);
 
   $pro = new tools("db");
  	
-	$data = $pro->simple_db("select nombre from evaluacion where id = {$_REQUEST['id']} ");
+	$data = $pro->simple_db("select nombre from tbl_evaluacion where id = {$_REQUEST['id']} ");
 	
 	$preguntas = $pro->estructura_db("SELECT 
 									  p.pregunta,
 									  p.id
 									FROM
-									  evaluacion_pregunta p
-									  INNER JOIN evaluacion e ON (p.eval_id = e.id)
+									  tbl_evaluacion_pregunta p
+									  INNER JOIN tbl_evaluacion e ON (p.eval_id = e.id)
 									WHERE
 									  e.id = {$_REQUEST['id']}");
 	
@@ -26,9 +26,9 @@ $menu = new menu($menu_struct);
 									  o.correcta,
 									  o.preg_id
 									FROM
-									  pregunta_opcion o
-									  INNER JOIN evaluacion_pregunta p ON (o.preg_id = p.id)
-									  INNER JOIN evaluacion e ON (p.eval_id = e.id)
+									  tbl_pregunta_opcion o
+									  INNER JOIN tbl_evaluacion_pregunta p ON (o.preg_id = p.id)
+									  INNER JOIN tbl_evaluacion e ON (p.eval_id = e.id)
 									WHERE
 									  e.id = {$_REQUEST['id']}");
 									  

@@ -18,7 +18,7 @@ if(isset($_POST['Submit'])){ ///se envia el comentario
     $valores[5] = $_POST['resp'];
     
    
-    $insert->insertar2("foro_comentario","foro_id,tipo_sujeto,sujeto_id,content,fecha_post,response",$valores);
+    $insert->insertar2("tbl_foro_comentario","foro_id,tipo_sujeto,sujeto_id,content,fecha_post,response",$valores);
     
     
     ?>

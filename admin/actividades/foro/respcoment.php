@@ -12,7 +12,7 @@ $tool = new formulario("db");
         $_POST['r-content'] = mysql_escape_string($_POST['r-content']);
 		$_POST['r-fecha'] = @date("Y-m-d H:i:s");
 
-        $tool->insert_data("r","-","foro_respuesta",$_POST);
+        $tool->insert_data("r","-","tbl_foro_respuesta",$_POST);
 
         ?>
 

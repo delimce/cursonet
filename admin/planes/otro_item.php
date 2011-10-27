@@ -15,7 +15,7 @@ $tool = new tools("db");
 			
 					                $tool->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
 									$tool->query("START TRANSACTION");
-									$tool->query("delete from plan_estudiante where item_id = {$_POST['id']}");
+									$tool->query("delete from tbl_plan_estudiante where item_id = {$_POST['id']}");
 						  
 			 		foreach ($_POST['nota'] as $i => $valor) {
 					
@@ -26,7 +26,7 @@ $tool = new tools("db");
 								  $valores[1] = $_POST['esid'][$i];
 								  $valores[2] = $valor;
 				
-								  $tool->insertar2("plan_estudiante","item_id,est_id,nota",$valores);
+								  $tool->insertar2("tbl_plan_estudiante","item_id,est_id,nota",$valores);
 							}
 					  
 					}
@@ -51,12 +51,12 @@ $tool = new tools("db");
 						  concat(e.nombre, ' ', e.apellido) AS nombre,
 						  e.id_number,
 						  e.id,
-						  (SELECT round(plan_estudiante.nota,2) FROM plan_estudiante WHERE est_id = e.id AND item_id = pi.id) AS nota
+						  (SELECT round(nota,2) FROM tbl_plan_estudiante WHERE est_id = e.id AND item_id = pi.id) AS nota
 						FROM
-						  grupo_estudiante g
-						  INNER JOIN estudiante e ON (g.est_id = e.id)
-						  INNER JOIN plan_evaluador p ON (p.grupo_id = g.grupo_id)
-						  INNER JOIN plan_item `pi` ON (p.id = `pi`.plan_id)
+						  tbl_grupo_estudiante g
+						  INNER JOIN tbl_estudiante e ON (g.est_id = e.id)
+						  INNER JOIN tbl_plan_evaluador p ON (p.grupo_id = g.grupo_id)
+						  INNER JOIN tbl_plan_item `pi` ON (p.id = `pi`.plan_id)
 						WHERE
 						  `pi`.id = {$_REQUEST['id']}
 						  

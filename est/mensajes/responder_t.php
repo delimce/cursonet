@@ -13,7 +13,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 					  concat('".LANG_msg_prefa." ',a.nombre,' ',a.apellido) as nombre,
 					  a.id
 					  FROM
-					  contenido c
+					  tbl_contenido c
 					  INNER JOIN admin a ON (c.autor = a.id)
 					  where c.id = '{$_SESSION['CASOACTUAL']}' ");
  

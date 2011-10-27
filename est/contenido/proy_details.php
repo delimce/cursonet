@@ -16,9 +16,9 @@ ifnull((select concat(nombre,' ',apellido) from tbl_admin where id = p.autor),'"
 date_format(`p`.`fecha_entrega`,'{$_SESSION['DB_FORMATO_DB']}'),
 `p`.`enunciado`,
 DATEDIFF(fecha_entrega,NOW()),
-ifnull((select id from proyecto_estudiante where proy_id = {$_REQUEST['idp']} and est_id = {$_SESSION['USER']} limit 1),0)
+ifnull((select id from tbl_proyecto_estudiante where proy_id = {$_REQUEST['idp']} and est_id = {$_SESSION['USER']} limit 1),0)
 FROM
-`proyecto` AS `p`
+`tbl_proyecto` AS `p`
 WHERE
 p.id = {$_REQUEST['idp']}
 
@@ -27,7 +27,7 @@ p.id = {$_REQUEST['idp']}
 	$pdata = $datos->array_query2($query);
 	
 		$archivos =	$datos->estructura_db("SELECT r.dir, r.descripcion, r.id,r.tipo FROM
-								  proyecto_recurso p
+								  tbl_proyecto_recurso p
 								  INNER JOIN recurso r ON (p.rec_id = r.id)
 								WHERE
 								  p.proy_id = '{$_REQUEST['idp']}' ");

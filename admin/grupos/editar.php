@@ -15,7 +15,7 @@ $menu = new menu($menu_struct);
 
  if(isset($_REQUEST['ItemID'])){
 
-    $data = $crear->array_query2("select prof_id,nombre,descripcion,turno from grupo where id = '{$_REQUEST['ItemID']}' ");
+    $data = $crear->array_query2("select prof_id,nombre,descripcion,turno from tbl_grupo where id = '{$_REQUEST['ItemID']}' ");
 
  }
 

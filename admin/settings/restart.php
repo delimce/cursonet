@@ -11,17 +11,17 @@ include("security.php"); ///seguridad para el admin
  $modo = new tools("db");
  $valores = $modo->array_query2("select 
  
- (select count(*) from estudiante),
- (select count(*) from grupo),
- (select count(*) from contenido),
- (select count(*) from foro), 
- (select count(*) from evaluacion),
- (select count(*) from proyecto),
- (select count(*) from mensaje_est),
- (select count(*) from mensaje_admin),
+ (select count(*) from tbl_estudiante),
+ (select count(*) from tbl_grupo),
+ (select count(*) from tbl_contenido),
+ (select count(*) from tbl_foro), 
+ (select count(*) from tbl_evaluacion),
+ (select count(*) from tbl_proyecto),
+ (select count(*) from tbl_mensaje_est),
+ (select count(*) from tbl_mensaje_admin),
  (select count(*) from tbl_recurso where add_by = 'admin'),
- (select count(*) from plan_evaluador),
- (select count(*) from evaluacion_pregunta where tipo = 1),
+ (select count(*) from tbl_plan_evaluador),
+ (select count(*) from tbl_evaluacion_pregunta where tipo = 1),
  (select count(*) from tbl_log_est)
  
  ");
@@ -92,7 +92,7 @@ function resetea(tabla,nombre) {
 			<td align="center" width="16%" class="style3"><?php echo LANG_nreg?></td>
 			</tr>
 		  <tr>
-			<td width="22%" class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('estudiante','<?=LANG_RES_stutable?>?');"><?php echo LANG_RES_stutable ?></span></td>
+			<td width="22%" class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_estudiante','<?=LANG_RES_stutable?>?');"><?php echo LANG_RES_stutable ?></span></td>
 			<td width="62%" class="style1"><?php echo LANG_RES_stutable_des ?></td>
 			<td align="center" width="16%" class="style1"><div id="estudiante"><?php echo $valores[0]; ?></div></td>
 		  </tr>
@@ -104,7 +104,7 @@ function resetea(tabla,nombre) {
 		  </tr>
 		  
 		  <tr>
-			<td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('contenido','<?=LANG_RES_content?>?');"><?php echo LANG_RES_content ?></span></td>
+			<td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_contenido','<?=LANG_RES_content?>?');"><?php echo LANG_RES_content ?></span></td>
 			<td class="style1"><?php echo LANG_RES_content_des ?></td>
 			<td align="center" class="style1"><div id="contenido"><?php echo $valores[2]; ?></div></td>
 		  </tr>
@@ -112,22 +112,22 @@ function resetea(tabla,nombre) {
 		    <td colspan="3" class="style3">&nbsp;</td>
 		    </tr>
 		  <tr>
-		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('foro','<?=LANG_RES_foro?>?');"><?php echo LANG_RES_foro ?></span></td>
+		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_foro','<?=LANG_RES_foro?>?');"><?php echo LANG_RES_foro ?></span></td>
 		    <td class="style1"><?php echo LANG_RES_foro_des ?></td>
 		    <td align="center" class="style1"><div id="foro"><?php echo $valores[3]; ?></div></td>
 		    </tr>
 		  <tr>
-		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('evaluacion_pregunta','<?=LANG_RES_eva ?>?');"><?php echo LANG_RES_eva ?></span></td>
+		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_evaluacion_pregunta','<?=LANG_RES_eva ?>?');"><?php echo LANG_RES_eva ?></span></td>
 		    <td class="style1"><?php echo LANG_RES_eva_des ?></td>
 		    <td align="center" class="style1"><div id="evaluacion"><?php echo $valores[4]; ?></div></td>
 		    </tr>
 		  <tr>
-		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('evaluacion_pregunta','<?=LANG_RES_sel ?>?');"><?php echo LANG_RES_sel ?></span></td>
+		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_evaluacion_pregunta','<?=LANG_RES_sel ?>?');"><?php echo LANG_RES_sel ?></span></td>
 		    <td class="style1"><?php echo LANG_RES_sel_des ?></td>
 		    <td align="center" class="style1"><div id="evaluacion_pregunta"><?php echo $valores[10]; ?></div></td>
 		    </tr>
 		  <tr>
-		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('proyecto','<?=LANG_RES_proy?>?');"><?php echo LANG_RES_proy ?></span></td>
+		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_proyecto','<?=LANG_RES_proy?>?');"><?php echo LANG_RES_proy ?></span></td>
 		    <td class="style1"><?php echo LANG_RES_proy_des ?></td>
 		    <td align="center" class="style1"><div id="proyecto"><?php echo $valores[5]; ?></div></td>
 		    </tr>
@@ -135,12 +135,12 @@ function resetea(tabla,nombre) {
 		    <td colspan="3" class="style3">&nbsp;</td>
 		    </tr>
 		  <tr>
-		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('mensaje_est','<?=LANG_RES_mest?>?');"><?php echo LANG_RES_mest ?></span></td>
+		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_mensaje_est','<?=LANG_RES_mest?>?');"><?php echo LANG_RES_mest ?></span></td>
 		    <td class="style1"><?php echo LANG_RES_mest_des ?></td>
 		    <td align="center" class="style1"><div id="mensaje_est"><?php echo $valores[6]; ?></div></td>
 		    </tr>
 		  <tr>
-		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('mensaje_admin','<?=LANG_RES_madmin?>?');"><?php echo LANG_RES_madmin ?></span></td>
+		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_mensaje_admin','<?=LANG_RES_madmin?>?');"><?php echo LANG_RES_madmin ?></span></td>
 		    <td class="style1"><?php echo LANG_RES_madmin_des ?></td>
 		    <td align="center" class="style1"><div id="mensaje_admin"><?php echo $valores[7]; ?></div></td>
 		    </tr>
@@ -153,7 +153,7 @@ function resetea(tabla,nombre) {
 		    <td align="center" class="style1"><?php echo $valores[8]; ?></td>
 		  </tr>
 		  <tr>
-		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('plan_evaluador','<?=LANG_RES_plan?>?');"><?php echo LANG_RES_plan ?></span></td>
+		    <td class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_plan_evaluador','<?=LANG_RES_plan?>?');"><?php echo LANG_RES_plan ?></span></td>
 		    <td class="style1"><?php echo LANG_RES_plan_del ?></td>
 		    <td align="center" class="style1"><?php echo $valores[9]; ?></td>
 		    </tr>

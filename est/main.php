@@ -19,7 +19,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
  }
  
  $infocurso = $datos->simple_db("select nombre,duracion,descripcion from tbl_curso where id = '{$_SESSION['CURSOID']}' ");
- $mensajes = $datos->estructura_db("select id, IF(LENGTH(subject)>60,concat(SUBSTRING(subject,1,60),'...'),subject) as subject, date_format(fecha,'{$_SESSION['DB_FORMATO_DB']}') as fecha from mensaje_est where para = {$_SESSION['USER']} and leido = 0 order by id desc");
+ $mensajes = $datos->estructura_db("select id, IF(LENGTH(subject)>60,concat(SUBSTRING(subject,1,60),'...'),subject) as subject, date_format(fecha,'{$_SESSION['DB_FORMATO_DB']}') as fecha from tbl_mensaje_est where para = {$_SESSION['USER']} and leido = 0 order by id desc");
 
 
 ?>
@@ -116,7 +116,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 	    </tr>
 	  <tr>
 	    <td class="style3"> <?= LANG_est_scurso ?></td>
-	    <td><span class="style1"><?php echo $datos->combo_db("casos","select  id, IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,60),'...'),titulo) as titulo from contenido c where c.curso_id = '{$_SESSION['CURSOID']}'  and c.borrador = 0","titulo","id",LANG_select,$_SESSION['CASOACTUAL'],'contenido(this.value);',LANG_est_nogroup_cont); ?></span></td>
+	    <td><span class="style1"><?php echo $datos->combo_db("casos","select  id, IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,60),'...'),titulo) as titulo from tbl_contenido c where c.curso_id = '{$_SESSION['CURSOID']}'  and c.borrador = 0","titulo","id",LANG_select,$_SESSION['CASOACTUAL'],'contenido(this.value);',LANG_est_nogroup_cont); ?></span></td>
 	    </tr>
 	  <tr height="10">
 	    <td>&nbsp;</td>
@@ -165,7 +165,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
         <td class="style1"  height="<?php echo $tamam = 275 + (7*count($mensajes)); ?>">
         <MARQUEE id="mm" height="<?php echo $tamam ?>" align="top"  direction="up" scrolldelay="120">
 		<?php $datos->query("select mensaje,date_format(fecha_c,'{$_SESSION['DB_FORMATO_DB']}') as fecha,
-		destaca from cartelera 
+		destaca from tbl_cartelera 
 		where (curso_id = '{$_SESSION['CURSOID']}') and (grupo_id = 0 OR grupo_id in ('{$_SESSION['GRUPOSID']}') ) order by id desc"); ?>
 		<?php 
 				if($datos->nreg>0){

@@ -30,7 +30,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 					   $datos->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
 					   $datos->query("START TRANSACTION");
 
-					   $datos->query("LOCK TABLES evaluacion_revision WRITE, evaluacion_respuesta WRITE");
+					   $datos->query("LOCK TABLES evaluacion_revision WRITE, tbl_evaluacion_respuesta WRITE");
 
 					   $valores[0] = $_POST['eval_id'];
 					   $valores[1] = $_SESSION['USER'];
@@ -48,7 +48,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 									   $valores2[1] = $pregs_id[$j];
 									   $valores2[2] = $valores3[$j];
 
-									$datos->insertar2("evaluacion_respuesta","rev_id, pregunta_id, respuesta",$valores2);
+									$datos->insertar2("tbl_evaluacion_respuesta","rev_id, pregunta_id, respuesta",$valores2);
 
 					   }
 					   ////////////////////

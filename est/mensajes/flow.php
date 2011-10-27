@@ -25,12 +25,12 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 	
 		case 1: ///admin
 		  
-		   $crear->insertar2("mensaje_admin","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
+		   $crear->insertar2("tbl_mensaje_admin","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
 		   break;
 		   
 		case 0: //est
 		
-		   $crear->insertar2("mensaje_est","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
+		   $crear->insertar2("tbl_mensaje_est","tipo, urgencia, de, para, subject, content, fecha, leido",$valores);
 		   break;
 	   
 	}

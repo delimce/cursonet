@@ -98,7 +98,7 @@ $menu = new menu($menu_struct);
 
   <tr id="seccion" style="display:none">
     <td valign="top" class="style3"><?php echo LANG_seccion_select ?></td>
-    <td><?php echo $crear->combo_db("secc","select nombre,id from grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre","nombre","id",LANG_all,false,"ajaxcombo('person','persona','iframe.php?tipo=1&grupo='+this.value,'personas','nombre','id');",LANG_nogroup);  ?></td>
+    <td><?php echo $crear->combo_db("secc","select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre","nombre","id",LANG_all,false,"ajaxcombo('person','persona','iframe.php?tipo=1&grupo='+this.value,'personas','nombre','id');",LANG_nogroup);  ?></td>
   </tr>
 
 

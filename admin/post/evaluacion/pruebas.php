@@ -12,7 +12,7 @@ $menu = new menu($menu_struct);
  
  if(isset($_GET['ItemID']))$_SESSION['EVAL_ID'] = $_GET['ItemID'];
  
- $totales = $prueba->array_query2("select (select count(*) from evaluacion_estudiante where nota = -1 and eval_id = '{$_SESSION['EVAL_ID']}') as sin, (select count(*) from evaluacion_estudiante where nota != -1 and eval_id = '{$_SESSION['EVAL_ID']}') as listos");
+ $totales = $prueba->array_query2("select (select count(*) from tbl_evaluacion_estudiante where nota = -1 and eval_id = '{$_SESSION['EVAL_ID']}') as sin, (select count(*) from tbl_evaluacion_estudiante where nota != -1 and eval_id = '{$_SESSION['EVAL_ID']}') as listos");
  
  if($totales[0]>$totales[1]) $total = $totales[0]; else $total = $totales[1];
 
@@ -22,8 +22,8 @@ $menu = new menu($menu_struct);
   e.id_number,
   a.nota
 FROM
-  evaluacion_estudiante a,
-  estudiante e
+  tbl_evaluacion_estudiante a,
+  tbl_estudiante e
 WHERE
   (a.est_id = e.id)  and a.eval_id = '{$_SESSION['EVAL_ID']}' order by nombre");
    

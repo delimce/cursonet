@@ -17,10 +17,10 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 	   $query = "select id, concat(nombre,' ',apellido) as nombre from tbl_admin where id != '{$_SESSION['USERID']}' order by nombre";
 	   break;
 	case 1: //est
-	 $query = "select id, concat(nombre,' ',apellido,' - ',id_number) as nombre from estudiante where activo = 1 and id in (select est_id from grupo_estudiante where curso_id = {$_SESSION['CURSOID']} $extra )  order by nombre ";
+	 $query = "select id, concat(nombre,' ',apellido,' - ',id_number) as nombre from tbl_estudiante where activo = 1 and id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} $extra )  order by nombre ";
 	   break;
 	case 2:
-	  $query = "select id, nombre from grupo where curso_id = {$_SESSION['CURSOID']} order by nombre ";
+	  $query = "select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']} order by nombre ";
 	   break; 
 	}
 

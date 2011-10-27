@@ -17,11 +17,11 @@ $menu = new menu($menu_struct);
  concat(nombre,' ',apellido) as nombre,date_format(fecha_nac,'".$_SESSION['DB_FORMATO_DB']."') as nac,(SELECT 
   g.nombre
 FROM
-  grupo g
-  INNER JOIN grupo_estudiante e ON (g.id = e.grupo_id)
+  tbl_grupo g
+  INNER JOIN tbl_grupo_estudiante e ON (g.id = e.grupo_id)
 WHERE
   e.est_id = '{$_REQUEST['id']}' and e.curso_id = '{$_SESSION['CURSOID']}' ) as grupo,
-  date_format(fecha_creado,'".$_SESSION['DB_FORMATO_DB']."') as creado from estudiante where id = '{$_REQUEST['id']}'";
+  date_format(fecha_creado,'".$_SESSION['DB_FORMATO_DB']."') as creado from tbl_estudiante where id = '{$_REQUEST['id']}'";
 	 
 
 
@@ -180,8 +180,8 @@ WHERE
 					p.titulo,
 					curso.nombre
 				  FROM
-					grupo_estudiante g
-					INNER JOIN plan_evaluador p ON (g.grupo_id = p.grupo_id)
+					tbl_grupo_estudiante g
+					INNER JOIN tbl_plan_evaluador p ON (g.grupo_id = p.grupo_id)
 					INNER JOIN curso ON (g.curso_id = curso.id)
 				  WHERE
 					g.est_id = '{$data['id']}' order by titulo";

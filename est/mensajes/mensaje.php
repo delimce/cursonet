@@ -8,9 +8,9 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
  $ver = new tools("db");
  
   $query = "select id,subject as titulo,
-  IF(tipo=1,(select concat('".LANG_msg_prefa."',nombre,' ',apellido) from tbl_admin where id = de ),(select concat('".LANG_msg_prefs."',nombre,' ',apellido) from estudiante where id = de )) as Remite,
-  IF(tipo=0,(select foto from estudiante where id = de ),(select foto from tbl_admin where id = de )) as foto
-  ,date_format(fecha,'".$_SESSION['DB_FORMATO_DB']."') as fecha,leido,content,urgencia,tipo,de from mensaje_est where id = '{$_GET['id']}'";
+  IF(tipo=1,(select concat('".LANG_msg_prefa."',nombre,' ',apellido) from tbl_admin where id = de ),(select concat('".LANG_msg_prefs."',nombre,' ',apellido) from tbl_estudiante where id = de )) as Remite,
+  IF(tipo=0,(select foto from tbl_estudiante where id = de ),(select foto from tbl_admin where id = de )) as foto
+  ,date_format(fecha,'".$_SESSION['DB_FORMATO_DB']."') as fecha,leido,content,urgencia,tipo,de from tbl_mensaje_est where id = '{$_GET['id']}'";
 
 $datos = $ver->simple_db($query);
 
@@ -106,7 +106,7 @@ $datos = $ver->simple_db($query);
 </html>
 <?php 
 
- if($datos['leido']==0) $ver->query("update mensaje_est set leido = 1 where id = '{$_GET['id']}'");
+ if($datos['leido']==0) $ver->query("update tbl_mensaje_est set leido = 1 where id = '{$_GET['id']}'");
 
  $ver->cerrar();
 

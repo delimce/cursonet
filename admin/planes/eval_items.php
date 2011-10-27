@@ -16,7 +16,7 @@ $tool = new tools("db");
 								  p.tipo,
 								  p.id_act
 								FROM
-								  plan_item p
+								  tbl_plan_item p
 								WHERE
 								  p.plan_id = '{$_REQUEST['id']}' order by id");
 								  

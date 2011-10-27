@@ -19,7 +19,7 @@ $menu = new menu($menu_struct);
 	  eva.correccion,
 	  if(eva.nota = '-1', '', eva.nota) AS nota
 	FROM
-	  proyecto_estudiante eva inner join estudiante est
+	  tbl_proyecto_estudiante eva inner join tbl_estudiante est
 	  ON (est.id = eva.est_id)  
 	  
 	WHERE
@@ -34,7 +34,7 @@ $menu = new menu($menu_struct);
 
         $campos[0] = "correccion"; $campos[1] = "nota";
 		$vector[0] = $_POST['revi']; $vector[1] = $_POST['nota'];
- 		$prueba->update("proyecto_estudiante",$campos,$vector,"id = '{$_SESSION['PRO_ID2']}'");
+ 		$prueba->update("tbl_proyecto_estudiante",$campos,$vector,"id = '{$_SESSION['PRO_ID2']}'");
   	    
 		
 		//////////////////acompanamiento de proyectos

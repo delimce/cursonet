@@ -44,7 +44,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 								 $valores2[1] = $_SESSION['USER'];
 								 $valores2[2] = $crear->ultimoID;
 
-								 $crear->insertar2("proyecto_estudiante","proy_id,est_id,rec_id",$valores2);
+								 $crear->insertar2("tbl_proyecto_estudiante","proy_id,est_id,rec_id",$valores2);
 
 						 $crear->cerrar_transaccion(); 
 								 

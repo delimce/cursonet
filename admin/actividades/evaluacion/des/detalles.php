@@ -28,8 +28,8 @@ $menu = new menu($menu_struct);
 
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = " select e.id, e.nombre, c.titulo as caso, IFNULL((select nombre from grupo where id = e.grupo_id),'Todas') as seccion, date_format(e.fecha,'{$_SESSION['DB_FORMATO_DB']}') as fecha
-  from evaluacion e inner join contenido c on e.contenido_id = c.id and e.curso_id = {$_SESSION['CURSOID']} and e.tipo = 2 ";
+  $query = " select e.id, e.nombre, c.titulo as caso, IFNULL((select nombre from tbl_grupo where id = e.grupo_id),'Todas') as seccion, date_format(e.fecha,'{$_SESSION['DB_FORMATO_DB']}') as fecha
+  from tbl_evaluacion e inner join tbl_contenido c on e.contenido_id = c.id and e.curso_id = {$_SESSION['CURSOID']} and e.tipo = 2 ";
 
 
 ?>

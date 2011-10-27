@@ -15,7 +15,7 @@ $menu = new menu($menu_struct);
 
  if(isset($_GET['ItemID']) && !isset($_POST['nombre'])){
 
-         $datos = $crear->array_query2("select id,nombre,grupo,fecha_entrega,nota,enunciado,contenido_id from proyecto where id = '{$_GET['ItemID']}'");
+         $datos = $crear->array_query2("select id,nombre,grupo,fecha_entrega,nota,enunciado,contenido_id from tbl_proyecto where id = '{$_GET['ItemID']}'");
 
  }else if(isset($_POST['nombre'])){
 
@@ -30,7 +30,7 @@ $menu = new menu($menu_struct);
                                    $valores[6] = date("Y-m-d h:i:s");
                                    $valores[7] = $_POST['caso'];
 
-                                  $crear->update("proyecto",$campos,$valores,"id = '{$_POST['id']}'");
+                                  $crear->update("tbl_proyecto",$campos,$valores,"id = '{$_POST['id']}'");
                                   $crear->javaviso(LANG_cambios,"index.php");
 
 
@@ -198,7 +198,7 @@ $menu = new menu($menu_struct);
 
 
    <td valign="top" class="style1"><span class="style3"><?php echo LANG_content_name; ?></span></td>
-    <td class="style1"><?php echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",false,$datos[6],"ajaxcombo('grupox','grupo','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
+    <td class="style1"><?php echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",false,$datos[6],"ajaxcombo('grupox','grupo','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
 
  </tr>
   <tr>
@@ -206,7 +206,7 @@ $menu = new menu($menu_struct);
      <td width="18%" valign="top" class="style1"><span class="style3"><?php echo LANG_seccion ?></span></td>
     <td class="style1">
     <div id="grupox">
-    <?php echo $crear->combo_db("grupo","select id, nombre from grupo where curso_id = {$_SESSION['CURSOID']} ","nombre","id",LANG_all,$datos[2],false,LANG_all); ?>
+    <?php echo $crear->combo_db("grupo","select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']} ","nombre","id",LANG_all,$datos[2],false,LANG_all); ?>
     </div>
     </td>
 

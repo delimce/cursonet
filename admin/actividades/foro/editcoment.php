@@ -6,13 +6,13 @@ include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 $tool = new tools("db");
 
-        if(isset($_REQUEST['id'])){ $com = $tool->array_query("select content from foro_comentario where id = '{$_REQUEST['id']}'");
+        if(isset($_REQUEST['id'])){ $com = $tool->array_query("select content from tbl_foro_comentario where id = '{$_REQUEST['id']}'");
 
         }else{
 
         $comentario = mysql_escape_string($_POST['comm']);
 
-        $tool->query("update foro_comentario set content = '$comentario' where id = {$_POST['id2']} ");
+        $tool->query("update tbl_foro_comentario set content = '$comentario' where id = {$_POST['id2']} ");
 
         ?>
 

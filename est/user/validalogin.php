@@ -5,7 +5,7 @@ include("../../class/clases.php");
  
   $val = new tools("db");
   
-  $algo = $val->array_query("select id from estudiante where user = trim('{$_REQUEST['nombre']}') and id != {$_SESSION['USER']} limit 1");
+  $algo = $val->array_query("select id from tbl_estudiante where user = trim('{$_REQUEST['nombre']}') and id != {$_SESSION['USER']} limit 1");
   
   $val->cerrar();
   

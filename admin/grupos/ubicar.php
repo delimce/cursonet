@@ -30,7 +30,7 @@ $menu = new menu($menu_struct);
  
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = "select id,nombre,descripcion,(select count(*) from grupo_estudiante where grupo_id = p.id) as alumnos from grupo p where p.curso_id = {$_SESSION['CURSOID']}";
+  $query = "select id,nombre,descripcion,(select count(*) from tbl_grupo_estudiante where grupo_id = p.id) as alumnos from tbl_grupo p where p.curso_id = {$_SESSION['CURSOID']}";
 
 
 

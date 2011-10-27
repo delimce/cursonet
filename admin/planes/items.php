@@ -39,7 +39,7 @@ $menu = new menu($menu_struct);
 	  p.tipo,
 	  CONCAT(round(p.porcentaje,2),'%') AS total
 	FROM
-	  plan_item p
+	  tbl_plan_item p
 	WHERE
 	  p.plan_id = {$_REQUEST['id']} ";
 
@@ -48,7 +48,7 @@ $menu = new menu($menu_struct);
  $crear = new tools();
  $crear->dbc = $grid->dbc;
  
- $datos = $crear->simple_db("select titulo,id,grupo_id from plan_evaluador where id = {$_REQUEST['id']}");
+ $datos = $crear->simple_db("select titulo,id,grupo_id from tbl_plan_evaluador where id = {$_REQUEST['id']}");
  
  $_SESSION['GRUPOPLAN'] = $datos['grupo_id']; ///grupo asignado
 

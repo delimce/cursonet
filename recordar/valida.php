@@ -8,7 +8,7 @@
 
 		$cedula = $i->getvar("cedula",$_POST);
 		 $DATOS = $i->simple_db("select lenguaje,e.id,concat(nombre,' ',apellido) as nombre, e.clave_preg
-		 from estudiante e,setup where id_number = '$cedula'");
+		 from tbl_estudiante e,setup where id_number = '$cedula'");
 		 
 		 
 
@@ -32,7 +32,7 @@
  			 $resp1 = $i->getvar("resp",$_POST);
  
  			 $DATOS = $i->simple_db("select id_number,user
-		 								from estudiante e 
+		 								from tbl_estudiante e 
 										where (e.id = {$_SESSION['USERP']} ) and (clave_resp = LOWER('$resp1'))");
 
 
@@ -41,7 +41,7 @@
 				$_SESSION['RCEDULA'] = $cedula1 =  $DATOS['id_number'];
 				$_SESSION['RLOGIN'] = $DATOS['user'];
 				
-				$i->query("update estudiante set pass = md5('$cedula1') where id = '{$_SESSION['USERP']}' ");				
+				$i->query("update tbl_estudiante set pass = md5('$cedula1') where id = '{$_SESSION['USERP']}' ");				
 				
 				echo 1;
 	

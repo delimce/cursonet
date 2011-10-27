@@ -14,9 +14,9 @@ $eva  = new tools("db");
  $nivelv = $eva->llenar_array('1,2,3');
 
 	
-	$datos = $eva->simple_db("select eval_id,pregunta,nivel from evaluacion_pregunta where id = {$_REQUEST['ItemID']} ");
+	$datos = $eva->simple_db("select eval_id,pregunta,nivel from tbl_evaluacion_pregunta where id = {$_REQUEST['ItemID']} ");
 	
-	$datos2 = $eva->estructura_db("select opcion,correcta from pregunta_opcion where preg_id = {$_REQUEST['ItemID']} ");
+	$datos2 = $eva->estructura_db("select opcion,correcta from tbl_pregunta_opcion where preg_id = {$_REQUEST['ItemID']} ");
 	
 	for($j=0;$j<count($datos2);$j++){
 	
@@ -107,7 +107,7 @@ $eva  = new tools("db");
 				</tr>
 			  <tr>
 				<td width="35%" class="style3"><?php echo LANG_eva_name_sel?></td>
-				<td width="65%" class="small"><? echo $eva->combo_db("evalu","select id,nombre from evaluacion where tipo = 1 AND curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,$datos['eval_id'],false,'<input name="eval" type="hidden" value="">'.LANG_eva_noquestions); ?></td>
+				<td width="65%" class="small"><? echo $eva->combo_db("evalu","select id,nombre from tbl_evaluacion where tipo = 1 AND curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,$datos['eval_id'],false,'<input name="eval" type="hidden" value="">'.LANG_eva_noquestions); ?></td>
 			  </tr>
 			  <tr>
 			    <td class="style3"><?php echo LANG_eva_level; ?></td>

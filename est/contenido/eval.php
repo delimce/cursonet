@@ -36,11 +36,11 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 	$query = "
 
 			SELECT id,nombre,date_format(fecha,'{$_SESSION['DB_FORMATO_DB']} %h:%i %p') as fecha, date_format(fecha_fin,'{$_SESSION['DB_FORMATO_DB']} %h:%i %p') as fecha2,
-			if((id = (select eval_id from evaluacion_estudiante where est_id = '{$_SESSION['USER']}' and eval_id = e.id)),'Realizada',
+			if((id = (select eval_id from tbl_evaluacion_estudiante where est_id = '{$_SESSION['USER']}' and eval_id = e.id)),'Realizada',
 			(case when ( NOW() > e.fecha_fin ) then 'Aplicada'
 			when ((NOW()>=e.fecha ) AND (NOW() <= e.fecha_fin ) ) then 'Aplicandose' 
 			when (e.fecha > NOW()) then 'Pendiente' end)) as estatus
-			FROM   evaluacion e
+			FROM   tbl_evaluacion e
 			WHERE
 			(contenido_id= {$_SESSION['CASOACTUAL']} ) AND ((grupo_id in ({$_SESSION['GRUPOSID']}) ) OR ((grupo_id=0)))
 
@@ -136,7 +136,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 			
 		  }else if($row['estatus']=="Realizada"){
 		  
-			  $nota2 = $notas->simple_db("select nota,id from evaluacion_estudiante where eval_id = {$row['id']} and est_id = '{$_SESSION['USER']}' ");
+			  $nota2 = $notas->simple_db("select nota,id from tbl_evaluacion_estudiante where eval_id = {$row['id']} and est_id = '{$_SESSION['USER']}' ");
 			 
 				  if($nota2['nota']=='-1'){ $NOTA = 'Por corregir';  }else{
 					

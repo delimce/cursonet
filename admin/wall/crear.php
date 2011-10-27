@@ -15,7 +15,7 @@ $menu = new menu($menu_struct);
 		$_POST['r-fecha_c']  = @date("Y-m-d H:i:s");
 		$_POST['r-curso_id'] =  $_SESSION['CURSOID'];
 	
-		$crear->insert_data("r","-","cartelera",$_POST);
+		$crear->insert_data("r","-","tbl_cartelera",$_POST);
 		
 		$crear->javaviso(LANG_wall_created,"index.php");
 	
@@ -75,7 +75,7 @@ $menu = new menu($menu_struct);
     </tr>
   <tr>
     <td width="29%" valign="top" class="style3"><?php echo LANG_seccion_select ?></td>
-    <td width="71%"><?php echo $crear->combo_db("r-grupo_id","(select '".LANG_all."' as nombre, 0 as id)union(select nombre,id from grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre)","nombre","id",false,false,false,LANG_nogroup);  ?></td>
+    <td width="71%"><?php echo $crear->combo_db("r-grupo_id","(select '".LANG_all."' as nombre, 0 as id)union(select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre)","nombre","id",false,false,false,LANG_nogroup);  ?></td>
   </tr>
   <tr>
     <td valign="top" class="style3"><?php echo LANG_wall_desc ?></td>

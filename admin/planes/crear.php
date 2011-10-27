@@ -19,7 +19,7 @@ $menu = new menu($menu_struct);
 				  $valores[2] = $_POST['nota'];
 				  $valores[3] = $_POST['redondeo'];
 
-				  $crear->insertar2("plan_evaluador","titulo,grupo_id,en_base,redondeo",$valores);
+				  $crear->insertar2("tbl_plan_evaluador","titulo,grupo_id,en_base,redondeo",$valores);
 				  $id = $crear->ultimoID;
 				  $crear->cerrar();
 				   
@@ -111,7 +111,7 @@ $menu = new menu($menu_struct);
   <tr>
 
     <td width="28%" class="style3"><?php echo LANG_planes_group; ?></td>
-  <td><? echo $crear->combo_db("grupo","select id,nombre from grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,false,false,LANG_group_nogroup.'<input name="grupo" type="hidden" value="">'); ?></td>
+  <td><? echo $crear->combo_db("grupo","select id,nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,false,false,LANG_group_nogroup.'<input name="grupo" type="hidden" value="">'); ?></td>
 </tr>
 
   <tr>

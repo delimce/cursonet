@@ -41,12 +41,12 @@ $menu = new menu($menu_struct);
 		  (SELECT 
 		  g.nombre
 		FROM
-		  `grupo_estudiante` ge
-		  INNER JOIN `grupo` g ON (ge.grupo_id = g.id)
+		  `tbl_grupo_estudiante` ge
+		  INNER JOIN `tbl_grupo` g ON (ge.grupo_id = g.id)
 		where ge.curso_id = {$_SESSION['CURSOID']} and est_id = e.id )as seccion,
 		  (if (activo=1,'<img border=\"0\" title=\"".LANG_is_active."\" src=\"../../images/backend/checkmark.gif\">','<img border=\"0\" title=\"".LANG_is_noactive."\" src=\"../../images/backend/x.gif\">')) as activo,
 		   if({$_SESSION['ADMIN']}>2,'1','0') as condicion_editar
-		  from estudiante e where (nombre like '%{$_REQUEST['nombre']}%' or apellido like '%{$_REQUEST['nombre']}%') OR (id_number = '{$_REQUEST['ci']}') order by nombre,apellido,id_number";
+		  from tbl_estudiante e where (nombre like '%{$_REQUEST['nombre']}%' or apellido like '%{$_REQUEST['nombre']}%') OR (id_number = '{$_REQUEST['ci']}') order by nombre,apellido,id_number";
 		
 		
 			$grid->query($query); //////se ejecuta el query

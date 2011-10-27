@@ -177,14 +177,14 @@ $menu = new menu($menu_struct);
   </tr>
   <tr>
   <td width="28%" class="style3"><?php echo LANG_content_name; ?></td>
-  <td colspan="2"><? echo $crear->combo_db("caso","select id,titulo from contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",LANG_select,$_SESSION['eva_caso'],"ajaxcombo('grupox','seccion','../../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');",'<input name="caso" type="hidden" value="">'.LANG_content_theme); ?></td>
+  <td colspan="2"><? echo $crear->combo_db("caso","select id,titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0","titulo","id",LANG_select,$_SESSION['eva_caso'],"ajaxcombo('grupox','seccion','../../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');",'<input name="caso" type="hidden" value="">'.LANG_content_theme); ?></td>
  </tr>
    <tr>
     <td class="style3"><?php echo LANG_group_nombre; ?></td>
   <td colspan="2">
      <div id="grupox">
 
-      <?php if($_SESSION['eva_caso']==""){ echo LANG_group_casoseccion; }else{ echo $crear->combo_db("seccion","select id, nombre from grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_all,$_SESSION['eva_seccion'],false,LANG_all.'<input name="seccion" type="hidden" value="0">'); } ?>
+      <?php if($_SESSION['eva_caso']==""){ echo LANG_group_casoseccion; }else{ echo $crear->combo_db("seccion","select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_all,$_SESSION['eva_seccion'],false,LANG_all.'<input name="seccion" type="hidden" value="0">'); } ?>
      </div>
 
 

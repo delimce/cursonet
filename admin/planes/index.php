@@ -31,8 +31,8 @@ $menu = new menu($menu_struct);
  
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = "select id,titulo,IFNULL((select nombre from grupo where id = p.grupo_id),'".LANG_all."') as grupo, en_base as total from plan_evaluador p
-            where grupo_id in (select id from grupo where curso_id = {$_SESSION['CURSOID']}) ";
+  $query = "select id,titulo,IFNULL((select nombre from tbl_grupo where id = p.grupo_id),'".LANG_all."') as grupo, en_base as total from tbl_plan_evaluador p
+            where grupo_id in (select id from tbl_grupo where curso_id = {$_SESSION['CURSOID']}) ";
 
 
 ?>

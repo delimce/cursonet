@@ -14,13 +14,13 @@ $menu = new menu($menu_struct);
 	
 		if($_POST['r-destaca']!=1)$_POST['r-destaca']=0;
 	
-		$crear->update_data("r","-","cartelera",$_POST,"id = '{$_POST['id']}'");
+		$crear->update_data("r","-","tbl_cartelera",$_POST,"id = '{$_POST['id']}'");
 		
 		$crear->redirect("index.php");
 	
 	}else{
 	
-		$data = $crear->simple_db("select id,mensaje,grupo_id,destaca from cartelera where id = '{$_REQUEST['id']}'");
+		$data = $crear->simple_db("select id,mensaje,grupo_id,destaca from tbl_cartelera where id = '{$_REQUEST['id']}'");
 	
 	}
 
@@ -78,7 +78,7 @@ $menu = new menu($menu_struct);
     </tr>
   <tr>
     <td width="27%" valign="top" class="style3"><?php echo LANG_seccion_select ?></td>
-    <td width="73%"><?php echo $crear->combo_db("r-grupo_id","(select '".LANG_all."' as nombre, 0 as id)union(select nombre,id from grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre)","nombre","id",false,$data['grupo_id'],false,LANG_nogroup);  ?>
+    <td width="73%"><?php echo $crear->combo_db("r-grupo_id","(select '".LANG_all."' as nombre, 0 as id)union(select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre)","nombre","id",false,$data['grupo_id'],false,LANG_nogroup);  ?>
       <input name="id" type="hidden" id="id" value="<?=$data['id'] ?>"></td>
   </tr>
    <tr>

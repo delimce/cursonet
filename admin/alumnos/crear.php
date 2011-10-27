@@ -18,7 +18,7 @@ $menu = new menu($menu_struct);
 
  if(isset($_POST['login12'])){
  
-      $crear->query("select id from estudiante where user = '{$_POST['login12']}' or id_number = '{$_POST['ci']}'");
+      $crear->query("select id from tbl_estudiante where user = '{$_POST['login12']}' or id_number = '{$_POST['ci']}'");
  
 		 if($crear->nreg>0){
 		 
@@ -54,14 +54,14 @@ $menu = new menu($menu_struct);
 		$valores2[20]= trim($_POST['sresp']);
 		
 		
-		$crear->insertar2("estudiante","id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, yahoo, carrera, nivel, universidad, internet_acc, internet_zona, user, pass, fecha_creado,activo,clave_preg,clave_resp",$valores2); 
+		$crear->insertar2("tbl_estudiante","id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, yahoo, carrera, nivel, universidad, internet_acc, internet_zona, user, pass, fecha_creado,activo,clave_preg,clave_resp",$valores2); 
 		
 		if($_POST['grupo']>0){
 		
 			 $valores4[0]=$crear->ultimoID;
 			 $valores4[1]=$_SESSION['CURSOID'];
 			 $valores4[2]=$_POST['grupo'];
-			 $crear->insertar2("grupo_estudiante","est_id, curso_id, grupo_id",$valores4); 
+			 $crear->insertar2("tbl_grupo_estudiante","est_id, curso_id, grupo_id",$valores4); 
 			 
 		} 
 		
@@ -249,7 +249,7 @@ $menu = new menu($menu_struct);
     <td class="style3"><strong>
       <?=LANG_group ?>
     </strong></td>
-    <td><?php echo $crear->combo_db("grupo","select id,nombre from grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_ungroup,false,false,LANG_nogroup);?></td>
+    <td><?php echo $crear->combo_db("grupo","select id,nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_ungroup,false,false,LANG_nogroup);?></td>
     <td>&nbsp;</td>
     <td class="style3"><strong>
       <?= LANG_squestion ?>

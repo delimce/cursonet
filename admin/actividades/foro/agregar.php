@@ -23,13 +23,13 @@ $crear = new tools("db");
         $valores[4] = date("Y-m-d H:i:s");
         $valores[5] = 1;
 
-          $crear->insertar2("foro_comentario","foro_id, tipo_sujeto, sujeto_id, content, fecha_post,valido",$valores);
+          $crear->insertar2("tbl_foro_comentario","foro_id, tipo_sujeto, sujeto_id, content, fecha_post,valido",$valores);
           $crear->javaviso(LANG_foro_com_created,"comentario.php");
 
 
         }else{
 
-                $titulo = $crear->array_query("select titulo from foro where id = '{$_SESSION['tema_id']}'");
+                $titulo = $crear->array_query("select titulo from tbl_foro where id = '{$_SESSION['tema_id']}'");
         }
 
 ?>

@@ -7,7 +7,7 @@ include("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 $est = new tools('db');
 $fecha = new fecha($_SESSION['DB_FORMATO']);
 
-$data = $est->simple_db("select * from estudiante where id = {$_SESSION['USER']}");
+$data = $est->simple_db("select * from tbl_estudiante where id = {$_SESSION['USER']}");
 
 ?>
 <html>

@@ -8,8 +8,8 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
  $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo_admin,(SELECT alias from tbl_curso WHERE id = '{$_SESSION['CURSOID']}'),version from tbl_setup");
  
  ///////////////////
- $datamenu = $datos->simple_db("select (select count(*) from estudiante) as nest, (select count(*) from mensaje_admin where para = {$_SESSION['USERID']} ) as nmens,
- (select count(*) from contenido where curso_id = '{$_SESSION['CURSOID']}') as ntemas, 
+ $datamenu = $datos->simple_db("select (select count(*) from tbl_estudiante) as nest, (select count(*) from tbl_mensaje_admin where para = {$_SESSION['USERID']} ) as nmens,
+ (select count(*) from tbl_contenido where curso_id = '{$_SESSION['CURSOID']}') as ntemas, 
  (select count(*) from tbl_recurso where add_by = 'admin') as recursos  ");
   
  

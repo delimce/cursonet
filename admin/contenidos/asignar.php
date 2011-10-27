@@ -17,9 +17,9 @@ $menu = new menu($menu_struct);
    $links = $asig->estructura_db("select id,dir,descripcion from tbl_recurso where tipo = 1 and add_by = 'admin'");
    $vid   = $asig->estructura_db("select id,dir,descripcion from tbl_recurso where tipo = 2 and add_by = 'admin'");
  
-   $arselect = $asig->array_query("select recurso_id from contenido_recurso where contenido_id = '{$_REQUEST['ItemID']}' and tipo = 0"); //archivos
-   $linkselect = $asig->array_query("select recurso_id from contenido_recurso where contenido_id = '{$_REQUEST['ItemID']}' and tipo = 1"); //enlaces
-   $vidselect = $asig->array_query("select recurso_id from contenido_recurso where contenido_id = '{$_REQUEST['ItemID']}' and tipo = 2"); //videos
+   $arselect = $asig->array_query("select recurso_id from tbl_contenido_recurso where contenido_id = '{$_REQUEST['ItemID']}' and tipo = 0"); //archivos
+   $linkselect = $asig->array_query("select recurso_id from tbl_contenido_recurso where contenido_id = '{$_REQUEST['ItemID']}' and tipo = 1"); //enlaces
+   $vidselect = $asig->array_query("select recurso_id from tbl_contenido_recurso where contenido_id = '{$_REQUEST['ItemID']}' and tipo = 2"); //videos
   
   }
   
@@ -29,7 +29,7 @@ $menu = new menu($menu_struct);
       $asig->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
       $asig->query("START TRANSACTION");
   
-	  $asig->query("delete from contenido_recurso where contenido_id = '{$_POST['id']}'");
+	  $asig->query("delete from tbl_contenido_recurso where contenido_id = '{$_POST['id']}'");
 	  
 	  $valores[0] = $_POST['id'];
 	  
@@ -38,7 +38,7 @@ $menu = new menu($menu_struct);
 	  for($i=0;$i<count($_POST['archi']);$i++){
 	    $valores[1] = $_POST['archi'][$i];
 	    $valores[2] = 0;
-	  	$asig->insertar2("contenido_recurso","contenido_id, recurso_id, tipo",$valores);
+	  	$asig->insertar2("tbl_contenido_recurso","contenido_id, recurso_id, tipo",$valores);
 	  }
 	  
 	  
@@ -46,7 +46,7 @@ $menu = new menu($menu_struct);
 	  
 	    $valores[1] = $_POST['enlace'][$j];
 	    $valores[2] = 1;
-	  	$asig->insertar2("contenido_recurso","contenido_id, recurso_id, tipo",$valores);
+	  	$asig->insertar2("tbl_contenido_recurso","contenido_id, recurso_id, tipo",$valores);
 	  
 	  }
 	  
@@ -55,7 +55,7 @@ $menu = new menu($menu_struct);
 	  
 	    $valores[1] = $_POST['videos'][$z];
 	    $valores[2] = 2;
-	  	$asig->insertar2("contenido_recurso","contenido_id, recurso_id, tipo",$valores);
+	  	$asig->insertar2("tbl_contenido_recurso","contenido_id, recurso_id, tipo",$valores);
 	  
 	  }
 	  

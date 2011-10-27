@@ -17,7 +17,7 @@ $menu = new menu($menu_struct);
     $_SESSION['eval_id'] = $_GET['ItemID'];
 
  	$datos = $crear->array_query2("select nombre, contenido_id, grupo_id, date_format(fecha,'{$_SESSION['DB_FORMATO_DB']}') as fecha, date_format(fecha_fin,'{$_SESSION['DB_FORMATO_DB']}') as fecha2,
-											npreg as preg from evaluacion where id = '{$_SESSION['eval_id']}'");
+											npreg as preg from tbl_evaluacion where id = '{$_SESSION['eval_id']}'");
 
  	$_SESSION['eva_nombre']    = $datos[0];
 	$_SESSION['eva_caso']      = $datos[1];
@@ -185,13 +185,13 @@ $menu = new menu($menu_struct);
   </tr>
   <tr>
   <td width="28%" class="style3"><?php echo LANG_content_name; ?></td>
-  <td colspan="2"><? echo $crear->combo_db("caso","select id,titulo from contenido where borrador = 0","titulo","id",false,$_SESSION['eva_caso'],"ajaxcombo('grupox','seccion','../../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
+  <td colspan="2"><? echo $crear->combo_db("caso","select id,titulo from tbl_contenido where borrador = 0","titulo","id",false,$_SESSION['eva_caso'],"ajaxcombo('grupox','seccion','../../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
 </tr>
   <tr>
   <td class="style3"><?php echo LANG_group_nombre; ?></td>
   <td colspan="2">
   <div id="grupox">
-  	<?php echo $crear->combo_db("seccion","select id, nombre from grupo where curso_id = {$_SESSION['CURSOID']} ","nombre","id",LANG_all,$_SESSION['eva_seccion']); ?>
+  	<?php echo $crear->combo_db("seccion","select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']} ","nombre","id",LANG_all,$_SESSION['eva_seccion']); ?>
 
   	</div>
   </td>

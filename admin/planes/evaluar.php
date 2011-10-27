@@ -11,9 +11,9 @@ $tool = new tools("db");
 
 			$tool->query("SELECT DISTINCT p.titulo, p.id, count(i.id) as nitem
 								  FROM
-								  plan_evaluador p
-								  INNER JOIN plan_item i ON (p.id = i.plan_id) 
-								  where grupo_id in (select id from grupo where curso_id = {$_SESSION['CURSOID']})
+								  tbl_plan_evaluador p
+								  INNER JOIN tbl_plan_item i ON (p.id = i.plan_id) 
+								  where grupo_id in (select id from tbl_grupo where curso_id = {$_SESSION['CURSOID']})
 								  group by p.id ");
 								  
 								  

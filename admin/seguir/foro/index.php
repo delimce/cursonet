@@ -31,11 +31,11 @@ unset($_SESSION['PRO_ID']);
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
   $query = " SELECT  distinct f.id, f.titulo,
-  (select titulo from contenido where id = f.contenido_id) AS caso,
-  ifnull((select nombre from grupo where id = f.grupo_id),'todas') AS seccion,f.fecha_post as fecha,
-  (select count(*) from foro_comentario where foro_id = f.id) as coment
+  (select titulo from tbl_contenido where id = f.contenido_id) AS caso,
+  ifnull((select nombre from tbl_grupo where id = f.grupo_id),'todas') AS seccion,f.fecha_post as fecha,
+  (select count(*) from tbl_foro_comentario where foro_id = f.id) as coment
   FROM
-  foro f where curso_id = {$_SESSION['CURSOID']}";
+  tbl_foro f where curso_id = {$_SESSION['CURSOID']}";
 
 
 ?>

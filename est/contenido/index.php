@@ -14,9 +14,9 @@ if(isset($_GET['id'])){
  $datos->abrir_transaccion();
  
 	 /////revisar.
-	 $datos->query("update contenido set leido = leido+1 where id = $ide "); 
+	 $datos->query("update tbl_contenido set leido = leido+1 where id = $ide "); 
 	 /////////////
-	 $caso = $datos->simple_db("select contenido from contenido c where id = $ide ");
+	 $caso = $datos->simple_db("select contenido from tbl_contenido c where id = $ide ");
 
 	 	if(empty($_SESSION['CONTARCONT'])){
 	

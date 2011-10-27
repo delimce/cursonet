@@ -17,12 +17,12 @@ $menu = new menu($menu_struct);
 										  o.preg_id,
 										  o.correcta
 										FROM
-										  evaluacion_pregunta p
-										  INNER JOIN evaluacion_estudiante e ON (p.eval_id = e.eval_id)
+										  tbl_evaluacion_pregunta p
+										  INNER JOIN tbl_evaluacion_estudiante e ON (p.eval_id = e.eval_id)
 										  AND (e.eval_id = p.eval_id)
-										  INNER JOIN evaluacion_respuesta_s r ON (p.id = r.preg_id)
+										  INNER JOIN tbl_evaluacion_respuesta_s r ON (p.id = r.preg_id)
 										  AND (e.est_id = r.est_id)
-										  INNER JOIN pregunta_opcion o ON (r.resp_opc = o.id)
+										  INNER JOIN tbl_pregunta_opcion o ON (r.resp_opc = o.id)
 										WHERE
 										  e.id = '{$_SESSION['EVAL_REV']}' ");
 										  
@@ -32,9 +32,9 @@ $menu = new menu($menu_struct);
 									  o.preg_id,
 									  o.id
 									FROM
-									  evaluacion_estudiante e
-									  INNER JOIN evaluacion_pregunta p ON (e.eval_id = p.eval_id)
-									  INNER JOIN pregunta_opcion o ON (p.id = o.preg_id)
+									  tbl_evaluacion_estudiante e
+									  INNER JOIN tbl_evaluacion_pregunta p ON (e.eval_id = p.eval_id)
+									  INNER JOIN tbl_pregunta_opcion o ON (p.id = o.preg_id)
 									WHERE
 									  e.id = '{$_SESSION['EVAL_REV']}' ");									  
 

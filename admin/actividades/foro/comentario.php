@@ -99,7 +99,7 @@ $crear = new tools('db');
 		<table width="100%" border="0" cellpadding="3" cellspacing="4">
           <tr>
             <td width="24%" class="style3">Seleccione un foro</td>
-            <td height="10" colspan="2" class="style1"><?php echo $crear->combo_db("foro","select IF(LENGTH(titulo)>65,concat(SUBSTRING(titulo,1,65),'...'),titulo) as titulo,id from foro where curso_id = {$_SESSION['CURSOID']}","titulo","id",LANG_select,$_SESSION['tema_id'],"cambio();",'<input name="foro" type="hidden" id="tema" />'.LANG_foro_noitem); ?></td>
+            <td height="10" colspan="2" class="style1"><?php echo $crear->combo_db("foro","select IF(LENGTH(titulo)>65,concat(SUBSTRING(titulo,1,65),'...'),titulo) as titulo,id from tbl_foro where curso_id = {$_SESSION['CURSOID']}","titulo","id",LANG_select,$_SESSION['tema_id'],"cambio();",'<input name="foro" type="hidden" id="tema" />'.LANG_foro_noitem); ?></td>
           </tr>
           <tr>
             <td><span class="style3"><?php echo LANG_group_nombre; ?></span></td>

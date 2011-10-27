@@ -16,7 +16,7 @@ $menu = new menu($menu_struct);
 	if(isset($_REQUEST['ItemID'])){
 	
 	
-	 $query = "select nombre,apellido,id_number,sexo,date_format(fecha_nac,'".$_SESSION['DB_FORMATO_DB']."'),email,(select grupo_id from grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and est_id = {$_REQUEST['ItemID']} ) as grupo,user,activo,carrera,nivel,universidad,id,clave_preg,clave_resp from estudiante where id = '{$_REQUEST['ItemID']}'";
+	 $query = "select nombre,apellido,id_number,sexo,date_format(fecha_nac,'".$_SESSION['DB_FORMATO_DB']."'),email,(select grupo_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and est_id = {$_REQUEST['ItemID']} ) as grupo,user,activo,carrera,nivel,universidad,id,clave_preg,clave_resp from tbl_estudiante where id = '{$_REQUEST['ItemID']}'";
 	 $data = $crear->array_query2($query);
 	
 	}
@@ -48,21 +48,21 @@ $menu = new menu($menu_struct);
 		 $crear->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
          $crear->query("START TRANSACTION");
 		
-		$crear->update("estudiante",$campos,$valores2,"id = '{$_POST['id']}' "); 
+		$crear->update("tbl_estudiante",$campos,$valores2,"id = '{$_POST['id']}' "); 
 		
 		////grupo editar
-		$crear->query("select id from grupo_estudiante where est_id = {$_POST['id']} and curso_id = {$_SESSION['CURSOID']} ");
+		$crear->query("select id from tbl_grupo_estudiante where est_id = {$_POST['id']} and curso_id = {$_SESSION['CURSOID']} ");
 		
 		if($crear->nreg>0 && $_POST['grupo']!=0){
 		
 			$g1[0] = "grupo_id"; $v1[0] = $_POST['grupo'];
-			$crear->update("grupo_estudiante",$g1,$v1,"est_id = '{$_POST['id']}' and curso_id = {$_SESSION['CURSOID']} "); 
+			$crear->update("tbl_grupo_estudiante",$g1,$v1,"est_id = '{$_POST['id']}' and curso_id = {$_SESSION['CURSOID']} "); 
 		
 		
 		}else if($_POST['grupo']==0){
 		
 		
-			$crear->query("delete from grupo_estudiante where est_id = '{$_POST['id']}' and curso_id = {$_SESSION['CURSOID']} ");
+			$crear->query("delete from tbl_grupo_estudiante where est_id = '{$_POST['id']}' and curso_id = {$_SESSION['CURSOID']} ");
 		
 		
 		}else if($_POST['grupo']!=0){///inserta
@@ -71,7 +71,7 @@ $menu = new menu($menu_struct);
 			 $valores4[0]=$_POST['id'];
 			 $valores4[1]=$_SESSION['CURSOID'];
 			 $valores4[2]=$_POST['grupo'];
-			 $crear->insertar2("grupo_estudiante","est_id, curso_id, grupo_id",$valores4); 
+			 $crear->insertar2("tbl_grupo_estudiante","est_id, curso_id, grupo_id",$valores4); 
 		
 		
 		}
@@ -81,7 +81,7 @@ $menu = new menu($menu_struct);
 		 if($_POST['boton']==1){
 	
 	        $npass = md5($_POST['pass1']);
-	        $crear->query("update estudiante set pass = '$npass' where id = '{$_POST['id']}'");
+	        $crear->query("update tbl_estudiante set pass = '$npass' where id = '{$_POST['id']}'");
 		 
 		 }
 		 		 
@@ -308,7 +308,7 @@ $menu = new menu($menu_struct);
     <td class="style3"><strong>
       <?=LANG_group ?>
     </strong></td>
-    <td><?php echo $crear->combo_db("grupo","select id,nombre from grupo where curso_id = {$_SESSION['CURSOID']} ","nombre","id",LANG_ungroup,$data[6],FALSE,LANG_nogroup);?></td>
+    <td><?php echo $crear->combo_db("grupo","select id,nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']} ","nombre","id",LANG_ungroup,$data[6],FALSE,LANG_nogroup);?></td>
     <td>&nbsp;</td>
     <td class="style3"><strong>
       <?= LANG_squestion ?>

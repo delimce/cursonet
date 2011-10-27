@@ -39,12 +39,12 @@ $datos = new tools("db");
 				
 					if($pregs_tipo[$j]==1){ ///examen de seleccion
 					
-							$tabla = "evaluacion_respuesta_s";
+							$tabla = "tbl_evaluacion_respuesta_s";
 							$campos = "est_id,preg_id,resp_opc";
 									
 					}else{
 					
-						    $tabla = "evaluacion_respuesta";
+						    $tabla = "tbl_evaluacion_respuesta";
 							$campos = "est_id,preg_id,respuesta";
 
 					}	
@@ -61,7 +61,7 @@ $datos = new tools("db");
 				$valores4[1] = $_REQUEST['eval_id']; //seleccion
 				
 				//// guardando registro para el plan y correccion, la tabla evaluacion_revision sale
-				$datos->insertar2("evaluacion_estudiante","est_id,eval_id",$valores4);
+				$datos->insertar2("tbl_evaluacion_estudiante","est_id,eval_id",$valores4);
 				
 				
 				//////

@@ -34,7 +34,7 @@ $menu = new menu($menu_struct);
   if($_GET['seccion']=="")$filtro = ''; else $filtro = "and e.grupo = {$_GET['seccion']}"; ///se asume que el defecto de grupo_id de evaluacion es 0
 
   $query = "select distinct e.id, e.nombre as nombre, c.titulo as caso, date_format(e.fecha_entrega,'{$_SESSION['DB_FORMATO_DB']}') as fecha
-  from proyecto e,contenido c where e.contenido_id = c.id  $filtro";
+  from tbl_proyecto e,tbl_contenido c where e.contenido_id = c.id  $filtro";
 
 
 
@@ -59,7 +59,7 @@ $menu = new menu($menu_struct);
 
 	<table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td>&nbsp;<?=LANG_group_filter ?> <form name="se" action="index.php" method="get"><? echo  $combo->combo_db("seccion","select id,nombre from grupo","nombre","id",LANG_all,false,"submit();");  ?></form><br>
+        <td>&nbsp;<?=LANG_group_filter ?> <form name="se" action="index.php" method="get"><? echo  $combo->combo_db("seccion","select id,nombre from tbl_grupo","nombre","id",LANG_all,false,"submit();");  ?></form><br>
           <br><?php  $grid->cargar($query);?>
           <br></td>
       </tr>

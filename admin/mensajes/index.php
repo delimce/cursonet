@@ -8,7 +8,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 		if(isset($_REQUEST['delete0'])){ ////borrar todos los mensajes
 		
 				$tool = new tools("db");
-				$tool->query("delete from mensaje_admin where para = '{$_SESSION['USERID']}' ");
+				$tool->query("delete from tbl_mensaje_admin where para = '{$_SESSION['USERID']}' ");
 				$tool->cerrar();
 				$tool->javaviso("Todos sus mensajes han sido borrados","index.php");
 				
@@ -42,8 +42,8 @@ $menu = new menu($menu_struct);
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
   $query = "select id,subject as titulo,
-  IF(tipo=0,(select concat('".LANG_msg_prefa."',nombre,' ',apellido) from tbl_admin where id = de ),(select concat('".LANG_msg_prefs."',nombre,' ',apellido) from estudiante where id = de )) as Remite
-  ,date_format(fecha,'".$_SESSION['DB_FORMATO_DB']."') as fecha,if(leido=0,'<font color=\"blue\">".LANG_new."</font>','".LANG_old."') as Estado from mensaje_admin where para = '{$_SESSION['USERID']}'";
+  IF(tipo=0,(select concat('".LANG_msg_prefa."',nombre,' ',apellido) from tbl_admin where id = de ),(select concat('".LANG_msg_prefs."',nombre,' ',apellido) from tbl_estudiante where id = de )) as Remite
+  ,date_format(fecha,'".$_SESSION['DB_FORMATO_DB']."') as fecha,if(leido=0,'<font color=\"blue\">".LANG_new."</font>','".LANG_old."') as Estado from tbl_mensaje_admin where para = '{$_SESSION['USERID']}'";
 
 
 	$grid->query($query); //////se ejecuta el query

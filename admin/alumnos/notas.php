@@ -12,7 +12,7 @@ $menu = new menu($menu_struct);
  
   $tool = new tools("db");
  
-	$planinfo = $tool->simple_db("select en_base from plan_evaluador where id = {$_REQUEST['id']} ");
+	$planinfo = $tool->simple_db("select en_base from tbl_plan_evaluador where id = {$_REQUEST['id']} ");
 
 	$query_item = "SELECT DISTINCT 
 		  p.id,
@@ -22,7 +22,7 @@ $menu = new menu($menu_struct);
 		  p.porcentaje,
 		  p.en_base
 		FROM
-		  plan_item p
+		  tbl_plan_item p
 		WHERE
 		  p.plan_id = '{$_REQUEST['id']}' order by tipo,titulo";
   

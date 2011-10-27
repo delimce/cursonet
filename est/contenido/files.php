@@ -11,7 +11,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
   	r.id,r.dir,
   	r.descripcion
 	from tbl_recurso r
-     inner join contenido_recurso c on (r.id = c.recurso_id)
+     inner join tbl_contenido_recurso c on (r.id = c.recurso_id)
 	where (r.tipo = 0 and c.contenido_id = {$_SESSION['CASOACTUAL']})";
 
 

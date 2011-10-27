@@ -30,8 +30,8 @@ $_SESSION['tema_id'] = ''; /////tema
  
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
-  $query = "select id,titulo,IFNULL((select nombre from grupo where id = p.grupo_id),'".LANG_all."') as grupo,(select titulo from contenido where id = p.contenido_id) as Capitulo,(select count(*) from foro_comentario where foro_id = p.id and tipo_sujeto = 'est') as comentarios
-   from foro p where (NOW() >= p.fecha_fin) and p.curso_id = {$_SESSION['CURSOID']}";
+  $query = "select id,titulo,IFNULL((select nombre from tbl_grupo where id = p.grupo_id),'".LANG_all."') as grupo,(select titulo from tbl_contenido where id = p.contenido_id) as Capitulo,(select count(*) from tbl_foro_comentario where foro_id = p.id and tipo_sujeto = 'est') as comentarios
+   from tbl_foro p where (NOW() >= p.fecha_fin) and p.curso_id = {$_SESSION['CURSOID']}";
 
 
 

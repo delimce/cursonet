@@ -50,7 +50,7 @@ $menu = new menu($menu_struct);
           <td width="74%"><span class="style1">
 		  <?php
 		  	/////ESTUDIANTES DEL CURSO SELECCIONADO
-		   echo $tool->combo_db("est","select id,concat(nombre,' ',apellido,' - ',id_number) as nombre from estudiante e where e.id in (select est_id from grupo_estudiante where curso_id = '{$_SESSION['CURSOID']}' ) order by nombre,id_number","nombre","id",LANG_select,false,'submit();',LANG_modo_noest);?>
+		   echo $tool->combo_db("est","select id,concat(nombre,' ',apellido,' - ',id_number) as nombre from tbl_estudiante e where e.id in (select est_id from tbl_grupo_estudiante where curso_id = '{$_SESSION['CURSOID']}' ) order by nombre,id_number","nombre","id",LANG_select,false,'submit();',LANG_modo_noest);?>
           </span></td>
         </tr>
         
@@ -73,7 +73,7 @@ $menu = new menu($menu_struct);
 										if($tool->nreg>0){  ////si la persona ha entrado aunque sea 1 vez
 										  
 											  $temas = explode(',',$data['cont']);
-											  $utemas = $tool->estructura_db("select id,titulo from contenido where id in ({$data['cont']}) ");
+											  $utemas = $tool->estructura_db("select id,titulo from tbl_contenido where id in ({$data['cont']}) ");
 											  
 											  for($i=0;$i<count($utemas);$i++){
 												  

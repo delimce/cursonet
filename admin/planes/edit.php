@@ -21,7 +21,7 @@ $menu = new menu($menu_struct);
 				  		$valores[2] = $_POST['nota'];
 						$valores[3] = $_POST['redondeo'];
 				
-					$crear->update("plan_evaluador",$campos,$valores,"id = '{$_POST['id']}'",true);
+					$crear->update("tbl_plan_evaluador",$campos,$valores,"id = '{$_POST['id']}'",true);
 					 
 					 
 				  $crear->cerrar();
@@ -30,7 +30,7 @@ $menu = new menu($menu_struct);
 
 	}else{
 	
-				  $datos = $crear->simple_db("select * from plan_evaluador where id = '{$_REQUEST['ItemID']}' ");
+				  $datos = $crear->simple_db("select * from tbl_plan_evaluador where id = '{$_REQUEST['ItemID']}' ");
 	
 	
 	}
@@ -119,7 +119,7 @@ $menu = new menu($menu_struct);
   <tr>
 
     <td width="28%" class="style3"><?php echo LANG_planes_group; ?></td>
-  <td><? echo $crear->combo_db("grupo","select id,nombre from grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,$datos['grupo_id'],false,LANG_group_nogroup.'<input name="grupo" type="hidden" value="">'); ?></td>
+  <td><? echo $crear->combo_db("grupo","select id,nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,$datos['grupo_id'],false,LANG_group_nogroup.'<input name="grupo" type="hidden" value="">'); ?></td>
 </tr>
 
   <tr>

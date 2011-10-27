@@ -63,12 +63,12 @@ if(isset($_POST['login12'])){
 		 $est->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
          $est->query("START TRANSACTION");
 		
-		$est->update("estudiante",$campos,$valores2,"id = '{$_SESSION['USER']}' "); 
+		$est->update("tbl_estudiante",$campos,$valores2,"id = '{$_SESSION['USER']}' "); 
 		
 		 if($_POST['boton']==1){
 	
 	        $npass = md5($_POST['pass1']);
-	        $est->query("update estudiante set pass = '$npass' where id = {$_SESSION['USER']}");
+	        $est->query("update tbl_estudiante set pass = '$npass' where id = {$_SESSION['USER']}");
 		 
 		 }
 		 		 

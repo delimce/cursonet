@@ -13,7 +13,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 
 	if(isset($_GET['idpro'])){
 
-		$data = $aco->array_query2("select id, titulo, date_format(fecha_post,'{$_SESSION['DB_FORMATO_DB']}') as fecha, grupo_id from foro where id = {$_GET['idpro']}");
+		$data = $aco->array_query2("select id, titulo, date_format(fecha_post,'{$_SESSION['DB_FORMATO_DB']}') as fecha, grupo_id from tbl_foro where id = {$_GET['idpro']}");
 		$acom = $aco->array_query2("select id,menos,fecha_menos1,fecha_menos2,mensaje_menos,mas,fecha_mas1,fecha_mas2,mensaje_mas,faltan,mensaje_faltan,mensaje_inicio from edunet_acomp where foro_id = {$_GET['idpro']} ");
 
 	}else if(isset($_POST['Submit'])){

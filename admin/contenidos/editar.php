@@ -12,7 +12,7 @@ $menu = new menu($menu_struct);
 
  if(isset($_GET['ItemID'])){
 
-  		$datos = $crear->array_query2("select titulo, contenido, borrador,autor,leido from contenido where id = '{$_GET['ItemID']}'");
+  		$datos = $crear->array_query2("select titulo, contenido, borrador,autor,leido from tbl_contenido where id = '{$_GET['ItemID']}'");
 
  }
 
@@ -27,7 +27,7 @@ $menu = new menu($menu_struct);
 	 $valores[4] = $_POST['autor'];
 	 $valores[5] = $_POST['leido'];
 
-	 $crear->update("contenido",$campos,$valores,"id = '{$_POST['id']}'");
+	 $crear->update("tbl_contenido",$campos,$valores,"id = '{$_POST['id']}'");
 	 $crear->javaviso(LANG_cambios,"index.php");
 
 

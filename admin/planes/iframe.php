@@ -13,13 +13,13 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 	switch ($_REQUEST['tipo']) {
 	case 'foro': ///foro
-	   $query = "select id, titulo as nombre from foro where curso_id = '{$_SESSION['CURSOID']}' and (grupo_id = '{$_SESSION['GRUPOPLAN']}' or grupo_id = 0) order by titulo";
+	   $query = "select id, titulo as nombre from tbl_foro where curso_id = '{$_SESSION['CURSOID']}' and (grupo_id = '{$_SESSION['GRUPOPLAN']}' or grupo_id = 0) order by titulo";
 	   break;
 	case 'proy': //proy
-	 $query = "select id, nombre from proyecto where curso_id = '{$_SESSION['CURSOID']}' and (grupo = '{$_SESSION['GRUPOPLAN']}' or grupo = 0) order by nombre";
+	 $query = "select id, nombre from tbl_proyecto where curso_id = '{$_SESSION['CURSOID']}' and (grupo = '{$_SESSION['GRUPOPLAN']}' or grupo = 0) order by nombre";
 	   break;
 	case 'eval':
-	  $query = "select id, nombre from evaluacion where curso_id = '{$_SESSION['CURSOID']}' and (grupo_id = '{$_SESSION['GRUPOPLAN']}' or grupo_id = 0) order by nombre";
+	  $query = "select id, nombre from tbl_evaluacion where curso_id = '{$_SESSION['CURSOID']}' and (grupo_id = '{$_SESSION['GRUPOPLAN']}' or grupo_id = 0) order by nombre";
 	   break; 
 	}
 

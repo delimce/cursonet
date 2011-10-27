@@ -15,13 +15,13 @@ include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
  								 p.rec_id,
   r.dir
 FROM
-  proyecto_estudiante p
+  tbl_proyecto_estudiante p
   INNER JOIN recurso r ON (p.rec_id = r.id)
 WHERE
   p.id = {$_GET['itemID']}");
    
    
-   $datos = $grabar->query("delete from proyecto_estudiante where id = '{$_GET['itemID']}'");
+   $datos = $grabar->query("delete from tbl_proyecto_estudiante where id = '{$_GET['itemID']}'");
    $datos = $grabar->query("delete from tbl_recurso where id = '{$data['rec_id']}'"); //borra el recurso de la tabla
    @unlink('../../recursos/est/proy'.$data['dir']); //borra el recurso fisicamente
    

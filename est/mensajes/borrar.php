@@ -12,7 +12,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
     $grabar->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
     $grabar->query("START TRANSACTION");
   
-   $grabar->query("delete from mensaje_est where id = {$_GET['itemID']}");
+   $grabar->query("delete from tbl_mensaje_est where id = {$_GET['itemID']}");
  
    
   
