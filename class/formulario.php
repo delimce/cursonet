@@ -8,11 +8,6 @@
   en caso de que desee llamar herramientas del tipo database
  ****************************************************************************/
 
- if (!class_exists('database')) {
-   require_once('tools.php');
- }
-
-
 
  class formulario extends  tools  {
 

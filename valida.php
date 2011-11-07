@@ -6,12 +6,11 @@
 
  if(isset($_POST['login1'])){
  
- 		$login = $i->getvar("login1",$_POST);
-
+ 		 $login = $i->getvar("login1",$_POST);
+                
 		 $DATOS = $i->simple_db("select lenguaje,e.id,concat(nombre,' ',apellido) as nombre,id_number,activo,email,sexo
-		 from tbl_estudiante e,setup where user = '$login' and pass = MD5('{$_POST['pass1']}')");
-		 
-		 
+		 from tbl_estudiante e,tbl_setup where user = '$login' and pass = MD5('{$_POST['pass1']}')");
+		 		 
 		 $_SESSION['LENGUAJE'] = $DATOS['lenguaje']; //lenguaje
 
 		 if($i->nreg>0 && $DATOS['activo']==1){
@@ -29,8 +28,7 @@
 		$_SESSION['CURSOSID'] = @implode(',',$CURSOS); 
 		$_SESSION['GRUPOSID'] = @implode(',',$GRUPOS);  //////asumiendo que grupo es 0 por defecto
 		if($_SESSION['CURSOSID']=="")$_SESSION['CURSOSID'] = 0;
-		
-		
+				
 		///////////////// creando log
 		
 		$vector[0] = $_SESSION['USER'];

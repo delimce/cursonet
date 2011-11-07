@@ -12,7 +12,7 @@ include("security.php"); ///seguridad para el admin
 		
 		$datos->abrir_transaccion();
 	
-			
+			///FIXME: cambiar por delete from {$_POST['table']}
 			$datos->query("TRUNCATE TABLE {$_POST['table']} ");		
 			
 			if($_POST['table']=="recurso"){

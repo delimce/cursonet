@@ -7,12 +7,9 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-
- 
  
   $det = new tools("db");
- 
-  
+   
  $query = "select *,
  concat(nombre,' ',apellido) as nombre,date_format(fecha_nac,'".$_SESSION['DB_FORMATO_DB']."') as nac,(SELECT 
   g.nombre
@@ -22,8 +19,6 @@ FROM
 WHERE
   e.est_id = '{$_REQUEST['id']}' and e.curso_id = '{$_SESSION['CURSOID']}' ) as grupo,
   date_format(fecha_creado,'".$_SESSION['DB_FORMATO_DB']."') as creado from tbl_estudiante where id = '{$_REQUEST['id']}'";
-	 
-
 
 	$data = $det->simple_db($query); //////se ejecuta el query
 
@@ -178,11 +173,11 @@ WHERE
 		$queryg = "SELECT 
 					p.id,
 					p.titulo,
-					curso.nombre
+					c.nombre
 				  FROM
 					tbl_grupo_estudiante g
 					INNER JOIN tbl_plan_evaluador p ON (g.grupo_id = p.grupo_id)
-					INNER JOIN curso ON (g.curso_id = curso.id)
+					INNER JOIN tbl_curso c ON (g.curso_id = c.id)
 				  WHERE
 					g.est_id = '{$data['id']}' order by titulo";
 					  
@@ -197,7 +192,7 @@ WHERE
               <td colspan="3" class="table_bk"><?php echo LANG_notes_plan ?></td>
             </tr>
            
-                <?php while ($row = mysql_fetch_assoc($det->result)) { ?>
+                <?php while ($row = $det->db_vector_nom($det->result)) { ?>
                 <tr>
                   <td class="style3"><a href="notas.php?id=<?php echo $row['id'] ?>&origen=<?=$_REQUEST['origen'];  ?>&estid=<?php echo $data['id'] ?>" title="<?php echo LANG_notes_view ?>"><?php echo $row['titulo'];  ?></a></td>
                   <td colspan="2" class="style1"><?php echo stripcslashes($row['nombre']);  ?></td>

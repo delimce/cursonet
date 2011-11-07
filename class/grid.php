@@ -2,9 +2,6 @@
 
  // llamando la super clase base de datos
 
- if (!class_exists('database')) {
-   require_once('database.php');
-}
  /***************************************************************************
   clase que cosntruye un grid formateado a partir de una consulta sql
   IMPORTANTE: por defecto se asume que se esta conectado a la base de datos
@@ -237,7 +234,7 @@
 
      echo '<table width="100%" height="100%" class="" border="0" cellspacing="'.$this->features['borde']['cellspacing'].'" cellpadding="'.$this->features['borde']['cellpadding'].'">';
 
-     while($tmp = mysql_fetch_row($this->result)){
+     while($tmp = $this->db_vector_num($this->result)){
 
        //////////////////inicio fila de datos
 
@@ -412,7 +409,7 @@
      /////////////////METODO QUE ENCAPSULA EL GRID EN UNA VARIABLE PARA SER OPERADA LUEGO
      ///////////////////crea una variable con todo el contenido del grid para su mejor manipulacion
      ///////////////// cuando se haga un echo de la variable capsula escribira todo el codigo html
-     //////////////// ADVERTENCIA : NO USAR PARA ENCAPSULAR GRID DE GRAN TAMAÑO LA MEMORIA PUEDE SER MUL LIMITADA
+     //////////////// ADVERTENCIA : NO USAR PARA ENCAPSULAR GRID DE GRAN TAMAï¿½O LA MEMORIA PUEDE SER MUL LIMITADA
 
 
 
@@ -475,7 +472,7 @@
 
     $this->capsula.=  '<table width="100%" height="100%" class="" border="0" cellspacing="'.$this->features['borde']['cellspacing'].'" cellpadding="'.$this->features['borde']['cellpadding'].'">';
 
-     while($tmp = mysql_fetch_row($this->result)){
+     while($tmp = $this->db_vector_num($this->result)){
 
       $this->capsula.=  '<tr>';  //////////////////inicio fila de datos
 

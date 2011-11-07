@@ -1,11 +1,6 @@
 <?php
 
- // llamando la super clase base de datos
-
- if (!class_exists('database')) {
-   require_once('database.php');
- }
-
+ 
 
  /***************************************************************************
   clase que cosntruye diversas herramientas para usar en la construccion de forms
@@ -131,7 +126,7 @@
       $this->query($query);  //llamando las funciones de la clase database heredada
 
       if($this->nreg>0){
-
+              
      $combo = '<select name="'.$id.'" id="'.$id.'"';
      if($onchange)$combo.=' onChange="'.$onchange.'"';
      if($multiple)$combo.=' multiple size = "'.($this->nreg/2+1).'" ';
@@ -141,7 +136,7 @@
      if($select) $combo.= '<option value="">'.$select.'</option>';
      if(!$seleccion)$seleccion = $_REQUEST[$id];
 
-    while ($row = mysql_fetch_assoc($this->result)) {
+    while ($row = $this->db_vector_nom($this->result)) {
         $combo.= '<option value="';
         $combo.= stripslashes($row["$value"]);
         $combo.= '"';
@@ -221,7 +216,7 @@
 
         $i=0;
         $this->query($query); //ejecuta el query
-        while ($row = @mysql_fetch_row($this->result)){
+        while ($row = $this->db_vector_num($this->result)){
                 $vector[$i] =  stripslashes($row[0]);
                 $i++;
         }
@@ -239,7 +234,7 @@
         $i=0;
         $this->query($query); //ejecuta el query
         $campos = $this->campos_query();
-        $row = @mysql_fetch_row($this->result);   ///se trae el primer registro
+        $row = $this->db_vector_num($this->result);   ///se trae el primer registro
 
         while ($i < count($campos)){
                 $vector[$i] =  stripslashes($row[$i]);
@@ -472,6 +467,7 @@ function burbuja($array,$modo=0){
 
       ///////conversion
 
+        ////FIXME: forma correcta
       if(!$textarea) $contenido = str_replace('\r\n','<p>', mysql_escape_string ($texto));
       $contenido = str_replace('\\','',$contenido);
 
