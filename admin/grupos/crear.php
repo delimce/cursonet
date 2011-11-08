@@ -24,7 +24,7 @@ $menu = new menu($menu_struct);
 	 $valores[4] = date("Y-m-d h:i:s");
 	 $valores[5] = $_SESSION['CURSOID'];
 
-	 $crear->insertar2("grupo","nombre, descripcion, prof_id, turno, fecha_creado,curso_id",$valores);
+	 $crear->insertar2("tbl_grupo","nombre, descripcion, prof_id, turno, fecha_creado,curso_id",$valores);
 	 $crear->javaviso(LANG_cambios,"index.php");
 
 

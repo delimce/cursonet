@@ -60,7 +60,7 @@ $menu = new menu($menu_struct);
                   <td width="10%" align="center" class="table_bk"><?=LANG_eva_following_nota?></td>
                 </tr>
 
-				<?php while ($row = mysql_fetch_assoc($pru->result)) { ?>
+		<?php while ($row = $pru->db_vector_nom($pru->result)) { ?>
 
                 <tr>
                   <td bgcolor="#FFFFFF" class="style1"><?=$row['nombre2']?></td>

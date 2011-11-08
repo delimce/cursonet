@@ -28,7 +28,7 @@ $menu = new menu($menu_struct);
 	 $valores[3] = $_POST['turno'];
 	 $valores[4] = date("Y-m-d h:i:s");
 
-	 $crear->update("grupo",$campos,$valores,"id = '{$_POST['gid']}'",true);
+	 $crear->update("tbl_grupo",$campos,$valores,"id = '{$_POST['gid']}'",true);
 	 $crear->javaviso(LANG_cambios,"index.php");
 
 

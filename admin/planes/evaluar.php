@@ -51,7 +51,7 @@ $tool = new tools("db");
           </tr>
           <?php }else{ 
 		  
-		  while ($row = mysql_fetch_assoc($tool->result)) {
+		  while ($row = $tool->db_vector_nom($tool->result)) {
 		  
 			  ?>
 				  <tr>

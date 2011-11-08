@@ -151,7 +151,7 @@ WHERE
 			$j=0;
 			
 			
-			while ($row = mysql_fetch_assoc($grid->result)) {
+			while ($row = $grid->db_vector_nom($grid->result)) {
 			
 			?>
 			<tr class="td_whbk" onMouseOver="this.style.backgroundColor = '#CCCCCC'" onMouseOut="this.style.backgroundColor = '#FFFFFF'">

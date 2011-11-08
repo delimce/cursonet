@@ -53,7 +53,7 @@ $tool = new tools("db");
          
             <?		  
 		  
-		  	while ($row = mysql_fetch_assoc($tool->result)) {
+		  	while ($row = $tool->db_vector_nom($tool->result)) {
 			
 			
 			///creando el link

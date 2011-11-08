@@ -229,7 +229,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 		  
 		  $i=0;
 		  
-				  while ($row = mysql_fetch_assoc($crear->result)) {
+                     while ($row = $crear->db_vector_nom($crear->result)) {
 			  
 		   ?>
            

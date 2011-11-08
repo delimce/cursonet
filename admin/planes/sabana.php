@@ -82,7 +82,7 @@ $menu = new menu($menu_struct);
       </tr>
       <?php 
 				$w=0;
-				while ($est = mysql_fetch_assoc($toolest->result)) {
+				while ($est = $toolest->db_vector_nom($toolest->result)) {
 				
 				if(is_int($w/2)) $colorf = "#FFFFFF";  else $colorf = "#EAFAFF";
 				

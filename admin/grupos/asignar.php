@@ -11,7 +11,7 @@ $menu = new menu($menu_struct);
  
   $asig = new tools("db");
   
-  if(isset($_REQUEST['ItemID'])) $asig->query("select id,concat(nombre,' ',apellido) as nombre,id_number,concat(nivel,' ',carrera,' ',universidad) as extra,(select grupo_id from tbl_grupo_estudiante where est_id = ee.id and curso_id = {$_SESSION['CURSOID']} ) as tbl_grupo from tbl_estudiante ee
+  if(isset($_REQUEST['ItemID'])) $asig->query("select id,concat(nombre,' ',apellido) as nombre,id_number,concat(nivel,' ',carrera,' ',universidad) as extra,(select grupo_id from tbl_grupo_estudiante where est_id = ee.id and curso_id = {$_SESSION['CURSOID']} ) as grupo from tbl_estudiante ee
   where id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and grupo_id = {$_REQUEST['ItemID']} ) or id not in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']}) order by id ");
   
   if(isset($_POST['select']) or isset($_POST['id'])){
@@ -100,8 +100,8 @@ $menu = new menu($menu_struct);
 	       <tr> 
 			  <?
 			  
-			  while ($row = mysql_fetch_assoc($asig->result)) {
-			  
+			  while ($row = $asig->db_vector_nom($asig->result)) {
+			 
 			 ?>
 		  
             <tr>
