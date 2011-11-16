@@ -12,7 +12,7 @@ include("security.php"); ///seguridad para el admin
 		
 		$datos->abrir_transaccion();
 	
-			///FIXME: cambiar por delete from {$_POST['table']}
+			///FIXME: cambiar por delete from {$_POST['table']} en mysql version 5.5
 			$datos->query("TRUNCATE TABLE {$_POST['table']} ");		
 			
 			if($_POST['table']=="recurso"){
@@ -33,10 +33,10 @@ include("security.php"); ///seguridad para el admin
 		 	 
 			 if($_POST['table']=="grupo"){ //////triger en caso de que se vacien los grupo
 				
-				$datos->query("update tbl_estudiante set grupo = ''");
-				$datos->query("update tbl_foro set grupo_id = ''");
-				$datos->query("update tbl_evaluacion set grupo_id = ''");
-				$datos->query("update tbl_proyecto set grupo = ''");
+				//$datos->query("update tbl_estudiante set grupo = ''");
+				$datos->query("update tbl_foro set grupo_id = 0");
+				$datos->query("update tbl_evaluacion set grupo_id = 0");
+				$datos->query("update tbl_proyecto set grupo = 0");
 			
 			 }
 			 

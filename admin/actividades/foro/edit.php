@@ -14,42 +14,25 @@ $menu = new menu($menu_struct);
  
  	if(isset($_POST['nombre'])){
 
-	 			/*   ////////////validar
-				   $valida1 =  $fecha->unix_time($_POST['inicio']);
-				   $valida2 =  $fecha->unix_time($_POST['fin']);
-				   if($valida1>=$valida2){
-
-				   ?>
-				    <script language="JavaScript" type="text/javascript">
-						alert('<?=LANG_foro_val_fechas ?>');
-						history.back();
-					</script>
-
-				   <?
-
-				   die();
-
-				   }
-
-				   ////////////*/
+                                   /////////TODO: tinymce no funciona en chrome (no guarda)
 
 				   $campos = explode(",","titulo, contenido_id, grupo_id, resumen, content, fecha_post, fecha_fin, nota");
 				   $valores[0] = $_POST['nombre'];
 				   $valores[1] = $_POST['caso'];
 				   $valores[2] = $_POST['seccion'];
 				   $valores[3] = '';
-				   $valores[4] = $_POST['content'];
+				   $valores[4] = $_POST['content1'];
 				   $valores[5] = $fecha->fecha_db($_POST['inicio'],1);
 				   $valores[6] = $fecha->fecha_db($_POST['fin']);
 				   $valores[7] = $_POST['nota'];
 
-				  $crear->update("tbl_foro",$campos,$valores,"id = '{$_POST['id']}'");
+				  $crear->update("tbl_foro",$campos,$valores,"id = {$_POST['id']}");
 				  $crear->javaviso(LANG_cambios,"index.php");
 
 	}else{
 
 
-				  $datos = $crear->array_query2("select id, titulo, grupo_id, contenido_id, fecha_post, fecha_fin, nota, resumen, content from tbl_foro where id = '{$_GET['ItemID']}'");
+				  $datos = $crear->simple_db("select id, titulo, grupo_id, contenido_id, fecha_post, fecha_fin, nota, resumen, content from tbl_foro where id = '{$_GET['ItemID']}'");
 
 	}
 
@@ -66,7 +49,7 @@ $menu = new menu($menu_struct);
 <script language="javascript" type="text/javascript">
 	tinyMCE.init({
 	mode : "exact",
-	elements : "content",
+	elements : "content1",
 	theme : "advanced",
 	plugins : "style,layer,table,charmap,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,flash,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable",
 	language: "es",
@@ -197,18 +180,18 @@ $menu = new menu($menu_struct);
 
 	<table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td><form name="form1" method="post" action="<?=$PHP_SELF?>" onSubmit="return validar();">
+        <td><form name="form1" method="post" action="edit.php" onSubmit="return validar();">
 <br>
 <table width="100%" border="0" cellspacing="4" cellpadding="3">
 
   <tr>
     <td class="style3"><?php echo LANG_foro_name ?></td>
-    <td width="72%"><input name="nombre" type="text" id="nombre" value="<?= $datos[1] ?>" size="45"></td>
+    <td width="72%"><input name="nombre" type="text" id="nombre" value="<?= $datos['titulo'] ?>" size="45"></td>
   </tr>
   <tr>
 
    <td width="28%" class="style3"><?php echo LANG_content_name; ?></td>
-  <td><?php echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = '{$_SESSION['CURSOID']}'","titulo","id",false,$datos[3],"ajaxcombo('grupox','seccion','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
+  <td><?php echo $crear->combo_db("caso","select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = '{$_SESSION['CURSOID']}'","titulo","id",false,$datos['contenido_id'],"ajaxcombo('grupox','seccion','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
 </tr>
   <tr>
 
@@ -217,12 +200,12 @@ $menu = new menu($menu_struct);
   <td>
 
      <div id="grupox">
-    <?php echo $crear->combo_db("seccion","(select 0 as id,'Todas' as nombre )union(select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}) ","nombre","id",false,$datos[2],false,LANG_all); ?>    </div>  </td>
+    <?php echo $crear->combo_db("seccion","(select 0 as id,'Todas' as nombre )union(select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}) ","nombre","id",false,$datos['grupo_id'],false,LANG_all); ?>    </div>  </td>
 </tr>
 
   <tr>
     <td class="style3"><?php echo LANG_foro_date1; ?></td>
-    <td><input name="inicio" type="text" id="inicio" OnFocus="this.blur()" onClick="alert('<?=LANG_calendar_use?>')" value="<?= $fecha->datetime($datos[4]) ?>" size="12">
+    <td><input name="inicio" type="text" id="inicio" OnFocus="this.blur()" onClick="alert('<?=LANG_calendar_use?>')" value="<?= $fecha->datetime($datos['fecha_post']) ?>" size="12">
       <img src="../../../images/frontend/cal.gif" name="f_trigger_d" width="16" height="16" id="f_trigger_d" style="cursor: hand; border: 0px;" title="<?=LANG_calendar?>">
       <script type="text/javascript">
 					Calendar.setup({
@@ -235,7 +218,7 @@ $menu = new menu($menu_struct);
   </tr>
   <tr>
     <td class="style3"><?php echo LANG_foro_date2; ?></td>
-    <td><input name="fin" type="text" id="fin" OnFocus="this.blur()" onClick="alert('<?=LANG_calendar_use?>')" value="<?= $fecha->datetime($datos[5]) ?>" size="12">
+    <td><input name="fin" type="text" id="fin" OnFocus="this.blur()" onClick="alert('<?=LANG_calendar_use?>')" value="<?= $fecha->datetime($datos['fecha_fin']) ?>" size="12">
       <img src="../../../images/frontend/cal.gif" name="f_trigger_f" width="16" height="16" id="f_trigger_f" style="cursor: hand; border: 0px;" title="<?=LANG_calendar?>">
       <script type="text/javascript">
 					Calendar.setup({
@@ -249,9 +232,9 @@ $menu = new menu($menu_struct);
 
   <tr>
     <td class="style3"><?php echo LANG_foro_por ?></td>
-    <td><input name="nota" type="text" id="nota" value="<?= $datos[6] ?>" size="5" maxlength="5">
+    <td><input name="nota" type="text" id="nota" value="<?= $datos['nota'] ?>" size="5" maxlength="5">
       <span class="bold">%
-      <input name="id" type="hidden" id="id" value="<?= $datos[0] ?>">
+      <input name="id" type="hidden" id="id" value="<?= $datos['id'] ?>">
       </span></td>
   </tr>
 	
@@ -260,7 +243,9 @@ $menu = new menu($menu_struct);
     <td colspan="2" class="td_whbk2"><b><?php echo LANG_foro_contenido ?></b></td>
     </tr>
   <tr>
-    <td colspan="2" class="style3"><textarea name="content" cols="96" rows="8" class="style1" id="content"><?= $datos[8] ?>
+    <td colspan="2" class="style3">
+    <textarea name="content1" cols="96" rows="8" class="style1" id="content1">
+        <?php echo $datos['content'] ?>
     </textarea></td>
     </tr>
 

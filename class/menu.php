@@ -20,7 +20,7 @@
    function mostrar($actual){
             echo '<table width="'.$this->estructura['ancho'].'" border="0" align="'.$this->estructura['aliniado'].'" cellpadding="'.$this->estructura['padding'].'" cellspacing="'.$this->estructura['spacing'].'">
            	<tr>
-		   <td class="no_back" colspan="'.count($this->estructura['items']).'">'.LANG_curso_actual.' <B>'.$_SESSION['CURSOALIAS'].'</B></td>
+		   <td class="no_back" colspan="'.count($this->estructura['items']).'">'.LANG_curso_actual.' <B style="color:red;">'.$_SESSION['CURSOALIAS'].'</B></td>
 		   </tr>
 		<tr><td colspan="'.count($this->estructura['items']).'">&nbsp;<td> </tr>
 		   

@@ -9,6 +9,13 @@ $menu = new menu($menu_struct);
 
 
  $crear = new tools("db");
+ 
+ 
+ /////validacion si no hay cursos creados o seleccionados
+ if(empty($_SESSION['CURSOID']) or $_SESSION['CURSOID']<1)
+     $crear->javaviso(LANG_nogroupselect,"../settings/crearc.php");
+ 
+ ///////
 
  $turno1 = $crear->llenar_array("Presencial,Semipresencial,A distancia");
  $turno2 = $crear->llenar_array("0,1,2");

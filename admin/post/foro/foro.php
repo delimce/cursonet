@@ -7,6 +7,7 @@ include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
+  //TODO: arreglar cuando se va a corregir un foro desde planes, que solo muestre alumnos de la seccion de ese plan
  
   $grid = new tools("db");
   $query = "SELECT  e.id,LOWER(concat(e.nombre,' ',e.apellido)) as nombre,e.id_number,

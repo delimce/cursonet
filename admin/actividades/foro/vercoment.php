@@ -217,7 +217,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
               &nbsp;
               <input type="button" name="Button" value="<?=LANG_foro_add?>" onClick="window.location.href='agregar.php';">
               &nbsp;
-              <input name="Button2" type="button" class="no_back" onClick="window.location.href='<?=$PHP_SELF?>';" value="<?=LANG_refresh?>">
+              <input name="Button2" type="button" class="no_back" onClick="window.location.href='vercoment.php';" value="<?=LANG_refresh?>">
               <br>
               <br></td>
             </tr>
@@ -330,7 +330,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
               &nbsp;
               <input type="button" name="Button" value="<?=LANG_foro_add?>" onClick="window.location.href='agregar.php';">
               &nbsp;
-              <input name="Button3" type="button" class="no_back" onClick="window.location.href='<?=$PHP_SELF?>';" value="<?=LANG_refresh?>"></td>
+              <input name="Button3" type="button" class="no_back" onClick="window.location.href='vercoment.php';" value="<?=LANG_refresh?>"></td>
             </tr>
         </table>
           <br>&nbsp;
