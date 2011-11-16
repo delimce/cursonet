@@ -27,7 +27,7 @@ include("security.php"); ///seguridad para el admin
  $campos[1] = 'titulo_admin'; $vector[1] = $_POST['tituloa'];
  $campos[2] = 'lenguaje'; $_SESSION['LENGUAJE'] = $vector[2] = $_POST['lengua'].'.php';
  $campos[3] = 'formato_fecha'; $_SESSION['DB_FORMATO'] = $vector[3] = $_POST['ffecha'];
- $campos[4] = 'envio_email'; $vector[4] = $_POST['email'];
+ $campos[4] = 'envio_email'; $vector[4] = ($_POST['email'] != 1) ? 0: 1; ///bug de desabilitar envio de emails
  $campos[5] = 'signature'; $vector[5] = $_POST['signature'];
  $campos[6] = 'bienvenido_est'; $vector[6] = $_POST['bienvenida'];
  $campos[7] = 'fin_inscripcion'; $vector[7] = $_POST['fin_ins'];

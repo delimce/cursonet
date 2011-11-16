@@ -8,7 +8,7 @@
 
 		$cedula = $i->getvar("cedula",$_POST);
 		 $DATOS = $i->simple_db("select lenguaje,e.id,concat(nombre,' ',apellido) as nombre, e.clave_preg
-		 from tbl_estudiante e,setup where id_number = '$cedula'");
+		 from tbl_estudiante e,tbl_setup where id_number = '$cedula'");
 		 
 		 
 
@@ -31,9 +31,8 @@
  
  			 $resp1 = $i->getvar("resp",$_POST);
  
- 			 $DATOS = $i->simple_db("select id_number,user
-		 								from tbl_estudiante e 
-										where (e.id = {$_SESSION['USERP']} ) and (clave_resp = LOWER('$resp1'))");
+ 			 $DATOS = $i->simple_db("select id_number,user from tbl_estudiante e 
+						where (e.id = {$_SESSION['USERP']} ) and (clave_resp = LOWER('$resp1'))");
 
 
 			 if($i->nreg>0){

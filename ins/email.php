@@ -1,7 +1,5 @@
 <?
 
-if($_SESSION['EEMAL']==1){
-		
 				$dataemail = $i->array_query2("select titulo_admin,admin_email from tbl_setup");
 			
 				include("../class/email.php");
@@ -61,8 +59,6 @@ if($_SESSION['EEMAL']==1){
 				   exit;
 				}
 
-					
-		
- }	
+						
 
 ?>

@@ -2,9 +2,10 @@
  include("../config/dbconfig.php");
  include("../class/clases.php");
  $nuevo = new tools('db');
- $lengua = $nuevo->simple_db("select lenguaje from tbl_setup"); //// modo
- 
- $lenguaje1 = '../config/lang/'.$lengua;///verifico el lenguaje
+ $lengua = $nuevo->simple_db("select lenguaje,modo from tbl_setup"); //// modo
+ ////en caso de que no este mas desabilitado
+ if($lengua['modo']!=2)$nuevo->redirect ('../index.php');
+ $lenguaje1 = '../config/lang/'.$lengua['lenguaje'];///verifico el lenguaje
  include ($lenguaje1); 
  ?>
  

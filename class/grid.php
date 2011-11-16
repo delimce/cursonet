@@ -284,7 +284,7 @@
                if($tmp[$ii]!=''){
 
 
-                     if($this->features['formato']!="html") $valor = strip_tags(trim(stripslashes($tmp[$ii])));  else  $valor = trim(stripslashes($tmp[$ii]));
+                     if($this->features['formato']!="html") $valor =  strip_tags(trim(stripslashes($tmp[$ii])));  else  $valor = trim(stripslashes($tmp[$ii]));
                      if($tmp[$ii]==$this->features['nulo']) $valor = "{$this->features['celda_vacia']}"; /// en caso de que se desee hacer nulo algun valor
                      if(isset($this->features['conenlace']['popup'])) $popup = " onclick=\" return popup2(this,'".$this->features['conenlace']['popup']."');\""; else $popup = '';
                      if(isset($this->features['conenlace']) && $this->features['conenlace']['pos']==$ii){ $enlace = '<a href="'.$this->features['conenlace']['url'].$this->features['conenlace']['var_parametro'].'='.$tmp[$this->features['conenlace']['parametro']].$this->features['conenlace']['extras'].'" target="'.$this->features['conenlace']['target'].'" title="'.$this->features['conenlace']['title'].'"'.$popup.'">'; $enlace2 = '</a>';  }else{ $enlace = ''; $enlace2 = '';  }

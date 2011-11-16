@@ -3,15 +3,13 @@
  include("../class/clases.php");
  $nuevo = new tools("db");
 
- $val = $nuevo->array_query2("select modo,lenguaje,formato_fecha,envio_email,titulo_ins from tbl_setup");
+ $val = $nuevo->simple_db("select modo,lenguaje,titulo_ins from tbl_setup");
  
-  include("../config/lang/$val[1]"); ///idioma
+  include("../config/lang/".$val['lenguaje']); ///idioma
 
- $_SESSION['FECHA'] = $val[2];
- $_SESSION['EEMAL'] = $val[3]; ////PARA SABER SI SE ENVIARA EL EMAIL
- $_SESSION['TINSCRIPCION'] = $val[4]; ////PARA SABER SI SE ENVIARA EL EMAIL
+
+ $_SESSION['TINSCRIPCION'] = $val['titulo_ins']; ////PARA SABER SI SE ENVIARA EL EMAIL
  
-
 
 /*permitir inscripcion en modo curso 
  if($val[0]!=0){
@@ -48,7 +46,7 @@
     <td width="199" height="0" background="../images/frontend/home05.jpg" bgcolor="#A0A0A0">
 	  <table width="100%" border="0" cellpadding="4" cellspacing="1" class="style1">
         <tr>
-          <td width="100%" class="style1">Para dar inicio al proceso de inscripci&oacute;n, a continuaci&oacute;n presione el bot&oacute;n  </td>
+          <td width="100%" class="style1"><?php echo LANG_PREF_textins ?> </td>
         </tr>
         <tr>
           <td align="center" class="style1"><input style="background:#C0C0C0" type="button" name="Button" value="<?=LANG_to_ingress?>" onClick="location.replace('form.php')"></td>

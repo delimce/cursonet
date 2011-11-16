@@ -6,12 +6,8 @@
  $i = new tools("db");
  $fecha = new fecha($_SESSION['FECHA']);
  
- $val = $i->array_query2("select modo,lenguaje,timezone from tbl_setup");
+ $val = $i->array_query2("select modo,lenguaje from tbl_setup");
  
-  
- // @date_default_timezone_set($val[2]);
-
-
  
 /*permitir inscripcion en modo curso 
  if($val[0]!=0){
@@ -85,12 +81,12 @@ body {
 		
 		/////////////////enviar correo para avisar de la inscripcion con login y password
 		
-		include('email.php');	
+		if($_SESSION['EEMAL']==1)  include('email.php');	
 		
 		///////////////////////////////////////////////////////////////////////////////
 		
 		  
-		$i->redirect("final.php","parent");
+		$i->redirect("final.php");
 	
 		 
 		 }

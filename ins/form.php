@@ -2,10 +2,14 @@
  include("../config/dbconfig.php");
  include("../class/clases.php");
 
- 
  $nuevo = new tools("db");
+ $val = $nuevo->simple_db("select modo,lenguaje,formato_fecha,envio_email,titulo_ins,signature from tbl_setup");
  
- $val = $nuevo->array_query2("select modo,lenguaje,signature from tbl_setup");
+  include("../config/lang/".$val['lenguaje']); ///idioma
+
+ $_SESSION['FECHA'] = $val['formato_fecha'];
+ $_SESSION['EEMAL'] = $val['envio_email']; ////PARA SABER SI SE ENVIARA EL EMAIL
+ $_SESSION['TINSCRIPCION'] = $val['titulo_ins']; ////PARA SABER SI SE ENVIARA EL EMAIL
 
 /*permitir inscripcion en modo curso 
  if($val[0]!=0){
@@ -17,7 +21,6 @@
  
  */
  
-  include("../config/lang/$val[1]"); ///idioma
 
 ?>
 <html>
@@ -129,7 +132,7 @@
 
    </head>
    <center>
-  <BODY OnLoad="preload()" vlink="#000080" bgcolor="#FFFFFF">
+  <BODY OnLoad="preload()">
 
 <div id="loader" style="display:run-in"><table width=100%
 cellpadding="4" cellspacing="4">
@@ -153,7 +156,7 @@ cellpadding="4" cellspacing="4">
   <tr>
     <td width="755" height="1" valign="bottom" bgcolor="#CCCCCC" style="border-left:1px solid #CCCCCC; border-right-style: solid; border-right-width: 1; border-bottom-style: solid; border-bottom-width: 1; border-top-style:none; border-top-width:medium">
 	
-	  <form name="form1" method="post" action="guarda.php" target="ins" onSubmit="return validar();">
+ <form name="form1" method="post" action="guarda.php" onSubmit="return validar();">
 	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
     <td class="no_back"><table width="100%" border="0" cellspacing="1" cellpadding="2">
@@ -327,7 +330,7 @@ cellpadding="4" cellspacing="4">
         </tr>
       <tr>
         <td colspan="2">&nbsp;</td>
-        <td colspan="2"><iframe name="ins" frameborder="0" align="middle" height="1" src="guarda.php"></iframe></td>
+        <td colspan="2">&nbsp;</td>
       </tr>
       
     </table></td>
@@ -340,7 +343,7 @@ cellpadding="4" cellspacing="4">
       <tr>
         <td width="229%" style="border-style: none; border-width: medium" valign="top" bgcolor="#7A98AD">
         <p align="center" style="margin-top: 5; margin-bottom: 5"><b>
-        <font face="Arial" size="1" color="#FFFFFF"><?=$val[2]?>
+        <font face="Arial" size="1" color="#FFFFFF"><?=$val['signature']?>
         </font></b></td>
       </tr>
     </table>

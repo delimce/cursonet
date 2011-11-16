@@ -16,16 +16,15 @@ $_SESSION['tema_id'] = ''; /////tema
        "style_body" => "td_whbk",
        "style_head" => "table_bk",
        "r_header" => 20,
-	   "formato"=> "html",
-	   "oculto" => 0,
+       "oculto" => 0,
 	   "orden" => array("nombre" => "orden1", "defecto" => "id desc"),  
 	    "abreviar" =>  array(2 => 20,3 => 60),  
        "nuevo_vinculo1"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "edit.php?","target" => "_self", "parametro" => 0, "var_parametro" => 'id', "title" => LANG_edit),
 	  "nuevo_vinculo2"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">","url" => "#","target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop,"borrar"=>1),
-       "separacion"   => array(0 => "1%", 1 => "12%", 2=> "18%",3=> "62%",4=> "20%"), //separacion de columnas
-	   "alineacion"   => array(0 => "center", 1 => "center", 2 => "center", 3 => "left",4 => "center"),
+       "separacion"   => array(0 => "1%", 1 => "12%", 2=> "20%",3=> "62%"), //separacion de columnas
+	   "alineacion"   => array(0 => "center", 1 => "center", 2 => "center", 3 => "left"),
        "celda_vacia"  => '<div align="center">-</div>',
-	   "dateformat"   => array("pos" => "1", "formato" => $_SESSION['DB_FORMATO'])
+	   "dateformat"   => array("pos" => 1, "formato" => $_SESSION['DB_FORMATO'])
  );
  
  
@@ -33,8 +32,7 @@ $_SESSION['tema_id'] = ''; /////tema
   $grid = new grid("99%","*","center",$features);
   $grid->autoconexion();
   $query = "select id,fecha_c as fecha,IFNULL((select nombre from tbl_grupo where id = p.grupo_id),'".LANG_all."') as grupo,
-  SUBSTRING(mensaje,1,100) as mensaje,
-  IF(destaca=1,'<b>".LANG_wall_imp."</b>','".LANG_wall_imp_no."') as destaca
+  SUBSTRING(mensaje,1,100) as mensaje
    from tbl_cartelera p where p.curso_id = {$_SESSION['CURSOID']} ";
 
 

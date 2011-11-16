@@ -122,7 +122,7 @@ function validar(form1) {
   <td height="18" colspan="3" align="center" valign="middle">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-    <td width="23%" align="right"><a href="http://delimce.com" target="_blank"><img src="../images/backend/delminilogo.gif" width="80" height="15" border="0" title="deliMce.com"></a></td>
+    <td width="23%" align="right"><a href="http://delimce.com" target="_blank"><img src="../images/common/delminilogo.gif" width="80" height="15" border="0" title="deliMce.com"></a></td>
     <td width="77%" align="left" class="small">&nbsp;      <?php echo LANG_license.' '.date("Y"); ?></td>
   </tr>
   </table>
