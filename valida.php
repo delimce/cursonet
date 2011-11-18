@@ -27,8 +27,12 @@
 		
 		$_SESSION['CURSOSID'] = @implode(',',$CURSOS); 
 		$_SESSION['GRUPOSID'] = @implode(',',$GRUPOS);  //////asumiendo que grupo es 0 por defecto
-		if($_SESSION['CURSOSID']=="")$_SESSION['CURSOSID'] = 0;
-				
+		if(empty($_SESSION['CURSOSID'])) $_SESSION['CURSOSID'] = 0;
+                
+                //////se elimina el ultimo curso seleccionado
+                unset($_SESSION['CURSOID']);
+		
+                
 		///////////////// creando log
 		
 		$vector[0] = $_SESSION['USER'];

@@ -9,7 +9,6 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 <head>
 <script language="JavaScript" type="text/javascript" src="../../js/utils.js"></script>
 <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
 <body>
@@ -24,7 +23,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
     </tr>
     <tr>
       <td colspan="2" align="center"><a href="http://delimce.com" target="_blank"><br>
-      <img src="../../images/common/delminilogo.gif" width="80" height="15" border="0" title="deliMce.com">&nbsp;<span class="small"><?php echo LANG_license.' '.date("Y"); ?></span></a></td>
+      <img src="../../images/common/delminilogo.gif" width="80" height="15" border="0" title="deliMce.com">&nbsp;<?php echo LANG_license.' '.date("Y"); ?></a></td>
     </tr>
   </table>
 
