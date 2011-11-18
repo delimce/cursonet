@@ -7,16 +7,16 @@ define(LANG_name,"Nombre");
 define(LANG_ult_acc,"último acc.");
 define(LANG_lastname,"Apellido");
 define(LANG_sex,"Sexo");
-define(LANG_ci,"Cédula");
+define(LANG_ci,"C&eacutedula");
 define(LANG_fecha_nac,"Fecha de nacimiento");
 define(LANG_email,"Email");
 define(LANG_login,"Usuario");
 define(LANG_pass,"Clave");
 define(LANG_pass2,"Confirme clave");
 define(LANG_chpass,"cambiar");
-define(LANG_tel1,"Teléfono de contacto");
-define(LANG_tel2,"Teléfono Celular");
-define(LANG_tel,"Teléfono");
+define(LANG_tel1,"Tel&eacutefono de contacto");
+define(LANG_tel2,"Tel&eacutefono Celular");
+define(LANG_tel,"Tel&eacutefono");
 define(LANG_fax,"Fax");
 define(LANG_web,"Sitio web");
 define(LANG_dir,"Direcci&oacute;n");
@@ -43,13 +43,13 @@ define(LANG_save,"Guardar");
 define(LANG_reset,"Borrar");
 define(LANG_thanx,"Gracias");
 define(LANG_enter,"Entrar");
-define(LANG_ins_thanks,"Inscripción finalizada con exito");
+define(LANG_ins_thanks,"Inscripci&oacuten finalizada con exito");
 define(LANG_remenber,"Recordar");
 define(LANG_enter_admin,"coloque su usuario y clave y seguidamente presion la tecla Enter");
 define(LANG_wellcome,"User.");
 define(LANG_messages,"Mensajes");
 define(LANG_estat,"Estadisticas");
-define(LANG_subjects,"M�dulos");
+define(LANG_subjects,"M&oacutedulos");
 define(LANG_resources,"Recursos");
 define(LANG_students,"Estudiantes");
 define(LANG_student,"Estudiante");
@@ -78,7 +78,7 @@ define(LANG_old,"Leido");
 define(LANG_date,"Fecha");
 define(LANG_load,"Cargando página... por favor espere");
 define(LANG_fax,"Fax");
-define(LANG_phone,"Extensión");
+define(LANG_phone,"Extensi&oacuten");
 define(LANG_next,"Siguiente");
 define(LANG_all,"Todas");
 define(LANG_minutes,"Minutos");
@@ -86,13 +86,13 @@ define(LANG_name,"Nombre");
 define(LANG_est,"Alumno");
 define(LANG_hour_act,"hora Actual:");
 define(LANG_seccion,"Secci�n");
-define(LANG_seccion_select,"Seleccionar sección");
+define(LANG_seccion_select,"Seleccionar secci&oacuten");
 define(LANG_details,"Detalles");
 define(LANG_vdetails,"Ver detalles");
 define(LANG_copy,"Copiar texto");
 define(LANG_denegado,"Acceso Denegado!");
 define(LANG_module_est,"Modo estudiante");
-define(LANG_module_adm,"Modo Administración");
+define(LANG_module_adm,"Modo Administraci&oacuten");
 define(LANG_from,"Desde");
 define(LANG_to,"hasta");
 define(LANG_show,"mostrar");
@@ -126,7 +126,7 @@ define(LANG_be_administrator,"Active la casilla de administrador en el caso que 
 
 
 /////////////about
-define(LANG_aboutus,"Cursonet es un proyecto Elearning que se encuentra en continua evolución desde el año 2006, ha sido creado usando herramientas OpenSource y cuenta con un staff de profesionales para su soporte, capacitación, instalación y apoyo en la elaboración de material Audio Visual, para contactarnos no deje de visitar la pagina <b>Http://cursonet.net</b>");
+define(LANG_aboutus,"Cursonet es un proyecto Elearning que se encuentra en continua evoluci&oacuten desde el año 2006, ha sido creado usando herramientas OpenSource y cuenta con un staff de profesionales para su soporte, capacitaci&oacuten, instalaci&oacuten y apoyo en la elaboraci&oacuten de material Audio Visual, para contactarnos no deje de visitar la pagina <b>Http://cursonet.net</b>");
 define(LANG_twitter,"Siganos en Twitter por:");
 
 
@@ -137,7 +137,7 @@ define(LANG_search,"Buscar");
 define(LANG_nofound,"Estudiante no encontrado");
 define(LANG_notes_plan,"Ver calificaciones segun el plan de evaluaci�n");
 define(LANG_notes_view,"Ver calificaciones");
-define(LANG_forgotpass,"Olvidó mis datos de acceso");
+define(LANG_forgotpass,"Olvid&oacute mis datos de acceso");
 define(LANG_forgotpass_info,"En caso que olvide su clave pulse el enlace");
 define(LANG_secretq,"Pregunta secreta para recordar clave:");
 define(LANG_secreta,"Respuesta a la pregunta:");
@@ -152,50 +152,47 @@ define(LANG_curso_noselect,"Debe seleccionar un curso para ver sus facilitadores
 define(LANG_curso_selected,"Curso seleccionado");
 define(LANG_curso_nocreated,"No existen cursos creados, desea crear un curso nuevo?");
 define(LANG_curso_namev,"Ingrese el nombre del curso");
-define(LANG_curso_alias,"Código");
+define(LANG_curso_alias,"C&oacutedigo");
 define(LANG_curso_aliasv,"Ingrese el Codigo del curso");
-define(LANG_curso_long,"Duración");
-define(LANG_curso_longv,"ingrese la Duración del curso");
+define(LANG_curso_long,"Duraci&oacuten");
+define(LANG_curso_longv,"ingrese la Duraci&oacuten del curso");
 define(LANG_curso_alias_des,"debe ser menor igual a 20 caracteres");
-define(LANG_curso_desc,"Descripción");
+define(LANG_curso_desc,"Descripci&oacuten");
 define(LANG_curso_notes,"Notas adicionales");
 define(LANG_curso_deleted,"Ha sido borrado el curso actual seleccionado, Cursonet se reiniciara nuevamente");
 
-
-define(LANG_invalid_enter,"Ud ha intentado acceder ilegalmente a algun módulo del sistema o puede que su sesion halla expirado,
-para ingresar nuevamente al sistema presione directamente sobre alguno de los siguientes enlaces que se muestran a continuación:");
+define(LANG_invalid_enter,"Ud ha intentado acceder ilegalmente a algun m&oacutedulo del sistema o puede que su sesion halla expirado,
+para ingresar nuevamente al sistema presione directamente sobre alguno de los siguientes enlaces que se muestran a continuaci&oacuten:");
 define(LANG_license,"CURSONET ®");
 define(LANG_system_offline,"Sistema temporalmente
 Inhabilitado, el Facilitador de la materia deshabilito por breves momentos cursonet, pruebe mas tarde... disculpe las molestias causadas");
-
-
 
 
 /////////////////////valide it
 define(LANG_VAL_name,"Ingrese un Nombre");
 define(LANG_VAL_isnan,"Debe ingresar un valor númerico");
 define(LANG_VAL_lastname,"Ingrese un Apellido");
-define(LANG_VAL_ci,"Ingrese solo numeros en el campo c�dula");
+define(LANG_VAL_ci,"Ingrese solo numeros en el campo c&eacutedula");
 define(LANG_VAL_dob,"Fecha de nacimiento");
-define(LANG_VAL_email,"La dirección de email es incorrecta");
+define(LANG_VAL_email,"La direcci&oacuten de email es incorrecta");
 define(LANG_VAL_login,"Error, el usuario no puede contener espacios en blanco");
 define(LANG_VAL_pass,"Error en clave debe tener mas de 5 caracteres");
-define(LANG_VAL_repass,"Error en confirmación de clave");
+define(LANG_VAL_repass,"Error en confirmaci&oacuten de clave");
 define(LANG_VAL_noentry,"Error en usuario o clave, intente de nuevo");
 define(LANG_VAL_noentry2,"No posee acceso para el curso seleccionado");
 define(LANG_VAL_user2," usuario o c�dula existente, por favor seleccione otro nombre de usuario");
 define(LANG_back,"Regresar");
 define(LANG_block,"Campo bloqueado por seguridad");
 define(LANG_close,"Cerrar");
-define(LANG_noactive,"Disculpe su cuenta para ingresar a la aplicación en estos momentos no se encuentra activa, comuniquese con el administrador del sistema para atender su caso.");
+define(LANG_noactive,"Disculpe su cuenta para ingresar a la aplicaci&oacuten en estos momentos no se encuentra activa, comuniquese con el administrador del sistema para atender su caso.");
 define(LANG_nogroupselect,"Debe crear o selecccionar al menos un curso para asignarlo al grupo cuenado sea creado ");
 
 ////////admin
-define(LANG_ADMIN_admin,"Administración");
+define(LANG_ADMIN_admin,"Administraci&oacuten");
 define(LANG_ADMIN_cerrar,"Salir");
 define(LANG_ADMIN_admini,"Administrador");
 define(LANG_ADMIN_cursos,"Cursos asignados");
-define(LANG_ADMIN_admin_email,"Email Soporte técnico");
+define(LANG_ADMIN_admin_email,"Email Soporte t&eacutecnico");
 define(LANG_ADMIN_teacher,"Facilitador");
 define(LANG_ADMIN_settings,"Preferencias");
 define(LANG_ADMIN_help,"Centro de Apoyo");
@@ -203,7 +200,7 @@ define(LANG_ADMIN_help,"Centro de Apoyo");
 //////////////pref
 define(LANG_PREF_title,"Titulo");
 define(LANG_PREF_titlea,"Titulo admin.");
-define(LANG_PREF_titleins,"Titulo Inscripción.");
+define(LANG_PREF_titleins,"Titulo Inscripci&oacuten.");
 define(LANG_PREF_textins,"Para dar inicio al proceso de inscripci&oacute;n, a continuaci&oacute;n presione el bot&oacute;n ");
 define(LANG_PREF_gsettings,"Opciones Generales");
 define(LANG_PREF_language,"Lenguaje");
@@ -212,7 +209,7 @@ define(LANG_PREF_dformat1,"dd/mm/aaaa");
 define(LANG_PREF_dformat2,"mm/dd/aaaa");
 define(LANG_PREF_signature,"Firma General");
 define(LANG_PREF_wellcome,"Bienvenida estudiante");
-define(LANG_PREF_endi,"Fin de la inscripción");
+define(LANG_PREF_endi,"Fin de la inscripci&oacuten");
 define(LANG_PREF_email,"Envio de Emails ");
 define(LANG_PREF_timezone,"Zona horaria ");
 define(LANG_PREF_email_act,"Activar envio de emails externo");
@@ -225,10 +222,10 @@ define(LANG_RES_stutable,"Estudiantes");
 define(LANG_RES_stutable_des,"Borrar todos los estudiantes inscritos");
 define(LANG_RES_group,"Secciones");
 define(LANG_RES_group_des,"Borrar todas las secciones de estudiantes");
-define(LANG_RES_content,"Módulos");
-define(LANG_RES_content_des,"Borrar todos los Módulos creados");
+define(LANG_RES_content,"M&oacutedulos");
+define(LANG_RES_content_des,"Borrar todos los M&oacutedulos creados");
 define(LANG_RES_foro,"Foro");
-define(LANG_RES_foro_des,"Borrar todos los Módulos del foro creados");
+define(LANG_RES_foro_des,"Borrar todos los M&oacutedulos del foro creados");
 define(LANG_RES_eva,"Evaluaciones");
 define(LANG_RES_eva_des,"Borrar todas las Evaluaciones creadas");
 define(LANG_RES_sel,"Preguntas");
@@ -244,44 +241,44 @@ define(LANG_RES_deleted,"ha sido borrada.");
 define(LANG_RES_rec,"Recursos");
 define(LANG_RES_rec_del,"Borrar todos los recursos (Archivos, Enlaces, Videos y Proyectos de Estudiantes)");
 define(LANG_RES_plan,"Planes evaluativos");
-define(LANG_RES_plan_del,"Borrar los planes de evaluación de todos los cursos");
+define(LANG_RES_plan_del,"Borrar los planes de evaluaci&oacuten de todos los cursos");
 define(LANG_RES_loges,"Log de estudiantes");
 define(LANG_RES_loges_del,"Borrar el log de las visitas de los estudiantes");
 
 //////////////modo
 define(LANG_modo_e,"Modo Curso");
-define(LANG_modo_i,"Modo Inscripción");
+define(LANG_modo_i,"Modo Inscripci&oacuten");
 define(LANG_modo_off,"Modo deshabilitado");
-define(LANG_modo_selec,"Seleccione el modo de ejecución de Cursonet para los estudiantes");
+define(LANG_modo_selec,"Seleccione el modo de ejecuci&oacuten de Cursonet para los estudiantes");
 define(LANG_modo_noest,"No hay estudiantes inscritos");
 
 ////////////grupos
-define(LANG_group,"Sección");
+define(LANG_group,"Secci&oacuten");
 define(LANG_nogroup,"No hay secciones");
-define(LANG_group_nombre,"Nombre de Sección");
-define(LANG_group_desc,"Breve Descripción");
+define(LANG_group_nombre,"Nombre de Secci&oacuten");
+define(LANG_group_desc,"Breve Descripci&oacuten");
 define(LANG_group_turno,"Modalidad");
 define(LANG_group_prof,"Responsable");
-define(LANG_group_error1,"Inserte un nombre para la sección");
-define(LANG_group_error2,"Inserte una descripci�n para la sección");
+define(LANG_group_error1,"Inserte un nombre para la secci&oacuten");
+define(LANG_group_error2,"Inserte una descripci�n para la secci&oacuten");
 define(LANG_ungroup,"N/A");
-define(LANG_group_filter,"buscar por sección:");
+define(LANG_group_filter,"buscar por secci&oacuten:");
 define(LANG_group_groups,"Secciones asignadas");
 define(LANG_group_groupasig,"Asginar secciones para el caso ");
-define(LANG_group_noselect,"Debe seleccionar al menos una sección");
-define(LANG_group_nostudent,"No existen estudiantes para ubicar a la sección");
-define(LANG_group_nogroup,"No existen Secciones creadas, intente crear una nueva sección");
-define(LANG_group_casoseccion,"Debe seleccionar el Módulo para hablitar la sección");
+define(LANG_group_noselect,"Debe seleccionar al menos una secci&oacuten");
+define(LANG_group_nostudent,"No existen estudiantes para ubicar a la secci&oacuten");
+define(LANG_group_nogroup,"No existen Secciones creadas, intente crear una nueva secci&oacuten");
+define(LANG_group_casoseccion,"Debe seleccionar el M&oacutedulo para hablitar la secci&oacuten");
 
 
 //////////tema
-define(LANG_content_name,"Módulo");
+define(LANG_content_name,"M&oacutedulo");
 define(LANG_content,"Temas");
 define(LANG_content_noactive,"Guardar como borrador");
 define(LANG_content_links,"Enlaces");
-define(LANG_content_nogroup,"Es necesario crear una sección para poder continuar");
-define(LANG_content_nolinks,"El Módulo no posee enlaces por visitar");
-define(LANG_content_novideos,"El Módulo no posee videos");
+define(LANG_content_nogroup,"Es necesario crear una secci&oacuten para poder continuar");
+define(LANG_content_nolinks,"El M&oacutedulo no posee enlaces por visitar");
+define(LANG_content_novideos,"El M&oacutedulo no posee videos");
 define(LANG_content_files2,"Archivos");
 define(LANG_content_upload,"Subir");
 define(LANG_content_upload_error,"Error al subir el archivo, intentelo de nuevo");
@@ -293,7 +290,7 @@ define(LANG_content_videolink,"Enlace del video");
 define(LANG_content_videoyoutubevalid,'ingrese un enlace youtube valido Ej: "http://www.youtube.com/watch?v=QCVxQ_3Ejkg" ');
 define(LANG_content_videoveohvalid,'ingrese un enlace VeoH valido Ej: "http://www.veoh.com/videoDetails.html?v=e96658xAEQGBty" ');
 define(LANG_content_videoup,"Ingrese el Video a subir");
-define(LANG_content_theme,"Debe crear un Módulo para el curso");
+define(LANG_content_theme,"Debe crear un M&oacutedulo para el curso");
 
 
 define(LANG_content_error,"introduzca una direccion valida de un archivo a subir");
@@ -320,7 +317,7 @@ define(LANG_msg_priority_h,"Urgente");
 define(LANG_msg_priority_l,"Baja");
 define(LANG_msg_read,"Leer mensajes");
 define(LANG_msg_create,"Crear mensaje");
-define(LANG_msg_error_est,"No existen estudiantes para el grupo seleccionado, no se envió el mensaje");
+define(LANG_msg_error_est,"No existen estudiantes para el grupo seleccionado, no se envi&oacute el mensaje");
 define(LANG_msg_to,"Destino");
 define(LANG_person,"Persona");
 define(LANG_subjet,"Titulo");
@@ -337,14 +334,14 @@ define(LANG_msg_nomesage,"Actualmente no tiene mensajes por leer");
 
 ////////exposicion
 define(LANG_exp_name_group,"Nombre del grupo");
-define(LANG_exp_eval_l,"Porcentaje evaluación(Grupo Lider)");
-define(LANG_exp_eval_a,"Porcentaje evaluación (Grupo Aula)");
-define(LANG_exp_fechae,"Fecha exposición");
+define(LANG_exp_eval_l,"Porcentaje evaluaci&oacuten(Grupo Lider)");
+define(LANG_exp_eval_a,"Porcentaje evaluaci&oacuten (Grupo Aula)");
+define(LANG_exp_fechae,"Fecha exposici&oacuten");
 define(LANG_exp_upload,"Fecha tope para subir el material (Grupo Lider)");
 define(LANG_exp_down,"Fecha tope para Bajar el material (Grupo Aula)");
 define(LANG_exp_val_nombre,"Coloque el nombre del grupo");
 define(LANG_exp_val_lider,"Coloque el % de 0 a 100 en este campo");
-define(LANG_exp_val_fecha_exp,"Coloque la fecha de Exposición");
+define(LANG_exp_val_fecha_exp,"Coloque la fecha de Exposici&oacuten");
 define(LANG_exp_val_fecha_sub,"Coloque la fecha de subida de archivos");
 define(LANG_exp_val_fecha_baj,"Coloque la fecha para bajar de archivos");
 define(LANG_exp_val_lider_est,"Seleccione al menos 1 estudiante para el grupo Lider");
@@ -355,21 +352,21 @@ define(LANG_exp_edit,"Editar");
 
 
 ////////evaluacion
-define(LANG_eva_name,"Evaluación");
-define(LANG_eva_name_sel,"Evaluación de tipo selección");
+define(LANG_eva_name,"Evaluaci&oacuten");
+define(LANG_eva_name_sel,"Evaluaci&oacuten de tipo selecci&oacuten");
 define(LANG_eva_trans,"Transcurrido");
-define(LANG_eva_hourend,"Hora de finalización");
+define(LANG_eva_hourend,"Hora de finalizaci&oacuten");
 define(LANG_eva_fechae,"Fecha de Inicio");
-define(LANG_eva_fechaf,"Fecha de Finalización");
-define(LANG_eva_horae,"Hora de aplicación");
-define(LANG_eva_duracion,"Duración");
-define(LANG_eva_por,"Porcentaje de la evaluación");
+define(LANG_eva_fechaf,"Fecha de Finalizaci&oacuten");
+define(LANG_eva_horae,"Hora de aplicaci&oacuten");
+define(LANG_eva_duracion,"Duraci&oacuten");
+define(LANG_eva_por,"Porcentaje de la evaluaci&oacuten");
 define(LANG_eva_npreg,"Numero de preguntas");
-define(LANG_eva_val_nombre,"Coloque el nombre de la evaluación");
+define(LANG_eva_val_nombre,"Coloque el nombre de la evaluaci&oacuten");
 define(LANG_eva_val_por,"Coloque el % de 0 a 100 en campo porcentaje");
-define(LANG_eva_val_fecha,"Coloque la fecha de Evaluación");
+define(LANG_eva_val_fecha,"Coloque la fecha de Evaluaci&oacuten");
 define(LANG_eva_val_fecha2,"la fecha fin no puede ser menor a la fecha inicio");
-define(LANG_eva_val_minutos,"Coloque la duración en minutos");
+define(LANG_eva_val_minutos,"Coloque la duraci&oacuten en minutos");
 define(LANG_eva_val_npreg,"Coloque el numero de preguntas de la prueba");
 define(LANG_enum,"Escriba el enunciado de la pregunta n# ");
 define(LANG_eva_val_pregn,"Debe escribir el enunciado para la pregunta n# ");
@@ -383,17 +380,17 @@ define(LANG_eva_tiempo,"Tiempo");
 define(LANG_eva_question,"Pregunta # ");
 define(LANG_eva_questions,"Preguntas");
 define(LANG_eva_enum,"Ver enunciado");
-define(LANG_eva_revi,"Revisión");
+define(LANG_eva_revi,"Revisi&oacuten");
 define(LANG_eva_cal,"Nota");
 define(LANG_eva_level,"Nivel de complejidad");
 define(LANG_eva_level1,"Indiferente");
 define(LANG_eva_level2,"Sencillo");
 define(LANG_eva_level3,"Normal");
 define(LANG_eva_level4,"difícil");
-define(LANG_eva_noseleva,"Debe crear una evaluación de tipo seleccion para crear una pregunta");
-define(LANG_eva_amsopc,"Opción de respuesta");
+define(LANG_eva_noseleva,"Debe crear una evaluaci&oacuten de tipo seleccion para crear una pregunta");
+define(LANG_eva_amsopc,"Opci&oacuten de respuesta");
 define(LANG_eva_right_opc,"¿Correcta?");
-define(LANG_eva_viewresult,"Ver evaluación resuelta por el alumno");
+define(LANG_eva_viewresult,"Ver evaluaci&oacuten resuelta por el alumno");
 
 ////////seleccion
 define(LANG_eva_noquestions,"Actualmente no hay pruebas de tipo selecci�n en la base de datos");
@@ -514,7 +511,7 @@ define(LANG_config_system_cadmin,"Sesiones abiertas");
 define(LANG_config_system_cusers,"Estudiantes en Linea");
 
 
-define(LANG_config,"Administraci�n");
+define(LANG_config,"Administraci&oacuten");
 define(LANG_config_admin,"Administrador");
 
 
