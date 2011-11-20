@@ -167,8 +167,6 @@ define(LANG_system_offline,"Sistema temporalmente
 Inhabilitado, el Facilitador de la materia deshabilito por breves momentos cursonet, pruebe mas tarde... disculpe las molestias causadas");
 
 
-
-
 /////////////////////valide it
 define(LANG_VAL_name,"Ingrese un Nombre");
 define(LANG_VAL_isnan,"Debe ingresar un valor númerico");
@@ -333,7 +331,6 @@ define(LANG_msg_priori,"Prioridad");
 define(LANG_msg_send,"Enviar");
 define(LANG_email_send,"Enviar email");
 define(LANG_msg_nomesage,"Actualmente no tiene mensajes por leer");
-
 
 
 ////////evaluacion
