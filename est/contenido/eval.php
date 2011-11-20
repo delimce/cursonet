@@ -126,7 +126,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
   
   <?php 
   
-  while ($row = mysql_fetch_assoc($datos->result)) {
+  while ($row = $datos->db_vector_nom($datos->result)) {
   
 		  ///////link de inicio 
 		  if($row['estatus']=="Aplicandose"){
@@ -142,7 +142,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 					
 					$NOTA = $nota2['nota']; 
 					
-					//$NOTA ="<a href=\"javascript:popup('revision.php?id={$nota2['id']}','revisa','250','500')\" title=\"Ver revisión\">".$NOTA.'</a>';
+					//$NOTA ="<a href=\"javascript:popup('revision.php?id={$nota2['id']}','revisa','250','500')\" title=\"Ver revisiï¿½n\">".$NOTA.'</a>';
 				   
 				   }
 			   

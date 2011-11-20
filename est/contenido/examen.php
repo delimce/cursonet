@@ -132,7 +132,7 @@ WHERE
 		  
 		  $i = 1;
 		  
-		  while ($row = mysql_fetch_assoc($datos->result)) {
+		  while ($row = $datos->db_vector_nom($datos->result)) {
 	
 		  ?>
 	 

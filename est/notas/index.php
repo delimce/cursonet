@@ -43,7 +43,7 @@ WHERE
         <td height="2" colspan="2">&nbsp;</td>
       </tr>
       
-      <?php while ($row = mysql_fetch_assoc($tool->result)) { ?>
+      <?php while ($row = $tool->db_vector_nom($tool->result)) { ?>
       
       <tr>
         <td height="2" colspan="2" class="style1"><a title="Ver notas" href="notas.php?id=<?php echo $row['id'] ?>"><?php echo stripcslashes($row['nombre']); ?> </a> <?php if(!empty($row['des']))echo '- '.stripcslashes($row['des']); ?></td>

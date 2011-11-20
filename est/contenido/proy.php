@@ -105,7 +105,7 @@ unset($_SESSION['PROY_ID']);
   
   <?php 
   
-  while ($row = mysql_fetch_assoc($datos->result)) {
+  while ($row = $datos->db_vector_nom($datos->result)) {
   
   ?>
    <tr>

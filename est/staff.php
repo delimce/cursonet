@@ -16,7 +16,7 @@ $tool->query("SELECT
   a.email,
   a.cursos,
   a.telefono,
-  a.sintesis
+  trim(a.sintesis) as sintesis
   from tbl_admin a $extra ");
 
 
@@ -43,7 +43,7 @@ $tool->query("SELECT
 		
 		if(!empty($_SESSION['CURSOID'])){
 		
-		while ($row = mysql_fetch_assoc($tool->result)) {
+		while ($row = $tool->db_vector_nom($tool->result)) {
 			
 			$vc = explode(',',$row["cursos"]);
 		

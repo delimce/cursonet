@@ -14,7 +14,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 					  a.id
 					  FROM
 					  tbl_contenido c
-					  INNER JOIN admin a ON (c.autor = a.id)
+					  INNER JOIN tbl_admin a ON (c.autor = a.id)
 					  where c.id = '{$_SESSION['CASOACTUAL']}' ");
  
 ?>

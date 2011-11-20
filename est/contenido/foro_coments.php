@@ -169,7 +169,7 @@ content="text/html; charset=iso-8859-1">
 	}else{
 	
 	
-		while ($row = mysql_fetch_assoc($datos->result)){
+		while ($row = $datos->db_vector_nom($datos->result)){
 		
 	?>
         <br>

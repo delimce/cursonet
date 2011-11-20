@@ -76,7 +76,7 @@ where (r.tipo = 1 and c.contenido_id = {$_SESSION['CASOACTUAL']})";
 
 		 <?php
 
-		 while ($row = mysql_fetch_assoc($datos->result)) {
+		 while ($row = $datos->db_vector_nom($datos->result)) {
 
 		  ?>
 

@@ -30,7 +30,7 @@
 		if(empty($_SESSION['CURSOSID'])) $_SESSION['CURSOSID'] = 0;
                 
                 //////se elimina el ultimo curso seleccionado
-                unset($_SESSION['CURSOID']);
+                if(isset($_SESSION['CURSOID']))unset($_SESSION['CURSOID']);
 		
                 
 		///////////////// creando log

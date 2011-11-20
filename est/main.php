@@ -170,7 +170,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 		<?php 
 				if($datos->nreg>0){
 				  
-				  while ($row = mysql_fetch_assoc($datos->result)) {
+				  while ($row = $datos->db_vector_nom($datos->result)) {
 				  
 				  			?>
                             <br>
