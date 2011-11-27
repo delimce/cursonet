@@ -180,7 +180,7 @@
      $combo = '<select name="'.$id.'" id="'.$id.'"';
       if($onchange)$combo.=' onChange="'.$onchange.'"';
      if($multiple)$combo.=' multiple size = "'.(count($array)/2+1).'" ';
-     if($desabilita)$combo.=' readonly="true"';
+     if($desabilita)$combo.=' disabled="disabled"';
 	 if($estilo)$combo.=' class="'.$estilo.'"';
      $combo.= '>';
      if($select) $combo.= '<option value="">'.$select.'</option>';
