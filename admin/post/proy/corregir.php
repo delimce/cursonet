@@ -38,7 +38,7 @@ $menu = new menu($menu_struct);
   	    
 		
 		//////////////////acompanamiento de proyectos
-		include("acomp.php");
+		// include("acomp.php");
 		
 		
 		//////////////////////////////////////////

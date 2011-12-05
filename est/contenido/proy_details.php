@@ -28,7 +28,7 @@ p.id = {$_REQUEST['idp']}
 	
 		$archivos =	$datos->estructura_db("SELECT r.dir, r.descripcion, r.id,r.tipo FROM
 								  tbl_proyecto_recurso p
-								  INNER JOIN recurso r ON (p.rec_id = r.id)
+								  INNER JOIN tbl_recurso r ON (p.rec_id = r.id)
 								WHERE
 								  p.proy_id = '{$_REQUEST['idp']}' ");
 	

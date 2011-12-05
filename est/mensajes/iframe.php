@@ -12,7 +12,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 	case 0: ///admin
 	   $query = "select id, concat(nombre,' ',apellido) as nombre from tbl_admin order by nombre";
 	   break;
-	case 1: //est
+	case 1: //est todos los que estan en un grupo con el
 	 $query = "select id, concat(nombre,' ',apellido,' - ',id_number) as nombre from tbl_estudiante where id != {$_SESSION['USER']} and id in (select est_id from tbl_grupo_estudiante where grupo_id in ({$_SESSION['GRUPOSID']}) ) and activo = 1 order by nombre";
 	   break;
 
