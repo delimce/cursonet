@@ -116,11 +116,11 @@ function validar(form1) {
         </tr>
         <tr>
           <td width="28%" class="style1"><strong><?php echo LANG_user ?></strong></td>
-          <td width="72%"><input style="background:#C0C0C0" name="login1" type="text" id="login1"></td>
+          <td width="72%"><input style="background:#C0C0C0" name="login1" size="17" type="text" id="login1"></td>
         </tr>
         <tr>
           <td class="style1"><strong><?php echo LANG_pass ?></strong></td>
-          <td><input style="background:#C0C0C0" name="pass1" type="password" id="pass1"></td>
+          <td><input style="background:#C0C0C0" name="pass1" size="17" type="password" id="pass1"></td>
         </tr>
         <tr>
           <td class="style1">&nbsp;</td>
