@@ -347,7 +347,7 @@ define(LANG_eva_npreg,"Numero de preguntas");
 define(LANG_eva_val_nombre,"Coloque el nombre de la evaluación");
 define(LANG_eva_val_por,"Coloque el % de 0 a 100 en campo porcentaje");
 define(LANG_eva_val_fecha,"Coloque la fecha de Evaluación");
-define(LANG_eva_val_fecha2,"la fecha fin no puede ser menor a la fecha inicio");
+define(LANG_eva_val_fecha2,"la fecha fin no puede ser menor a la fecha inicio ó la fecha inicio menor a la Actual");
 define(LANG_eva_val_minutos,"Coloque la duración en minutos");
 define(LANG_eva_val_npreg,"Coloque el numero de preguntas de la prueba");
 define(LANG_enum,"Escriba el enunciado de la pregunta n# ");

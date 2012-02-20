@@ -80,7 +80,7 @@ function validar(){
     </tr>
           <tr>
             <td><span class="style3">
-              <textarea name="comentario" cols="111" rows="9" class="style1" id="comentario"></textarea>
+              <textarea name="comentario" cols="80" rows="8" class="style1" id="comentario"></textarea>
             </span></td>
           </tr>
         

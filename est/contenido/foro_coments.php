@@ -138,7 +138,7 @@ content="text/html; charset=iso-8859-1">
         <tr>
           <td><input type="button" name="Button2" value="<?=LANG_back?>" onClick="location.replace('foro.php');">
               <?php if($principal[0]['finalizo']==0){ ?>
-            <input type="button" name="Button2" value="<?=LANG_est_foro_new?>" onClick="popup('foro_agregar.php', 'agrega','195','620');">
+            <input type="button" name="Button2" value="<?=LANG_est_foro_new?>" onClick="popup('foro_agregar.php', 'agrega','195','670');">
             &nbsp;
             <input name="Button3" type="button" class="td_whbk3" onClick="location.replace('<?=$PHP_SELF?>');" value="<?=LANG_refresh?>">
             <?php } ?></td>
@@ -258,7 +258,7 @@ content="text/html; charset=iso-8859-1">
       <tr>
       <td>
       <input type="button" name="Button" value="<?=LANG_back?>" onClick="location.replace('foro.php');">
-      <?php if($principal[0]['finalizo']==0){ ?><input type="button" name="Button" value="<?=LANG_est_foro_new?>" onClick="popup('foro_agregar.php', 'agrega','195','620');">
+      <?php if($principal[0]['finalizo']==0){ ?><input type="button" name="Button" value="<?=LANG_est_foro_new?>" onClick="popup('foro_agregar.php', 'agrega','195','670');">
 &nbsp;
 <input name="Button4" type="button" class="td_whbk3" onClick="window.location.href='<?=$PHP_SELF?>';" value="<?=LANG_refresh?>">
 &nbsp;<?php } ?></td>
