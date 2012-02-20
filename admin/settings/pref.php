@@ -62,8 +62,7 @@ include("security.php"); ///seguridad para el admin
 	tinyMCE.init({
 	mode : "textareas",
 	theme : "advanced",
-	plugins : "style,layer,table,charmap,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,flash,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable",
-	language: "es",
+	plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
 	theme_advanced_buttons1_add_before : "undo,redo,separator,bold,italic,underline,separator,justifyleft,justifycenter,justifyright,justifyfull,separator",
 	theme_advanced_buttons1 : ",outdent,indent,bullist,numlist,separator,charmap,insertdate,inserttime,separator,forecolor,backcolor",
 	theme_advanced_buttons2 : "",
@@ -162,7 +161,7 @@ include("security.php"); ///seguridad para el admin
 		    <td><span class="style3">
 		      <?= LANG_PREF_signature ?>
 		    </span></td>
-		    <td colspan="3"><textarea name="signature" cols="76" rows="5" class="style1" id="signature"><?=$datos[0]['signature'] ?>
+		    <td colspan="3"><textarea name="signature" cols="72" rows="5" class="style1" id="signature"><?=$datos[0]['signature'] ?>
 		    </textarea>
 		    </td>
 		    </tr>
@@ -170,7 +169,7 @@ include("security.php"); ///seguridad para el admin
 		    <td><span class="style3">
 		      <?= LANG_PREF_wellcome ?>
 		    </span></td>
-		    <td colspan="3"><textarea name="bienvenida" cols="76" rows="5" class="style1" id="bienvenida"><?=$datos[0]['bienvenido_est'] ?>
+		    <td colspan="3"><textarea name="bienvenida" cols="72" rows="5" class="style1" id="bienvenida"><?=$datos[0]['bienvenido_est'] ?>
 		    </textarea>
 		    </td>
 		    </tr>
@@ -178,7 +177,7 @@ include("security.php"); ///seguridad para el admin
 		    <td><span class="style3">
 		      <?= LANG_PREF_endi ?>
 		    </span></td>
-		    <td colspan="3"><textarea name="fin_ins" cols="76" rows="5" class="style1" id="fin_ins"><?=$datos[0]['fin_inscripcion'] ?>
+		    <td colspan="3"><textarea name="fin_ins" cols="72" rows="5" class="style1" id="fin_ins"><?=$datos[0]['fin_inscripcion'] ?>
 		    </textarea>
 		    </td>
 		    </tr>
@@ -188,27 +187,27 @@ include("security.php"); ///seguridad para el admin
 		  <tr>
 		  <td class="style3"><?= LANG_name ?></td>
 		  <td>
-		    <input name="nombre_u" type="text" id="nombre_u" value="<?=$datos[0]['uni_nombre'] ?>" size="25">
+		    <input name="nombre_u" type="text" id="nombre_u" value="<?=$datos[0]['uni_nombre'] ?>" size="19">
 		  </td>
 		  <td class="style3"><?= LANG_tel ?></td>
 		  <td>
-		    <input name="tlf_u" type="text" id="tlf_u" value="<?=$datos[0]['uni_telefono'] ?>" size="21">
+		    <input name="tlf_u" type="text" id="tlf_u" value="<?=$datos[0]['uni_telefono'] ?>" size="19">
 		  </td>
 		  </tr>
 		  <tr>
 		  <td class="style3"><?= LANG_fax ?></td>
 		  <td>
-		    <input name="fax_u" type="text" id="fax_u" value="<?=$datos[0]['uni_fax'] ?>" size="25">
+		    <input name="fax_u" type="text" id="fax_u" value="<?=$datos[0]['uni_fax'] ?>" size="19">
 		  </td>
 		  <td class="style3"><?= LANG_web ?></td>
 		  <td>
-		    <input name="web_u" type="text" id="web_u" value="<?=$datos[0]['uni_website'] ?>" size="21">
+		    <input name="web_u" type="text" id="web_u" value="<?=$datos[0]['uni_website'] ?>" size="19">
 		  </td>
 		  </tr>
 		  <tr>
 		  <td class="style3"><?= LANG_dir ?></td>
 		  <td colspan="3">
-		    <textarea name="dir_u" cols="76" rows="5" class="style1" id="dir_u"><?=$datos[0]['uni_dir'] ?>
+		    <textarea name="dir_u" cols="72" rows="5" class="style1" id="dir_u"><?=$datos[0]['uni_dir'] ?>
 		    </textarea>
 		  </td>
 		  </tr>

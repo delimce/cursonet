@@ -49,19 +49,17 @@ $menu = new menu($menu_struct);
 	tinyMCE.init({
 	mode : "textareas",
 	theme : "advanced",
-	plugins : "style,layer,table,charmap,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,flash,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable",
-	language: "es",
+	plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
 	theme_advanced_buttons1_add_before : "newdocument,preview,separator,cut,copy,paste,undo,redo,separator,bold,italic,underline,separator,justifyleft,justifycenter,justifyright,justifyfull,separator",
 	theme_advanced_buttons1 : ",outdent,indent,bullist,numlist,separator,forecolor,backcolor",
 	theme_advanced_buttons2 : "",
 	plugin_insertdate_dateFormat : "<?=$_SESSION['DB_FORMATO_DB']?> ",
 	plugin_insertdate_timeFormat : "%H:%M:%S",
-	theme_advanced_buttons3 : "",
-	theme_advanced_toolbar_location : "top",
-	theme_advanced_toolbar_align : "left",
-	content_css : "example_word.css",
-	extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]"
-
+	
+        theme_advanced_toolbar_location : "top",
+        theme_advanced_toolbar_align : "left",
+        theme_advanced_statusbar_location : "bottom",
+        theme_advanced_resizing : true
 	});
 	</script>
 
@@ -114,10 +112,10 @@ $menu = new menu($menu_struct);
   </tr>
   <tr>
     <td width="23%" valign="top" class="style1"><span class="style3"><?php echo LANG_subjet ?></span></td>
-    <td class="style1"><input name="titulo" type="text" id="titulo" value="" size="65">      <? echo $crear->combo_array("priori",$prioridad,$prioridad,false,LANG_msg_priority_n); ?>&nbsp;</td>
+    <td class="style1"><input name="titulo" type="text" id="titulo" value="" size="55">      <? echo $crear->combo_array("priori",$prioridad,$prioridad,false,LANG_msg_priority_n); ?>&nbsp;</td>
     </tr>
   <tr>
-  <td colspan="2" class="style3"><textarea name="content" cols="73" rows="10" id="content"></textarea></td>
+  <td colspan="2" class="style3"><textarea name="content" cols="70" rows="10" id="content"></textarea></td>
   </tr>
 
   <tr>

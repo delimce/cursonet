@@ -43,7 +43,7 @@ $menu = new menu($menu_struct);
 
 
 <script type="text/javascript">
-	tinyMCE.init({
+		tinyMCE.init({
 		// General options
 		mode : "exact",
 		elements : "content",

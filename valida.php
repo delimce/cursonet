@@ -2,6 +2,11 @@
  include("config/dbconfig.php");
  include("class/clases.php");
 
+ /**
+  *validacion del usuario y creacion de la primera seccion 
+  */
+ 
+ 
  $i = new formulario('db');
 
  if(isset($_POST['login1'])){
