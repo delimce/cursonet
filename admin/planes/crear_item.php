@@ -9,10 +9,13 @@ $menu = new menu($menu_struct);
 
  $crear = new tools("db");
  
- $datos = $crear->simple_db("select titulo,en_base from tbl_plan_evaluador where id = {$_REQUEST['id']}");
+ $datos = $crear->simple_db("select id,titulo,en_base from tbl_plan_evaluador where id = {$_REQUEST['id']}");
  
  
- $tlabel = $crear->llenar_array("Foro,Proyecto,Evaluación,Otro");
+ ////para guardar el id del plan para validacion en iframe.php
+ $_SESSION['PLANID1'] = $datos['id'];
+ 
+ $tlabel = $crear->llenar_array("Foro,Proyecto,Examen,Otro");
  $tvalor = $crear->llenar_array("foro,proy,eval,otro");
  
  
@@ -28,6 +31,7 @@ $menu = new menu($menu_struct);
 
 				  $crear->insertar2("tbl_plan_item","plan_id,titulo,tipo,id_act,porcentaje,en_base",$valores);
 				  $crear->cerrar();
+                                  unset($_SESSION['PLANID1']);
 				  
 				  ?>
                    <script language="javascript">
