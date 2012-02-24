@@ -30,33 +30,55 @@ $menu = new menu($menu_struct);
  
  
  	if(isset($_REQUEST['nombre'])){
-  
-		 
-		 $_REQUEST['nombre'] = trim($_REQUEST['nombre']);
-		if(empty($_REQUEST['nombre'])) $_REQUEST['nombre'] = '&nbsp;';
- 
-		 
-		  
-			$query = "select id,concat(nombre,' ',apellido) as nombre,id_number as cedula,user,
+
+
+    $form = new formulario();
+
+    $nombre = $form->getvar("nombre", $_POST);
+    $ci = $form->getvar("ci", $_POST);
+
+    if (!empty($ci)) {
+        $porNombre = 'nombre = ""';
+        $porApellido = 'apellido = ""';
+    } else {
+
+        $busquedas = explode(" ", $nombre);
+
+
+        /////busquedas con el nombre
+        for ($i2 = 0; $i2 < count($busquedas); $i2++) {
+
+            $porNombre.= "nombre like '%" . $busquedas[$i2] . "%'";
+            if ($i2 != count($busquedas) - 1)
+                $porNombre.= " or ";
+        }
+
+
+        /////busquedas con el apellido
+        for ($i2 = 0; $i2 < count($busquedas); $i2++) {
+
+            $porApellido.= "apellido like '%" . $busquedas[$i2] . "%'";
+            if ($i2 != count($busquedas) - 1)
+                $porApellido.= " or ";
+        }
+    }
+
+
+
+    $query = "select id,concat(nombre,' ',apellido) as nombre,id_number as cedula,user,
 		  (SELECT 
 		  g.nombre
 		FROM
 		  `tbl_grupo_estudiante` ge
 		  INNER JOIN `tbl_grupo` g ON (ge.grupo_id = g.id)
 		where ge.curso_id = {$_SESSION['CURSOID']} and est_id = e.id )as seccion,
-		  (if (activo=1,'<img border=\"0\" title=\"".LANG_is_active."\" src=\"../../images/backend/checkmark.gif\">','<img border=\"0\" title=\"".LANG_is_noactive."\" src=\"../../images/backend/x.gif\">')) as activo,
+		  (if (activo=1,'<img border=\"0\" title=\"" . LANG_is_active . "\" src=\"../../images/backend/checkmark.gif\">','<img border=\"0\" title=\"" . LANG_is_noactive . "\" src=\"../../images/backend/x.gif\">')) as activo,
 		   if({$_SESSION['ADMIN']}>2,'1','0') as condicion_editar
-		  from tbl_estudiante e where (nombre like '%{$_REQUEST['nombre']}%' or apellido like '%{$_REQUEST['nombre']}%') OR (id_number = '{$_REQUEST['ci']}') order by nombre,apellido,id_number";
-		
-		
-			$grid->query($query); //////se ejecuta el query
-			
-			
-		
-	
-			
-			
-		}	
+		  from tbl_estudiante e where ( ($porNombre) OR ($porApellido) ) OR (id_number = '$ci') order by nombre,apellido,id_number";
+
+
+    $grid->query($query); //////se ejecuta el query
+}	
 		
 
 ?>
