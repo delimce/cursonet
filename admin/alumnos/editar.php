@@ -45,9 +45,24 @@ $menu = new menu($menu_struct);
 		$valores2[12]= trim($_POST['spreg']);
 		$valores2[13]= trim($_POST['sresp']);
 		
-		 $crear->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
-         $crear->query("START TRANSACTION");
-		
+                
+                
+                $crear->abrir_transaccion();
+                
+                
+                //validadndo user y cedula
+               
+                 $crear->query("select id from tbl_estudiante where (user = '{$_POST['login12']}' and id != {$_POST['id']} ) or (id_number = '{$_POST['ci']}' and id != {$_POST['id']} )   ");
+                 if($crear->nreg>0){
+                     $crear->cerrar_transaccion(false);
+                     $crear->cerrar();
+                     $aviso = $_POST['login12'].LANG_VAL_user2;
+		     $crear->javaviso($aviso);
+                     $crear->redirect("editar.php?ItemID=".$_POST['id']);
+                     
+                 }
+                     
+                
 		$crear->update("tbl_estudiante",$campos,$valores2,"id = '{$_POST['id']}' "); 
 		
 		////grupo editar
@@ -85,7 +100,9 @@ $menu = new menu($menu_struct);
 		 
 		 }
 		 		 
-		 $crear->query("COMMIT"); 
+		 $crear->cerrar_transaccion();
+                 
+                 $crear->cerrar();
 		 
 		 $crear->javaviso(LANG_cambios);
 		 
@@ -228,8 +245,8 @@ $menu = new menu($menu_struct);
   <tr>
   
   <td width="17%" class="style3"><?php echo LANG_ci ?></td>
-  <!-- onFocus="this.blur()"-->
-  <td width="29%"><input name="ci" type="text" id="ci" value="<?=$data[2]?>" readonly ></td>
+
+  <td width="29%"><input name="ci" type="text" id="ci" value="<?=$data[2]?>"></td>
   <td width="4%">&nbsp;</td>
   <td width="19%" valign="middle" class="style3"><strong>
     <?=LANG_sex ?>
