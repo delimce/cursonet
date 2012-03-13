@@ -57,7 +57,7 @@ $menu = new menu($menu_struct);
                      $crear->cerrar_transaccion(false);
                      $crear->cerrar();
                      $aviso = $_POST['login12'].LANG_VAL_user2;
-		     $crear->javaviso($aviso);
+		     		 $crear->javaviso($aviso);
                      $crear->redirect("editar.php?ItemID=".$_POST['id']);
                      
                  }
