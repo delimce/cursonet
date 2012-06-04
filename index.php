@@ -37,66 +37,65 @@
 <link rel="stylesheet" type="text/css" href="css/style_front.css">
 
 <script language="JavaScript" type="text/javascript" src="js/browser_detect.js"></script>
-<script language="JavaScript" type="text/javascript" src="js/ajax.js"></script>
-<script language="JavaScript" type="text/javascript" src="js/utils.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/jquery/jquery-1.7.2.min.js"></script>
 
-
-<script language="JavaScript" type="text/javascript">
-
-
-function validar(form1) {
-
-  if (document.form1.login1.value.length < 1) {
-  	
-    alert("Escriba el Login de usuario en el campo \"Usuario\".");
-        document.form1.login1.focus();
-		
-    return (false);
-  }
-  
-  if (document.form1.pass1.value.length < 1) {
+<script>
+    function onSuccess(data)
+    {
+        data = $.trim(data);
+        
+        if(data==1){
+            $(location).attr('href','est/index.php');
+        }else if(data==2){
+            
+            alert('<?php echo LANG_noactive; ?>');
+            
+        }else{
+            
+            alert('<?php echo LANG_VAL_noentry; ?>');
+            
+        }    
+        
+    }
     
-		alert("Escriba el password de usuario en el campo \"Clave\".");
-        document.form1.pass1.focus();
-		
-    return (false);
-  }
-
-	oXML = AJAXCrearObjeto();
-	oXML.open('post', 'valida.php');
-	oXML.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	oXML.onreadystatechange = function(){
-		if (oXML.readyState == 4 && oXML.status == 200) {
-		
-				if(oXML.responseText==1){
-				
-				location.replace('est/index.php');
-				
-				}else if(oXML.responseText==2){
-				
-				alert('<?php echo LANG_noactive; ?>');				
-				
-				}else{
-				
-				alert('<?php echo LANG_VAL_noentry; ?>');
-				
-				} 
-				
-				vaciar(oXML);
-           
-		}
-	 }
-
-	oXML.send('login1='+document.form1.login1.value+'&pass1='+document.form1.pass1.value); 
-	
-
-	return (false);
-
-  
- }
-</script>
-
-
+    
+    $(document).ready(function() {
+        
+        
+        $("#Submit").click(function(){
+            
+            
+            if (document.form1.login1.value.length < 1) {
+                
+                alert("Escriba el Login de usuario en el campo \"Usuario\".");
+                document.form1.login1.focus();
+                
+                return (false);
+            }
+            
+            if (document.form1.pass1.value.length < 1) {
+                
+                alert("Escriba el password de usuario en el campo \"Clave\".");
+                document.form1.pass1.focus();
+                
+                return (false);
+            }
+            
+            
+            var formData = $("#form1").serialize();
+            
+            $.ajax({
+                type: "POST",
+                url: "valida.php",
+                cache: false,
+                data: formData,
+                success: onSuccess
+            });
+            
+            return false;
+        });
+    });
+    </script>
 
 
 </head>
@@ -109,7 +108,8 @@ function validar(form1) {
   </tr>
   <tr>
     <td width="199" height="0" valign="top" background="images/frontend/home05.jpg" bgcolor="#A0A0A0">
-	<form name="form1" method="post" action="" onSubmit = "return validar(this)">
+	
+        <form name="form1" id="form1" method="post" action="">
 	  <table width="100%" border="0" cellpadding="2" cellspacing="2" class="style1">
         <tr>
           <td height="22" colspan="2" class="style1"><?php echo LANG_est_welcome ?>&nbsp;<a href="ins/index.php"><?php echo LANG_content_benter ?></a></td>
@@ -124,7 +124,9 @@ function validar(form1) {
         </tr>
         <tr>
           <td class="style1">&nbsp;</td>
-          <td><input style="background:#C0C0C0;" type="submit" name="Submit" id="submit" value="<?php echo LANG_enter ?>"></td>
+            <td>
+                  <button style="background:#C0C0C0;" type="Submit" id="Submit" value="<?php echo LANG_enter ?>"><?php echo LANG_enter ?></button>
+            </td>
         </tr>
         
         <tr>

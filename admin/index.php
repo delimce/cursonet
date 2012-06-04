@@ -23,60 +23,69 @@
 ?>
 <html>
 <head>
+    
 <script language="JavaScript" type="text/javascript" src="../js/browser_detect.js"></script>
-<script language="JavaScript" type="text/javascript" src="../js/ajax.js"></script>
-<script language="JavaScript" type="text/javascript" src="../js/utils.js"></script>
+<script language="JavaScript" type="text/javascript" src="../js/jquery/jquery-1.7.2.min.js"></script>
 
 <title><?php echo $datos['titulo_admin'].' '.$datos['version'];  ?></title>
 <link rel="stylesheet" type="text/css" href="../css/style_back.css">
 
-<script language="JavaScript" type="text/javascript">
 
-function validar(form1) {
+      <script>
+          function onSuccess(data)
+          {
+              data = $.trim(data);
+              
+              if(data==1){
+                  $(location).attr('href','index2.php');
+              }else if(data==2){
+                  
+                  alert('<?php echo LANG_VAL_noentry2; ?>');
+                  
+              }else{
+                  
+                  alert('<?php echo LANG_VAL_noentry; ?>');
+                  
+              }    
+              
+          }
+  
+  
+        $(document).ready(function() {
+            
+                
+            $("#Submit").click(function(){
+                
+                
+              if (document.form1.user.value.length < 1) {
+                  alert("Escriba el Login de usuario en el campo \"Usuario\".");
+                  document.form1.user.focus();
+                  return (false);
+              }
+              
+              if (document.form1.pass.value.length < 1) {
+                  alert("Escriba el password de usuario en el campo \"Clave\".");
+                  document.form1.pass.focus();
+                  return (false);
+              }
+ 
+                               
+                var formData = $("#form1").serialize();
+ 
+                $.ajax({
+                    type: "POST",
+                    url: "valida.php",
+                    cache: false,
+                    data: formData,
+                    success: onSuccess
+                });
+ 
+                return false;
+            });
+        });
+    </script>
 
-  if (document.form1.user.value.length < 1) {
-    alert("Escriba el Login de usuario en el campo \"Usuario\".");
-        document.form1.user.focus();
-    return (false);
-  }
 
-  if (document.form1.pass.value.length < 1) {
-    alert("Escriba el password de usuario en el campo \"Clave\".");
-        document.form1.pass.focus();
-    return (false);
-  }
-
-
-  	oXML = AJAXCrearObjeto();
-	oXML.open('post', 'valida.php');
-	oXML.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	oXML.onreadystatechange = function(){
-		if (oXML.readyState == 4 && oXML.status == 200) {
-
-				if(oXML.responseText==1){
-
-				location.replace('index2.php');
-
-				}else if(oXML.responseText==2){
-				
-				alert('<?php echo LANG_VAL_noentry2; ?>');
-								
-				}else{
-
-				alert('<?php echo LANG_VAL_noentry; ?>');
-
-				}
-
-				vaciar(oXML);
-
-		}
-	 }
-
-	oXML.send('user='+document.form1.user.value+'&pass='+document.form1.pass.value+'&curso='+document.form1.curso.value);
-
-  return (false);
- }
-</script>
 
 </head>
 <body>
@@ -88,7 +97,7 @@ function validar(form1) {
   </tr>
   <tr>
     <td width="206" height="83" valign="middle" bgcolor="#FFFFFF">
-	<form name="form1" method="post" action="" onSubmit="return validar();">
+	<form name="form1" id="form1" method="post" action="index2.php">
 	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="small" title="<?php echo LANG_enter_admin ?>">
 
         <tr>
@@ -105,7 +114,9 @@ function validar(form1) {
 		  <?php echo $nuevo->combo_db("curso","select id,alias from tbl_curso","alias","id",false,$_SESSION['CURSOID'],false,LANG_curso_nocurso.'<input name="curso" type="hidden" id="curso" value="-1">'); ?>		  </td>
           </tr>
         <tr>
-          <td colspan="2" align="left" class="style3"><?php echo '<input name="Submit" id="submit" type="submit" class="style1" value="'.LANG_enter.'">'; ?></td>
+          <td colspan="2" align="left" class="style3">
+              <button type="Submit" id="Submit" value="<?php echo LANG_enter ?>"><?php echo LANG_enter ?></button>
+           </td>
           </tr>
       </table>
     </form>
