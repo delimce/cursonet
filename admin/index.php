@@ -19,7 +19,6 @@
  $lenguaje1 = '../config/lang/'.$_SESSION['LENGUAJE'];///verifico el lenguaje
  include ($lenguaje1);
 
-
 ?>
 <html>
 <head>

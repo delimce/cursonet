@@ -9,9 +9,7 @@ $menu = new menu($menu_struct);
 
 $crear = new tools("db");
 
-
         if(isset($_REQUEST['foro']))$_SESSION['tema_id'] = $_REQUEST['foro'];
-
 
         if(isset($_POST['Submit'])){
 

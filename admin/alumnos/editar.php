@@ -144,7 +144,8 @@ $menu = new menu($menu_struct);
 	  <script language="JavaScript" type="text/javascript">
 		  function validar(){
 		  
-		  	 var login2 = document.form1.login12.value;
+		  	 //var login2 = document.form1.login12.value;
+             var login2 =  document.getElementById("login12").value;
 		  			 
 			 if (document.form1.nombre.value == ''){
 			   alert("<?=LANG_VAL_name?>");

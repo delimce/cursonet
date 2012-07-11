@@ -43,7 +43,8 @@
 		  function validar(){
 		  
 		  		
-			var login2 = document.form1.login1.value;
+			//var login2 = document.form1.login1.value;
+              var login2 =  document.getElementById("login1").value;
 					 
 			 if (document.form1.nombre.value == ''){
 			   alert("<?=LANG_VAL_name?>");
