@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aee39b03-8f0a-4e07-88c8-29a1f188dcef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/actividades/foro/agregar.php" afterPath="$PROJECT_DIR$/admin/actividades/foro/agregar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/alumnos/crear.php" afterPath="$PROJECT_DIR$/admin/alumnos/crear.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/alumnos/editar.php" afterPath="$PROJECT_DIR$/admin/alumnos/editar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/index.php" afterPath="$PROJECT_DIR$/admin/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/est/user/index.php" afterPath="$PROJECT_DIR$/est/user/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ins/form.php" afterPath="$PROJECT_DIR$/ins/form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/private/private.xml" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" />
+    <list default="true" id="aee39b03-8f0a-4e07-88c8-29a1f188dcef" name="Default" comment="intentando corregir la falla de la aparente posibilidad de guardar usuario con espacios en blanco">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/actividades/foro/vercoment.php" afterPath="$PROJECT_DIR$/admin/actividades/foro/vercoment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/lang/Castellano.php" afterPath="$PROJECT_DIR$/config/lang/Castellano.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cursonet.iws" afterPath="$PROJECT_DIR$/cursonet.iws" />
     </list>
     <ignored path="cursonet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +61,35 @@
     <favorites_list name="cursonet" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="tools.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/class/tools.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="86" selection-start="481" selection-end="481" vertical-scroll-proportion="103.30769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vercoment.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/actividades/foro/vercoment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="258" column="61" selection-start="7584" selection-end="7584" vertical-scroll-proportion="0.6085627">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Castellano.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/lang/Castellano.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="539" column="69" selection-start="24770" selection-end="24770" vertical-scroll-proportion="2.7307692">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -87,6 +111,8 @@
         <option value="$PROJECT_DIR$/est/user/index.php" />
         <option value="$PROJECT_DIR$/admin/alumnos/crear.php" />
         <option value="$PROJECT_DIR$/admin/alumnos/editar.php" />
+        <option value="$PROJECT_DIR$/config/lang/Castellano.php" />
+        <option value="$PROJECT_DIR$/admin/actividades/foro/vercoment.php" />
       </list>
     </option>
   </component>
@@ -139,6 +165,48 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="cursonet" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cursonet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cursonet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cursonet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cursonet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cursonet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cursonet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -196,6 +264,9 @@
       <server id="c1db0148-26b3-46b3-8ba8-cdfd938e3c5b">
         <serverdata />
       </server>
+      <server id="c72455c8-006d-454b-9d96-c194e69ae933">
+        <serverdata />
+      </server>
     </servers>
   </component>
   <component name="RunManager">
@@ -213,6 +284,13 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -253,6 +331,17 @@
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
@@ -309,10 +398,10 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
-    <editor active="false" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3281787" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.79452056" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -320,17 +409,17 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24469697" sideWeight="0.380137" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24318182" sideWeight="0.42955327" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48458904" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886191" sideWeight="0.51541096" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24469697" sideWeight="0.2791096" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24318182" sideWeight="0.23024055" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -418,28 +507,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/alumnos/crear.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="78" selection-start="6668" selection-end="6675" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="214" column="78" selection-start="6668" selection-end="6675" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/alumnos/editar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="288" column="51" selection-start="8975" selection-end="8982" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="288" column="51" selection-start="8975" selection-end="8982" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/est/user/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="16" selection-start="1267" selection-end="1322" vertical-scroll-proportion="0.17884615">
-          <folding />
-        </state>
+        <state line="35" column="16" selection-start="1267" selection-end="1322" vertical-scroll-proportion="0.17884615" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ins/form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="340" column="55" selection-start="12008" selection-end="12008" vertical-scroll-proportion="0.18597561">
+        <state line="340" column="55" selection-start="12008" selection-end="12008" vertical-scroll-proportion="0.18597561" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/tools.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="86" selection-start="481" selection-end="481" vertical-scroll-proportion="103.30769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/lang/Castellano.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="539" column="69" selection-start="24770" selection-end="24770" vertical-scroll-proportion="2.7307692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/actividades/foro/vercoment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="258" column="61" selection-start="7584" selection-end="7584" vertical-scroll-proportion="0.6085627">
           <folding />
         </state>
       </provider>

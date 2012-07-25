@@ -229,7 +229,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 		  
 		  $i=0;
 		  
-                     while ($row = $crear->db_vector_nom($crear->result)) {
+               while ($row = $crear->db_vector_nom($crear->result)) {
 			  
 		   ?>
            
@@ -243,8 +243,29 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 		  		  
           <tr>
             <td height="10" colspan="2" class="style3"><?
-			if($row['tipo']!="respuesta"){ echo LANG_name.' '.$row['sujeto'];
-										   if($row['tsujeto']!='admin')echo '<br>'.LANG_group.' '.$row['grupo']; }else{
+			if($row['tipo']!="respuesta"){
+
+                echo LANG_name . ' ' . $row['sujeto'];
+
+                if ($row['tsujeto'] != 'admin'){
+                    echo '<br>' . LANG_group . ' ' . $row['grupo'];
+
+                ///////determinando el numero de palabras por comentario
+                   $tcom1 = trim($row["content"]);
+                  // $tcom2 =  preg_replace("/\n\r|\r\n/", "",$tcom1);
+                    $tcom1 =          strip_tags($tcom1);
+                    $tcom2 = explode(" ",$tcom1);
+                    $nwords = count(array_filter($tcom2));
+
+
+                    echo '<br>' . LANG_foro_n_words . ' ' . $nwords;
+
+                    unset($tcom1,$tcom2,$nwords);
+
+                ////////////////
+
+                }
+            }else{
 			 echo LANG_est_foro_respto;  ?>:&nbsp;<? echo $row['sujeto']; if($row['tipo']=="respuesta") echo ' '.LANG_foro_publicado.' '.$fecha->datetime($row['fecha']);
 			 
 			
@@ -269,7 +290,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
             
        <?php } ?>     
             
-			<div id="com_<?=$row['id'] ?>"><?=$row['content'] ?></div></td>
+			<div id="com_<?=$row['id'] ?>"><?php echo $row["content"] ?></div></td>
           </tr>
           
              <?php if($row['tipo']=="respuesta"){ ?>
