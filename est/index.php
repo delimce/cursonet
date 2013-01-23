@@ -15,7 +15,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../css/style_front.css">
-<script type="text/javascript" src="../js/dynifs.js"></script>
+<script type="text/javascript" src="../js/iframe.js"></script>
 <script type="text/javascript" src="../js/utils.js"></script>
 
 <title><?php echo $data[3].' '.$data[4];  ?></title>
@@ -64,7 +64,8 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
     </table></td>
   </tr>
   <tr>
-    <td height="2" colspan="2" align="center"><iframe scrolling="no" id="content" align="middle" allowtransparency="yes" frameborder="0" name="content" hspace="0" width="99%" src="main.php" onload="DYNIFS.resize('content')"></iframe></td>
+    <td height="2" colspan="2" align="center">
+        <iframe scrolling="no" id="content" align="middle" allowtransparency="yes" frameborder="0" name="content" hspace="0" width="99%" src="main.php" onLoad="changeHeight(this);"></iframe></td>
   </tr>
   <tr>
     <td colspan="2"><hr size="1px" color="#9AB1B6">

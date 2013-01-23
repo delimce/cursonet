@@ -88,7 +88,7 @@ $menu = new menu($menu_struct);
 				
 				?>
       <tr  bgcolor="<?php echo $colorf ?>">
-        <td class="style1" style="cursor:pointer" title="ver detalles de <?php echo $est['nombre'] ?>" onClick="popup('../alumnos/detalles.php?id=<?php echo $est['id'] ?>','est','768','800');""><?php echo $est['nombre']; ?></td>
+        <td class="style1" style="cursor:pointer;text-transform: capitalize" title="ver detalles de <?php echo $est['nombre'] ?>" onClick="popup('../alumnos/detalles.php?id=<?php echo $est['id'] ?>','est','768','800');""><?php echo $est['nombre']; ?></td>
         					
                             
                             

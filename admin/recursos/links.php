@@ -19,7 +19,7 @@ $menu = new menu($menu_struct);
 	   "oculto" => 0,
 	   "orden" => array("nombre" => "orden1", "defecto" => "fecha desc"),  
 	    "conenlace"  => array("parametro" => 0,"var_parametro"=> "id", "pos" => "1", "title" => LANG_open_file, "url" => "abrirl.php?","target" => "_blank"),
-	    "abreviar" =>  array(1 => 40),  
+	    "abreviar" =>  array(1 => 65),  
       // "nuevo_vinculo1"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?","target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
 	  "nuevo_vinculo2"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">","url" => "#","target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop,"borrar"=>1),
        "separacion"   => array(0 => "1%", 1 => "70%", 2=> "20%",3=> "20%"), //separacion de columnas

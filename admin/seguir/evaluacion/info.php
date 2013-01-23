@@ -13,10 +13,10 @@ $menu = new menu($menu_struct);
   if($seccion[0]>0) $filtro = "and grupo_id = $seccion[0]"; else $filtro = "";
   
   
-  $query = " SELECT concat(e.nombre,' ',e.apellido,' - ',id_number) as nombre2,
+  $query = " SELECT lower(concat(e.apellido,' ',e.nombre,' - ',id_number)) as nombre2,
   					ifnull((select id from tbl_evaluacion_estudiante where eval_id = '{$_GET['id']}' and est_id = e.id ),'NO') as presento,
 					ifnull((select nota from tbl_evaluacion_estudiante where eval_id = '{$_GET['id']}' and est_id = e.id ),'NO') as revision
-					FROM tbl_estudiante e where e.id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} $filtro ) order by nombre2";
+					FROM tbl_estudiante e where e.id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} $filtro ) order by e.apellido,e.nombre";
 					
 					
 	$pru->query($query);
@@ -62,7 +62,7 @@ $menu = new menu($menu_struct);
 				<?php while ($row = $pru->db_vector_nom($pru->result)) { ?>
 				
                 <tr>
-                  <td bgcolor="#FFFFFF" class="style1"><?=$row['nombre2']?></td>
+                  <td bgcolor="#FFFFFF" class="style1" style="text-transform: capitalize"><?=$row['nombre2']?></td>
                   <td align="center" bgcolor="#FFFFFF">
                     <? if($row['presento']!='NO') echo '<img src="../../../images/backend/checkmark.gif" width="11" height="13">'; else echo '<img src="../../../images/backend/x.gif" width="14" height="16">'; ?>
                   </td>
