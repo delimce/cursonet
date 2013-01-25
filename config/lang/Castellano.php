@@ -264,13 +264,21 @@ define(LANG_group_error2,"Inserte una descripci&oacute;n para la secci&oacute;n"
 define(LANG_ungroup,"N/A");
 define(LANG_group_filter,"buscar por secci&oacute;n:");
 define(LANG_group_groups,"Secciones asignadas");
+define(LANG_group_addEst,"Agregar estudiantes");
 define(LANG_group_groupasig,"Asginar secciones para el caso ");
 define(LANG_group_noselect,"Debe seleccionar al menos una secci&oacute;n");
 define(LANG_group_nostudent,"No existen estudiantes para ubicar a la secci&oacute;n");
 define(LANG_group_nogroup,"No existen Secciones creadas, intente crear una nueva secci&oacute;n");
 define(LANG_group_casoseccion,"Debe seleccionar el M&oacute;dulo para hablitar la secci&oacute;n");
 
+///////equipos
 
+define(LANG_team_name,"Nombre del equipo");
+define(LANG_team_desc,"descripci&oacute;n del equipo");
+define(LANG_team_join,"conformar equipo");
+define(LANG_team_addStudents,"se ha creado el equipo, continuar");
+define(LANG_team_error_group,"el equipo debe pertenecer a una sección");
+define(LANG_team_error_name,"ingrese un nombre para el equipo");
 //////////tema
 define(LANG_content_name,"M&oacute;dulo");
 define(LANG_content,"Temas");

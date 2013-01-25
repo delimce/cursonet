@@ -14,7 +14,6 @@ $datamenu = $datos->simple_db("select (select count(*) from tbl_estudiante) as n
  (select count(*) from tbl_recurso where add_by = 'admin') as recursos  ");
 
 
-
 $_SESSION['DB_FORMATO_DB'] = $data[2];
 $_SESSION['DB_FORMATO'] = $data[1];
 $_SESSION['CURSOALIAS'] = $data[4];
@@ -67,7 +66,7 @@ $_SESSION['CURSOALIAS'] = $data[4];
                     <!-- Content Code for the top right black box goes here. -->   <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                             <td width="90%" align="right"><span class="small" style="color:#FFFFFF">&nbsp;<b><?= $_SESSION['NOMBRE'] ?></b>&nbsp;
-                    <?php if ($_SESSION['FECHACC'] != "") { ?>Ult. acceso&nbsp;<b><?= $_SESSION['FECHACC'] ?><?php } ?></b>
+                                    <?php if ($_SESSION['FECHACC'] != "") { ?>Ult. acceso&nbsp;<b><?= $_SESSION['FECHACC'] ?><?php } ?></b>
                                     &nbsp;|&nbsp;</span></td>
                             <td width="6%" align="right" class="style2"><a href="cerrar.php" style="color:#FFFFFF; display:compact;"><?php echo LANG_ADMIN_cerrar; ?></a></td>
                             <td width="4%" align="center"><img title="<?php echo LANG_ADMIN_cerrar; ?>" src="../images/backend/cerrar.gif" width="12" height="12" border="0"></td>
@@ -91,8 +90,6 @@ $_SESSION['CURSOALIAS'] = $data[4];
             <tr>
                 <td height="19" colspan="2" bgcolor="#F1F2EE">
 
-
-                    <a href="http://www.dhtml-menu-builder.com"  style="display:none;visibility:hidden;">Javascript DHTML Drop Down Menu Powered by dhtml-menu-builder.com</a>
                     <script type="text/javascript">
                         <!--
                         stm_bm(["menu79ba",900,"","blank.gif",0,"","",0,0,0,0,0,1,0,0,"","",0,0,1,1,"default","hand","",1,25],this);
@@ -101,48 +98,51 @@ $_SESSION['CURSOALIAS'] = $data[4];
                         stm_bpx("p1","p0",[1,4,0,0,3,4,0,7,100,"",-2,"",-2,90,0,0,"#000000","#F1F2EE","",3,5,1]);
                         stm_aix("p1i0","p0i0",[0,"Examen","","",-1,-1,0,"","content"]);
                         stm_bpx("p2","p1",[1,2,0,0,3,4,0,0]);
-                        stm_aix("p2i0","p0i0",[0,"Selecci�n","","",-1,-1,0,"actividades/evaluacion/sel/index.php","content","","","","",0,0,0,"","",0,0]);
+                        stm_aix("p2i0","p0i0",[0,"Selecci&oacute;n","","",-1,-1,0,"actividades/evaluacion/sel/index.php","content","","","","",0,0,0,"","",0,0]);
                         stm_aix("p2i1","p2i0",[0,"Desarrollo","","",-1,-1,0,"actividades/evaluacion/des/index.php"]);
                         stm_ep();
                         stm_aix("p1i1","p2i0",[0,"Proyectos","","",-1,-1,0,"actividades/proy/index.php"]);
                         stm_aix("p1i2","p2i0",[0,"Foros","","",-1,-1,0,"actividades/foro/index.php"]);
                         stm_ep();
                         stm_ai("p0i1",[6,1,"#000000","",0,0,0]);
-                        stm_aix("p0i2","p0i0",[0,"Gesti�n"]);
-                        stm_bpx("p3","p1",[1,4,0,0,3,4,0,0,100,"",-2,"",-2,90,0,0,"#000000","#F1F2EE","",3,1]);
-                        stm_aix("p3i0","p2i0",[0,"M�dulos","","",-1,-1,0,"contenidos/index.php","content","","Temas del curso"]);
-                        stm_aix("p3i1","p2i0",[0,"Grupos","","",-1,-1,0,"grupos/index.php","content","","Grupos de estudiantes"]);
+                        stm_aix("p0i2","p0i0",[0,"Gesti&oacute;n"]);
+                        stm_bpx("p3","p1",[1,4,0,0,3,4,0,7,100,"",-2,"",-2,90,0,0,"#000000","#F1F2EE","",3,1]);
+                        stm_aix("p3i0","p2i0",[0,"Temas","","",-1,-1,0,"contenidos/index.php","content","","Temas del curso"]);
+                        stm_aix("p3i1","p0i0",[0,"Grupos","","",-1,-1,0,"grupos/index.php","content","","Grupos de estudiantes"]);
+                        stm_bpx("p4","p2",[]);
+                        stm_aix("p4i0","p2i0",[0,"Equipos","","",-1,-1,0,"equipos/index.php","content","","Equipos de estudiantes para actividades"]);
+                        stm_ep();
                         stm_aix("p3i2","p2i0",[0,"Recursos","","",-1,-1,0,"recursos/index.php","content","","Recursos del curso"]);
                         stm_aix("p3i3","p2i0",[0,"Planes","","",-1,-1,0,"planes/index.php","content","","Planes evaluados"]);
                         stm_aix("p3i4","p2i0",[0,"Cartelera","","",-1,-1,0,"wall/index.php","content","","Cartelera de Mensajes"]);
                         stm_ep();
                         stm_aix("p0i3","p0i1",[]);
-                        stm_aix("p0i4","p0i0",[0,"Corregir"]);
-                        stm_bpx("p4","p3",[]);
-                        stm_aix("p4i0","p2i0",[0,"Proyectos","","",-1,-1,0,"post/proy/index.php"]);
-                        stm_aix("p4i1","p2i0",[0,"Foro","","",-1,-1,0,"post/foro/index.php"]);
-                        stm_aix("p4i2","p2i0",[0,"Pruebas","","",-1,-1,0,"post/evaluacion/index.php"]);
+                        stm_aix("p0i4","p0i0",[0,"Evaluaci&oacute;n"]);
+                        stm_bpx("p5","p3",[1,4,0,0,3,4,0,0]);
+                        stm_aix("p5i0","p2i0",[0,"Proyectos","","",-1,-1,0,"post/proy/index.php"]);
+                        stm_aix("p5i1","p2i0",[0,"Foro","","",-1,-1,0,"post/foro/index.php"]);
+                        stm_aix("p5i2","p2i0",[0,"Pruebas","","",-1,-1,0,"post/evaluacion/index.php"]);
                         stm_ep();
                         stm_aix("p0i5","p0i1",[]);
                         stm_aix("p0i6","p0i0",[0,"Seguimiento"]);
-                        stm_bpx("p5","p3",[]);
-                        stm_aix("p5i0","p2i0",[0,"Pruebas","","",-1,-1,0,"seguir/evaluacion/index.php"]);
-                        stm_aix("p5i1","p2i0",[0,"Proyectos","","",-1,-1,0,"seguir/proy/index.php"]);
-                        stm_aix("p5i2","p2i0",[0,"Foro","","",-1,-1,0,"seguir/foro/index.php"]);
+                        stm_bpx("p6","p5",[]);
+                        stm_aix("p6i0","p2i0",[0,"Pruebas","","",-1,-1,0,"seguir/evaluacion/index.php"]);
+                        stm_aix("p6i1","p2i0",[0,"Proyectos","","",-1,-1,0,"seguir/proy/index.php"]);
+                        stm_aix("p6i2","p2i0",[0,"Foro","","",-1,-1,0,"seguir/foro/index.php"]);
                         stm_ep();
                         stm_aix("p0i7","p0i1",[]);
-                        stm_aix("p0i8","p0i0",[0,"Acompa�amiento"]);
-                        stm_bpx("p6","p3",[]);
-                        stm_aix("p6i0","p2i0",[0,"Pruebas","","",-1,-1,0,"acomp/evaluacion/index.php"]);
-                        stm_aix("p6i1","p2i0",[0,"Foro","","",-1,-1,0,"acomp/foro/index.php"]);
-                        stm_aix("p6i2","p2i0",[0,"Proyectos","","",-1,-1,0,"acomp/proy/index.php"]);
-                        stm_aix("p6i3","p2i0",[0,"Mensajes personalizados","","",-1,-1,0,"mensajes/index.php"]);
+                        stm_aix("p0i8","p0i0",[0,"Aseroramiento"]);
+                        stm_bpx("p7","p5",[]);
+                        stm_aix("p7i0","p2i0",[0,"Pruebas","","",-1,-1,0,"acomp/evaluacion/index.php"]);
+                        stm_aix("p7i1","p2i0",[0,"Foro","","",-1,-1,0,"acomp/foro/index.php"]);
+                        stm_aix("p7i2","p2i0",[0,"Proyectos","","",-1,-1,0,"acomp/proy/index.php"]);
+                        stm_aix("p7i3","p2i0",[0,"Mensajes personalizados","","",-1,-1,0,"mensajes/index.php"]);
                         stm_ep();
                         stm_aix("p0i9","p0i1",[]);
                         stm_aix("p0i10","p0i0",[0,"Ayuda"]);
-                        stm_bpx("p7","p3",[]);
-                        stm_aix("p7i0","p2i0",[0,"Temas de ayuda","","",-1,-1,0,"ayuda/index.php"]);
-                        stm_aix("p7i1","p2i0",[0,"A cerca de","","",-1,-1,0,"ayuda/about.php"]);
+                        stm_bpx("p8","p5",[]);
+                        stm_aix("p8i0","p2i0",[0,"Temas de ayuda","","",-1,-1,0,"ayuda/index.php"]);
+                        stm_aix("p8i1","p2i0",[0,"A cerca de","","",-1,-1,0,"ayuda/about/index.php"]);
                         stm_ep();
                         stm_ep();
                         stm_em();
@@ -202,9 +202,9 @@ $_SESSION['CURSOALIAS'] = $data[4];
                         </tr>
 
 
-<?php
-if ($_SESSION['ADMIN'] == 1) {
-    ?>
+                        <?php
+                        if ($_SESSION['ADMIN'] == 1) {
+                            ?>
                             <tr>
                                 <td align="right"><span class="style1"><a href="settings/index.php" target="content"><?php echo LANG_ADMIN_admin; ?></a></span></td>
                                 <td align="right"><img src="../images/backend/amini.gif" width="32" height="32"></td>

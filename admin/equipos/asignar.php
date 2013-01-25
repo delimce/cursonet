@@ -11,26 +11,46 @@ $menu = new menu($menu_struct);
 
 $asig = new tools("db");
 
-if (isset($_REQUEST['ItemID']))
-    $asig->query("select id,lower(concat(apellido,' ',nombre)) as nombre,id_number,(select grupo_id from tbl_grupo_estudiante where est_id = ee.id and curso_id = {$_SESSION['CURSOID']} ) as grupo from tbl_estudiante ee
-  where id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and grupo_id = {$_REQUEST['ItemID']} ) or id not in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']}) order by apellido,nombre ");
+$datos = $asig->simple_db("SELECT
+                                e.id as equipoId,
+                                g.id as grupoId,
+                                e.nombre as equipo,
+                                g.nombre as grupo
+                                FROM
+                                tbl_equipo AS e
+                                INNER JOIN tbl_grupo AS g ON g.id = e.grupo_id
+                                WHERE
+                                e.id = {$_REQUEST['id']} AND
+                                g.curso_id = {$_SESSION['CURSOID']} ");
+
+if (!empty($_GET['id'])) { ///consultar nombre de equipo y curso.
+    ///query para traer los datos de los alumnos que estan en el grupo y si existen en el equipo
+    $asig->query("SELECT
+                                                est.id,
+                                                lower(concat(est.apellido,' ',est.nombre)) AS nombre,
+                                                est.id_number,
+                                                ifnull((select equipo_id from tbl_equipo_estudiante where est_id = est.id and equipo_id = {$datos['equipoId']} ),0) as existe
+                                                FROM
+                                                tbl_estudiante AS est
+                                                INNER JOIN tbl_grupo_estudiante AS gr ON est.id = gr.est_id
+                                                WHERE
+                                                gr.grupo_id = {$datos['grupoId']}");
+}
+
 
 if (isset($_POST['select']) or isset($_POST['id'])) {
 
     $asig->abrir_transaccion();
-
-    $asig->query("delete from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and grupo_id = '{$_POST['id']}'");
+    $asig->query("delete from tbl_equipo_estudiante where equipo_id = {$datos['equipoId']} ");
 
 
     if (count($_POST['select']) > 0) {
 
-        $valores[1] = $_SESSION['CURSOID'];
-        $valores[2] = $_POST['id'];
+        $valores[1] = $datos['equipoId'];
 
         for ($z = 0; $z < count($_POST['select']); $z++) {
-
             $valores[0] = $_POST['select'][$z];
-            $asig->insertar2("tbl_grupo_estudiante", "est_id, curso_id, grupo_id", $valores);
+            $asig->insertar2("tbl_equipo_estudiante", "est_id, equipo_id", $valores);
         }
     }
 
@@ -43,23 +63,6 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
 <html>
     <head>
 
-        <script language="javascript">
-            function CheckAll()
-            {
-                len = document.form1.elements.length;
-                var i;
-                for (i=0; i < len; i++) 
-                {
-                    if (document.form1.elements[i].checked==true) 
-                    {
-                        document.form1.elements[i].checked=false;
-                    }else
-                    {
-                        document.form1.elements[i].checked=true;
-                    }
-                }
-            }
-        </script>
         <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
         <script src="../../js/jquery/jquery.fastLiveFilter.js"></script>
 
@@ -102,15 +105,20 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
                                             <td colspan="4"></tr>
                                         <tr> 
                                         <tr>
-                                        <div class="style3" style="margin-left:26; margin-top: 11;"><input id="search_input" placeholder="<?= LANG_search ?>">&nbsp;<?=LANG_total?>:&nbsp;<span id="num_results"></span></div>
-                                        <div class="style3" style="cursor: hand; margin-left:26;" onClick="javascript:CheckAll();"><?= LANG_select_all ?></div>
+                                        <div class="style1" style="margin-left:26; margin-top: 15;">
+                                            <?= '<b>' . LANG_group . '</b> ' . $datos['grupo'] ?><br>
+                                            <?= '<b>' . LANG_team_name . '</b> ' . $datos['equipo'] ?> 
+                                        </div>   
+
+                                        <div class="style3" style="margin-left:26; margin-top: 11;"><input id="search_input" placeholder="<?= LANG_search ?>">&nbsp;<?= LANG_total ?>:&nbsp;<span id="num_results"></span></div>
+
                                         <ul id="search_list" style="list-style-type: none;">
                                             <?
                                             while ($row = $asig->db_vector_nom($asig->result)) {
                                                 ?>
 
                                                 <li>
-                                                    <span width="6%" class="style1"><input name="select[]" type="checkbox" id="select[]" value="<?= $row['id'] ?>" <?php if ($_REQUEST['ItemID'] == $row['grupo']) echo 'checked="checked"'; ?>></span>
+                                                    <span width="6%" class="style1"><input name="select[]" type="checkbox" id="select[]" value="<?= $row['id'] ?>" <?php if ($datos['equipoId'] == $row['existe']) echo 'checked="checked"'; ?>></span>
                                                     <span width="34%" class="style1" style="text-transform: capitalize"><?= $row['nombre']; ?></span>
                                                     <span style="font-weight: bold" width="17%" class="style1"><?= $row['id_number']; ?></span> 
                                                 </li>
@@ -124,7 +132,7 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
                                     <tr>
                                         <td colspan="4"><input type="button" name="Submit2"  value="<?= LANG_back ?>" onClick="javascript:history.back();">
                                             <?php if ($asig->nreg > 0) { ?> <input type="submit" name="Submit" value="<?= LANG_save ?>"><?php } ?>
-                                            <input name="id" type="hidden" id="id" value="<?= $_REQUEST['ItemID'] ?>"></td>
+                                            <input name="id" type="hidden" id="id" value="<?= $_REQUEST['id'] ?>"></td>
                                     </tr>
                                 </table>
 

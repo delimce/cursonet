@@ -10,7 +10,6 @@ $menu = new menu($menu_struct);
 
 //TODO: arreglar cuando se va a corregir un foro desde planes, que solo muestre alumnos de la seccion de ese plan
 
-
 $grid = new tools("db");
 $query = "SELECT  e.id,LOWER(concat(e.apellido,' ',e.nombre)) as nombre,e.id_number,
   (select count(*) FROM tbl_foro_comentario ff WHERE (ff.sujeto_id = e.id) AND (ff.tipo_sujeto = 'est') and (ff.foro_id = f.id)) AS comentarios,

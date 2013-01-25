@@ -18,21 +18,45 @@ $features = array(
     "r_header" => 20,
     "formato" => "html",
     "oculto" => 0,
-    "orden" => array("nombre" => "orden1", "defecto" => "fecha_creado desc"),
-    "abreviar" => array(1 => 17, 2 => 40, 3 => 16),
+    "orden" => array("nombre" => "orden1", "defecto" => "grupo desc"),
+    "abreviar" => array(1 => 30, 2 => 40, 3 => 16),
     "nuevo_vinculo1" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
-    "nuevo_vinculo2"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/nuevo.gif\">", "url" => "asignar.php?","target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_group_addEst),
+    "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/nuevo.gif\">", "url" => "asignar.php?", "target" => "_self", "parametro" => 0, "var_parametro" => 'id', "title" => LANG_team_join),
     "nuevo_vinculo3" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1),
-    "separacion" => array(0 => "1%", 1 => "26%", 2 => "40%", 3 => "20%", 4 => "13%"), //separacion de columnas
-    "alineacion" => array(0 => "center", 1 => "left", 2 => "left", 3 => "center", 3 => "center", 4 => "center"),
+    "separacion" => array(0 => "1%", 1 => "40%", 2 => "45%", 3 => "12%"), //separacion de columnas
+    "alineacion" => array(0 => "center", 1 => "left", 2 => "center", 3 => "center", 3 => "center"),
     "celda_vacia" => '<div align="center">-</div>'
 );
 
 
-
-$grid = new grid("99%", "*", "center", $features);
+$grid = new grid("94%", "*", "center", $features);
 $grid->autoconexion();
-$query = "select id,nombre,descripcion,ifnull((select concat(nombre,' ',apellido) from tbl_admin where id = prof_id),'" . LANG_content_autor_unknow . "') as Resp, (select count(*) from tbl_grupo_estudiante where grupo_id = p.id and curso_id = {$_SESSION['CURSOID']}) as alumnos from tbl_grupo p where p.curso_id = {$_SESSION['CURSOID']}";
+
+$combo = new tools();
+$combo->dbc = $grid->dbc;
+
+/////////filtro
+if (!empty($_GET['seccion'])) {
+
+    $filtro = "and  g.id  = {$_GET['seccion']} ";
+}
+////////////
+$query = "SELECT
+            e.id,
+            e.nombre as equipo,
+            g.nombre as grupo,
+            count(ee.id) as 'total'
+            FROM
+            tbl_equipo AS e
+            left JOIN tbl_equipo_estudiante AS ee ON e.id = ee.equipo_id
+            INNER JOIN tbl_grupo AS g ON e.grupo_id = g.id
+            WHERE
+            g.curso_id = {$_SESSION['CURSOID']} $filtro
+            GROUP BY
+            e.id";
+///////////
+
+$grid->query($query); //////se ejecuta el query
 ?>
 <html>
     <head>
@@ -68,7 +92,11 @@ $query = "select id,nombre,descripcion,ifnull((select concat(nombre,' ',apellido
 
                     <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                            <td><br><?php $grid->cargar($query); ?>&nbsp;</td>
+                            <td>
+                                <br>&nbsp;<?= LANG_group_filter ?> <form name="se" action="index.php" method="get"><? echo $combo->combo_db("seccion", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_all, false, "submit();"); ?></form><br>
+                                <br>
+                                <? $grid->cargar($query, false, true); ?>&nbsp;
+                            </td>
                         </tr>
                     </table>	</td>
             </tr>

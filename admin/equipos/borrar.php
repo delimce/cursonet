@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
@@ -15,13 +14,12 @@ if (isset($_GET['itemID'])) {
 
     $grabar->abrir_transaccion();
 
-    $grabar->query("delete from tbl_grupo where id = {$_GET['itemID']}");
-    $grabar->query("delete from tbl_evaluacion where grupo_id = {$_GET['itemID']}");
+    $grabar->query("delete from tbl_equipo where id = {$_GET['itemID']}");
+    // $grabar->query("delete from tbl_evaluacion where grupo_id = {$_GET['itemID']}");
 
 
     $grabar->cerrar_transaccion();
 }
-
 
 
 $grabar->cerrar();

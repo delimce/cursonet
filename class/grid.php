@@ -78,8 +78,9 @@
        "orden" => array("nombre" => [nombre de la var orden], "defecto" => [cadena] campo de ordenamiento por defecto, "extras" => "&variable=valor");
        "nuevo_vinculo1"  => array("nombre" => "[cadena]", "texto" => "[cadena](texto o imagen)", "title" => "[texto] alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup, "condicion" posicion del campo de la consulta, "texto_condicion" lo que escribe si se cumple la condicion  ),
        "nuevo_vinculo2"  => array("nombre" => "[cadena]", "texto" => "[cadena](texto o imagen)", "title" => "[texto] alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup ),
+       "nuevo_vinculo3"  => array("nombre" => "[cadena]", "texto" => "[cadena](texto o imagen)", "title" => "[texto] alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup ),
        "conenlace"  => array("pos" => "[numero] posicion de la columna del grid que lleva el vinculo", "title" => "[texto] alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup,"extras" => "&variable=valor" ),
-       "separacion" =>  array(0 => [numero  (%/px)], 1 => "[cadena]", 3 => [cadena]...);
+        "separacion" =>  array(0 => [numero  (%/px)], 1 => "[cadena]", 3 => [cadena]...);
        "alineacion"  => array(0 => [cadena  (left,rigt,center)], 1 => "[cadena]", 3 => [cadena]...);
        "celda_vacia" => "[valor lo que se desea que aparezca si la celda es vacia]"
        "nulo" => "[cadena] valor que se desea hacer nulo dentro del grid y en su lugar colocar el valor celda vacia"
@@ -363,6 +364,20 @@
       } //////////////// fin mostrando la data del nuevo vinculo 2
 
 
+      
+       ///////////////////////////////////////mostrando la data del nuevo vinculo 3
+      if(isset($this->features['nuevo_vinculo3'])){
+          echo '<td align="center">';
+
+
+              if(isset($this->features['nuevo_vinculo3']['popup'])) $popup = " onclick=\" return popup2(this,'".$this->features['nuevo_vinculo3']['popup']."');\""; else $popup = '';
+              if(isset($this->features['nuevo_vinculo3']['borrar'])) $popup = " onclick=\" return borrar('".$tmp[$this->features['nuevo_vinculo3']['parametro']]."','".$tmp[$this->features['nuevo_vinculo3']['borrar']]."');\""; else $popup = '';  //// para borrar un registro del grid experimental
+              echo '<a href="'.$this->features['nuevo_vinculo3']['url'].$this->features['nuevo_vinculo3']['var_parametro'].'='.$tmp[$this->features['nuevo_vinculo3']['parametro']].$this->features['nuevo_vinculo3']['extras'].'" target="'.$this->features['nuevo_vinculo3']['target'].'" title="'.$this->features['nuevo_vinculo3']['title'].'"'.$popup.'">'.$this->features['nuevo_vinculo3']['texto'].'</a>';
+
+
+       echo '</td>';
+
+      } //////////////// fin mostrando la data del nuevo vinculo 3
 
 
       echo '</tr>'; ///////////////////////fin fila de datos
