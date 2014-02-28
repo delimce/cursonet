@@ -136,9 +136,9 @@ WHERE
             </tr>
             <tr>
               <td class="style3"><strong>
-                <?= LANG_yahoo ?>
+                <?= LANG_twitter ?>
               </strong></td>
-              <td colspan="2" class="style1"><?php echo $data['yahoo'] ?></td>
+              <td colspan="2" class="style1"><?php echo $data['twitter'] ?></td>
             </tr>
             <tr>
               <td class="style3">&nbsp;</td>

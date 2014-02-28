@@ -229,7 +229,7 @@ include("security.php"); ///seguridad para el admin
     <td colspan="7" class="table_bk"><strong><?php echo LANG_resume ?></strong></td>
     </tr>
   <tr>
-    <td colspan="7" class="style3"><textarea name="sintesis" cols="90" rows="5" class="style1" id="sintesis"><?=$data[8]?>
+    <td colspan="7" class="style3"><textarea name="sintesis" cols="80" rows="5" class="style1" id="sintesis"><?=$data[8]?>
     </textarea></td>
     </tr>
   <tr>

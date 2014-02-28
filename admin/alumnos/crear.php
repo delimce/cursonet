@@ -40,7 +40,7 @@ $menu = new menu($menu_struct);
 		$valores2[6]= $_POST['tele1'];
 		$valores2[7]= $_POST['email'];
 		$valores2[8]= $_POST['msn'];
-		$valores2[9]= $_POST['yahoo'];
+		$valores2[9]= $_POST['twitter'];
 		$valores2[10]= $_POST['carrera'];
 		$valores2[11]= $_POST['nivel'];
 		$valores2[12]= $_POST['universidad'];
@@ -54,7 +54,7 @@ $menu = new menu($menu_struct);
 		$valores2[20]= trim($_POST['sresp']);
 		
 		
-		$crear->insertar2("tbl_estudiante","id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, yahoo, carrera, nivel, universidad, internet_acc, internet_zona, user, pass, fecha_creado,activo,clave_preg,clave_resp",$valores2); 
+		$crear->insertar2("tbl_estudiante","id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, twitter, carrera, nivel, universidad, internet_acc, internet_zona, user, pass, fecha_creado,activo,clave_preg,clave_resp",$valores2); 
 		
 		if($_POST['grupo']>0){
 		

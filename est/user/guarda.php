@@ -39,7 +39,7 @@ if(isset($_POST['login12'])){
 	  //////////////
 		 
 		 
-		$campos = explode(",","id_number, nombre, apellido, fecha_nac, email, carrera, nivel, universidad, user, internet_acc,internet_zona,telefono_c,telefono_p,msn,yahoo,foto,clave_preg,clave_resp");  
+		$campos = explode(",","id_number, nombre, apellido, fecha_nac, email, carrera, nivel, universidad, user, internet_acc,internet_zona,telefono_c,telefono_p,msn,twitter,foto,clave_preg,clave_resp");  
 		
 		$valores2[0]= $_POST['ci'];
 		$valores2[1]= $_POST['nombre'];
@@ -55,7 +55,7 @@ if(isset($_POST['login12'])){
 		$valores2[11]= $_POST['tele1'];
 		$valores2[12]= $_POST['tele2'];
 		$valores2[13]= $_POST['msn'];
-		$valores2[14]= $_POST['yahoo'];
+		$valores2[14]= $_POST['twitter'];
 		$valores2[15]= $fotin;
 		$valores2[16]= $_POST['spreg'];
 		$valores2[17]= $_POST['sresp'];

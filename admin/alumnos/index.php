@@ -16,10 +16,11 @@ $features = array(
     "style_body" => "td_whbk",
     "style_head" => "table_bk",
     "r_header" => 20,
+    "buscador" => true,
     "formato" => "html",
     "oculto" => '0,6',
     "conenlace" => array("pos" => "1", "title" => LANG_vdetails, "url" => "detalles.php?", "target" => "_self", "parametro" => 0, "var_parametro" => "id", "extras" => "&origen=0"),
-    "orden" => array("nombre" => "orden1", "defecto" => "fecha_creado desc", "extras" => "&seccion={$_GET['seccion']}"),
+    "orden" => array(2=>"int"),
     "abreviar" => array(1 => 46, 3 => 25),
     "nuevo_vinculo1" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?orig=0&", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
     "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1, "condicion" => 6, "texto_condicion" => "<img border=\"0\" src=\"../../images/backend/button_nodel.png\">"),
@@ -30,7 +31,7 @@ $features = array(
 
 
 
-$grid = new grid("99%", "*", "center", $features);
+$grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
 
 $combo = new tools();
@@ -54,7 +55,7 @@ FROM
   `tbl_grupo_estudiante` ge
   INNER JOIN `tbl_grupo` g ON (ge.grupo_id = g.id)
 where ge.curso_id = {$_SESSION['CURSOID']} and est_id = e.id )as Grupo,
-  (if (activo=1,'<img border=\"0\" title=\"" . LANG_is_active . "\" src=\"../../images/backend/checkmark.gif\">','<img border=\"0\" title=\"" . LANG_is_noactive . "\" src=\"../../images/backend/x.gif\">')) as Activo,
+  (if (activo=1,'". LANG_is_active ."','" . LANG_is_noactive . "')) as Activo,
    if({$_SESSION['ADMIN']}>2,'1','0') as condicion_editar
   from tbl_estudiante e $filtro ";
 
@@ -63,29 +64,41 @@ $grid->query($query); //////se ejecuta el query
 ?>
 <html>
     <head>
+
+        <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
+        <script src="../../js/jquery/jquery.grid.functions.js"></script>
+
+      <script type="text/javascript">
+
+            // When document is ready: this gets fired before body onload :)
+            $(document).ready(function() {
+                // Write on keyup event of keyword input element
+                buscarGrid('grid1');
+                $("#grid1").ordenarTabla();
+
+            });
+
+
+        </script>
+
+
         <script language="JavaScript" type="text/javascript">
-            function borrar(id,nombre){
-	
-                if (confirm("<?= LANG_borrar ?> "+nombre+" ?")) {
-	  
-                    location.replace('borrar.php?itemID='+id);
-	  
-                }else{
-	  
-	  
+            function borrar(id, nombre) {
+
+                if (confirm("<?= LANG_borrar ?> " + nombre + " ?")) {
+
+                    location.replace('borrar.php?itemID=' + id);
+
+                } else {
+
+
                     return false;
-	  
+
                 }
             }
         </script>
 
 
-        <script>
-            function copyToDiv() {
-                parent.document.getElementById('nestudents').innerHTML = '<?php echo LANG_students; ?> (<?= $grid->nreg ?>)';
-	
-            }
-        </script> 
 
 
         <script language="JavaScript" type="text/javascript" src="../../js/utils.js"></script>
@@ -93,7 +106,7 @@ $grid->query($query); //////se ejecuta el query
         <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
     </head>
 
-    <BODY OnLoad="copyToDiv();">
+    <body>
 
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
@@ -107,7 +120,7 @@ $grid->query($query); //////se ejecuta el query
                     <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td><br>&nbsp;<?= LANG_group_filter ?> <form name="se" action="index.php" method="get"><? echo $combo->combo_db("seccion", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_all, false, "submit();"); ?></form><br>
-                                <br><?php $grid->cargar($query, false, true); ?>&nbsp;
+                                <br><?php $grid->cargar($query); ?>&nbsp;
                             </td>
                         </tr>
                     </table>	

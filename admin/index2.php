@@ -6,7 +6,7 @@ include("../class/clases.php");
 include ("../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
 $datos = new tools('db');
-$data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo_admin,(SELECT alias from tbl_curso WHERE id = '{$_SESSION['CURSOID']}'),version from tbl_setup");
+$data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo_admin,(SELECT alias from tbl_curso WHERE id = '{$_SESSION['CURSOID']}'),version,timezone from tbl_setup");
 
 ///////////////////
 $datamenu = $datos->simple_db("select (select count(*) from tbl_estudiante) as nest, (select count(*) from tbl_mensaje_admin where para = {$_SESSION['USERID']} ) as nmens,
@@ -17,6 +17,7 @@ $datamenu = $datos->simple_db("select (select count(*) from tbl_estudiante) as n
 $_SESSION['DB_FORMATO_DB'] = $data[2];
 $_SESSION['DB_FORMATO'] = $data[1];
 $_SESSION['CURSOALIAS'] = $data[4];
+$_SESSION['TIMEZONE'] = $data[6]; ///zona horaria configurada en la herramienta
 ?>
 <html>
     <head>

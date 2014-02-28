@@ -11,7 +11,7 @@ body {
      overflow: auto; 
 	 font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	
-	 font-style: color:#000000; font-size:10px;
+	 font-style: color #000000; font-size:10px;
 	 scrollbar-base-color: #999999;
 	 scrollbar-track-color: color;
 	 scrollbar-face-color: #AABDCA;
@@ -74,7 +74,6 @@ input {
 	background-color: #FFFFFF;
 	background-repeat: repeat-x;
 	border: inherit #7A98AD;
-	s
 }
 .style2 {
 	color: #FFFFFF;
@@ -108,15 +107,41 @@ form {
 
 .table_bk {
 	font-family: Tahoma, Helvetica, Verdana, Arial;
-	font-size: 10px;
+	font-size: 11px;
 	background: #B1C4CF;
 	font-weight: bold;
 }
 
-.td_whbk {  text-indent: 2px; font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 10px; background: #FFFFFF; }
-.td_whbk1 {  text-indent: 2px; font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 10px; }
-.td_whbk2 {  font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 10px; background: #CCCCCC; }
-.td_whbk3 {  font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 10px; background: #CCFFFF; }
+.table_bk th{
+    text-transform: capitalize;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.table_bk td{
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #B1C4CF;    
+}
+
+#gridborder{
+     border-left: 1px solid;
+    border-color: #B1C4CF;
+}
+
+
+#wrapper{
+    margin-left: auto; margin-right: auto;  border:0px 
+}
+
+.td_whbk {  text-indent: 2px; font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; background: #FFFFFF; }
+.td_whbk1 {  text-indent: 2px; font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; }
+.td_whbk2 {  font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; background: #CCCCCC; }
+.td_whbk3 {  font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; background: #CCFFFF; }
+
+
+
+
 .no_back {  background: #F0F0F0;
 			font-family: verdana, Arial, Helvetica, sans-serif;
 			text-indent: 2px;

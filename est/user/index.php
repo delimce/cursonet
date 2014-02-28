@@ -287,9 +287,9 @@ $data = $est->simple_db("select * from tbl_estudiante where id = {$_SESSION['USE
         </strong></td>
         <td><input name="pass12" type="password" disabled="disabled" id="pass12" value="cualquiervaina" size="30"></td>
         <td class="style1"><strong>
-          <?=LANG_yahoo ?>
+          <?=LANG_twitter ?>
         </strong></td>
-        <td align="left" class="style1"><input name="yahoo" type="text" id="yahoo" value="<?=$data['yahoo'] ?>" size="30"></td>
+        <td align="left" class="style1"><input name="twitter" type="text" id="twitter" value="<?=$data['twitter'] ?>" size="30"></td>
       </tr>
       <tr>
         <td><span class="style1"><strong>

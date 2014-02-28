@@ -209,9 +209,9 @@ cellpadding="4" cellspacing="4">
           <option value="F"><?=LANG_female?></option>
         </select>        </td>
         <td bgcolor="#DDDDFF" class="style1"><strong>
-          <?=LANG_yahoo ?>
+          <?=LANG_twitter ?>
         </strong></td>
-        <td bgcolor="#DDDDFF"><input name="yahoo" type="text" id="yahoo"></td>
+        <td bgcolor="#DDDDFF"><input name="twitter" type="text" id="twitter"></td>
         </tr>
       <tr>
         <td bgcolor="#DDDDFF" class="style1"><strong>

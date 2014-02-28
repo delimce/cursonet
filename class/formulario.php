@@ -37,7 +37,7 @@
   * el parametro secure aplica la seguridad a la variable que es enviada por url esta por defecto true
   */
 
- public function getvar($var,$only="",$secure=true){
+ public static function getvar($var,$only="",$secure=true){
 
      /////////////////////validar el only
      if(!$only){

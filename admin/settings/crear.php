@@ -201,7 +201,7 @@ include("security.php"); ///seguridad para el admin
     </strong></td>
     </tr>
   <tr>
-    <td colspan="7" class="style3"><textarea name="sintesis" cols="90" rows="5" class="style1" id="sintesis"><?php echo $_POST['sintesis']; ?></textarea></td>
+    <td colspan="7" class="style3"><textarea name="sintesis" cols="80" rows="5" class="style1" id="sintesis"><?php echo $_POST['sintesis']; ?></textarea></td>
     </tr>
   <tr>
     <td colspan="7" class="table_bk"><strong><?php echo LANG_loginfo ?></strong></td>

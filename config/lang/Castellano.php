@@ -21,7 +21,7 @@ define(LANG_fax,"Fax");
 define(LANG_web,"Sitio web");
 define(LANG_dir,"Direcci&oacute;");
 define(LANG_msn,"Microsoft Msn");
-define(LANG_yahoo,"Yahoo Msg");
+define(LANG_twitter,"cuenta Twitter");
 define(LANG_yes,"SI");
 define(LANG_no,"NO");
 define(LANG_nota,"Nota");
@@ -215,7 +215,8 @@ define(LANG_PREF_timezone,"Zona horaria ");
 define(LANG_PREF_email_act,"Activar envio de emails externo");
 define(LANG_PREF_data_i,"Datos de la Instituci&oacute;");
 define(LANG_PREF_restart,"haga click sobre las tablas que desee reiniciar");
-
+define(LANG_PREF_datetime,"Fecha y hora actual ");
+define(LANG_PREF_difdate,"Diferencia en minutos");
 
 //////////// reiniciar
 define(LANG_RES_stutable,"Estudiantes");
@@ -328,6 +329,8 @@ define(LANG_msg_create,"Crear mensaje");
 define(LANG_msg_error_est,"No existen estudiantes para el grupo seleccionado, no se envi&oacute; el mensaje");
 define(LANG_msg_to,"Destino");
 define(LANG_person,"Persona");
+define(LANG_msg_noest,"Estudiante Borrado");
+define(LANG_msg_noadm,"Docente Borrado");
 define(LANG_subjet,"Titulo");
 define(LANG_select_type,"Seleccione el destino");
 define(LANG_select_person,"Seleccione el destinatario");
@@ -417,6 +420,7 @@ define(LANG_eva_following_nota,"Nota");
 
 ////////////foro
 define(LANG_foro_name,"M&oacute;dulo de discusi&oacute;n");
+define(LANG_foro_newname,"Nombre del foro");
 define(LANG_foro_date1,"Fecha inicio");
 define(LANG_foro_date2,"Fecha Fin");
 define(LANG_foro_por,"Porcentaje");

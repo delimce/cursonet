@@ -40,6 +40,7 @@ include("security.php"); ///seguridad para el admin
  $campos[14] = 'admin_email'; $vector[14] = trim($_POST['emaila']);
  $campos[15] = 'titulo_ins'; $vector[15] = trim($_POST['tituloi']);
  $campos[16] = 'timezone'; $vector[16] = trim($_POST['timezone']);
+ $campos[17] = 'dif_hora'; $vector[17] = trim($_POST['dif_hora']);
 
  $modo->update("tbl_setup",$campos,$vector,"");
  $modo->javaviso(LANG_cambios,"pref.php");
@@ -49,7 +50,7 @@ include("security.php"); ///seguridad para el admin
 
  ///////// los datos
 
- $datos = $modo->estructura_db("select  admin_email,titulo,titulo_admin,titulo_ins, SUBSTRING_INDEX(lenguaje, '.',1) as lenguaje, formato_fecha,envio_email,signature,bienvenido_est,fin_inscripcion,uni_nombre,uni_telefono,uni_fax,uni_website,uni_dir,timezone    from tbl_setup");
+ $datos = $modo->simple_db("select  admin_email,titulo,titulo_admin,titulo_ins, SUBSTRING_INDEX(lenguaje, '.',1) as lenguaje, formato_fecha,envio_email,signature,bienvenido_est,fin_inscripcion,uni_nombre,uni_telefono,uni_fax,uni_website,uni_dir,timezone,dif_hora from tbl_setup");
 
 ?>
 <html>
@@ -107,23 +108,23 @@ include("security.php"); ///seguridad para el admin
 		  <tr>
 			<td width="14%"><span class="style3"><?=LANG_PREF_title ?>
 			</span></td>
-			<td width="35%"><input name="titulo" type="text" class="style1" id="titulo" value="<?=$datos[0]['titulo'] ?>" size="25"></td>
+			<td width="35%"><input name="titulo" type="text" class="style1" id="titulo" value="<?=$datos['titulo'] ?>" size="25"></td>
 			<td width="21%"><span class="style3">
 			  <?=LANG_PREF_language ?>
 			</span></td>
-			<td width="30%"><?php echo $modo->combo_array ("lengua",$lenguajes,$lenguajes,false,$datos[0]['lenguaje'],false,'')?></td>
+			<td width="30%"><?php echo $modo->combo_array ("lengua",$lenguajes,$lenguajes,false,$datos['lenguaje'],false,'')?></td>
 		  </tr>
 		  <tr>
 		    <td><span class="style3">
 		      <?= LANG_PREF_titlea ?>
 		    </span></td>
-		    <td><input name="tituloa" type="text" class="style1" id="tituloa" value="<?=$datos[0]['titulo_admin'] ?>" size="25"></td>
+		    <td><input name="tituloa" type="text" class="style1" id="tituloa" value="<?=$datos['titulo_admin'] ?>" size="25"></td>
 		    <td><span class="style3">
 		      <?= LANG_PREF_dformat ?>
 		    </span></td>
 		    <td><select name="ffecha" id="ffecha">
-		      <option value="d/m/Y" <?php if($datos[0]['formato_fecha']=="d/m/Y") echo "selected" ?>><?= LANG_PREF_dformat1?></option>
-		      <option value="m/d/Y" <?php if($datos[0]['formato_fecha']=="m/d/Y") echo "selected" ?>><?= LANG_PREF_dformat2?></option>
+		      <option value="d/m/Y" <?php if($datos['formato_fecha']=="d/m/Y") echo "selected" ?>><?= LANG_PREF_dformat1?></option>
+		      <option value="m/d/Y" <?php if($datos['formato_fecha']=="m/d/Y") echo "selected" ?>><?= LANG_PREF_dformat2?></option>
 		      </select>	
 		     </td>
 		    </tr>
@@ -133,18 +134,28 @@ include("security.php"); ///seguridad para el admin
 		   <tr>
 			<td width="14%"><span class="style3"><?=LANG_PREF_titleins ?>
 			</span></td>
-			<td width="35%"><input name="tituloi" type="text" class="style1" id="titulo" value="<?=$datos[0]['titulo_ins'] ?>" size="25"></td>
+			<td width="35%"><input name="tituloi" type="text" class="style1" id="titulo" value="<?=$datos['titulo_ins'] ?>" size="25"></td>
 			<td width="21%"><span class="style3">
 			  <?=LANG_PREF_timezone ?>
 			 
 			</span></td>
-			<td width="30%"><input name="timezone" type="text" class="style1" id="tituloi" value="<?=$datos[0]['timezone'] ?>" size="21"></td>
+			<td width="30%"><input name="timezone" type="text" class="style1" id="tituloi" value="<?=$datos['timezone'] ?>" size="21"></td>
 		  </tr>
+		   <tr>
+		     <td><span class="style3">
+		       <?=LANG_PREF_datetime ?>
+		     </span></td>
+		     <td>&nbsp;</td>
+		     <td><span class="style3">
+		       <?=LANG_PREF_difdate ?>
+		     </span></td>
+		     <td><input name="dif_hora" type="text" class="style1" id="dif_hora" value="<?=$datos['dif_hora'] ?>" size="21"></td>
+		     </tr>
 		  
 		  
 		    <td class="style3"><?php echo LANG_PREF_email ?></td>
 		    <td>
-		      <input name="email" type="checkbox" class="style1" id="email" value="1" <?php if($datos[0]['envio_email']==1) echo "checked" ?>>
+		      <input name="email" type="checkbox" class="style1" id="email" value="1" <?php if($datos['envio_email']==1) echo "checked" ?>>
 		    &nbsp;<span class="style1"><?= LANG_PREF_email_act ?></span></td>
 		    <td class="style3">&nbsp;</td>
 		    <td>&nbsp;</td>
@@ -152,7 +163,7 @@ include("security.php"); ///seguridad para el admin
 		  <tr>
 		  <td class="style3"><?php echo LANG_ADMIN_admin_email ?></td>
 		  <td>
-		    <input name="emaila" type="text" class="style1" id="emaila" value="<?=$datos[0]['admin_email'] ?>" size="25">
+		    <input name="emaila" type="text" class="style1" id="emaila" value="<?=$datos['admin_email'] ?>" size="25">
 		  </td>
 		  <td class="style3">&nbsp;</td>
 		  <td>&nbsp;</td>
@@ -161,7 +172,7 @@ include("security.php"); ///seguridad para el admin
 		    <td><span class="style3">
 		      <?= LANG_PREF_signature ?>
 		    </span></td>
-		    <td colspan="3"><textarea name="signature" cols="72" rows="5" class="style1" id="signature"><?=$datos[0]['signature'] ?>
+		    <td colspan="3"><textarea name="signature" cols="72" rows="5" class="style1" id="signature"><?=$datos['signature'] ?>
 		    </textarea>
 		    </td>
 		    </tr>
@@ -169,7 +180,7 @@ include("security.php"); ///seguridad para el admin
 		    <td><span class="style3">
 		      <?= LANG_PREF_wellcome ?>
 		    </span></td>
-		    <td colspan="3"><textarea name="bienvenida" cols="72" rows="5" class="style1" id="bienvenida"><?=$datos[0]['bienvenido_est'] ?>
+		    <td colspan="3"><textarea name="bienvenida" cols="72" rows="5" class="style1" id="bienvenida"><?=$datos['bienvenido_est'] ?>
 		    </textarea>
 		    </td>
 		    </tr>
@@ -177,7 +188,7 @@ include("security.php"); ///seguridad para el admin
 		    <td><span class="style3">
 		      <?= LANG_PREF_endi ?>
 		    </span></td>
-		    <td colspan="3"><textarea name="fin_ins" cols="72" rows="5" class="style1" id="fin_ins"><?=$datos[0]['fin_inscripcion'] ?>
+		    <td colspan="3"><textarea name="fin_ins" cols="72" rows="5" class="style1" id="fin_ins"><?=$datos['fin_inscripcion'] ?>
 		    </textarea>
 		    </td>
 		    </tr>
@@ -187,27 +198,27 @@ include("security.php"); ///seguridad para el admin
 		  <tr>
 		  <td class="style3"><?= LANG_name ?></td>
 		  <td>
-		    <input name="nombre_u" type="text" id="nombre_u" value="<?=$datos[0]['uni_nombre'] ?>" size="19">
+		    <input name="nombre_u" type="text" id="nombre_u" value="<?=$datos['uni_nombre'] ?>" size="19">
 		  </td>
 		  <td class="style3"><?= LANG_tel ?></td>
 		  <td>
-		    <input name="tlf_u" type="text" id="tlf_u" value="<?=$datos[0]['uni_telefono'] ?>" size="19">
+		    <input name="tlf_u" type="text" id="tlf_u" value="<?=$datos['uni_telefono'] ?>" size="19">
 		  </td>
 		  </tr>
 		  <tr>
 		  <td class="style3"><?= LANG_fax ?></td>
 		  <td>
-		    <input name="fax_u" type="text" id="fax_u" value="<?=$datos[0]['uni_fax'] ?>" size="19">
+		    <input name="fax_u" type="text" id="fax_u" value="<?=$datos['uni_fax'] ?>" size="19">
 		  </td>
 		  <td class="style3"><?= LANG_web ?></td>
 		  <td>
-		    <input name="web_u" type="text" id="web_u" value="<?=$datos[0]['uni_website'] ?>" size="19">
+		    <input name="web_u" type="text" id="web_u" value="<?=$datos['uni_website'] ?>" size="19">
 		  </td>
 		  </tr>
 		  <tr>
 		  <td class="style3"><?= LANG_dir ?></td>
 		  <td colspan="3">
-		    <textarea name="dir_u" cols="72" rows="5" class="style1" id="dir_u"><?=$datos[0]['uni_dir'] ?>
+		    <textarea name="dir_u" cols="72" rows="5" class="style1" id="dir_u"><?=$datos['uni_dir'] ?>
 		    </textarea>
 		  </td>
 		  </tr>

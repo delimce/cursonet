@@ -61,7 +61,7 @@ body {
 		$valores2[6]= $_POST['tele1'];
 		$valores2[7]= $_POST['email'];
 		$valores2[8]= $_POST['msn'];
-		$valores2[9]= $_POST['yahoo'];
+		$valores2[9]= $_POST['twitter'];
 		$valores2[10]= $_POST['carrera'];
 		$valores2[11]= $_POST['nivel'];
 		$valores2[12]= $_POST['universidad'];
@@ -74,7 +74,7 @@ body {
 		$valores2[19]= strtolower($_POST['resp']); //se guarda en minuscula para comparar en minuscula
 		
 		
-		$i->insertar2("tbl_estudiante","id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, yahoo, carrera, nivel, universidad, internet_acc, internet_zona, user, pass, fecha_creado,clave_preg,clave_resp",$valores2); 
+		$i->insertar2("tbl_estudiante","id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, twitter, carrera, nivel, universidad, internet_acc, internet_zona, user, pass, fecha_creado,clave_preg,clave_resp",$valores2); 
 		$_SESSION['USUARIO'] =  $_POST['nombre'];
 		
 		

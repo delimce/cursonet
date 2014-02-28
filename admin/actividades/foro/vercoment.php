@@ -8,7 +8,7 @@ require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
 $crear = new tools("db");
-$fecha = new fecha($_SESSION['DB_FORMATO']);
+$fecha = new fecha($_SESSION['DB_FORMATO'].' h:m A'); ///fecha con hora
 
 
 		if(!empty($_REQUEST['foro'])) $_SESSION['tema_id'] = $_REQUEST['foro'];
