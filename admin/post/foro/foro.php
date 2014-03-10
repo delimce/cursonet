@@ -11,20 +11,27 @@ $menu = new menu($menu_struct);
 //TODO: arreglar cuando se va a corregir un foro desde planes, que solo muestre alumnos de la seccion de ese plan
 
 $grid = new tools("db");
-$query = "SELECT  e.id,LOWER(concat(e.apellido,' ',e.nombre)) as nombre,e.id_number,
-  (select count(*) FROM tbl_foro_comentario ff WHERE (ff.sujeto_id = e.id) AND (ff.tipo_sujeto = 'est') and (ff.foro_id = f.id)) AS comentarios,
-  (select count(*) from tbl_foro_comentario where foro_id = f.id and valido = 1 and tipo_sujeto = 'est' and sujeto_id = e.id) as val,
-  (select round(nota,1) from tbl_foro_estudiante where est_id = e.id and foro_id = f.id ) as nota
+$query = "SELECT 
+e.id,
+LOWER(concat(e.apellido,' ',e.nombre)) AS nombre,
+e.id_number,
+count(distinct FC.id) AS comentarios,
+Sum(FC.valido) AS val,
+round(FE.nota,1) AS nota
 FROM
-  tbl_estudiante e,
-  tbl_foro f
+tbl_estudiante AS e
+INNER JOIN tbl_grupo_estudiante AS ge ON ge.est_id = e.id
+INNER JOIN tbl_foro AS f ON ge.curso_id = f.curso_id and (f.grupo_id = ge.grupo_id OR f.grupo_id = 0)
+LEFT JOIN tbl_foro_comentario AS FC ON FC.foro_id = f.id  AND FC.tipo_sujeto = 'est' AND e.id = FC.sujeto_id
+LEFT JOIN tbl_foro_estudiante AS FE ON FE.est_id = e.id AND FE.foro_id = f.id
 WHERE
-    (e.id in (select est_id from tbl_grupo_estudiante where grupo_id = f.grupo_id ) or f.grupo_id = 0) and
-    f.id = {$_REQUEST['ItemID']} order by e.apellido,e.nombre ";
+f.id = {$_REQUEST['ItemID']}
+GROUP BY
+e.id
+order by e.apellido,e.nombre";
 
 
 if (isset($_REQUEST['ItemID'])) {
-
 
     $grid->query($query);
 } else if (isset($_POST['notas'])) {
@@ -70,31 +77,31 @@ if (isset($_REQUEST['ItemID'])) {
 <html>
     <head>
         <script language="JavaScript" type="text/javascript">
-            function validar(){
-                var error,pos;
+            function validar() {
+                var error, pos;
 
-                error=0;
-                for(i=0;i<document.form1.length;i++) {
-                    if (document.form1.elements[i].type=="text" && (document.form1.elements[i].value=="" || isNaN(document.form1.elements[i].value)) ){
-                        error=1;
-                        pos = (i+1)/2;
+                error = 0;
+                for (i = 0; i < document.form1.length; i++) {
+                    if (document.form1.elements[i].type == "text" && (document.form1.elements[i].value == "" || isNaN(document.form1.elements[i].value))) {
+                        error = 1;
+                        pos = (i + 1) / 2;
                         break;
                     }
                 }
-					
-					
-                if(error==1){
-					
-                    alert('<?= LANG_foro_nonota ?>'+pos);
+
+
+                if (error == 1) {
+
+                    alert('<?= LANG_foro_nonota ?>' + pos);
                     return false;
-					
-                }else{
-					
+
+                } else {
+
                     return true;
-					
+
                 }
-	
-	
+
+
             }
         </script>
 

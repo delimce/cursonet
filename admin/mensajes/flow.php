@@ -7,7 +7,6 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
  $crear = new tools("db");
  
-
      
 	 $valores[0] = $_POST['destino'];
 	 $valores[1] = $_POST['priori'];
@@ -15,7 +14,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 	 $valores[3] = $_POST['persona'];
 	 $valores[4] = $_POST['titulo'];
 	 $valores[5] = $_POST["content"];
-	 $valores[6] = date("Y-m-d h:i:s");
+	 $valores[6] = fecha::currentDateTimeDb();
 	 $valores[7] = 0;
 	 
  
@@ -42,10 +41,10 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
  										 tbl_grupo_estudiante g
   										 INNER JOIN tbl_estudiante e ON (g.est_id = e.id)
 										WHERE
-										 g.grupo_id = '{$_POST['persona']}' AND 
+										 g.grupo_id = '{$_POST['secc']}' AND 
   										 g.curso_id = '{$_SESSION['CURSOID']}' ");
 		   			 
-		   			$admin1 = $crear->simple_db("SELECT g.prof_id  FROM  tbl_grupo g  WHERE  g.id = {$_POST['persona']}"); 
+		   			$admin1 = $crear->simple_db("SELECT g.prof_id  FROM  tbl_grupo g  WHERE  g.id = {$_POST['secc']}"); 
 		   	
 		   
 		   

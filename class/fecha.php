@@ -129,7 +129,7 @@ class fecha {
 
         return @date("Y-m-d H:m:s");
     }
-
+    
 }
 
 /////fin de la clase FECHA

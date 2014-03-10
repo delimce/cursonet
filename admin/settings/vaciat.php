@@ -12,9 +12,9 @@ include("security.php"); ///seguridad para el admin
 		
 		$datos->abrir_transaccion();
 	
-			///FIXME: cambiar por delete from {$_POST['table']} en mysql version 5.5
-			$datos->query("TRUNCATE TABLE {$_POST['table']} ");		
-			
+			$datos->query("DELETE FROM {$_POST['table']} ");
+                        
+                 			
 			if($_POST['table']=="recurso"){
 				////triger en caso de recursos se borran fisicamente
 				$datos->del_archivos_dir('../../recursos/admin/archivos'); /// vacia el directorio

@@ -98,7 +98,7 @@ function resetea(tabla,nombre) {
 		  </tr>
 		  
 		   <tr>
-			<td width="22%" class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('grupo','<?=LANG_RES_group?>?');"><?php echo LANG_RES_group ?></span></td>
+			<td width="22%" class="style3"><span class="style1" style="cursor:pointer" onClick="resetea('tbl_grupo','<?=LANG_RES_group?>?');"><?php echo LANG_RES_group ?></span></td>
 			<td width="62%" class="style1"><?php echo LANG_RES_group_des ?></td>
 			<td align="center" width="16%" class="style1"><div id="grupo"><?php echo $valores[1]; ?></div></td>
 		  </tr>
