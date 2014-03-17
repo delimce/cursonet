@@ -22,6 +22,7 @@ $features = array(
     "conenlace" => array("pos" => "1", "title" => LANG_vdetails, "url" => "detalles.php?", "target" => "_self", "parametro" => 0, "var_parametro" => "id", "extras" => "&origen=0"),
     "orden" => array(2=>"int"),
     "abreviar" => array(1 => 46, 3 => 25),
+    "decoracion" => array(1 => "capitalize",3=>"lowercase"),
     "nuevo_vinculo1" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?orig=0&", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
     "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1, "condicion" => 6, "texto_condicion" => "<img border=\"0\" src=\"../../images/backend/button_nodel.png\">"),
     "separacion" => array(0 => "1%", 1 => "46%", 2 => "13%", 3 => "17%", 4 => "20%", 5 => "9%"), //separacion de columnas
@@ -48,7 +49,7 @@ if (empty($_GET['seccion'])) {
 ////////////
 
 
-$query = "select id,concat(nombre,' ',apellido) as Nombre,id_number as Cedula,user as Usuario,
+$query = "select id,lower(concat(nombre,' ',apellido)) as Nombre,id_number as Cedula,user as Usuario,
   (SELECT 
   g.nombre
 FROM

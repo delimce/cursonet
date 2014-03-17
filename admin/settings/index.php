@@ -20,6 +20,7 @@ $features = array(
     "formato" => "html",
     "oculto" => 0,
     "abreviar" => array(1 => 40, 2 => 30, 3 => 40),
+    "decoracion" => array(1 => "capitalize", 2 => "lowercase"),
     "nuevo_vinculo1" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
     "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1),
     "separacion" => array(0 => "1%", 1 => "33%", 2 => "22%", 3 => "37%", 4 => "7%"), //separacion de columnas
@@ -30,7 +31,7 @@ $features = array(
 
 $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
-$query = "select id, concat(nombre,' ',apellido) as nombre, user as usuario, email,
+$query = "select id, lower(concat(nombre,' ',apellido)) as nombre, user as usuario, email,
    if(es_admin=1,'" . LANG_yes . "','" . LANG_no . "') as admin
    from tbl_admin where id != {$_SESSION['USERID']} ";
 ?>

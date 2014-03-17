@@ -23,7 +23,7 @@ $features = array(
     "abreviar" => array(1 => 70),
     // "nuevo_vinculo1"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?","target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
     "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1),
-    "separacion" => array(0 => "1%", 1 => "75%", 2 => "15%", 3 => "*"), //separacion de columnas
+    "separacion" => array(0 => "1%", 1 => "85%", 2 => "15%", 3 => "*"), //separacion de columnas
     "alineacion" => array(0 => "center", 1 => "left", 2 => "center", 3 => "center"),
     "celda_vacia" => '<div align="center">-</div>',
     "dateformat" => '2'

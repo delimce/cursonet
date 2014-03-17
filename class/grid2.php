@@ -75,6 +75,7 @@ class grid2 extends database {
       "conenlace"  => array("pos" => "[numero] posicion de la columna del grid que lleva el vinculo", "title" => "[texto] alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup,"extras" => "&variable=valor" ),
       "separacion" =>  array(0 => [numero  (%/px)], 1 => "[cadena]", 3 => [cadena]...);
       "alineacion"  => array(0 => [cadena  (left,rigt,center)], 1 => "[cadena]", 3 => [cadena]...);
+      "decoracion"  => array(0 => [cadena  (capitalize,blink,etc...)],...);
       "celda_vacia" => "[valor lo que se desea que aparezca si la celda es vacia]"
       "nulo" => "[cadena] valor que se desea hacer nulo dentro del grid y en su lugar colocar el valor celda vacia"
       "oculto" =>[cadena] "0,1..." /////numeros de la columnas separadas por comas que se desean ocultar del grid
@@ -187,7 +188,7 @@ class grid2 extends database {
 
 
                 $orden45 = ($this->features['orden'][$i]) ? $this->features['orden'][$i] : 'string';
-                echo '<th class="' . $this->features['style_head'] . '"  title="' . LANG_orderby . $this->campos[$i] . '"  data-sort="' . $orden45 . '">' . $this->campos[$i] . '</th>';
+                echo '<th class="' . $this->features['style_head'] . '" width= "' . $this->features['separacion'][$i] . '"  title="' . LANG_orderby . $this->campos[$i] . '"  data-sort="' . $orden45 . '">' . $this->campos[$i] . '</th>';
 
 
                 if ($OCU == 1) {
@@ -255,9 +256,9 @@ class grid2 extends database {
                         echo '<td class="td_whbk1" align="' . $this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
                     } else {
 
-                        if (strlen($valor) > $this->features['abreviar'][$ii])
-                            $valor = substr($tmp[$ii], 0, $this->features['abreviar'][$ii]) . '...';
-                        echo '<td class="td_whbk1" title="' . strip_tags($tmp[$ii]) . '" align="' . $this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
+                        if (strlen($valor) > $this->features['abreviar'][$ii]) $valor = substr($tmp[$ii], 0, $this->features['abreviar'][$ii]) . '...';
+                        if(isset($this->features['decoracion'][$ii])) $decoracion ='style="text-transform: '.$this->features['decoracion'][$ii].'"'; else $decoracion = '';
+                        echo '<td class="td_whbk1" '.$decoracion.' title="' . strip_tags($tmp[$ii]) . '" align="' . $this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
                     }
 
                     if ($OCU == 1) {

@@ -26,11 +26,12 @@ $features = array(
     "formato" => "html",
     "buscador" => true,
     "oculto" => 0,
-    "abreviar" => array(1 => 50, 2 => 33),
+    "abreviar" => array(1 => 56, 2 => 36),
     "conenlace" => array("pos" => 1, "url" => "mensaje.php?", "target" => "_self", "parametro" => 0, "var_parametro" => "id"),
     "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1),
-    "separacion" => array(0 => "1%", 1 => "55%", 2 => "21%", 3 => "12%", 4 => "15%"), //separacion de columnas
-    "alineacion" => array(0 => "center", 1 => "left", 2 => "left", 3 => "center", 4 => "center"),
+    "separacion" => array(0 => "1%", 1 => "58%", 2 => "27%", 3 => "10%"), //separacion de columnas
+    "alineacion" => array(0 => "center", 1 => "left", 2 => "left", 3 => "center"),
+    "decoracion" => array(2 => "capitalize"),
     "celda_vacia" => '<div align="center">-</div>',
     "dateformat" => '3'
 );
@@ -38,9 +39,9 @@ $features = array(
 
 $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
-$query = "select id,subject as titulo,
-  IF(tipo=0,(ifnull((select concat('" . LANG_msg_prefa . "',nombre,' ',apellido) from tbl_admin where id = de),'<b>".LANG_msg_noadm."</b>') ),ifnull((select concat('" . LANG_msg_prefs . "',nombre,' ',apellido) from tbl_estudiante where id = de ),'<b>".LANG_msg_noest."</b>')) as Remite
-  ,fecha,if(leido=0,'<font color=\"blue\">" . LANG_new . "</font>','" . LANG_old . "') as Estado from tbl_mensaje_admin where para = '{$_SESSION['USERID']}'";
+$query = "select id,if(leido=0,concat('<b>',subject,'</b>'),subject) as titulo,
+  IF(tipo=0,(ifnull((select concat('" . LANG_msg_prefa . "',lower(nombre),' ',lower(apellido)) from tbl_admin where id = de),'<b>" . LANG_msg_noadm . "</b>') ),ifnull((select concat('" . LANG_msg_prefs . "',lower(nombre),' ',lower(apellido)) from tbl_estudiante where id = de ),'<b>" . LANG_msg_noest . "</b>')) as Remite
+  ,fecha from tbl_mensaje_admin where para = '{$_SESSION['USERID']}' order by leido,fecha desc ";
 
 
 //$grid->query($query); //////se ejecuta el query
@@ -117,17 +118,17 @@ $query = "select id,subject as titulo,
                         <tr>
                             <td><p><br>
                                     <br>
-<?php $grid->cargar($query); ?>
+                                    <?php $grid->cargar($query); ?>
                                     &nbsp;</p>
 
-<?php if ($grid->nreg > 0) { ?>
+                                <?php if ($grid->nreg > 0) { ?>
                                     <p align="center">
                                         <input type="button" name="button" onClick="borrartodo();" id="button" value="Borrar todos los mensajes">
                                         <br>
                                         <br>
                                     </p>
 
-<?php } ?></td>
+                                <?php } ?></td>
                         </tr>
                     </table>	</td>
             </tr>

@@ -16,7 +16,6 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
     <head>
         <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
         <script type="text/javascript" src="../../editor/tiny_mce.js"></script>
-        <script type="text/javascript" src="../../js/ajax.js"></script>
         <script type="text/javascript" src="../../js/jquery/jquery-1.7.2.min.js"></script>
         <script>
             $(document).ready(function() {

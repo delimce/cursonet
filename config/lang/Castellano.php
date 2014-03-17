@@ -569,6 +569,7 @@ define(LANG_planes_item_view,"Ver Items");
 define(LANG_planes_item_poreval,"Porcentaje evaluado ");
 define(LANG_planes_noitems,"No hay items para este plan, debe crear uno nuevo");
 define(LANG_planes_item_create,"Crear item");
+define(LANG_planes_item_create_success,"item creado con exito");
 define(LANG_planes_finish,"Finalizar edici&oacute;n");
 define(LANG_planes_edititem,"Editar item");
 define(LANG_planes_editplan,"Editar Plan");
