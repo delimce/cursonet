@@ -3,10 +3,12 @@
  include("../class/clases.php");
  $nuevo = new tools('db');
  
- $lengua = $nuevo->simple_db("select lenguaje from tbl_setup"); //// modo
+ $data = $nuevo->simple_db("select lenguaje,timezone from tbl_setup"); //// modo
  
- $lenguaje1 = '../config/lang/'.$lengua;///verifico el lenguaje
+ $lenguaje1 = '../config/lang/'.$data['lenguaje'];///verifico el lenguaje
  include ($lenguaje1); 
+  date_default_timezone_set($data['timezone']);
+ 
  ?>
  
 <html>

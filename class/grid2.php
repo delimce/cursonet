@@ -256,9 +256,13 @@ class grid2 extends database {
                         echo '<td class="td_whbk1" align="' . $this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
                     } else {
 
-                        if (strlen($valor) > $this->features['abreviar'][$ii]) $valor = substr($tmp[$ii], 0, $this->features['abreviar'][$ii]) . '...';
-                        if(isset($this->features['decoracion'][$ii])) $decoracion ='style="text-transform: '.$this->features['decoracion'][$ii].'"'; else $decoracion = '';
-                        echo '<td class="td_whbk1" '.$decoracion.' title="' . strip_tags($tmp[$ii]) . '" align="' . $this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
+                        if (strlen($valor) > $this->features['abreviar'][$ii])
+                            $valor = substr($tmp[$ii], 0, $this->features['abreviar'][$ii]) . '...';
+                        if (isset($this->features['decoracion'][$ii]))
+                            $decoracion = 'style="text-transform: ' . $this->features['decoracion'][$ii] . '"';
+                        else
+                            $decoracion = '';
+                        echo '<td class="td_whbk1" ' . $decoracion . ' title="' . strip_tags($tmp[$ii]) . '" align="' . $this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
                     }
 
                     if ($OCU == 1) {

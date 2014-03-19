@@ -106,11 +106,12 @@ class fecha {
 
     ////////////////// para fechas de tipo db datatime '0000-00-00 00:00:00'
 
-    static function datetime($datetime, $formato = false) {
+    public function datetime($datetime, $formato = false) {
 
-        date_default_timezone_set($_SESSION['TIMEZONE']);
+        if (!$this->formato)
+            date_default_timezone_set($_SESSION['TIMEZONE']);
         $date = new DateTime($datetime);
-        return ($formato)?$date->format($formato):$date->format($this->formato);
+        return ($formato) ? $date->format($formato) : $date->format($this->formato);
     }
 
     //////////////////// escribe la fecha actual en formato datetime como lo almacena mysql
@@ -129,7 +130,7 @@ class fecha {
 
         return @date("Y-m-d H:m:s");
     }
-    
+
 }
 
 /////fin de la clase FECHA

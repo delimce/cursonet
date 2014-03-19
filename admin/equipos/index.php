@@ -15,10 +15,10 @@ $features = array(
     "no_registers" => '<table bgcolor="#FFFFFF" width="100%"><tr><td align = "center"><b>' . LANG_noresutlts . '</b></td></tr></table>',
     "style_body" => "td_whbk",
     "style_head" => "table_bk",
-    "r_header" => 20,
     "formato" => "html",
+    "buscador" => true,
     "oculto" => 0,
-    "orden" => array("nombre" => "orden1", "defecto" => "grupo desc"),
+    "orden" => array(1 => "string", 2 => "string", 3 => "int"),
     "abreviar" => array(1 => 30, 2 => 40, 3 => 16),
     "nuevo_vinculo1" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
     "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/nuevo.gif\">", "url" => "asignar.php?", "target" => "_self", "parametro" => 0, "var_parametro" => 'id', "title" => LANG_team_join),
@@ -29,7 +29,7 @@ $features = array(
 );
 
 
-$grid = new grid("94%", "*", "center", $features);
+$grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
 
 $combo = new tools();
@@ -60,18 +60,35 @@ $grid->query($query); //////se ejecuta el query
 ?>
 <html>
     <head>
+
+        <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
+        <script src="../../js/jquery/jquery.grid.functions.js"></script>
+
+        <script type="text/javascript">
+
+            // When document is ready: this gets fired before body onload :)
+            $(document).ready(function() {
+                // Write on keyup event of keyword input element
+                buscarGrid('grid1');
+                $("#grid1").ordenarTabla();
+
+            });
+
+
+        </script>
+
         <script language="JavaScript" type="text/javascript">
-            function borrar(id,nombre){
-	
-                if (confirm("<?= LANG_borrar ?> "+nombre+" ?")) {
-	  
-                    location.replace('borrar.php?itemID='+id);
-	  
-                }else{
-	  
-	  
+            function borrar(id, nombre) {
+
+                if (confirm("<?= LANG_borrar ?> " + nombre + " ?")) {
+
+                    location.replace('borrar.php?itemID=' + id);
+
+                } else {
+
+
                     return false;
-	  
+
                 }
             }
         </script>
@@ -103,3 +120,6 @@ $grid->query($query); //////se ejecuta el query
         </table>
     </body>
 </html>
+<?
+$grid->cerrar();
+?>

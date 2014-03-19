@@ -17,11 +17,13 @@ $features = array(
     "style_head" => "table_bk",
     "r_header" => 20,
     "formato" => "html",
+    "buscador" => true,
+    "decoracion" => array(1 => "capitalize", 2 => "lowercase"),
     "oculto" => 0,
-    "orden" => array("nombre" => "orden1", "defecto" => "fecha_creado desc"),
+    "orden" => array(1 => "string", 2 => "string", 3 => "string", 4 => "int"),
     "abreviar" => array(1 => 17, 2 => 40, 3 => 16),
     "nuevo_vinculo1" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
-    "nuevo_vinculo2"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/nuevo.gif\">", "url" => "asignar.php?","target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_group_addEst),
+    "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/nuevo.gif\">", "url" => "asignar.php?", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_group_addEst),
     "nuevo_vinculo3" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1),
     "separacion" => array(0 => "1%", 1 => "26%", 2 => "40%", 3 => "20%", 4 => "13%"), //separacion de columnas
     "alineacion" => array(0 => "center", 1 => "left", 2 => "left", 3 => "center", 3 => "center", 4 => "center"),
@@ -30,24 +32,41 @@ $features = array(
 
 
 
-$grid = new grid("99%", "*", "center", $features);
+$grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
 $query = "select id,nombre,descripcion,ifnull((select concat(nombre,' ',apellido) from tbl_admin where id = prof_id),'" . LANG_content_autor_unknow . "') as Resp, (select count(*) from tbl_grupo_estudiante where grupo_id = p.id and curso_id = {$_SESSION['CURSOID']}) as alumnos from tbl_grupo p where p.curso_id = {$_SESSION['CURSOID']}";
 ?>
 <html>
     <head>
+
+        <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
+        <script src="../../js/jquery/jquery.grid.functions.js"></script>
+
+        <script type="text/javascript">
+
+            // When document is ready: this gets fired before body onload :)
+            $(document).ready(function() {
+                // Write on keyup event of keyword input element
+                buscarGrid('grid1');
+                $("#grid1").ordenarTabla();
+
+            });
+
+
+        </script>
+
         <script language="JavaScript" type="text/javascript">
-            function borrar(id,nombre){
-	
-                if (confirm("<?= LANG_borrar ?> "+nombre+" ?")) {
-	  
-                    location.replace('borrar.php?itemID='+id);
-	  
-                }else{
-	  
-	  
+            function borrar(id, nombre) {
+
+                if (confirm("<?= LANG_borrar ?> " + nombre + " ?")) {
+
+                    location.replace('borrar.php?itemID=' + id);
+
+                } else {
+
+
                     return false;
-	  
+
                 }
             }
         </script>
@@ -75,3 +94,6 @@ $query = "select id,nombre,descripcion,ifnull((select concat(nombre,' ',apellido
         </table>
     </body>
 </html>
+<?
+$grid->cerrar();
+?>
