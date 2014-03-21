@@ -277,6 +277,7 @@ define(LANG_group_casoseccion,"Debe seleccionar el M&oacute;dulo para hablitar l
 define(LANG_team_name,"Nombre del equipo");
 define(LANG_team_desc,"descripci&oacute;n del equipo");
 define(LANG_team_join,"conformar equipo");
+define(LANG_team_to_apply,"Aplicar nota a todos los miembros del equipo:");
 define(LANG_team_addStudents,"se ha creado el equipo, continuar");
 define(LANG_team_error_group,"el equipo debe pertenecer a una sección");
 define(LANG_team_error_name,"ingrese un nombre para el equipo");

@@ -14,11 +14,11 @@ if (isset($_REQUEST['id']))
 $prueba = new tools("db");
 $fecha = new fecha($_SESSION['DB_FORMATO']);
 
-
 $queryd = "SELECT
 	  concat(est.nombre, ' ', est.apellido) AS nombre,
 	  eva.rec_id,
 	  eva.correccion,
+          eva.est_id,
 	  if(eva.nota = '-1', '', eva.nota) AS nota
 	FROM
 	  tbl_proyecto_estudiante eva inner join tbl_estudiante est
@@ -28,30 +28,83 @@ $queryd = "SELECT
 	   eva.id = '{$_SESSION['PRO_ID2']}'";
 
 
-
 /////////////////////////guarda o consulta
 
 if (isset($_POST['nota'])) {
 
 
+    $prueba->abrir_transaccion();
+
     $campos[0] = "correccion";
     $campos[1] = "nota";
+    $campos[2] = "proy_id";
     $vector[0] = $_POST['revi'];
     $vector[1] = $_POST['nota'];
-    $prueba->update("tbl_proyecto_estudiante", $campos, $vector, "id = '{$_SESSION['PRO_ID2']}'");
+    $vector[2] = $_SESSION['PRO_ID']; ///id del proyecto
 
+    $prueba->update("tbl_proyecto_estudiante", $campos, $vector, "id = '{$_SESSION['PRO_ID2']}'");
 
     //////////////////acompanamiento de proyectos
     // include("acomp.php");
     //////////////////////////////////////////
 
+    $equipoSelect = $_POST['equipo'];
+
+    ////////////////////////////////// colocando la correccion y nota a los miembros de los equipos
+    if (count($equipoSelect) > 0) {
+
+        ///////////buscando el id del recurso
+        $recurso = $_POST['archivo'];
+
+        for ($i = 0; $i < count($equipoSelect); $i++) {
+
+            $estudiantes = $prueba->array_query("SELECT
+                                                    e1.est_id
+                                                    FROM
+                                                    tbl_equipo_estudiante AS e1
+                                                    WHERE
+                                                    e1.equipo_id = $equipoSelect[$i]");
+            $delEquipo = implode(",", $estudiantes);
+
+            $prueba->query("delete from tbl_proyecto_estudiante where proy_id = {$_SESSION['PRO_ID']} and est_id in ($delEquipo) "); ////los borro todos
+            /////insertando todos los estudiantes del equipo con nota y correccion
+
+            for ($j = 0; $j < count($estudiantes); $j++) {
+
+                $vector[3] = $estudiantes[$j];
+                $vector[4] = $recurso;
+                $prueba->insertar2("tbl_proyecto_estudiante", 'correccion,nota,proy_id,est_id,rec_id', $vector);
+            }
+
+            //////////////////////////////////
+        }
+    }
+    ////////////////////////////////
+    $prueba->cerrar_transaccion();
 
     $prueba->cerrar();
     $prueba->javaviso(LANG_proy_saeval, "proys.php");
 } else {
 
-    $datos = $prueba->array_query2($queryd);
-    $recurso = $prueba->array_query2("select dir,fecha from tbl_recurso where id = $datos[1]");
+    $datos = $prueba->simple_db($queryd);
+    $recurso = $prueba->array_query2("select dir,fecha from tbl_recurso where id = {$datos['rec_id']} ");
+
+    //////trayendo datos de los equipos del estudiante
+    $equipos = $prueba->estructura_db("SELECT
+                                    e.id,
+                                    e.nombre,
+                                    e.descripcion
+                                    FROM
+                                            tbl_equipo AS e
+                                    INNER JOIN tbl_equipo_estudiante AS ee ON ee.equipo_id = e.id
+                                    INNER JOIN tbl_proyecto AS p ON e.grupo_id = p.grupo
+                                    AND (
+                                            e.grupo_id = p.grupo
+                                            OR p.grupo = 0
+                                    )
+                                    WHERE
+                                    ee.est_id = {$datos['est_id']}
+                                    AND p.curso_id = {$_SESSION['CURSOID']}");
 }
 ?>
 <html>
@@ -74,31 +127,6 @@ if (isset($_POST['nota'])) {
                 }
 
             }
-
-
-            function popup(mylink, windowname) {
-
-                var alto = 160;
-                var largo = 600;
-                var winleft = (screen.width - largo) / 2;
-                var winUp = (screen.height - alto) / 2;
-
-
-                if (!window.focus)
-                    return true;
-                var href;
-                if (typeof (mylink) == 'string')
-                    href = mylink;
-                else
-                    href = mylink.href;
-                window.open(href, windowname, 'top=' + winUp + ',left=' + winleft + '+,toolbar=0 status=1,resizable=0,Width=' + largo + ',height=' + alto + ',scrollbars=1');
-
-                return false;
-
-            }
-
-
-
 
         </script>
 
@@ -125,7 +153,7 @@ if (isset($_POST['nota'])) {
                                 <td align="left"><table width="100%" border="0" cellspacing="4" cellpadding="3">
                                         <tr>
                                             <td colspan="4" class="style1"><b><?= LANG_est ?>
-                                                    &nbsp;</b><?= $datos[0] ?>
+                                                    &nbsp;</b><?= $datos['nombre'] ?>
                                                 &nbsp;</td>
                                         </tr>
 
@@ -139,26 +167,72 @@ if (isset($_POST['nota'])) {
                                             <td colspan="4" class="table_bk"><? echo LANG_proy_file; ?></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="4" align="left"><a href="abrir.php?id=<?php echo $datos[1] ?>" title="<?= LANG_download ?>"><?php echo $recurso[0] ?></a></td>
+                                            <td colspan="4" align="left">
+                                                <a href="abrir.php?id=<?php echo $datos['rec_id'] ?>" title="<?= LANG_download ?>"><?php echo $recurso[0] ?></a>
+                                                <input type="hidden" id="archivo" name="archivo" value="<?php echo $datos['rec_id'] ?>">
+                                            </td>
                                         </tr>
 
                                         <tr>
-                                            <td colspan="4" align="left" class="td_whbk2"><b>
-<?= LANG_eva_revi ?>
-                                                </b></td>
+                                            <td colspan="4" align="left" class="td_whbk2">
+                                                <b>
+                                                    <?= LANG_eva_revi ?>
+                                                </b>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="4" align="center"><textarea name="revi" cols="93" rows="4" class="style1" id="revi"><?= stripslashes($datos[2]); ?></textarea></td>
+                                            <td colspan="4" align="center">
+                                                <textarea name="revi" cols="93" rows="4" class="style1" id="revi"><?= stripslashes($datos['correccion']); ?></textarea>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td width="14%" align="left" class="td_whbk2"><b>
-<?= LANG_eva_cal ?>
-                                                </b></td>
-                                            <td colspan="3" align="left" class="td_whbk2"><input name="nota" type="text" id="nota" value="<?= $datos[3] ?>" size="5" maxlength="4"></td>
+                                            <td width="14%" align="left" class="td_whbk2">
+                                                <b>
+                                                    <?= LANG_eva_cal ?>
+                                                </b>
+                                            </td>
+                                            <td colspan="3" align="left" class="td_whbk2">
+                                                <input name="nota" type="text" id="nota" value="<?= $datos['nota'] ?>" size="5" maxlength="4">
+                                            </td>
                                         </tr>
+
+                                        <!--     mostrar datos de equipos-->
+                                        <?php
+                                        if (count($equipos > 0)) { ///hay equipos
+                                            ?>  
+
+                                            <tr>
+                                                <td colspan="4" align="left" class="td_whbk">
+                                                    <b>
+                                                        <?= LANG_team_to_apply ?>
+                                                    </b>
+                                                </td>
+                                            </tr>  
+                                            <?php
+                                            for ($i = 0; $i < count($equipos); $i++) {
+                                                ?>
+                                                <tr>
+                                                    <td colspan="4" align="left" class="td_whbk">
+                                                        <div style="display: inline">
+                                                            <input type="checkbox" name="equipo[]" value="<?= $equipos[$i]['id'] ?>" />
+                                                            <b><?= $equipos[$i]['nombre'] ?></b>&nbsp;<span style="font-style: italic"><?= $equipos[$i]['descripcion'] ?></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <?
+                                            }
+                                            ?>
+
+                                            <?php
+                                        }
+                                        ?>
+                                        <!--     mostrar datos de equipos-->
+
                                         <tr>
-                                            <td colspan="4" align="left"><input name="b1" type="button" id="b1" onClick="javascript:location.replace('proys.php');"  value="<?= LANG_back ?>">
-                                                <input name="guarda" type="button" id="guarda" onClick="javascript:validar();" value="<?= LANG_save ?>"></td>
+                                            <td colspan="4" align="left">
+                                                <input name="b1" type="button" id="b1" onClick="javascript:location.replace('proys.php');"  value="<?= LANG_back ?>">
+                                                <input name="guarda" type="button" id="guarda" onClick="javascript:validar();" value="<?= LANG_save ?>">
+                                            </td>
                                         </tr>
 
                                     </table>
