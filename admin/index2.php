@@ -8,11 +8,6 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 $datos = new tools('db');
 $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo_admin,(SELECT alias from tbl_curso WHERE id = '{$_SESSION['CURSOID']}'),version,timezone from tbl_setup");
 
-///////////////////
-$datamenu = $datos->simple_db("select (select count(*) from tbl_estudiante) as nest, (select count(*) from tbl_mensaje_admin where para = {$_SESSION['USERID']} ) as nmens,
- (select count(*) from tbl_contenido where curso_id = '{$_SESSION['CURSOID']}') as ntemas, 
- (select count(*) from tbl_recurso where add_by = 'admin') as recursos  ");
-
 
 $_SESSION['DB_FORMATO_DB'] = $data[2];
 $_SESSION['DB_FORMATO'] = $data[1];
@@ -185,16 +180,16 @@ $_SESSION['TIMEZONE'] = $data[6]; ///zona horaria configurada en la herramienta
                         </tr>
 
                         <tr>
-                            <td align="right" valign="middle"><span class="style1"><a href="alumnos/index.php" target="content"><div id="nestudents"><?php echo LANG_students; ?> (<?= $datamenu['nest'] ?>)</div></a></span></td>
+                            <td align="right" valign="middle"><span class="style1"><a href="alumnos/index.php" target="content"><div id="nestudents"><?php echo LANG_students; ?> (<span id="nest">&nbsp;</span>)</div></a></span></td>
                             <td align="right"><img src="../images/backend/Users.gif" width="32" height="32"></td>
                         </tr>
 
                         <tr>
-                            <td align="right"><a href="mensajes/index.php" target="content"><div id="nmessages" style="line-height:inherit"><?php echo LANG_messages; ?> (<?= $datamenu['nmens'] ?>)</div></a></td>
+                            <td align="right"><a href="mensajes/index.php" target="content"><div id="nmessages" style="line-height:inherit"><?php echo LANG_messages; ?> (<span id="nmsgs">&nbsp;</span>)</div></a></td>
                             <td align="right"><img src="../images/backend/mens.gif" width="32" height="32"></td>
                         </tr>
                         <tr>
-                            <td align="right"><a href="recursos/index.php" target="content"><div id="nrecs" style="line-height:inherit"><?php echo LANG_resources; ?> (<?= $datamenu['recursos'] ?>)</div></a></td>
+                            <td align="right"><a href="recursos/index.php" target="content"><div id="nrecs" style="line-height:inherit"><?php echo LANG_resources; ?> (<span id="nrecus">&nbsp;</span>)</div></a></td>
                             <td align="right"><img src="../images/backend/Recs.png" width="32" height="32"></td>
                         </tr>
                         <tr>

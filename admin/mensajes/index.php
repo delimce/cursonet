@@ -44,7 +44,7 @@ $query = "select id,if(leido=0,concat('<b>',subject,'</b>'),subject) as titulo,
   ,fecha from tbl_mensaje_admin where para = '{$_SESSION['USERID']}' order by leido,fecha desc ";
 
 
-//$grid->query($query); //////se ejecuta el query
+$grid->query($query); //////se ejecuta el query
 ?>
 <html>
     <head>
@@ -60,6 +60,7 @@ $query = "select id,if(leido=0,concat('<b>',subject,'</b>'),subject) as titulo,
                 // Write on keyup event of keyword input element
                 buscarGrid('grid1');
                 $("#grid1").ordenarTabla();
+                $('#nmsgs', window.parent.document).html(<?=$grid->nreg?>);
 
             });
 

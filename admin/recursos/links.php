@@ -34,6 +34,8 @@ $features = array(
 $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
 $query = "select id,dir as enlace,fecha  from tbl_recurso where tipo = 1 and add_by = 'admin'";
+
+$grid->query($query); //////se ejecuta el query
 ?>
 <html>
     <head>
@@ -48,6 +50,7 @@ $query = "select id,dir as enlace,fecha  from tbl_recurso where tipo = 1 and add
                 // Write on keyup event of keyword input element
                 buscarGrid('grid1');
                 $("#grid1").ordenarTabla();
+                 $('#nrecus', window.parent.document).html(<?=$grid->nreg?>);
 
             });
 

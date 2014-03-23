@@ -37,6 +37,9 @@ $grid->autoconexion();
 $query = "select id,dir as archivo,size as peso,fecha,download as descargas,
    if({$_SESSION['ADMIN']}>0,'1','0') as condicion_editar
    from tbl_recurso where tipo = 0 and add_by = 'admin'";
+   
+ $grid->query($query); //////se ejecuta el query  
+   
 ?>
 <html>
     <head>
@@ -51,6 +54,7 @@ $query = "select id,dir as archivo,size as peso,fecha,download as descargas,
                 // Write on keyup event of keyword input element
                 buscarGrid('grid1');
                 $("#grid1").ordenarTabla();
+                 $('#nrecus', window.parent.document).html(<?=$grid->nreg?>);
 
             });
 
