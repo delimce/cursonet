@@ -4,11 +4,14 @@ include("../../../config/setup.php"); ////////setup
 include("../../../class/clases.php"); ////////clase
 include ("../../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-$tool = new tools("db");
+if(isset($_GET['id'])){
+$ide = formulario::getvar("id");    
+$db = new ObjectDB();
+$db->setTable("tbl_foro_respuesta");
+$db->deleteWhere("id = $ide");
+$db->cerrar();
+}
 
-if(isset($_GET['id'])) $tool->query("delete from tbl_foro_respuesta where id = {$_GET['id']} ");
-
-$tool->cerrar();
-$tool->javaviso(LANG_est_foro_respdeleted,"vercoment.php");
+tools::javaviso(LANG_est_foro_respdeleted,"vercoment.php");
 
 ?>

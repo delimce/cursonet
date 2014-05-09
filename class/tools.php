@@ -452,7 +452,7 @@ function burbuja($array,$modo=0){
          $url
          </script>";
 
-         if($url) $this->redirect($url);
+         if($url) tools::redirect($url);
 
 
     }

@@ -53,8 +53,6 @@ class database {
    }
 
 
-
-
    ////autoconexion discreta segun los parametros y la base dedatos especificadas en el archivo de conf
 
     function autoconexion(){
@@ -310,6 +308,72 @@ class database {
 
   
 
+  
+  /**********METODOS PARA USAR ObjectDB ************/
+  
+  
+     public function lastIdInserted() {
+
+        $this->ultimoID = mysqli_insert_id($this->getDbc()) or die('<font color=#FF0000> Error en ID generado de insert</font>' . mysqli_error($this->getDbc()));
+    }
+
+  
+  
+   public function getDbc() {
+        return $this->dbc;
+    }
+  
+   public function escapeString($value) {
+
+        return mysqli_real_escape_string($this->getDbc(), $value);
+    }
+  
+    
+     //devuelve un arreglo con el nombre de los campos consultados enpezando desde la pos 0
+
+    public function getFieldsNames() {
+
+        $x = 0;
+
+        while ($finfo = mysqli_fetch_field($this->result)) {
+
+            $names[$x] = $finfo->name;
+            $x++;
+        }
+
+        return $names;
+    }
+    
+    
+     ///funcion para obtener el valor del registro en tipo numero
+
+    public function getRegNumber() {
+
+        return @mysqli_fetch_row($this->result);
+    }
+
+    ////funcion para obtener el valor del registro en tipo cadena o nombre
+
+    public function getRegName() {
+
+        return @mysqli_fetch_assoc($this->result);
+    }
+
+    public function prepareQuery($sql) {
+        return mysqli_prepare($this->getDbc(), $sql);
+    }
+    
+    
+    /**
+     * numero de registros de un query
+     */
+    
+    public function getNumRows(){
+        return $this->nreg;
+    }
+    
+    
+    
 
 };   //fin de la super clase
 
