@@ -23,7 +23,7 @@
  
  ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <style type="text/css">
 <!--
 body {

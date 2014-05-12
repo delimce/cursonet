@@ -35,7 +35,7 @@ $query = "select id,titulo,IFNULL((select nombre from tbl_grupo where id = p.gru
             where grupo_id in (select id from tbl_grupo where curso_id = {$_SESSION['CURSOID']}) ";
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
 
         <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
         <script src="../../js/jquery/jquery.grid.functions.js"></script>

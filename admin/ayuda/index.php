@@ -1,5 +1,5 @@
 <html>
-<head>
+<head> <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>
 <link rel="stylesheet" type="text/css" href="../../css/style_back.css">

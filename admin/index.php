@@ -22,7 +22,7 @@
 ?>
 <html>
 <head>
-    
+<meta charset="utf-8">    
 <script language="JavaScript" type="text/javascript" src="../js/browser_detect.js"></script>
 <script language="JavaScript" type="text/javascript" src="../js/jquery/jquery-1.7.2.min.js"></script>
 

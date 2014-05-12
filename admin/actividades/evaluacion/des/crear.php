@@ -26,7 +26,7 @@ $menu = new menu($menu_struct);
 
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <script language="JavaScript" type="text/javascript" src="../../../../js/date.js"></script>
 <script language="JavaScript" type="text/javascript" src="../../../../js/ajax.js"></script>
 <link rel="stylesheet" type="text/css" href="../../../../css/style_back.css">

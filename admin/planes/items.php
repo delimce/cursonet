@@ -54,7 +54,7 @@ $datos = $crear->simple_db("select titulo,id,grupo_id from tbl_plan_evaluador wh
 $_SESSION['GRUPOPLAN'] = $datos['grupo_id']; ///grupo asignado
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
         <script type="text/javascript" src="../../js/utils.js"></script>
 

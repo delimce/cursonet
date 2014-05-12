@@ -36,7 +36,7 @@ $query = "select distinct p.id,nombre,IFNULL((select nombre from tbl_grupo where
    from tbl_proyecto p inner join tbl_proyecto_estudiante e on (p.id = e.proy_id) and p.curso_id = {$_SESSION['CURSOID']}";
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
         <script language="JavaScript" type="text/javascript">
             function borrar(id, nombre) {
 

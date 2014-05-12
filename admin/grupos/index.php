@@ -37,7 +37,7 @@ $grid->autoconexion();
 $query = "select id,nombre,descripcion,ifnull((select concat(nombre,' ',apellido) from tbl_admin where id = prof_id),'" . LANG_content_autor_unknow . "') as Resp, (select count(*) from tbl_grupo_estudiante where grupo_id = p.id and curso_id = {$_SESSION['CURSOID']}) as alumnos from tbl_grupo p where p.curso_id = {$_SESSION['CURSOID']}";
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
 
         <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
         <script src="../../js/jquery/jquery.grid.functions.js"></script>

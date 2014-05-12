@@ -46,7 +46,7 @@ $menu = new menu($menu_struct);
 
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <title><?php echo LANG_planes_evalsheet.' '.$planinfo['titulo'] ?></title>
 <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
 <script type="text/javascript" src="../../js/ajax.js"></script>

@@ -73,7 +73,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO'].' h:m A'); ///fecha con hora
 ?>
 
 <html>
-<head>
+<head> <meta charset="utf-8">
 <script language="JavaScript" type="text/javascript" src="../../../js/ajax.js"></script>
 <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
 

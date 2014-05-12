@@ -21,7 +21,7 @@ $menu = new menu($menu_struct);
  
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <script type="text/javascript" src="../../js/calendario/calendar.js"></script>
 <script type="text/javascript" src="../../js/calendario/calendar-es.js"></script>
 <script type="text/javascript" src="../../js/calendario/calendar-setup.js"></script>

@@ -21,7 +21,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 ?>
 
 <html>
-<head>
+<head> <meta charset="utf-8">
 <script language="JavaScript" type="text/javascript" src="../../js/ajax.js"></script>
 <link rel="stylesheet" type="text/css" href="../../css/style_front.css">
 <script type="text/javascript" src="../../js/utils.js"></script>

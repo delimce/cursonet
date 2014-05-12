@@ -39,7 +39,7 @@ if(isset($_POST['Submit'])){ ///se envia el comentario
 ?>
 
 <html>
-<head>
+<head> <meta charset="utf-8">
 
 <script language="JavaScript" type="text/javascript">
 function validar(){

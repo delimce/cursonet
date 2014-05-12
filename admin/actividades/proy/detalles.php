@@ -37,8 +37,8 @@ $query = "select id,nombre,ifnull((select nombre from tbl_grupo where id = p.gru
 ?>
 <html>
     <head>
-
-          <script src="../../../js/jquery/jquery-1.7.2.min.js"></script>
+        <meta charset="utf-8">
+        <script src="../../../js/jquery/jquery-1.7.2.min.js"></script>
         <script src="../../../js/jquery/jquery.grid.functions.js"></script>
 
         <script type="text/javascript">
@@ -52,7 +52,7 @@ $query = "select id,nombre,ifnull((select nombre from tbl_grupo where id = p.gru
 
 
         </script>
-        
+
         <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
     </head>
 

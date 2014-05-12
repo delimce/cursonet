@@ -32,7 +32,7 @@
  
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <title><?php echo $val[2].' '.$val[5];  ?></title>
 <link rel="stylesheet" type="text/css" href="css/style_front.css">
 

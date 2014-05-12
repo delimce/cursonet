@@ -24,7 +24,7 @@ WHERE
 
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 		
 	
 	

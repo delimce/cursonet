@@ -11,7 +11,7 @@ $data = $est->simple_db("select * from tbl_estudiante where id = {$_SESSION['USE
 
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/style_front.css">
 
 <title>

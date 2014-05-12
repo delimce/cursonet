@@ -35,6 +35,7 @@ if ($_POST['nombre']) {
 ?>
 <html>
     <head>
+        <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
 
         <script type="text/javascript" src="../../../js/calendario/calendar.js"></script>
@@ -45,8 +46,6 @@ if ($_POST['nombre']) {
         <script language="JavaScript" type="text/javascript" src="../../../js/date.js"></script>
         <script language="JavaScript" type="text/javascript" src="../../../js/ajax.js"></script>
         <LINK href="../../../js/calendario/calendario.css" type=text/css rel=stylesheet>
-
-
         <script language="JavaScript" type="text/javascript">
 
 

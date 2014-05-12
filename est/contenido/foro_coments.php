@@ -37,7 +37,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 <html>
 <meta http-equiv="Content-Type"  
 content="text/html; charset=iso-8859-1"> 
-<head>
+<head> <meta charset="utf-8">
 
 
 <link rel="stylesheet" type="text/css" href="../../css/style_front.css">

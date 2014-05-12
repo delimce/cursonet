@@ -13,7 +13,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 ?>
 
 <html>
-<head>
+<head> <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/style_front.css">
 <script type="text/javascript" src="../js/iframe.js"></script>
 <script type="text/javascript" src="../js/utils.js"></script>

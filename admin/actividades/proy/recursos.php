@@ -35,6 +35,7 @@ $query = "select c.id,nombre,IFNULL((select nombre from tbl_grupo where id = c.g
 ?>
 <html>
     <head>
+        <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
         <script src="../../../js/jquery/jquery-1.7.2.min.js"></script>
         <script src="../../../js/jquery/jquery.grid.functions.js"></script>

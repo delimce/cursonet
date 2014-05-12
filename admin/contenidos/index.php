@@ -42,7 +42,7 @@ $menu = new menu($menu_struct);
 
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 	<script language="JavaScript" type="text/javascript">
 	function borrar(id,nombre){
 

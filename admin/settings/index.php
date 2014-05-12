@@ -36,7 +36,7 @@ $query = "select id, lower(concat(nombre,' ',apellido)) as nombre, user as usuar
    from tbl_admin where id != {$_SESSION['USERID']} ";
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
 
         <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
         <script src="../../js/jquery/jquery.grid.functions.js"></script>

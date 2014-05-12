@@ -27,7 +27,8 @@ $data = $datos->simple_db("select c.id,c.nombre,c.alias,date_format(fecha_creado
 $_SESSION['CURSOALIAS'] = $data['alias'];
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
+        
         <link rel="stylesheet" type="text/css" href="../css/style_back.css">
         <script language="JavaScript" type="text/javascript" src="../js/utils.js"></script>
         <script src="../js/jquery/jquery-1.7.2.min.js"></script>

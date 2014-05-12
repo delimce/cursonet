@@ -53,7 +53,7 @@ include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 ?>
 
 <html>
-<head>
+<head> <meta charset="utf-8">
 
 <META HTTP-EQUIV="refresh" CONTENT="30; URL=eval.php">
 <link rel="stylesheet" type="text/css" href="../../css/style_front.css">

@@ -24,7 +24,7 @@ $planinfo = $tool->simple_db("select en_base,redondeo from tbl_plan_evaluador wh
 
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../css/style_front.css">
 </head>
 <body>

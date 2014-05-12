@@ -83,7 +83,7 @@ if (isset($_REQUEST['nombre'])) {
 }
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
 
          <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
         <script src="../../js/jquery/jquery.grid.functions.js"></script>

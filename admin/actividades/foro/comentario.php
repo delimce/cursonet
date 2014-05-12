@@ -12,7 +12,7 @@ $crear = new tools('db');
 ?>
 
 <html>
-<head>
+<head> <meta charset="utf-8">
 <script language="JavaScript" type="text/javascript" src="../../../js/ajax.js"></script>
 
 	<script language="JavaScript" type="text/javascript">

@@ -24,7 +24,7 @@
 
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <title><?= $_SESSION['TINSCRIPCION'] ?></title>
 <link rel="stylesheet" type="text/css" href="../css/style_front.css">
 <style type="text/css">

@@ -38,7 +38,7 @@ $query = "select id,fecha_c as fecha,IFNULL((select nombre from tbl_grupo where 
    from tbl_cartelera p where p.curso_id = {$_SESSION['CURSOID']} ";
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
 
         <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
         <script src="../../js/jquery/jquery.grid.functions.js"></script>

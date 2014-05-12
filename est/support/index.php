@@ -10,7 +10,7 @@ $data = $tool->simple_db("select id,admin_email from tbl_setup");
 
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../css/style_front.css">
 <script type="text/javascript" src="../../js/utils.js"></script>
 <script type="text/javascript" src="../../js/ajax.js"></script>

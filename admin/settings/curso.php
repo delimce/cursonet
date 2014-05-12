@@ -35,7 +35,7 @@ $grid->autoconexion();
 $query = "select id, nombre, alias, fecha_creado as fecha from tbl_curso";
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
 
 
         <script src="../../js/jquery/jquery-1.7.2.min.js"></script>

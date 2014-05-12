@@ -64,7 +64,7 @@ where ge.curso_id = {$_SESSION['CURSOID']} and est_id = e.id )as Grupo,
 $grid->query($query); //////se ejecuta el query
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
 
         <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
         <script src="../../js/jquery/jquery.grid.functions.js"></script>

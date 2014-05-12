@@ -41,7 +41,7 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
 }
 ?>
 <html>
-    <head>
+    <head> <meta charset="utf-8">
 
         <script language="javascript">
             function CheckAll()

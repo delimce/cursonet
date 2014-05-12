@@ -14,7 +14,7 @@ $menu = new menu($menu_struct);
  
 ?>
 <html>
-<head>
+<head> <meta charset="utf-8">
 <script type="text/javascript" src="../../js/utils.js"></script>
 <script type="text/javascript" src="../../js/ajax.js"></script>	
  <LINK href="../../js/calendario/calendario.css" type=text/css rel=stylesheet>	
