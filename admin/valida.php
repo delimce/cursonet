@@ -1,66 +1,75 @@
-<?php session_start();
- include("../config/dbconfig.php");
- include("../class/clases.php");
- 
- $i = new formulario('db');
- 
- 
- if(isset($_POST['user'])){
- 
-		 $usuario = $i->getvar("user",$_POST);
-		 $curso2 = $_POST['curso'];
-		 
-		 $DATOS = $i->simple_db("select lenguaje,cursos,a.id,CONCAT(nombre,' ',apellido) as nombre,es_admin,date_format(fecha_ult_acc,'%d/%m/%y %h:%i %p') as acc from tbl_admin a,tbl_setup where user = '$usuario' and pass = MD5('{$_POST['pass']}')");
- 
-		 if($i->nreg>0){
-		 
-			
-				if($DATOS['cursos']!="")$loscursos = explode(',',$DATOS['cursos']);
-				$_SESSION['LENGUAJE'] = $DATOS['lenguaje']; //lenguaje
-			
-				if($DATOS['es_admin']==1){
-				
-				
-							$_SESSION['PROFILE'] = 'admin'; ///perfil de ingreso
-							$_SESSION['USERID'] = $DATOS['id'];
-							$_SESSION['NOMBRE']  = $DATOS['nombre'];
-							$_SESSION['ADMIN']  = $DATOS['es_admin'];
-							$_SESSION['CURSOSP']  = $DATOS['cursos'];
-							$_SESSION['CURSOID']  = $curso2;
-							$_SESSION['FECHACC']  = $DATOS['acc'];
-							echo "1"; ///puede entrar
-				
-				}else if(in_array($curso2,$loscursos)){
-				
-							$_SESSION['PROFILE'] = 'admin'; ///perfil de ingreso
-							$_SESSION['USERID'] = $DATOS['id'];
-							$_SESSION['NOMBRE']  = $DATOS['nombre'];
-							$_SESSION['ADMIN']  = $DATOS['es_admin'];
-							$_SESSION['CURSOSP']  = $DATOS['cursos'];
-							$_SESSION['CURSOID']  = $curso2;
-							$_SESSION['FECHACC']  = $DATOS['acc'];
-							echo "1"; ///puede entrar
-					
-				}else{
-				
-							echo "2";
-				
-				}
-				
-				$i->query("update tbl_admin set fecha_ult_acc = NOW() where id = {$DATOS['id']}"); ///guarda el ultimo acceso
+<?php
 
-		
-		 
-		 }else{
-		 
-			echo "0";
-		 
-		 }
-		 
-		 
- }		 
-		 
-		 
-$i->cerrar();
+session_start();
+include("../config/dbconfig.php");
+include("../class/clases.php");
 
+if (isset($_POST['user'])) {
+
+
+    $db = new ObjectDB();
+    $usuario = formulario::getvar("user", $_POST);
+    $curso2 = formulario::getvar("curso", $_POST);
+    $pass1 = formulario::getvar("pass", $_POST);
+
+    $sql = "SELECT
+	s.lenguaje,
+	a.cursos,
+	a.id,
+	CONCAT(nombre, ' ', apellido) AS nombre,
+	a.es_admin,
+	date_format(
+		max(l.fecha_in),
+		'%d/%m/%y %h:%i %p'
+	) AS acc
+        FROM
+        tbl_admin AS a 
+        LEFT JOIN tbl_log_admin AS l ON l.admin_id = a.id, tbl_setup s
+        WHERE
+        a.`user` = '$usuario' AND
+        a.pass = MD5('$pass1') GROUP BY a.id";
+
+    $db->setSql($sql);
+    $db->getResultFields();
+
+
+    if ($db->getNumRows() > 0) {
+
+
+        if ($db->getField("cursos") != "")
+            $loscursos = explode(',', $db->getField("cursos"));
+
+        $_SESSION['LENGUAJE'] = $db->getField("lenguaje"); //lenguaje
+
+        if (($db->getField("es_admin") == 1) or ( in_array($curso2, $loscursos))) {
+
+            $_SESSION['PROFILE'] = 'admin'; ///perfil de ingreso
+            $_SESSION['USERID'] = $db->getField("id");
+            $_SESSION['NOMBRE'] = $db->getField("nombre");
+            $_SESSION['ADMIN'] = $db->getField("es_admin");
+            $_SESSION['CURSOSP'] = $db->getField("cursos");
+            $_SESSION['CURSOID'] = $curso2;
+            $_SESSION['FECHACC'] = $db->getField("acc");
+
+            ////guarda registro
+            $db->setTable("tbl_log_admin");
+            $db->setField("admin_id", $_SESSION['USERID']);
+            $db->setField("fecha_in", @date("Y-m-d h:i:s"));
+            $db->setField("ip_acc", $_SERVER['REMOTE_ADDR']);
+            $db->setField("info_cliente", $_SERVER['HTTP_USER_AGENT']);
+            $db->setField("curso_id", $curso2);
+            $db->insertInTo();
+
+            echo "1"; ///puede entrar
+        } else {
+
+            echo "2";
+        }
+    } else {
+
+        echo "0";
+    }
+}
+
+$db->cerrar();
 ?>
