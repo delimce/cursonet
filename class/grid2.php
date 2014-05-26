@@ -72,7 +72,7 @@ class grid2 extends database {
       "nuevo_vinculo1"  => array("nombre" => "[cadena]", "texto" => "[cadena](texto o imagen)", "title" => "[texto] alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup, "condicion" posicion del campo de la consulta, "texto_condicion" lo que escribe si se cumple la condicion  ),
       "nuevo_vinculo2"  => array("nombre" => "[cadena]", "texto" => "[cadena](texto o imagen)", "title" => "[texto] alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup ),
       "nuevo_vinculo3"  => array("nombre" => "[cadena]", "texto" => "[cadena](texto o imagen)", "title" => "[texto] alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup ),
-      "conenlace"  => array("pos" => "[numero] posicion de la columna del grid que lleva el vinculo", "title" => "[texto] alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup,"extras" => "&variable=valor" ),
+      "conenlace"  => array("pos" => "[numero] posicion de la columna del grid que lleva el vinculo", "title" => "[texto]/ int (posicion de la columna para mostrar) alt", "url" => "[cadena] no olvidar el '?' en caso de que pase un parametro","target" => [cadena], "parametro" => [numero posicion que ocupa la columana que se quiere pasar como parametro], "var_parametro"=>[cadena] nombre de la variable a pasar por parametro , "popup"=>[nombre de la ventana] esta opcion solo funciona si hay una funcion que abra el link en popup,"extras" => "&variable=valor" ),
       "separacion" =>  array(0 => [numero  (%/px)], 1 => "[cadena]", 3 => [cadena]...);
       "alineacion"  => array(0 => [cadena  (left,rigt,center)], 1 => "[cadena]", 3 => [cadena]...);
       "decoracion"  => array(0 => [cadena  (capitalize,blink,etc...)],...);
@@ -225,7 +225,15 @@ class grid2 extends database {
                         else
                             $popup = '';
                         if (isset($this->features['conenlace']) && $this->features['conenlace']['pos'] == $ii) {
-                            $enlace = '<a href="' . $this->features['conenlace']['url'] . $this->features['conenlace']['var_parametro'] . '=' . $tmp[$this->features['conenlace']['parametro']] . $this->features['conenlace']['extras'] . '" target="' . $this->features['conenlace']['target'] . '" title="' . $this->features['conenlace']['title'] . '"' . $popup . '">';
+                            
+                            ////verificacion de parametros conenlace
+                            if(is_int($this->features['conenlace']['title'])) ///si tiene la posicion de una columna
+                                $tituloEnlace = $tmp[$this->features['conenlace']['title']];
+                            else 
+                                $tituloEnlace = $this->features['conenlace']['title'];
+                            
+                            
+                            $enlace = '<a href="' . $this->features['conenlace']['url'] . $this->features['conenlace']['var_parametro'] . '=' . $tmp[$this->features['conenlace']['parametro']] . $this->features['conenlace']['extras'] . '" target="' . $this->features['conenlace']['target'] . '" title="' . $tituloEnlace . '"' . $popup . '">';
                             $enlace2 = '</a>';
                         } else {
                             $enlace = '';

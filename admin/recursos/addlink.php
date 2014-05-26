@@ -71,7 +71,7 @@ if(isset($_POST['link'])){
 </tr>
   <tr>
   <td width="19%" class="style3"><?php echo LANG_content_link1; ?></td>
-  <td width="81%"><input name="link" type="text" id="link" value="http://www." size="43"></td>
+  <td width="81%"><input name="link" type="text" id="link" value="http://www." onclick="this.select();" size="43"></td>
   </tr>
   <tr>
     <td class="style3"><?php echo LANG_group_desc; ?></td>

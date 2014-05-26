@@ -4,7 +4,6 @@ $profile = 'admin'; /////////////// perfil requerido
 include("../config/setup.php"); ////////setup
 include("../class/clases.php");
 include ("../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
-
 $datos = new tools('db');
 $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo_admin,(SELECT alias from tbl_curso WHERE id = '{$_SESSION['CURSOID']}'),version,timezone from tbl_setup");
 
@@ -169,7 +168,7 @@ stm_em();
 
 
                 </td>
-                <td background="../images/backend/edunet_r6_c4.gif" valign="top" align="center">
+                <td width="40px" background="../images/backend/edunet_r6_c4.gif" valign="top" align="center">
                     <table width="94%" border="0" align="center" cellpadding="0" cellspacing="2">
                         <tr>
                             <td width="75%" align="right">&nbsp;</td>

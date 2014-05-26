@@ -17,8 +17,8 @@ $features = array(
     "style_body" => "td_whbk",
     "style_head" => "table_bk",
     "formato" => "html",
-    "conenlace" => array("parametro" => 0, "var_parametro" => "id", "pos" => "1", "title" => LANG_open_file, "url" => "abrir.php?", "target" => "_self"),
-    "oculto" => '0,5',
+    "conenlace" => array("parametro" => 0, "var_parametro" => "id", "pos" => "1", "title" => 6, "url" => "abrir.php?", "target" => "_self"),
+    "oculto" => '0,5,6',
     "orden" => array(1 => "string", 2 => "float", 3 => "date", 4 => "int"),
     "abreviar" => array(1 => 65, 2 => 20),
     // "nuevo_vinculo1"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?","target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
@@ -35,7 +35,7 @@ $grid->autoconexion();
 
 
 $query = "select id,dir as archivo,size as peso,fecha,download as descargas,
-   if({$_SESSION['ADMIN']}>0,'1','0') as condicion_editar
+   if({$_SESSION['ADMIN']}>0,'1','0') as condicion_editar, descripcion
    from tbl_recurso where tipo = 0 and add_by = 'admin'";
    
  $grid->query($query); //////se ejecuta el query  

@@ -18,9 +18,9 @@ $features = array(
     "r_header" => 20,
     "buscador" => true,
     "formato" => "html",
-    "oculto" => 0,
-    "conenlace" => array("parametro" => 0, "var_parametro" => "id", "pos" => "1", "title" => LANG_open_file, "url" => "abrirl.php?", "target" => "_blank"),
-    "abreviar" => array(1 => 70),
+    "oculto" => "0,3",
+    "conenlace" => array("parametro" => 0, "var_parametro" => "id", "pos" => "1", "title" => 3, "url" => "abrirl.php?", "target" => "_blank"),
+    "abreviar" => array(1 => 80),
     // "nuevo_vinculo1"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?","target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
     "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1),
     "separacion" => array(0 => "1%", 1 => "85%", 2 => "15%", 3 => "*"), //separacion de columnas
@@ -33,7 +33,7 @@ $features = array(
 
 $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
-$query = "select id,dir as enlace,fecha  from tbl_recurso where tipo = 1 and add_by = 'admin'";
+$query = "select id,dir as enlace,fecha,descripcion  from tbl_recurso where tipo = 1 and add_by = 'admin'";
 
 $grid->query($query); //////se ejecuta el query
 ?>
@@ -50,7 +50,7 @@ $grid->query($query); //////se ejecuta el query
                 // Write on keyup event of keyword input element
                 buscarGrid('grid1');
                 $("#grid1").ordenarTabla();
-                 $('#nrecus', window.parent.document).html(<?=$grid->nreg?>);
+                $('#nrecus', window.parent.document).html(<?= $grid->nreg ?>);
 
             });
 
