@@ -45,7 +45,7 @@ if (isset($_POST['id'])) {
 } else {
 
     $query = "SELECT DISTINCT 
-						 LOWER(concat(e.apellido, ' ', e.nombre)) AS nombre,
+						 concat(e.apellido, ' ', e.nombre) AS nombre,
 						  e.id_number,
 						  e.id,
 						  (SELECT round(nota,2) FROM tbl_plan_estudiante WHERE est_id = e.id AND item_id = pi.id) AS nota

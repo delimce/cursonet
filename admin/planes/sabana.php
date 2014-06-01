@@ -31,7 +31,7 @@ $menu = new menu($menu_struct);
   $iteninfo = $toolest->estructura_db($query_item);
   
 		  $query_est = "SELECT DISTINCT 
-		  LOWER(concat(e.apellido, ' ', e.nombre)) AS nombre,
+		  concat(e.apellido, ' ', e.nombre) AS nombre,
 		  e.id
 		FROM
 		  tbl_plan_evaluador p

@@ -31,7 +31,7 @@ $features = array(
 
 $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
-$query = "select id, lower(concat(nombre,' ',apellido)) as nombre, user as usuario, email,
+$query = "select id, concat(nombre,' ',apellido) as nombre, user as usuario, email,
    if(es_admin=1,'" . LANG_yes . "','" . LANG_no . "') as admin
    from tbl_admin where id != {$_SESSION['USERID']} ";
 ?>

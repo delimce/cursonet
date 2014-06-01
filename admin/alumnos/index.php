@@ -48,8 +48,7 @@ if (empty($_GET['seccion'])) {
 }
 ////////////
 
-
-$query = "select id,lower(concat(nombre,' ',apellido)) as Nombre,id_number as Cedula,user as Usuario,
+$query = "select id,concat(nombre,' ',apellido) as Nombre,id_number as Cedula,user as Usuario,
   (SELECT 
   g.nombre
 FROM

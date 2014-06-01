@@ -71,7 +71,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
     <td colspan="2"><hr size="1px" color="#9AB1B6">
       <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="63%" class="small"><?=LANG_license ?>&nbsp;<?php echo date("Y"); ?></td>
+          <td width="63%" class="small"><?=LANG_license ?>&nbsp;<?php echo @date("Y"); ?></td>
           <td width="37%" align="right" class="linkmenu">
           <a href="main.php" target="content" class="linkmenu">
           <?=LANG_est_inicio?>

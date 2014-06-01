@@ -38,7 +38,7 @@ $grid->autoconexion();
 $combo = new tools();
 $combo->dbc = $grid->dbc;
 
-$query = "select id,lower(concat(nombre,' ',apellido)) as nombre,id_number as cedula,user,
+$query = "select id,concat(nombre,' ',apellido) as nombre,id_number as cedula,user,
   (SELECT 
   g.nombre
 FROM

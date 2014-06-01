@@ -12,7 +12,7 @@ $menu = new menu($menu_struct);
 $asig = new tools("db");
 
 if (isset($_REQUEST['ItemID']))
-    $asig->query("select id,lower(concat(apellido,' ',nombre)) as nombre,id_number,(select grupo_id from tbl_grupo_estudiante where est_id = ee.id and curso_id = {$_SESSION['CURSOID']} ) as grupo from tbl_estudiante ee
+    $asig->query("select id,concat(apellido,' ',nombre) as nombre,id_number,(select grupo_id from tbl_grupo_estudiante where est_id = ee.id and curso_id = {$_SESSION['CURSOID']} ) as grupo from tbl_estudiante ee
   where id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} and grupo_id = {$_REQUEST['ItemID']} ) or id not in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']}) order by apellido,nombre ");
 
 if (isset($_POST['select']) or isset($_POST['id'])) {

@@ -13,7 +13,7 @@ $menu = new menu($menu_struct);
 $grid = new tools("db");
 $query = "SELECT 
 e.id,
-LOWER(concat(e.apellido,' ',e.nombre)) AS nombre,
+concat(e.apellido,' ',e.nombre) AS nombre,
 e.id_number,
 count(distinct FC.id) AS comentarios,
 Sum(FC.valido) AS val,

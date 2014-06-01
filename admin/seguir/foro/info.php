@@ -13,7 +13,7 @@ $menu = new menu($menu_struct);
   if($seccion>0) $filtro = "and grupo_id = $seccion"; else $filtro = "";
 
 
-  $query = " SELECT lower(concat(e.apellido,' ',e.nombre,' - ',id_number)) as nombre2,
+  $query = " SELECT concat(e.apellido,' ',e.nombre,' - ',id_number) as nombre2,
   					(select count(*) from tbl_foro_comentario where foro_id = '{$_GET['id']}' and tipo_sujeto = 'est' and sujeto_id = e.id ) as com,
 					(select count(*) from tbl_foro_comentario where foro_id = '{$_GET['id']}' and valido = 1 and tipo_sujeto = 'est' and sujeto_id = e.id) as val
 					FROM tbl_estudiante e where e.id in (select est_id from tbl_grupo_estudiante where curso_id = {$_SESSION['CURSOID']} $filtro ) order by e.apellido,e.nombre";

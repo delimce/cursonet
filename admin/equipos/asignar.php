@@ -27,7 +27,7 @@ if (!empty($_GET['id'])) { ///consultar nombre de equipo y curso.
     ///query para traer los datos de los alumnos que estan en el grupo y si existen en el equipo
     $asig->query("SELECT
                                                 est.id,
-                                                lower(concat(est.apellido,' ',est.nombre)) AS nombre,
+                                                concat(est.apellido,' ',est.nombre) AS nombre,
                                                 est.id_number,
                                                 ifnull((select equipo_id from tbl_equipo_estudiante where est_id = est.id and equipo_id = {$datos['equipoId']} ),0) as existe
                                                 FROM

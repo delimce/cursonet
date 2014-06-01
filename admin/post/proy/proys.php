@@ -23,7 +23,7 @@ if ($totales[0] > $totales[1])
 
 $proys = $prueba->estructura_db("SELECT 
   a.id,
-  LOWER(concat(e.apellido, ' ', e.nombre)) AS nombre,
+  concat(e.apellido, ' ', e.nombre) AS nombre,
   e.id_number,
   a.nota
 FROM
