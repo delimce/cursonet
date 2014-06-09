@@ -104,7 +104,7 @@ if (isset($_POST['nota'])) {
                                     )
                                     WHERE
                                     ee.est_id = {$datos['est_id']}
-                                    AND p.curso_id = {$_SESSION['CURSOID']}");
+                                    AND p.id = {$_SESSION['PRO_ID']}");
 }
 ?>
 <html>

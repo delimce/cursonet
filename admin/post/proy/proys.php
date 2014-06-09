@@ -18,7 +18,8 @@ if (isset($_GET['ItemID']))
 $totales = $prueba->array_query2("select (select count(*) from tbl_proyecto_estudiante where nota = -1 and proy_id = '{$_SESSION['PRO_ID']}') as sin, (select count(*) from tbl_proyecto_estudiante where nota != -1 and proy_id = '{$_SESSION['PRO_ID']}') as listos");
 
 if ($totales[0] > $totales[1])
-    $total = $totales[0]; else
+    $total = $totales[0];
+else
     $total = $totales[1];
 
 $proys = $prueba->estructura_db("SELECT 
@@ -36,17 +37,16 @@ WHERE
     <head> <meta charset="utf-8">
 
         <script language="JavaScript" type="text/javascript">
-            function borrar(id,nombre){
-	
-                if (confirm("<?= LANG_proy_delete ?> "+nombre+" ?")) {
-	  
-                    location.replace('borrar.php?itemID='+id);
-	  
-                }else{
-	  
-	  
+            function borrar(id, nombre) {
+
+                if (confirm("<?= LANG_proy_delete ?> " + nombre + " ?")) {
+
+                    location.replace('borrar.php?itemID=' + id);
+
+                } else {
+
                     return false;
-	  
+
                 }
             }
         </script>
@@ -76,57 +76,31 @@ WHERE
                                 <table width="100%" border="0" cellspacing="2" cellpadding="2">
                                     <tr>
                                         <td width="50%" class="table_bk"><? echo LANG_proy_poreval;
-echo '  ' . $totales[0]; ?></td>
+echo '  ' . $totales[0];
+?></td>
                                         <td width="50%" class="table_bk"><? echo LANG_proy_eval2;
-echo' ' . $totales[1]; ?></td>
+echo' ' . $totales[1];
+?></td>
                                     </tr>
 
 
                                     <tr>
                                         <td class="style1" valign="top">
-<?php if ($totales[0] == 0) {
+<?php
+if ($totales[0] == 0) {
     echo '<b>' . LANG_eva_nosin . '</b>';
-} else { ?> 
+} else {
+    ?> 
                                                 <table width="100%" border="0" cellspacing="1" cellpadding="1">
 
 
-                                                    <?php
-                                                    for ($i = 0; $i < count($proys); $i++) {
+    <?php
+    for ($i = 0; $i < count($proys); $i++) {
 
-                                                        if ($proys[$i]['nota'] == '-1') {
-                                                            ?>
+        if ($proys[$i]['nota'] == '-1') {
+            ?>
                                                             <tr>
-                                                                <td width="6%" align="center" valign="top"><img src="../../../images/backend/button_drop.png" title="<?= LANG_drop . ' ' . $proys[$i]['nombre'] ?>" onClick="borrar('<?php echo $proys[$i]['id']; ?>','<?php echo $proys[$i]['nombre']; ?>');" style="cursor:pointer"></td>
-                                                                <td width="94%" style="text-transform: capitalize"><? echo "<a href=\"corregir.php?id={$proys[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $proys[$i]['nombre'] . " " . $proys[$i]['id_number'] . "</a>"; ?></td>
-                                                            </tr>
-
-                                                            <?php
-                                                        }
-                                                    }
-                                                    ?>
-
-                                                </table>
-
-
-<?php } ?>
-
-                                        </td>
-                                        <td class="style1" valign="top">
-
-<?php if ($totales[1] == 0) {
-    echo '<b>' . LANG_eva_noeval . '</b>';
-} else { ?> 
-                                                <table width="100%" border="0" cellspacing="1" cellpadding="1">
-
-
-                                                    <?php
-                                                    for ($i = 0; $i < count($proys); $i++) {
-
-                                                        if ($proys[$i]['nota'] > '-1') {
-                                                            ?>
-                                                            <tr>
-
-                                                                <td width="6%" align="center" valign="top"><img src="../../../images/backend/button_drop.png" title="<?= LANG_drop . ' ' . $proys[$i]['nombre'] ?>" onClick="borrar('<?php echo $proys[$i]['id']; ?>','<?php echo $proys[$i]['nombre']; ?>');" style="cursor:pointer"></td>
+                                                                <td width="6%" align="center" valign="top"><img src="../../../images/backend/button_drop.png" title="<?= LANG_drop . ' ' . $proys[$i]['nombre'] ?>" onClick="borrar('<?php echo $proys[$i]['id']; ?>', '<?php echo $proys[$i]['nombre']; ?>');" style="cursor:pointer"></td>
                                                                 <td width="94%" style="text-transform: capitalize"><? echo "<a href=\"corregir.php?id={$proys[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $proys[$i]['nombre'] . " " . $proys[$i]['id_number'] . "</a>"; ?></td>
                                                             </tr>
 
@@ -137,7 +111,39 @@ echo' ' . $totales[1]; ?></td>
 
                                                 </table>
 
-                                                <?php } ?>
+
+                                            <?php } ?>
+
+                                        </td>
+                                        <td class="style1" valign="top">
+
+                                                <?php
+                                                if ($totales[1] == 0) {
+                                                    echo '<b>' . LANG_eva_noeval . '</b>';
+                                                } else {
+                                                    ?> 
+                                                <table width="100%" border="0" cellspacing="1" cellpadding="1">
+
+
+    <?php
+    for ($i = 0; $i < count($proys); $i++) {
+
+        if ($proys[$i]['nota'] > '-1') {
+            ?>
+                                                            <tr>
+
+                                                                <td width="6%" align="center" valign="top"><img src="../../../images/backend/button_drop.png" title="<?= LANG_drop . ' ' . $proys[$i]['nombre'] ?>" onClick="borrar('<?php echo $proys[$i]['id']; ?>', '<?php echo $proys[$i]['nombre']; ?>');" style="cursor:pointer"></td>
+                                                                <td width="94%" style="text-transform: capitalize"><? echo "<a href=\"corregir.php?id={$proys[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $proys[$i]['nombre'] . " " . $proys[$i]['id_number'] . "</a>"; ?></td>
+                                                            </tr>
+
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+
+                                                </table>
+
+<?php } ?>
 
                                         </td>
                                     </tr>
@@ -148,7 +154,7 @@ echo' ' . $totales[1]; ?></td>
                                     <tr>
                                         <td colspan="2" align="left" class="style1"><input name="b1"
                                                                                            type="button" id="b1"
-                                                                                           onClick="history.back();"
+                                                                                           onClick="location.replace('index.php')"
                                                                                            value="<?= LANG_back ?>"></td>
                                     </tr>
                                 </table>
