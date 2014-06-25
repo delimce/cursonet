@@ -26,7 +26,7 @@ $menu = new menu($menu_struct);
 		FROM
 		  tbl_plan_item p
 		WHERE
-		  p.plan_id = '{$_REQUEST['id']}' order by id";
+		  p.plan_id = '{$_REQUEST['id']}' order by titulo";
   
   $iteninfo = $toolest->estructura_db($query_item);
   

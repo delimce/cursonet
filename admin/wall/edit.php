@@ -37,7 +37,7 @@ $menu = new menu($menu_struct);
 	theme : "advanced",
 	plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
 	theme_advanced_buttons1_add_before : "newdocument,preview,separator,cut,copy,paste,undo,redo,separator,bold,italic,underline,separator,justifyleft,justifycenter,justifyright,justifyfull,separator",
-	theme_advanced_buttons1 : ",outdent,indent,bullist,numlist,separator,forecolor,backcolor",
+	theme_advanced_buttons1 : ",link,unlink,outdent,indent,bullist,numlist,separator,forecolor,backcolor",
 	theme_advanced_buttons2 : "",
 	plugin_insertdate_dateFormat : "<?=$_SESSION['DB_FORMATO_DB']?> ",
 	plugin_insertdate_timeFormat : "%H:%M:%S",

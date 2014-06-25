@@ -44,7 +44,7 @@ if (isset($_POST['id'])) {
     die();
 } else {
 
-    $query = "SELECT DISTINCT 
+  echo  $query = "SELECT DISTINCT 
 						 concat(e.apellido, ' ', e.nombre) AS nombre,
 						  e.id_number,
 						  e.id,

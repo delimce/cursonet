@@ -90,21 +90,20 @@ if (isset($_POST['nota'])) {
     $recurso = $prueba->array_query2("select dir,fecha from tbl_recurso where id = {$datos['rec_id']} ");
 
     //////trayendo datos de los equipos del estudiante
-    $equipos = $prueba->estructura_db("SELECT
+    $selectEquipos = "SELECT
                                     e.id,
                                     e.nombre,
                                     e.descripcion
                                     FROM
                                             tbl_equipo AS e
                                     INNER JOIN tbl_equipo_estudiante AS ee ON ee.equipo_id = e.id
-                                    INNER JOIN tbl_proyecto AS p ON e.grupo_id = p.grupo
-                                    AND (
-                                            e.grupo_id = p.grupo
-                                            OR p.grupo = 0
-                                    )
+                                    INNER JOIN tbl_proyecto AS p ON (e.grupo_id = p.grupo OR p.grupo = 0)
+
                                     WHERE
                                     ee.est_id = {$datos['est_id']}
-                                    AND p.id = {$_SESSION['PRO_ID']}");
+                                    AND p.id = {$_SESSION['PRO_ID']}";
+                                    
+    $equipos = $prueba->estructura_db($selectEquipos);
 }
 ?>
 <html>

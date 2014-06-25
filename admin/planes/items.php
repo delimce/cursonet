@@ -42,7 +42,7 @@ $query = "SELECT
 	FROM
 	  tbl_plan_item p
 	WHERE
-	  p.plan_id = {$_REQUEST['id']} ";
+	  p.plan_id = {$_REQUEST['id']} order by p.titulo ";
 
 
 
