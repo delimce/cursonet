@@ -62,7 +62,7 @@ $_SESSION['TIMEZONE'] = $data[6]; ///zona horaria configurada en la herramienta
                     <!-- Content Code for the top right black box goes here. -->   <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                             <td width="90%" align="right"><span class="small" style="color:#FFFFFF">&nbsp;<b><?= $_SESSION['NOMBRE'] ?></b>&nbsp;
-                                    <?php if ($_SESSION['FECHACC'] != "") { ?>Ult. acceso&nbsp;<b><?= $_SESSION['FECHACC'] ?><?php } ?></b>
+                                    <?php if ($_SESSION['FECHACC'] != "") { ?><?=LANG_last_access?>&nbsp;<b><?= $_SESSION['FECHACC'] ?><?php } ?></b>
                                     &nbsp;|&nbsp;</span></td>
                             <td width="6%" align="right" class="style2"><a href="cerrar.php" style="color:#FFFFFF; display:compact;"><?php echo LANG_ADMIN_cerrar; ?></a></td>
                             <td width="4%" align="center"><img title="<?php echo LANG_ADMIN_cerrar; ?>" src="../images/backend/cerrar.gif" width="12" height="12" border="0"></td>

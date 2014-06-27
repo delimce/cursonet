@@ -90,6 +90,7 @@ define(LANG_seccion_select,"Seleccionar sección");
 define(LANG_details,"Detalles");
 define(LANG_vdetails,"Ver detalles");
 define(LANG_copy,"Copiar texto");
+define(LANG_last_access,"Ult. acceso");
 define(LANG_denegado,"Acceso Denegado!");
 define(LANG_module_est,"Modo estudiante");
 define(LANG_module_adm,"Modo Administración");
@@ -263,6 +264,7 @@ define(LANG_group_prof,"Responsable");
 define(LANG_group_error1,"Inserte un nombre para la sección");
 define(LANG_group_error2,"Inserte una descripción para la sección");
 define(LANG_ungroup,"N/A");
+define(LANG_nogroupto,"Sección no asignada");
 define(LANG_group_filter,"buscar por sección:");
 define(LANG_group_groups,"Secciones asignadas");
 define(LANG_group_addEst,"Agregar estudiantes");
@@ -275,12 +277,14 @@ define(LANG_group_casoseccion,"Debe seleccionar el Módulo para hablitar la secc
 ///////equipos
 
 define(LANG_team_name,"Nombre del equipo");
+define(LANG_teams,"Equipos");
 define(LANG_team_desc,"descripción del equipo");
 define(LANG_team_join,"conformar equipo");
 define(LANG_team_to_apply,"Aplicar nota a todos los miembros del equipo:");
 define(LANG_team_addStudents,"se ha creado el equipo, continuar");
 define(LANG_team_error_group,"el equipo debe pertenecer a una sección");
 define(LANG_team_error_name,"ingrese un nombre para el equipo");
+
 //////////tema
 define(LANG_content_name,"Módulo");
 define(LANG_content,"Temas");

@@ -107,7 +107,6 @@ class fecha {
     ////////////////// para fechas de tipo db datatime '0000-00-00 00:00:00'
 
     public function datetime($datetime, $formato = false) {
-
         if (!$this->formato)
             date_default_timezone_set($_SESSION['TIMEZONE']);
         $date = new DateTime($datetime);
