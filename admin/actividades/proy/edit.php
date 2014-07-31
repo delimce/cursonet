@@ -40,15 +40,46 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
         <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
 
 
-
         <script type="text/javascript" src="../../../js/calendario/calendar.js"></script>
         <script type="text/javascript" src="../../../js/calendario/calendar-es.js"></script>
         <script type="text/javascript" src="../../../js/calendario/calendar-setup.js"></script>
         <script type="text/javascript" src="../../../js/popup.js"></script>
         <script type="text/javascript" src="../../../editor/tiny_mce.js"></script>
         <script language="JavaScript" type="text/javascript" src="../../../js/date.js"></script>
+        <script type="text/javascript" src="../../../js/jquery/jquery-1.7.2.min.js"></script>
         <script language="JavaScript" type="text/javascript" src="../../../js/ajax.js"></script>
-        <LINK href="../../../js/calendario/calendario.css" type=text/css rel=stylesheet>
+
+        <link href="../../../js/calendario/calendario.css" type=text/css rel=stylesheet>
+
+        <script>
+            $(document).ready(function() {
+
+                ///creando el select dinamicamente
+                $("#caso").change(function()
+                {
+                    var id = $(this).val();
+                    var dataString = 'id=' + id;
+                    if (id == "") {
+                        $("#grupo").html('<option value="0"><?= LANG_all ?></option>');
+                        return false;
+                    }
+
+                    $.ajax
+                            ({
+                                type: "POST",
+                                url: "../../grupos/gruposc2.php",
+                                data: dataString,
+                                cache: false,
+                                success: function(html)
+                                {
+                                    $("#grupo").html(html);
+                                }
+                            });
+                });
+
+            });
+
+        </script>
 
 
         <script language="JavaScript" type="text/javascript">
@@ -57,11 +88,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
             function compara_fechas(desde, hasta) {
 
                 var formaty = '<?= str_replace("m", "M", strtolower($_SESSION['DB_FORMATO'])); ?>';
-
                 return compareDates(desde, formaty, hasta, formaty);
-
-
-
             }
 
 
@@ -71,9 +98,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
 
                     alert('<?= LANG_val_proy_name ?>');
                     document.form1.nombre.focus();
-
                     return false;
-
                 }
 
 
@@ -81,9 +106,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
 
                     alert('<? echo LANG_eva_val_fecha2 . ' ' . date($_SESSION['DB_FORMATO']); ?>');
                     document.form1.fecha.focus();
-
                     return false;
-
                 }
 
 
@@ -91,7 +114,6 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
                     alert('<?= LANG_eva_val_por ?>');
                     document.form1.nota.focus();
                     return false;
-
                 }
 
 
@@ -102,14 +124,11 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
 
                     alert('<?= LANG_val_proy_enun ?>');
                     document.form1.enun.focus();
-
                     return false;
-
                 }
 
 
                 return true;
-
             }
         </script>
 
@@ -124,8 +143,6 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
                 var largo = largo1;
                 var winleft = (screen.width - largo) / 2;
                 var winUp = (screen.height - alto) / 2;
-
-
                 if (!window.focus)
                     return true;
                 var href;
@@ -134,9 +151,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
                 else
                     href = mylink.href;
                 window.open(href, windowname, 'top=' + winUp + ',left=' + winleft + '+,toolbar=0 status=1,resizable=0,Width=' + largo + ',height=' + alto + ',scrollbars=1');
-
                 return false;
-
             }
 
 //-->
@@ -162,8 +177,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
                         theme_advanced_statusbar_location: "bottom",
                 theme_advanced_resizing: true
 
-            });
-        </script>
+            });</script>
 
     </head>
 
@@ -190,19 +204,14 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
                                             <td width="73%"><input name="nombre" type="text" id="nombre" value="<?= $datos[1] ?>" size="50"></td>
                                         </tr>
                                         <tr>
-
-
                                             <td valign="top" class="style1"><span class="style3"><?php echo LANG_content_name; ?></span></td>
-                                            <td class="style1"><?php echo $crear->combo_db("caso", "select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0", "titulo", "id", false, $datos[6], "ajaxcombo('grupox','grupo','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
-
+                                            <td class="style1"><?php echo $crear->combo_db("caso", "select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0", "titulo", "id", false, $datos[6]); ?></td>
                                         </tr>
                                         <tr>
 
                                             <td width="27%" valign="top" class="style1"><span class="style3"><?php echo LANG_seccion ?></span></td>
                                             <td class="style1">
-                                                <div id="grupox">
-<?php echo $crear->combo_db("grupo", "select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']} ", "nombre", "id", LANG_all, $datos[2], false, LANG_all); ?>
-                                                </div>
+                                                <?php echo $crear->combo_db("grupo", "select id, nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']} ", "nombre", "id", LANG_all, $datos[2]); ?>
                                             </td>
 
                                         </tr>
@@ -218,8 +227,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
                                                         ifFormat: "<?= strtolower($_SESSION['DB_FORMATO']) ?>", // format of the input field
                                                         button: "f_trigger_d", // trigger for the calendar (button ID)
                                                         singleClick: true
-                                                    });
-                                                </script>        </td>
+                                                    });</script>        </td>
                                         </tr>
                                         <tr>
                                             <td valign="top" class="style1"><span class="style3"><?php echo LANG_proy_porc ?></span></td>
@@ -242,7 +250,8 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
                                                             <span class="style1">
                                                                 <input type="button" name="Submit3" value="<?php echo LANG_content_files ?>" onClick="javascript:popup('../../recursos/index.php', 'new', 350, 500);">
                                                             </span><span class="style1">
-                                                                <input type="button" name="Submit32" value="<?php echo LANG_eva_ver_detalles ?>" onClick="javascript:popup('detalles.php', 'new', 450, 616);">
+                                                                <input type="button" name="Submit32" value="<?php echo LANG_eva_ver_detalles ?>" onClick="javascript
+                                                                        :popup('detalles.php', 'new', 450, 616);">
                                                             </span></td>
                                                     </tr>
                                     </table>

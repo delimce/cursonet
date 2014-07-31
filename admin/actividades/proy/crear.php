@@ -43,9 +43,43 @@ if ($_POST['nombre']) {
         <script type="text/javascript" src="../../../js/calendario/calendar-setup.js"></script>
         <script type="text/javascript" src="../../../js/popup.js"></script>
         <script type="text/javascript" src="../../../editor/tiny_mce.js"></script>
+        <script type="text/javascript" src="../../../js/jquery/jquery-1.7.2.min.js"></script>
         <script language="JavaScript" type="text/javascript" src="../../../js/date.js"></script>
-        <script language="JavaScript" type="text/javascript" src="../../../js/ajax.js"></script>
         <LINK href="../../../js/calendario/calendario.css" type=text/css rel=stylesheet>
+
+
+        <script>
+            $(document).ready(function() {
+
+                ///creando el select dinamicamente
+                $("#caso").change(function()
+                {
+                    var id = $(this).val();
+                    var dataString = 'id=' + id;
+                    if (id == "") {
+                        $("#grupo").html('<option value="0"><?= LANG_all ?></option>');
+                        return false;
+                    }
+
+                    $.ajax
+                            ({
+                                type: "POST",
+                                url: "../../grupos/gruposc2.php",
+                                data: dataString,
+                                cache: false,
+                                success: function(html)
+                                {
+                                    $("#grupo").html(html);
+                                }
+                            });
+
+                });
+
+
+            });
+        </script>
+
+
         <script language="JavaScript" type="text/javascript">
 
 
@@ -196,11 +230,11 @@ if ($_POST['nombre']) {
                                         </tr>
                                         <tr>
                                             <td valign="top" class="style1"><span class="style3"><?php echo LANG_content_name; ?></span></td>
-                                            <td class="style1" colspan="2"><? echo $crear->combo_db("caso", "select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0", "titulo", "id", LANG_select, false, "ajaxcombo('grupox','grupo','../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');", '<input name="caso" type="hidden" value="">'); ?></td>
+                                            <td class="style1" colspan="2"><? echo $crear->combo_db("caso", "select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0", "titulo", "id", LANG_select, false); ?></td>
                                         </tr>
                                         <tr>
                                             <td width="27%" valign="top" class="style1"><span class="style3"><?php echo LANG_seccion ?></span></td>
-                                            <td class="style1"> <div id="grupox"><?php echo LANG_group_casoseccion; ?></div></td>
+                                            <td class="style1"><select name="grupo" id="grupo"><option value="0"><?= LANG_select ?></option></select></td>
                                         </tr>
                                         <tr>
                                             <td valign="top" class="style1"><span class="style3"><?php echo LANG_proy_date_e ?></span></td>

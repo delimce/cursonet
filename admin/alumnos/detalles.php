@@ -11,19 +11,6 @@ $menu = new menu($menu_struct);
 
 $det = new tools("db");
 
-//$query = "select *,
-// concat(nombre,' ',apellido) as nombre,date_format(fecha_nac,'" . $_SESSION['DB_FORMATO_DB'] . "') as nac,(SELECT 
-//  g.nombre
-//FROM
-//  tbl_grupo g
-//  INNER JOIN tbl_grupo_estudiante e ON (g.id = e.grupo_id)
-//WHERE
-//  e.est_id = '{$_REQUEST['id']}' and e.curso_id = '{$_SESSION['CURSOID']}' ) as grupo,
-//  date_format(fecha_creado,'" . $_SESSION['DB_FORMATO_DB'] . "') as creado from tbl_estudiante where id = '{$_REQUEST['id']}'";
-//
-//  
-  
-  
 $query = "SELECT
 e.id,
 e.id_number,
@@ -44,8 +31,9 @@ e.internet_zona,
 e.`user`,
 e.pass,
 e.fecha_creado,
-ifnull(g.nombre,'".LANG_nogroupto."') AS grupo,
-(select l.fecha_in from tbl_log_est l where l.est_id = e.id order by fecha_in desc limit 1 ) AS ult_in,
+ifnull(g.nombre,'" . LANG_nogroupto . "') AS grupo,
+(select DATE_FORMAT(MAX(l.fecha_in),'%d/%m/%Y %H:%i %p') from tbl_log_est l where l.est_id = e.id GROUP BY l.est_id  ) AS ult_in,
+
 GROUP_CONCAT(eq.nombre) equipos
 FROM
 tbl_estudiante AS e
@@ -60,8 +48,7 @@ GROUP BY e.id";
 
 $data = $det->simple_db($query); //////se ejecuta el query
 
-$fecha = new fecha($_SESSION['DB_FORMATO'].' h:m A'); ///fecha con hora
-
+$fecha = new fecha($_SESSION['DB_FORMATO'] . ' h:m A'); ///fecha con hora
 ?>
 <html>
     <head> <meta charset="utf-8">
@@ -96,15 +83,16 @@ $fecha = new fecha($_SESSION['DB_FORMATO'].' h:m A'); ///fecha con hora
                                                     <td align="center" class="style3"><?php echo LANG_profilephoto ?></td>
                                                 </tr>
                                                 <tr>
-                                                    <td align="center"><?php
-                                                        if (empty($data['foto'])) {
-                                                            $link = '../../images/frontend/nofoto.png';
-                                                            $nombre = LANG_nopicture;
-                                                        } else {
-                                                            $link = '../../recursos/est/fotos/' . $data['foto'];
-                                                            $nombre = $data['foto'];
-                                                        }
-                                                        ?>
+                                                    <td align="center">
+                                                        <?php
+                                                            if (empty($data['foto'])) {
+                                                                $link = '../../images/frontend/nofoto.png';
+                                                                $nombre = LANG_nopicture;
+                                                            } else {
+                                                                $link = '../../recursos/est/fotos/' . $data['foto'];
+                                                                $nombre = $data['foto'];
+                                                            }
+                                                            ?>
                                                         <img style="border:solid 1px" src="<?= $link ?>"></td>
                                                 </tr>
                                             </table></td>
@@ -146,55 +134,57 @@ $fecha = new fecha($_SESSION['DB_FORMATO'].' h:m A'); ///fecha con hora
                                             </strong></td>
                                         <td colspan="2" class="style1"><?php echo $data['universidad'] ?></td>
                                     </tr>
-                                   
+
                                     <tr>
                                         <td class="style3"><strong>
                                                 <?= LANG_faculty_level ?>
                                             </strong></td>
                                         <td colspan="2" class="style1"><?php echo $data['nivel'] ?></td>
                                     </tr>
-                                    
-                                     <tr>
+
+                                    <tr>
                                         <td class="style3"><strong>
                                                 <?= LANG_group ?>
                                             </strong></td>
-                                            <td colspan="2" class="style1"><b><?php echo $data['grupo'] ?></b></td>
+                                        <td colspan="2" class="style1"><b><?php echo $data['grupo'] ?></b></td>
                                     </tr>
-                                    
-                                    <?php if(!empty($data['equipos'])){ ?>
-                                     <tr>
-                                        <td class="style3"><strong>
-                                                <?= LANG_teams ?>
-                                            </strong></td>
-                                            <td colspan="2" class="style1"><?php $teams = explode(',',$data['equipos']); foreach ($teams as $value) echo $value.'<br>';  ?></td>
-                                    </tr>
-                                    <?php } ?>
-                                    
+
+                                    <?php if (!empty($data['equipos'])) { ?>
+                                        <tr>
+                                            <td class="style3"><strong>
+                                                    <?= LANG_teams ?>
+                                                </strong></td>
+                                            <td colspan="2" class="style1"><?php $teams = explode(',', $data['equipos']);
+                                                    foreach ($teams as $value)
+                                                        echo $value . '<br>'; ?></td>
+                                        </tr>
+<?php } ?>
+
                                     <tr>
                                         <td class="style3">&nbsp;</td>
                                         <td colspan="2" class="style1">&nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>
-                                                <?= LANG_tel1 ?>
+<?= LANG_tel1 ?>
                                             </strong></td>
                                         <td colspan="2" class="style1"><?php echo $data['telefono_p'] ?></td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>
-                                                <?= LANG_tel2 ?>
+<?= LANG_tel2 ?>
                                             </strong></td>
                                         <td colspan="2" class="style1"><?php echo $data['telefono_c'] ?></td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>
-                                                <?= LANG_msn ?>
+<?= LANG_msn ?>
                                             </strong></td>
                                         <td colspan="2" class="style1"><?php echo $data['msn'] ?></td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>
-                                                <?= LANG_twitter ?>
+<?= LANG_twitter ?>
                                             </strong></td>
                                         <td colspan="2" class="style1"><?php echo $data['twitter'] ?></td>
                                     </tr>
@@ -204,30 +194,30 @@ $fecha = new fecha($_SESSION['DB_FORMATO'].' h:m A'); ///fecha con hora
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>
-                                                <?= LANG_a_internet ?>
+<?= LANG_a_internet ?>
                                             </strong></td>
                                         <td colspan="2" class="style1"><?php echo $data['internet_acc'] ?></td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>
-                                                <?= LANG_d_internet ?>
+<?= LANG_d_internet ?>
                                             </strong></td>
                                         <td colspan="2" class="style1"><?php echo $data['internet_zona'] ?></td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>
-                                                <?= LANG_est_cont_fecha ?>
+<?= LANG_est_cont_fecha ?>
                                             </strong></td>
                                         <td colspan="2" class="style1"><?php echo $fecha->datetime($data['fecha_creado']) ?></td>
                                     </tr>
-                                    
-                                     <tr>
+
+                                    <tr>
                                         <td class="style3"><strong>
-                                                <?= LANG_last_access ?>
+<?= LANG_last_access ?>
                                             </strong></td>
-                                        <td colspan="2" class="style1"><?php echo $fecha->datetime($data['ult_in']) ?></td>
+                                        <td colspan="2" class="style1"><?php echo $data['ult_in'] ?></td>
                                     </tr>
-                                    
+
                                     <tr>
                                         <td class="style3">&nbsp;</td>
                                         <td colspan="2" class="style1">&nbsp;</td>
@@ -256,20 +246,20 @@ $fecha = new fecha($_SESSION['DB_FORMATO'].' h:m A'); ///fecha con hora
                                             <td colspan="3" class="table_bk"><?php echo LANG_notes_plan ?></td>
                                         </tr>
 
-                                        <?php while ($row = $det->db_vector_nom($det->result)) { ?>
+    <?php while ($row = $det->db_vector_nom($det->result)) { ?>
                                             <tr>
                                                 <td class="style3"><a href="notas.php?id=<?php echo $row['id'] ?>&origen=<?= $_REQUEST['origen']; ?>&estid=<?php echo $data['id'] ?>" title="<?php echo LANG_notes_view ?>"><?php echo $row['titulo']; ?></a></td>
                                                 <td colspan="2" class="style1"><?php echo stripcslashes($row['nombre']); ?></td>
                                             </tr>
 
-                                        <?php } ?>
+    <?php } ?>
                                         <tr>
                                             <td class="style3">&nbsp;</td>
                                             <td colspan="2" class="style1">&nbsp;</td>
                                         </tr>
 
 
-                                    <?php } ?>     
+<?php } ?>     
 
 
                                     <tr>

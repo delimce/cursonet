@@ -246,7 +246,7 @@ if (isset($_POST['nombre'])) {
                                         <tr>
 
                                             <td width="28%" class="style3"><?php echo LANG_content_name; ?></td>
-                                            <td><?php echo $crear->combo_db("caso", "select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = '{$_SESSION['CURSOID']}'", "titulo", "id", false, $datos['contenido_id']); ?></td>
+                                            <td><?php echo $crear->combo_db("caso", "select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = '{$_SESSION['CURSOID']}' and borrador = 0 ", "titulo", "id", false, $datos['contenido_id']); ?></td>
                                         </tr>
                                         <tr>
                                             <td class="style3"><?php echo LANG_group_nombre; ?></td>
