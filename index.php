@@ -3,11 +3,12 @@
  include("class/clases.php");
  $nuevo = new tools('db');
  
- $val = $nuevo->array_query2("select modo,lenguaje,titulo,formato_fecha,formato_fecha_db,version from tbl_setup"); //// modo
+ $val = $nuevo->array_query2("select modo,lenguaje,titulo,formato_fecha,formato_fecha_db,version,timezone from tbl_setup"); //// modo
  
  $_SESSION['LENGUAJE'] = $val[1];
  $_SESSION['DB_FORMATO_DB'] = $data[4];
  $_SESSION['DB_FORMATO'] = $data[3];
+ $_SESSION['TIMEZONE'] = $data[6];
  
  $lenguaje1 = 'config/lang/'.$_SESSION['LENGUAJE'];///verifico el lenguaje
  include ($lenguaje1); 

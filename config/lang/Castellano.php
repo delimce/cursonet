@@ -34,6 +34,7 @@ define(LANG_university,"Unidad");
 define(LANG_Laboratory,"Laboratorio");
 define(LANG_Home,"Hogar");
 define(LANG_work,"Trabajo");
+define(LANG_today,"Hoy");
 define(LANG_a_internet,"¿Posee acceso a internet?");
 define(LANG_d_internet,"¿Donde accede a internet?");
 define(LANG_to_ingress,"Inscribirse");

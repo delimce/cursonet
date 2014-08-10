@@ -5,9 +5,10 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
 include ("../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
+ date_default_timezone_set($_SESSION['TIMEZONE']);
+
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
-
 
 $det = new tools("db");
 
@@ -30,7 +31,7 @@ e.internet_acc,
 e.internet_zona,
 e.`user`,
 e.pass,
-e.fecha_creado,
+DATE_FORMAT(e.fecha_creado,'%d/%m/%Y %H:%i %p') AS fecha_creado,
 ifnull(g.nombre,'" . LANG_nogroupto . "') AS grupo,
 (select DATE_FORMAT(MAX(l.fecha_in),'%d/%m/%Y %H:%i %p') from tbl_log_est l where l.est_id = e.id GROUP BY l.est_id  ) AS ult_in,
 
@@ -85,14 +86,14 @@ $fecha = new fecha($_SESSION['DB_FORMATO'] . ' h:m A'); ///fecha con hora
                                                 <tr>
                                                     <td align="center">
                                                         <?php
-                                                            if (empty($data['foto'])) {
-                                                                $link = '../../images/frontend/nofoto.png';
-                                                                $nombre = LANG_nopicture;
-                                                            } else {
-                                                                $link = '../../recursos/est/fotos/' . $data['foto'];
-                                                                $nombre = $data['foto'];
-                                                            }
-                                                            ?>
+                                                        if (empty($data['foto'])) {
+                                                            $link = '../../images/frontend/nofoto.png';
+                                                            $nombre = LANG_nopicture;
+                                                        } else {
+                                                            $link = '../../recursos/est/fotos/' . $data['foto'];
+                                                            $nombre = $data['foto'];
+                                                        }
+                                                        ?>
                                                         <img style="border:solid 1px" src="<?= $link ?>"></td>
                                                 </tr>
                                             </table></td>
@@ -154,9 +155,11 @@ $fecha = new fecha($_SESSION['DB_FORMATO'] . ' h:m A'); ///fecha con hora
                                             <td class="style3"><strong>
                                                     <?= LANG_teams ?>
                                                 </strong></td>
-                                            <td colspan="2" class="style1"><?php $teams = explode(',', $data['equipos']);
-                                                    foreach ($teams as $value)
-                                                        echo $value . '<br>'; ?></td>
+                                            <td colspan="2" class="style1"><?php
+                                                $teams = explode(',', $data['equipos']);
+                                                foreach ($teams as $value)
+                                                    echo $value . '<br>';
+                                                ?></td>
                                         </tr>
 <?php } ?>
 
@@ -208,7 +211,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO'] . ' h:m A'); ///fecha con hora
                                         <td class="style3"><strong>
 <?= LANG_est_cont_fecha ?>
                                             </strong></td>
-                                        <td colspan="2" class="style1"><?php echo $fecha->datetime($data['fecha_creado']) ?></td>
+                                        <td colspan="2" class="style1"><?php echo $data['fecha_creado'] ?></td>
                                     </tr>
 
                                     <tr>

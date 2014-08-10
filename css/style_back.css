@@ -8,21 +8,21 @@
 /***********************************************/ 
 
 body {
-     overflow: auto; 
-	 font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	
-	 font-style: color #000000; font-size:10px;
-	 scrollbar-base-color: #999999;
-	 scrollbar-track-color: color;
-	 scrollbar-face-color: #AABDCA;
-	 scrollbar-highlight-color: #858585;
-	 scrollbar-3dlight-color: #999999;
-	 scrollbar-darkshadow-color: #858585;
-	 scrollbar-shadow-color: #000000;
-	 scrollbar-arrow-color: #000000;
-	 
- 
-	 
+    overflow: auto; 
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+
+    font-style: color #000000; font-size:10px;
+    scrollbar-base-color: #999999;
+    scrollbar-track-color: color;
+    scrollbar-face-color: #AABDCA;
+    scrollbar-highlight-color: #858585;
+    scrollbar-3dlight-color: #999999;
+    scrollbar-darkshadow-color: #858585;
+    scrollbar-shadow-color: #000000;
+    scrollbar-arrow-color: #000000;
+
+
+
 }
 
 
@@ -32,26 +32,26 @@ td { font-family: geneva,arial; font-size: 10pt }
 .bold { font-weight: bold; font-family: geneva,arial; font-size: 10pt }
 .large { font-size: 12pt; }
 .style2 {
-	color: #FFFFFF;
-	font-size: 9px;
-	font-family: Arial, Helvetica, sans-serif;
-	text-decoration: none;
-	}
+    color: #FFFFFF;
+    font-size: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
 
 a:link, a:visited, a:hover {
     text-decoration:none;
-	color: #333333;
+    color: #333333;
 }
 
 a:hover {
-	color: #000000;
-	font-weight: normal;
-	text-decoration: underline;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: underline;
 }
 
 TD{
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	FONT-SIZE: 11px;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    FONT-SIZE: 11px;
 }
 
 /* overrides decoration from previous rule for hovered links */
@@ -61,55 +61,55 @@ TD{
 
 
 .style1 {
-	font-family: verdana, Arial, Helvetica, sans-serif;
-	text-indent: 2px;
-	color: #333333;
-	font-size: 11px;
+    font-family: verdana, Arial, Helvetica, sans-serif;
+    text-indent: 2px;
+    color: #333333;
+    font-size: 11px;
 }
 input {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 10px;
-	font-weight: normal;
-	color: #333333;
-	background-color: #FFFFFF;
-	background-repeat: repeat-x;
-	border: inherit #7A98AD;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    color: #333333;
+    background-color: #FFFFFF;
+    background-repeat: repeat-x;
+    border: inherit #7A98AD;
 }
 .style2 {
-	color: #FFFFFF;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	text-indent: 2px;
-	font-size: 10px;
+    color: #FFFFFF;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-indent: 2px;
+    font-size: 10px;
 }
 
 .style3 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	text-indent: 2px;
-	font-size: 10px;
-	font-weight:bold;
-	color: #333333;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-indent: 2px;
+    font-size: 10px;
+    font-weight:bold;
+    color: #333333;
 }
 
 .style4 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	text-indent: 2px;
-	font-size: 11px;
-	font-weight:bold;
-	font-style:italic;
-	color: #333333;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-indent: 2px;
+    font-size: 11px;
+    font-weight:bold;
+    font-style:italic;
+    color: #333333;
 }
 
 form {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 10px;
-	display: inline;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    display: inline;
 }
 
 .table_bk {
-	font-family: Tahoma, Helvetica, Verdana, Arial;
-	font-size: 11px;
-	background: #B1C4CF;
-	font-weight: bold;
+    font-family: Tahoma, Helvetica, Verdana, Arial;
+    font-size: 11px;
+    background: #B1C4CF;
+    font-weight: bold;
 }
 
 .table_bk th{
@@ -125,7 +125,7 @@ form {
 }
 
 #gridborder{
-     border-left: 1px solid;
+    border-left: 1px solid;
     border-color: #B1C4CF;
 }
 
@@ -143,11 +143,11 @@ form {
 
 
 .no_back {  background: #F0F0F0;
-			font-family: verdana, Arial, Helvetica, sans-serif;
-			text-indent: 2px;
-			color: #333333;
-			font-size: 11px;
-	 }
+            font-family: verdana, Arial, Helvetica, sans-serif;
+            text-indent: 2px;
+            color: #333333;
+            font-size: 11px;
+}
 
 SELECT {
     BORDER-RIGHT: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; MARGIN-TOP: 2px;  MARGIN-RIGHT: 2px;  MARGIN-BOTTOM: 2px; MARGIN-LEFT: 2px; BACKGROUND-COLOR: #FFFFFF; COLOR: #000000;  FONT-FAMILY: verdana,arial,helvetica; FONT-SIZE: 10px
@@ -155,16 +155,30 @@ SELECT {
 
 /* para dyntar */
 .dyntar-active {
-	visibility: hidden;
+    visibility: hidden;
 }
 .dyntar-wrapper {
-	border: 1px dashed #808080;
+    border: 1px dashed #808080;
 }
 .dyntar-resizer {
-	height: 11px;
-	font-size: 11px;
-	line-height: 11px;
-	background: #E0E0E0 url(../images/common/dyntar.gif) no-repeat 100% 100%;
-	border: 1px solid #B0B0B0;
-	/* cursor: n-resize; */
+    height: 11px;
+    font-size: 11px;
+    line-height: 11px;
+    background: #E0E0E0 url(../images/common/dyntar.gif) no-repeat 100% 100%;
+    border: 1px solid #B0B0B0;
+    /* cursor: n-resize; */
+}
+
+#curso_content{
+    border-right:#000000 solid 1px;
+    border-left:#000000 solid 1px;
+    border-bottom:#000000 solid 1px;
+    margin-top: 30px;
+}
+
+#curso_wrapper{
+    padding: 0px 14px 0px 14px;
+    font-size: 11px;
+
+
 }

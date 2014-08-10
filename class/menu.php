@@ -24,7 +24,7 @@
 		   </tr>
 		<tr><td colspan="'.count($this->estructura['items']).'">&nbsp;<td> </tr>
 		   
-		    <tr >';
+		    <tr>';
 
               for($i=0;$i<count($this->estructura['items']);$i++){
 

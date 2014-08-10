@@ -12,9 +12,11 @@
    }
  //////////////////
 
- $datos = $nuevo->simple_db("select titulo_admin,lenguaje,version from tbl_setup ");
+ $datos = $nuevo->simple_db("select titulo_admin,lenguaje,version,timezone from tbl_setup ");
 
  $_SESSION['LENGUAJE'] = $datos['lenguaje'];
+ $_SESSION['TIMEZONE'] = $datos['timezone'];
+ 
 
  $lenguaje1 = '../config/lang/'.$_SESSION['LENGUAJE'];///verifico el lenguaje
  include ($lenguaje1);
