@@ -20,7 +20,6 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
         <script>
             $(document).ready(function() {
 
-
                 $("#destinatario").hide();
                 $("#seccion").hide();
 
@@ -92,6 +91,13 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
                     alert("<?= LANG_select_person ?>");
                     return false;
                 }
+                
+                /////solo envio a una seccion completa
+                 if ($("#secc").val() == 0 && $('input:radio[name=destino]:checked').val() == 2) {
+
+                    alert("<?= LANG_select_person ?>");
+                    return false;
+                }
 
                 if (document.form1.titulo.value == '') {
 
@@ -99,6 +105,9 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
                     document.form1.titulo.focus();
                     return false;
                 }
+                
+                
+                
 
                 return true;
 
@@ -160,7 +169,7 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
                                         <tr id="seccion">
                                             <td class="style3"> <?php echo LANG_seccion_select ?></td>
                                             <td>
-                                                <?php echo $crear->combo_db("secc", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_all, false, false, LANG_nogroup); ?>
+                                                <?php echo $crear->combo_db("secc", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_select, false, false, LANG_nogroup); ?>
                                             </td>
                                         </tr>
 
