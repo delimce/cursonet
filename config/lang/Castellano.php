@@ -129,6 +129,7 @@ define(LANG_be_administrator,"Active la casilla de administrador en el caso que 
 /////////////about
 define(LANG_aboutus,"Cursonet es un proyecto Elearning que se encuentra en continua evolución desde el año 2006, ha sido creado usando herramientas OpenSource y cuenta con un staff de profesionales para su soporte, capacitación, instalación y apoyo en la elaboración de material Audio Visual, para contactarnos no deje de visitar la pagina <b>http://cursonet.net</b>");
 define(LANG_twitter,"Siganos en Twitter por:");
+define(LANG_versionText,"Esta version de cursonet es: ");
 
 //////////////alumnos
 define(LANG_studentdata,"Datos del estudiante");
@@ -317,6 +318,7 @@ define(LANG_content_desc,"Añadir elementos descargables por el alumno");
 define(LANG_content_link1,"Escriba la direccion URL");
 define(LANG_content_reads,"Número de lecturas");
 define(LANG_content_create,"Creado el");
+define(LANG_content_create_by,"Creado por");
 define(LANG_content_create,"Debe crear un Tema");
 define(LANG_content_create2,"Debe seleccionar un Tema");
 define(LANG_content_autor,"Facilitador");
@@ -331,6 +333,8 @@ define(LANG_msg_priority_n,"Normal");
 define(LANG_msg_priority_h,"Urgente");
 define(LANG_msg_priority_l,"Baja");
 define(LANG_msg_read,"Leer mensajes");
+define(LANG_msg_unread,"mensaje sin leer");
+define(LANG_msgs_unread,"mensajes sin leer");
 define(LANG_msg_create,"Crear mensaje");
 define(LANG_msg_error_est,"No existen estudiantes para el grupo seleccionado, no se envió el mensaje");
 define(LANG_msg_to,"Destino");
@@ -521,6 +525,7 @@ define(LANG_config_admin,"Administrador");
 define(LANG_msg_priority_h,"Urgente");
 define(LANG_msg_priority_l,"Baja");
 define(LANG_msg_nread,"Mensajes por Leer");
+define(LANG_msg_inbox,"Bandeja de entrada");
 define(LANG_msg_nmessages,"Actualmente no posee mensajes por leer");
 
 ////////////// proyectos

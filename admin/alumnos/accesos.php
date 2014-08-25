@@ -17,7 +17,7 @@ $db = new ObjectDB();
 
 $query = "SELECT
 if(date(fecha_in)=date(NOW()),concat('<strong>" . LANG_today . "</strong>',' ',DATE_FORMAT(fecha_in,'%H:%i %p')),
-    DATE_FORMAT(fecha_in,'%d/%m/%Y %H:%i %p')) as fecha,
+    DATE_FORMAT(fecha_in,'{$_SESSION['DB_FORMATO_DB']}')) as fecha,
 l.ip_acc,
 concat(e.nombre,' ',e.apellido,' - ',e.id_number) as nombre,
 ifnull(g.nombre,'" . LANG_ungroup . "') as grupo

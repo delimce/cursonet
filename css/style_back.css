@@ -130,6 +130,31 @@ form {
 }
 
 
+.notes {
+    margin: 5px 2px;
+    padding-top: 10px;
+    padding-left: 8px;
+    padding-bottom: 10px;
+    width: 90%;
+    background-color: #ffffff;
+    border: 1px solid grey;
+    opacity: 0.7;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
+}
+
+.messages {
+    margin: 5px 2px;
+    position: relative;
+    top: 20px;
+    left: 10px;
+    width: 27%;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.7;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
+}
+
+
 #wrapper{
     margin-left: auto; margin-right: auto;  border:0px 
 }
@@ -138,9 +163,6 @@ form {
 .td_whbk1 {  text-indent: 2px; font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; }
 .td_whbk2 {  font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; background: #CCCCCC; }
 .td_whbk3 {  font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; background: #CCFFFF; }
-
-
-
 
 .no_back {  background: #F0F0F0;
             font-family: verdana, Arial, Helvetica, sans-serif;
