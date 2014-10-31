@@ -7,9 +7,7 @@ class fecha {
     var $formato;
 
     function fecha($formato) {     //costructor
-        date_default_timezone_set($_SESSION['TIMEZONE']);
         $this->formato = $formato;
-
         $ano = @date("Y");
         if ($this->es_bisiesto($ano))
             $bisiesto = '29';
@@ -53,6 +51,7 @@ class fecha {
     // util para adecuar la fecha a operaciones a nivel de la base de datos
 
     function fecha_db($fecha, $ini = false, $trunca = false) {
+
         $fecha1 = explode("/", $fecha);
         if ($ini)
             $hora = " 00:00:00";
@@ -77,7 +76,6 @@ class fecha {
     ////  ///////////////////////////////////////////////////////////////////////
     function unix_time($fecha) {
         $fecha1 = explode("/", $fecha);
-
 
         if ($this->formato == "d/m/Y") {
 
@@ -107,10 +105,10 @@ class fecha {
     ////////////////// para fechas de tipo db datatime '0000-00-00 00:00:00'
 
     public function datetime($datetime, $formato = false) {
-        if (!$this->formato)
-            date_default_timezone_set($_SESSION['TIMEZONE']);
-        $date = new DateTime($datetime);
-        return ($formato) ? $date->format($formato) : $date->format($this->formato);
+
+        date_default_timezone_set($_SESSION['TIMEZONE']);
+        $date = date_create($datetime);
+        return ($formato) ? date_format($date, $formato) : date_format($date, $this->formato);
     }
 
     //////////////////// escribe la fecha actual en formato datetime como lo almacena mysql

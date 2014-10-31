@@ -4,6 +4,7 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php");
 include("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
+ date_default_timezone_set($_SESSION['TIMEZONE']);
 $est = new tools('db');
 $fecha = new fecha($_SESSION['DB_FORMATO']);
 
