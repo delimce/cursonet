@@ -44,20 +44,20 @@ if (isset($_POST['id'])) {
     die();
 } else {
 
-  echo  $query = "SELECT DISTINCT 
-						 concat(e.apellido, ' ', e.nombre) AS nombre,
-						  e.id_number,
-						  e.id,
-						  (SELECT round(nota,2) FROM tbl_plan_estudiante WHERE est_id = e.id AND item_id = pi.id) AS nota
-						FROM
-						  tbl_grupo_estudiante g
-						  INNER JOIN tbl_estudiante e ON (g.est_id = e.id)
-						  INNER JOIN tbl_plan_evaluador p ON (p.grupo_id = g.grupo_id)
-						  INNER JOIN tbl_plan_item `pi` ON (p.id = `pi`.plan_id)
-						WHERE
-						  `pi`.id = {$_REQUEST['id']}
-						  
-						  order by e.apellido, e.nombre";
+  $query = "SELECT DISTINCT 
+         concat(e.apellido, ' ', e.nombre) AS nombre,
+          e.id_number,
+          e.id,
+          (SELECT round(nota,2) FROM tbl_plan_estudiante WHERE est_id = e.id AND item_id = pi.id) AS nota
+        FROM
+          tbl_grupo_estudiante g
+          INNER JOIN tbl_estudiante e ON (g.est_id = e.id)
+          INNER JOIN tbl_plan_evaluador p ON (p.grupo_id = g.grupo_id)
+          INNER JOIN tbl_plan_item `pi` ON (p.id = `pi`.plan_id)
+        WHERE
+          `pi`.id = {$_REQUEST['id']}
+
+          order by e.apellido, e.nombre";
 
     $tool->query($query);
 }

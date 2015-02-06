@@ -10,16 +10,15 @@ $menu = new menu($menu_struct);
 
 $tool = new tools("db");
 
-
-                                $tool->query("SELECT DISTINCT 
-                                      p.id,
-                                      p.titulo,
-                                      p.tipo,
-                                      p.id_act
-                                    FROM
-                                      tbl_plan_item p
-                                    WHERE
-                                      p.plan_id = '{$_REQUEST['id']}' order by p.titulo");
+$tool->query("SELECT DISTINCT 
+      p.id,
+      p.titulo,
+      p.tipo,
+      p.id_act
+    FROM
+      tbl_plan_item p
+    WHERE
+      p.plan_id = {$_REQUEST['id']} order by p.titulo");
 ?>
 <html>
     <head> <meta charset="utf-8">
@@ -51,14 +50,14 @@ $tool = new tools("db");
                                     <?
                                     while ($row = $tool->db_vector_nom($tool->result)) {
 
-
                                         ///creando el link
 
                                         switch ($row['tipo']) { ///para saber la actividad
                                             case 'foro': ///foro
-
-                                                $link = "../post/foro/foro.php?ItemID={$row['id_act']}&item={$row['titulo']}";
-
+                                                if ($row['id_act'] != 0)
+                                                    $link = "../post/foro/foro.php?ItemID={$row['id_act']}&item={$row['titulo']}";
+                                                else
+                                                    $link = "#";
                                                 break;
                                             case 'proy': //proy
 

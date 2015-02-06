@@ -37,6 +37,8 @@ if ($_POST['nombre']) {
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/jquery-ui.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../js/calendario/calendario.css"  >
 
         <script type="text/javascript" src="../../../js/calendario/calendar.js"></script>
         <script type="text/javascript" src="../../../js/calendario/calendar-es.js"></script>
@@ -44,15 +46,16 @@ if ($_POST['nombre']) {
         <script type="text/javascript" src="../../../js/popup.js"></script>
         <script type="text/javascript" src="../../../editor/tiny_mce.js"></script>
         <script type="text/javascript" src="../../../js/jquery/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/jquery/jquery-ui.min.js"></script>
         <script language="JavaScript" type="text/javascript" src="../../../js/date.js"></script>
-        <LINK href="../../../js/calendario/calendario.css" type=text/css rel=stylesheet>
+
 
 
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
 
                 ///creando el select dinamicamente
-                $("#caso").change(function()
+                $("#caso").change(function ()
                 {
                     var id = $(this).val();
                     var dataString = 'id=' + id;
@@ -67,7 +70,7 @@ if ($_POST['nombre']) {
                                 url: "../../grupos/gruposc2.php",
                                 data: dataString,
                                 cache: false,
-                                success: function(html)
+                                success: function (html)
                                 {
                                     $("#grupo").html(html);
                                 }
@@ -269,7 +272,7 @@ if ($_POST['nombre']) {
                                             <td colspan="2"><input type="button" name="Submit2" onClick="history.back();" value="<?= LANG_back ?>">
                                                 <input type="submit" name="Submit" value="<?= LANG_save ?>">
                                                 <span class="style1">
-                                                    <input type="button" name="Submit3" value="<?php echo LANG_content_files ?>" onClick="javascript:popup('../../recursos/index.php', 'new', 350, 500);">
+                                                    <input type="button" name="Submit3" id="Submit3" value="<?php echo LANG_content_files ?>" onClick="javascript:popup('../../recursos/index.php', 'new', 350, 500);">
                                                 </span><span class="style1">
                                                     <input type="button" name="Submit32" value="<?php echo LANG_eva_ver_detalles ?>" onClick="javascript:popup('detalles.php', 'new', 450, 616);">
                                                 </span></td>
@@ -280,6 +283,13 @@ if ($_POST['nombre']) {
                     </table>        </td>
             </tr>
         </table>
+
+
+        <div id="dev" style="background-color: #fff">
+
+        </div>
+
+
     </body>
 </html>
 <?php

@@ -38,6 +38,8 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/jquery-ui.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../js/calendario/calendario.css"  >
 
 
         <script type="text/javascript" src="../../../js/calendario/calendar.js"></script>
@@ -47,15 +49,15 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
         <script type="text/javascript" src="../../../editor/tiny_mce.js"></script>
         <script language="JavaScript" type="text/javascript" src="../../../js/date.js"></script>
         <script type="text/javascript" src="../../../js/jquery/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/jquery/jquery-ui.min.js"></script>
         <script language="JavaScript" type="text/javascript" src="../../../js/ajax.js"></script>
 
-        <link href="../../../js/calendario/calendario.css" type=text/css rel=stylesheet>
 
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
 
                 ///creando el select dinamicamente
-                $("#caso").change(function()
+                $("#caso").change(function ()
                 {
                     var id = $(this).val();
                     var dataString = 'id=' + id;
@@ -70,7 +72,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
                                 url: "../../grupos/gruposc2.php",
                                 data: dataString,
                                 cache: false,
-                                success: function(html)
+                                success: function (html)
                                 {
                                     $("#grupo").html(html);
                                 }
