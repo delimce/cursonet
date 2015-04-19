@@ -47,6 +47,7 @@ define(LANG_enter,"Entrar");
 define(LANG_ins_thanks,"Inscripción finalizada con exito");
 define(LANG_remenber,"Recordar");
 define(LANG_enter_admin,"coloque su usuario y clave y seguidamente presion la tecla Enter");
+define(LANG_enter_nocurse,"Disculpe, la información del curso seleccionado no puede ser accesada, es posible que haya sido borrada, pruebe otro curso");
 define(LANG_wellcome,"User.");
 define(LANG_messages,"Mensajes");
 define(LANG_estat,"Estadisticas");
