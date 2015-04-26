@@ -80,6 +80,7 @@ $crear->query($query);
 <head>
     <meta charset="utf-8">
     <script language="JavaScript" type="text/javascript" src="../../../js/jquery/jquery-1.7.2.min.js"></script>
+    <script src="../../../js/jquery/jquery.timeago.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
 
     <script language="JavaScript" type="text/javascript">
@@ -184,6 +185,15 @@ $crear->query($query);
 
 <body>
 
+<script>
+
+    jQuery(document).ready(function() {
+        jQuery("abbr.timeago").timeago();
+    });
+
+</script>
+
+
 
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -274,8 +284,20 @@ $crear->query($query);
                                                 echo LANG_est_foro_respto;
                                                 ?>:&nbsp;<? echo $row['sujeto'];
                                                 if ($row['tipo'] == "respuesta")
-                                                    echo ' ' . LANG_foro_publicado . ' ' . $fecha->datetime($row['fecha']);
-                                                ?><? } ?></td>
+
+                                                  //  echo ' ' . LANG_foro_publicado . ' ' . $fecha->datetime($row['fecha']);
+
+                                                    echo ' ' . LANG_foro_publicado
+
+                                                    ?>
+                                                    <abbr class="timeago" title="<?=$row['fecha']?>"><?=$fecha->datetime($row['fecha'])?></abbr>
+                                                    <?php
+
+                                                ?><? } ?>
+
+
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td height="10" colspan="2"
@@ -371,14 +393,16 @@ $crear->query($query);
                                                     </tr>
                                                 </table>
                                             </td>
-                                            <td height="10" align="right" class="style1"><span class="style3">
-                                                <?= LANG_foro_publicado ?>
-                                                    &nbsp;</span>
-                                                <?= $fecha->datetime($row['fecha']) ?>
+                                            <td height="10" align="right" class="style1">
+                                                <span class="style3"><?= LANG_foro_publicado ?></span>
+                                                <abbr class="timeago" title="<?=$row['fecha']?>"><?php echo $fecha->datetime($row['fecha']) ?></abbr>
+                                                <?php //echo $fecha->datetime($row['fecha']) ?>
                                                 <input name="escom_<?= $row['id'] ?>" type="hidden"
                                                        id="escom_<?= $row['id'] ?>"
                                                        value="<?php if ($row['valido2'] == 1) echo 1;
-                                                       else 0; ?>"></td>
+                                                       else 0; ?>">
+
+                                            </td>
                                         </tr>
 
                                     <?php } ?>

@@ -3,7 +3,7 @@
  $HOSTNAME =  "localhost";    //host
  $DBUSER   =   "root";     //user
  $DBPASS   =   "delimce";     //pswd
- $DATABASE =   "cursonet_db" ;    // database name
+ $DATABASE =   "cursonet_uc" ;    // database name
 
 
  

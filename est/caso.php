@@ -13,7 +13,7 @@ $ide = $tool->getvar('id');
 if (!empty($ide)) {
 
     $dato = $tool->simple_db("SELECT 
-  date_format(c.fecha, '{$_SESSION['DB_FORMATO_DB']}') AS fecha,
+  /* date_format(c.fecha, '{$_SESSION['DB_FORMATO_DB']}') AS fecha, */ c.fecha,
   ifnull((select concat(a.nombre, ' ', a.apellido) from tbl_admin a where a.id = c.autor),'" . LANG_content_autor_unknow . "') as prof,
   (select count(*) from tbl_contenido_recurso where contenido_id = c.id  ) AS cant,
   c.leido,

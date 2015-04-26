@@ -318,13 +318,12 @@ define(LANG_content_uploadfiles,"Subir Recursos");
 define(LANG_content_desc,"Añadir elementos descargables por el alumno");
 define(LANG_content_link1,"Escriba la direccion URL");
 define(LANG_content_reads,"Número de lecturas");
-define(LANG_content_create,"Creado el");
+define(LANG_content_create,"Creado");
 define(LANG_content_create_by,"Creado por");
 define(LANG_content_create,"Debe crear un Tema");
 define(LANG_content_create2,"Debe seleccionar un Tema");
 define(LANG_content_autor,"Facilitador");
 define(LANG_content_autor_unknow,"Anonimo");
-
 
 
 //////////mensajes
@@ -451,7 +450,7 @@ define(LANG_foro_add,"Añadir comentario");
 define(LANG_foro_nocomments,"No existen comentarios");
 define(LANG_foro_crear_comm,"Crear comentario");
 define(LANG_foro_tema,"Seleccione un Módulo de discusión");
-define(LANG_foro_publicado,"Publicado el");
+define(LANG_foro_publicado,"Publicado");
 define(LANG_foro_n_comm,"N# comentarios");
 define(LANG_foro_n_words,"N# palabras/comentario:");
 define(LANG_foro_comunread,"Comentarios sin leer");
