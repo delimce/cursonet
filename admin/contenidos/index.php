@@ -56,8 +56,6 @@ $grid->query($query); //////se ejecuta el query
                 buscarGrid('grid1');
                 $("#grid1").ordenarTabla();
 
-                $('#nest', window.parent.document).html(<?= $grid->nreg ?>);
-
             });
 
 

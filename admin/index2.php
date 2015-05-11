@@ -36,7 +36,7 @@ $_SESSION['TIMEZONE'] = $data[6]; ///zona horaria configurada en la herramienta
 
     </head>
     <body bgcolor="#858585" bottommargin="0" <? if ($_SESSION['CURSOID'] < 1) { ?>onLoad="nocaso();" <? } ?>>
-        <table width="800" height="550" border="0" align="center" cellpadding="0" cellspacing="0" valign="top">
+        <table width="1000" height="550" border="0" align="center" cellpadding="0" cellspacing="0" valign="top">
 
             <tr>
                 <td width="369"><img src="../images/backend/spacer.gif" width="369" height="1" border="0" alt=""></td>
@@ -47,7 +47,7 @@ $_SESSION['TIMEZONE'] = $data[6]; ///zona horaria configurada en la herramienta
             </tr>
 
             <tr>
-                <td height="29" align="center" background="../images/backend/edunet_r1_c1.gif"><span class="style3"><?= LANG_curso_selected ?></span>   
+                <td height="29" align="right" class="topbar"><span class="style3"><?= LANG_curso_selected ?></span>
 
                     <?php
                     if ($_SESSION['ADMIN'] == 1) {
@@ -161,14 +161,11 @@ stm_em();
                 <td colspan="3" valign="top" background="../images/backend/edunet_r6_c1.gif">
                     <!-- Code for Main Body Content Goes Here -->
 
-                    <!--     
-                        <iframe align="middle" name="content" id="content" frameborder="0" scrolling="no" src="main.php" width="99%"></iframe>
-                    -->
                     <iframe  name="content" id="content" width="99%"  scrolling="NO" frameborder="0" onLoad="changeHeight(this);" src="main.php" width="99%"></iframe>
 
 
                 </td>
-                <td width="40px" background="../images/backend/edunet_r6_c4.gif" valign="top" align="center">
+                <td class="sitebar" valign="top" align="center">
                     <table width="94%" border="0" align="center" cellpadding="0" cellspacing="2">
                         <tr>
                             <td width="75%" align="right">&nbsp;</td>
@@ -211,18 +208,7 @@ stm_em();
                         }
                         ?>
 
-                        <tr>
-                            <td align="right">&nbsp;</td>
-                            <td align="right">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td align="right">&nbsp;</td>
-                            <td align="right">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td align="right">&nbsp;</td>
-                            <td align="right">&nbsp;</td>
-                        </tr>
+
                     </table>
                 </td>
                 <td><img src="../images/backend/spacer.gif" width="1" height="368" border="0" alt=""></td>

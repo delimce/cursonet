@@ -204,3 +204,16 @@ SELECT {
 
 
 }
+
+.topbar{
+    background-image: url('../images/backend/edunet_r1_c1.gif');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    padding-right: 40px;
+}
+
+.sitebar{
+    background-color: #E0E0E0;
+    width: 16%;
+}
