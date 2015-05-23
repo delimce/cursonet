@@ -35,7 +35,7 @@ $menu = new menu($menu_struct);
   $query = "SELECT
 			p.id,
 			p.pregunta as enunciado,
-			ifnull(e.nombre,'-') as evaluación,
+			ifnull(e.nombre,'-') as evaluacion,
 			(CASE WHEN p.nivel = 1 THEN '".LANG_eva_level2."' WHEN p.nivel = 2  THEN '".LANG_eva_level3."' ELSE '".LANG_eva_level4."' END) as nivel
 			FROM
 			tbl_evaluacion_pregunta p

@@ -42,7 +42,7 @@ $datos = $ver->simple_db($query);
                                         <td colspan="2" rowspan="3" align="center" class="style3">
                                             <?php
                                             if (empty($datos['foto'])) {
-                                                $link = '../../images/frontend/nofoto.png';
+                                                $link = '../../recursos/est/fotos/nofoto.png';
                                             } else {
 
                                                 if ($datos['tipo'] == "0")
