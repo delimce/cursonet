@@ -12,7 +12,7 @@
    }
  //////////////////
 
- $datos = $nuevo->simple_db("select titulo_admin,lenguaje,version,timezone from tbl_setup ");
+ $datos = $nuevo->simple_db("select titulo_admin,lenguaje,timezone from tbl_setup ");
 
  $_SESSION['LENGUAJE'] = $datos['lenguaje'];
  $_SESSION['TIMEZONE'] = $datos['timezone'];
@@ -27,8 +27,7 @@
 <meta charset="utf-8">    
 <script language="JavaScript" type="text/javascript" src="../js/browser_detect.js"></script>
 <script language="JavaScript" type="text/javascript" src="../js/jquery/jquery-1.7.2.min.js"></script>
-
-<title><?php echo $datos['titulo_admin'].' '.$datos['version'];  ?></title>
+<title><?php echo $datos['titulo_admin']  ?></title>
 <link rel="stylesheet" type="text/css" href="../css/style_back.css">
 
 
