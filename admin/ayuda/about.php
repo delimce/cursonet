@@ -5,10 +5,11 @@ include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
 include ("../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
-$db = new ObjectDB();
-$db->setSql("select version from tbl_setup");
-$db->getResultFields();
-$db->cerrar();
+
+/////////revisar la version
+$file = new File("../../config/version.info");
+$version = $file->readLastLine();
+
 ?>
 <html>
     <head> <meta charset="utf-8">
@@ -21,7 +22,7 @@ $db->cerrar();
 
         <div style="width: 90%">
             <div class="style1" style="text-align: justify">
-                <?php echo LANG_versionText . '<b>' . $db->getField("version") . '</b>' ?>
+                <?php echo LANG_versionText . '<b>' . $version . '</b>' ?>
             </div>
             <p>&nbsp;</p>
             <div class="style1" style="text-align: justify">
