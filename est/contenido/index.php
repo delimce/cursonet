@@ -79,9 +79,9 @@ if (isset($_GET['id'])) {
                               title="<?= $_SESSION['CASO_FECHA'] ?>"><?php echo $fecha->datetime($_SESSION['CASO_FECHA']) ?></abbr>
 
                         <br>
-                            <b>
-                                <?= LANG_content_autor ?>
-                            </b>&nbsp;<?php echo $_SESSION['CASO_AUTOR']; ?></div>
+                        <b>
+                            <?= LANG_content_autor ?>
+                        </b>&nbsp;<?php echo $_SESSION['CASO_AUTOR']; ?></div>
             </td>
 
             <td width="320" align="right" valign="top">
@@ -103,8 +103,7 @@ if (isset($_GET['id'])) {
                 <p>&nbsp;</p></td>
         </tr>
         <tr>
-            <td height="21" colspan="2" valign="top"
-                style="background-color:#EEF0F0; color:#000000; border:#999999 solid 1px;">
+            <td height="21" colspan="2" valign="top" class="content-est-tools">
                 <div id="index2" style="margin-right:20; margin-left:15; top:12;"><?php echo $caso; ?></div>
             </td>
         </tr>

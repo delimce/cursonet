@@ -93,8 +93,7 @@ $datos->query($query);
                 <p>&nbsp;</p></td>
         </tr>
         <tr>
-            <td height="21" colspan="2" valign="top"
-                style="background-color:#EEF0F0; color:#000000; border:#999999 solid 1px;">
+            <td height="21" colspan="2" valign="top" class="content-est-tools">
                 <br>
                 <?php if ($datos->nreg == 0) {
 

@@ -81,6 +81,18 @@ div.menuf  {margin:0; text-align:center; position:fixed; z-index:5; background-c
 /************** #headlines styles **************/
 
 
+#index2{
+    padding: 8px;
+}
+
+.content-est-tools{
+    background-color:#EEF0F0;
+    color:#000000;
+    border:#999999 solid 1px;
+    padding: 10px;
+}
+
+
 .style1 {
 	text-indent: 2px;
 	font-family: verdana, Arial, Helvetica, sans-serif;
