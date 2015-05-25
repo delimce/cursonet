@@ -10,7 +10,7 @@
  *
  * @author delimce
  */
-class File {
+class File2 {
 
     //clase para el tratamiento de archivos
 

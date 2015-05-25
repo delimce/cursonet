@@ -4,7 +4,7 @@
  $nuevo = new tools('db');
 
 /////para obtener la version
-$file = new File("./config/version.info");
+$file = new File2("./config/version.info");
 $version = $file->readLastLine();
 
  

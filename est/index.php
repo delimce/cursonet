@@ -4,8 +4,7 @@ include("../config/setup.php"); ////////setup
 include("../class/clases.php");
 include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
-
-$file = new File("../config/version.info");
+$file = new File2("../config/version.info");
 $version = $file->readLastLine();
 
 
