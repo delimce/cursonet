@@ -3,6 +3,11 @@
  include("../class/clases.php");
  $nuevo = new tools('db');
 
+
+/////leyendo la version de cursonet
+$file1 = new File2("../config/version.info");
+$version = $file1->readLastLine();
+
  ///////////////en caso de que este iniciada la sesion como admin
 
    if($_SESSION['PROFILE']=="admin" && !empty($_SESSION['USERID']) && !empty($_SESSION['LENGUAJE'])){
@@ -134,7 +139,7 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
     <td width="23%" align="right"><a href="http://delimce.com" target="_blank"><img src="../images/common/delminilogo.gif" width="80" height="15" border="0" title="deliMce.com"></a></td>
-    <td width="77%" align="left" class="small">&nbsp;<?php echo LANG_license.' '.@date("Y"); ?></td>
+    <td width="77%" align="left" class="small">&nbsp;<?php echo LANG_license.' '.@date("Y").', vers:'.$version; ?></td>
   </tr>
   </table>
   </td>
