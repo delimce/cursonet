@@ -16,7 +16,7 @@
 
  $_SESSION['LENGUAJE'] = $datos['lenguaje'];
  $_SESSION['TIMEZONE'] = $datos['timezone'];
- 
+
 
  $lenguaje1 = '../config/lang/'.$_SESSION['LENGUAJE'];///verifico el lenguaje
  include ($lenguaje1);
@@ -24,7 +24,7 @@
 ?>
 <html>
 <head>
-<meta charset="utf-8">    
+<meta charset="utf-8">
 <script language="JavaScript" type="text/javascript" src="../js/browser_detect.js"></script>
 <script language="JavaScript" type="text/javascript" src="../js/jquery/jquery-1.7.2.min.js"></script>
 
@@ -36,43 +36,43 @@
           function onSuccess(data)
           {
               data = $.trim(data);
-              
+
               if(data==1){
                   $(location).attr('href','index2.php');
               }else if(data==2){
-                  
+
                   alert('<?php echo LANG_VAL_noentry2; ?>');
-                  
+
               }else{
-                  
+
                   alert('<?php echo LANG_VAL_noentry; ?>');
-                  
-              }    
-              
+
+              }
+
           }
-  
-  
+
+
         $(document).ready(function() {
-            
-                
+
+
             $("#Submit").click(function(){
-                
-                
+
+
               if (document.form1.user.value.length < 1) {
                   alert("Escriba el Login de usuario en el campo \"Usuario\".");
                   document.form1.user.focus();
                   return (false);
               }
-              
+
               if (document.form1.pass.value.length < 1) {
                   alert("Escriba el password de usuario en el campo \"Clave\".");
                   document.form1.pass.focus();
                   return (false);
               }
- 
-                               
+
+
                 var formData = $("#form1").serialize();
- 
+
                 $.ajax({
                     type: "POST",
                     url: "valida.php",
@@ -80,7 +80,7 @@
                     data: formData,
                     success: onSuccess
                 });
- 
+
                 return false;
             });
         });

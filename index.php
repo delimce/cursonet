@@ -117,11 +117,11 @@
         </tr>
         <tr>
           <td width="28%" class="style1"><strong><?php echo LANG_user ?></strong></td>
-          <td width="62%"><input style="background:#C0C0C0" size="17" name="login1" type="text" id="login1"></td>
+          <td width="62%"><input class="textlogin" name="login1" type="text" id="login1"></td>
         </tr>
         <tr>
           <td class="style1"><strong><?php echo LANG_pass ?></strong></td>
-          <td><input style="background:#C0C0C0" size="17" name="pass1" type="password" id="pass1"></td>
+          <td><input class="textlogin" name="pass1" type="password" id="pass1"></td>
         </tr>
         <tr>
           <td class="style1">&nbsp;</td>

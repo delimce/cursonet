@@ -5,171 +5,234 @@
 
 /***********************************************/
 /* HTML tag styles                             */
-/***********************************************/ 
+/***********************************************/
 
 body {
-     overflow: auto; 
-	 font-family: Verdana, Arial, Helvetica, sans-serif;
-	 font-style: color #000000; font-size:10px;
-	 scrollbar-base-color: #999999;
-	 scrollbar-track-color: color;
-	 scrollbar-face-color: #AABDCA;
-	 scrollbar-highlight-color: #858585;
-	 scrollbar-3dlight-color: #999999;
-	 scrollbar-darkshadow-color: #858585;
-	 scrollbar-shadow-color: #000000;
-	 scrollbar-arrow-color: #000000;
-	 margin-bottom:0 px;
-	 margin-left: 0 px;
-	 margin-right: 0 px;
-	 margin-top: 0 px;
+    overflow: auto;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-style: color #000000;
+    font-size: 10px;
+    scrollbar-base-color: #999999;
+    scrollbar-track-color: color;
+    scrollbar-face-color: #AABDCA;
+    scrollbar-highlight-color: #858585;
+    scrollbar-3dlight-color: #999999;
+    scrollbar-darkshadow-color: #858585;
+    scrollbar-shadow-color: #000000;
+    scrollbar-arrow-color: #000000;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
 }
 
+.welcome {
+    font-size: 9pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #000000;
+    text-indent: 2px;
+    text-decoration: underline;
+    background-color: #EEF0F0;
+}
 
-.welcome { font-size: 9pt; font-family: Verdana, Arial, Helvetica, sans-serif;  color:#000000; text-indent:2px; text-decoration:underline; background-color:#EEF0F0; }
-.small { font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif; }
-td { font-family: geneva,arial; font-size: 10pt }
-.bold { font-weight: bold; font-family: geneva,arial; font-size: 10pt }
-.large { font-size: 12pt; }
+.textlogin {
+    background: #C0C0C0;
+    width: 120px;
+
+}
+
+.small {
+    font-size: 11px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+td {
+    font-family: geneva, arial;
+    font-size: 10pt
+}
+
+.bold {
+    font-weight: bold;
+    font-family: geneva, arial;
+    font-size: 10pt
+}
+
+.large {
+    font-size: 12pt;
+}
+
 .style2 {
-	color: #FFFFFF;
-	font-size: 9px;
-	text-decoration: none;
-	}
-	
+    color: #FFFFFF;
+    font-size: 9px;
+    text-decoration: none;
+}
+
 .alerta {
-	color: #FF0000;
-	font-size: 9px;
-	text-decoration: none;
-	}
-	
-	
+    color: #FF0000;
+    font-size: 9px;
+    text-decoration: none;
+}
+
 .relax {
-	color: blue;
-	font-size: 9px;
-	text-decoration: none;
-	}	
-
-
+    color: blue;
+    font-size: 9px;
+    text-decoration: none;
+}
 
 a:link, a:visited, a:hover {
-    text-decoration:none;
-	text-decoration: underline;
-	color: #333333;
+    text-decoration: none;
+    text-decoration: underline;
+    color: #333333;
 }
 
 a:hover {
-	color:#000000;
-	font-weight: 600;
-	text-decoration: underline;
+    color: #000000;
+    font-weight: 600;
+    text-decoration: underline;
 }
 
+a.linkmenu {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10;
+}
 
-a.linkmenu{font-family: Verdana, Arial, Helvetica, sans-serif;font-size:10;}
-a.linkmenu:link{text-decoration:underline; font-weight:bold; font-size: 10px;	color: #000000;}
-a.linkmenu:visited {text-decoration:underline; font-weight:bold; font-size: 10px; color: #000000;}
-a.linkmenu:hover{color: #055987; font-size: 10px; font-weight:bold;text-decoration: underline;}
-a.linkmenu:active{text-decoration:none; color:#9AB1B6;}
+a.linkmenu:link {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 10px;
+    color: #000000;
+}
 
+a.linkmenu:visited {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 10px;
+    color: #000000;
+}
 
-div.menuf  {margin:0; text-align:center; position:fixed; z-index:5; background-color:#EEF0F0; color:#000000; border:#999999 solid 1px; }
+a.linkmenu:hover {
+    color: #055987;
+    font-size: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+}
 
+a.linkmenu:active {
+    text-decoration: none;
+    color: #9AB1B6;
+}
+
+div.menuf {
+    margin: 0;
+    text-align: center;
+    position: fixed;
+    z-index: 5;
+    background-color: #EEF0F0;
+    color: #000000;
+    border: #999999 solid 1px;
+}
 
 /* overrides decoration from previous rule for hovered links */
 
-
 /************** #headlines styles **************/
 
-
 .style1 {
-	text-indent: 2px;
-	font-family: verdana, Arial, Helvetica, sans-serif;
-	color: #333333;
-	font-size: 10px;
+    text-indent: 2px;
+    font-family: verdana, Arial, Helvetica, sans-serif;
+    color: #333333;
+    font-size: 10px;
 }
+
 input {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 10px;
-	font-weight: normal;
-	background-color: #FFFFFF;
-	background-repeat: repeat-x;
-	border: inherit #999999;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    background-color: #FFFFFF;
+    background-repeat: repeat-x;
+    border: inherit #999999;
 }
+
 .style2 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 10px;
-	color: #FFFFFF;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FFFFFF;
 }
 
 .style3 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	text-indent: 2px;
-	font-size: 10px;
-	font-weight:bold;
-	color: #333333;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-indent: 2px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #333333;
 }
 
 .no_back {
-	 font-family: Verdana, Arial, Helvetica, sans-serif;
-	 font-size: 10px;
-	 background: #F0F0F0;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    background: #F0F0F0;
 }
 
 .td_whbk3 {
-	font-family: Tahoma,Helvetica,Verdana,Arial;
-	font-size: 10px;
-	background: #CCFFFF; 
+    font-family: Tahoma, Helvetica, Verdana, Arial;
+    font-size: 10px;
+    background: #CCFFFF;
 }
-
 
 .style4 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	text-indent: 2px;
-	font-size: 11px;
-	font-weight:bold;
-	font-style:italic;
-	color: #000000;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-indent: 2px;
+    font-size: 11px;
+    font-weight: bold;
+    font-style: italic;
+    color: #000000;
 }
 
-
 form {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 10px;
-	display: inline;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    display: inline;
 }
 
 .table_bk {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	background: #EEF0F0;
-	font-weight: bold;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background: #EEF0F0;
+    font-weight: bold;
 }
 
-.td_whbk {  
+.td_whbk {
     text-indent: 2px;
-	font-family: verdana, Arial, Helvetica, sans-serif;
-	font-size: 10px; 
-	background: #FFFFFF;
-	 }
+    font-family: verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    background: #FFFFFF;
+}
 
- .td_whbk2 {  
+.td_whbk2 {
     text-indent: 2px;
-	font-family: verdana, Arial, Helvetica, sans-serif;
-	font-size: 10px; 
-	background: #C0C0C0;
-	 }
-	
-
+    font-family: verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    background: #C0C0C0;
+}
 
 SELECT {
-    BORDER-RIGHT: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; MARGIN-TOP: 2px;  MARGIN-RIGHT: 2px;  MARGIN-BOTTOM: 2px; MARGIN-LEFT: 2px; BACKGROUND-COLOR: #FFFFFF; COLOR: #000000;  FONT-FAMILY: verdana,arial,helvetica; FONT-SIZE: 10px
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    BORDER-BOTTOM: #000000 1px solid;
+    MARGIN-TOP: 2px;
+    MARGIN-RIGHT: 2px;
+    MARGIN-BOTTOM: 2px;
+    MARGIN-LEFT: 2px;
+    BACKGROUND-COLOR: #FFFFFF;
+    COLOR: #000000;
+    FONT-FAMILY: verdana, arial, helvetica;
+    FONT-SIZE: 10px
 }
 
-
 .resultado {
-        float:left;
-        width: 800px;
-        margin: 10px;
-		background:#999999;
-        
+    float: left;
+    width: 800px;
+    margin: 10px;
+    background: #999999;
+
 }

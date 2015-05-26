@@ -5,13 +5,14 @@
 
 /***********************************************/
 /* HTML tag styles                             */
-/***********************************************/ 
+/***********************************************/
 
 body {
-    overflow: auto; 
+    overflow: auto;
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 
-    font-style: color #000000; font-size:10px;
+    color: #000000;
+    font-size: 10px;
     scrollbar-base-color: #999999;
     scrollbar-track-color: color;
     scrollbar-face-color: #AABDCA;
@@ -21,16 +22,34 @@ body {
     scrollbar-shadow-color: #000000;
     scrollbar-arrow-color: #000000;
 
-
-
 }
 
+.welcome {
+    font-size: 12pt;
+    font-family: geneva, arial;
+    color: #ffffff
+}
 
-.welcome { font-size: 12pt; font-family: geneva,arial; color: ffffff }
-.small { font-size: 8pt; font-family: geneva,arial }
-td { font-family: geneva,arial; font-size: 10pt }
-.bold { font-weight: bold; font-family: geneva,arial; font-size: 10pt }
-.large { font-size: 12pt; }
+.small {
+    font-size: 8pt;
+    font-family: geneva, arial;
+}
+
+td {
+    font-family: geneva, arial;
+    font-size: 10pt
+}
+
+.bold {
+    font-weight: bold;
+    font-family: geneva, arial;
+    font-size: 10pt
+}
+
+.large {
+    font-size: 12pt;
+}
+
 .style2 {
     color: #FFFFFF;
     font-size: 9px;
@@ -39,7 +58,7 @@ td { font-family: geneva,arial; font-size: 10pt }
 }
 
 a:link, a:visited, a:hover {
-    text-decoration:none;
+    text-decoration: none;
     color: #333333;
 }
 
@@ -49,16 +68,14 @@ a:hover {
     text-decoration: underline;
 }
 
-TD{
+TD {
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
     FONT-SIZE: 11px;
 }
 
 /* overrides decoration from previous rule for hovered links */
 
-
 /************** #headlines styles **************/
-
 
 .style1 {
     font-family: verdana, Arial, Helvetica, sans-serif;
@@ -66,6 +83,7 @@ TD{
     color: #333333;
     font-size: 11px;
 }
+
 input {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 10px;
@@ -75,6 +93,7 @@ input {
     background-repeat: repeat-x;
     border: inherit #7A98AD;
 }
+
 .style2 {
     color: #FFFFFF;
     font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -86,7 +105,7 @@ input {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     text-indent: 2px;
     font-size: 10px;
-    font-weight:bold;
+    font-weight: bold;
     color: #333333;
 }
 
@@ -94,8 +113,8 @@ input {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     text-indent: 2px;
     font-size: 11px;
-    font-weight:bold;
-    font-style:italic;
+    font-weight: bold;
+    font-style: italic;
     color: #333333;
 }
 
@@ -112,23 +131,22 @@ form {
     font-weight: bold;
 }
 
-.table_bk th{
+.table_bk th {
     text-transform: capitalize;
     text-decoration: underline;
     cursor: pointer;
 }
 
-.table_bk td{
+.table_bk td {
     border-right: 1px solid;
     border-bottom: 1px solid;
-    border-color: #B1C4CF;    
-}
-
-#gridborder{
-    border-left: 1px solid;
     border-color: #B1C4CF;
 }
 
+#gridborder {
+    border-left: 1px solid;
+    border-color: #B1C4CF;
+}
 
 .notes {
     margin: 5px 2px;
@@ -154,34 +172,69 @@ form {
     filter: alpha(opacity=70); /* For IE8 and earlier */
 }
 
-
-#wrapper{
-    margin-left: auto; margin-right: auto;  border:0px 
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px
 }
 
-.td_whbk {  text-indent: 2px; font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; background: #FFFFFF; }
-.td_whbk1 {  text-indent: 2px; font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; }
-.td_whbk2 {  font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; background: #CCCCCC; }
-.td_whbk3 {  font-family: Tahoma,Helvetica,Verdana,Arial; font-size: 8.3pt; background: #CCFFFF; }
+.td_whbk {
+    text-indent: 2px;
+    font-family: Tahoma, Helvetica, Verdana, Arial;
+    font-size: 8.3pt;
+    background: #FFFFFF;
+}
 
-.no_back {  background: #F0F0F0;
-            font-family: verdana, Arial, Helvetica, sans-serif;
-            text-indent: 2px;
-            color: #333333;
-            font-size: 11px;
+.td_whbk1 {
+    text-indent: 2px;
+    font-family: Tahoma, Helvetica, Verdana, Arial;
+    font-size: 8.3pt;
+}
+
+.td_whbk2 {
+    font-family: Tahoma, Helvetica, Verdana, Arial;
+    font-size: 8.3pt;
+    background: #CCCCCC;
+}
+
+.td_whbk3 {
+    font-family: Tahoma, Helvetica, Verdana, Arial;
+    font-size: 8.3pt;
+    background: #CCFFFF;
+}
+
+.no_back {
+    background: #F0F0F0;
+    font-family: verdana, Arial, Helvetica, sans-serif;
+    text-indent: 2px;
+    color: #333333;
+    font-size: 11px;
 }
 
 SELECT {
-    BORDER-RIGHT: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; MARGIN-TOP: 2px;  MARGIN-RIGHT: 2px;  MARGIN-BOTTOM: 2px; MARGIN-LEFT: 2px; BACKGROUND-COLOR: #FFFFFF; COLOR: #000000;  FONT-FAMILY: verdana,arial,helvetica; FONT-SIZE: 10px
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    BORDER-BOTTOM: #000000 1px solid;
+    MARGIN-TOP: 2px;
+    MARGIN-RIGHT: 2px;
+    MARGIN-BOTTOM: 2px;
+    MARGIN-LEFT: 2px;
+    BACKGROUND-COLOR: #FFFFFF;
+    COLOR: #000000;
+    FONT-FAMILY: verdana, arial, helvetica;
+    FONT-SIZE: 10px
 }
 
 /* para dyntar */
 .dyntar-active {
     visibility: hidden;
 }
+
 .dyntar-wrapper {
     border: 1px dashed #808080;
 }
+
 .dyntar-resizer {
     height: 11px;
     font-size: 11px;
@@ -191,21 +244,20 @@ SELECT {
     /* cursor: n-resize; */
 }
 
-#curso_content{
-    border-right:#000000 solid 1px;
-    border-left:#000000 solid 1px;
-    border-bottom:#000000 solid 1px;
+#curso_content {
+    border-right: #000000 solid 1px;
+    border-left: #000000 solid 1px;
+    border-bottom: #000000 solid 1px;
     margin-top: 30px;
 }
 
-#curso_wrapper{
+#curso_wrapper {
     padding: 0px 14px 0px 14px;
     font-size: 11px;
 
-
 }
 
-.topbar{
+.topbar {
     background-image: url('../images/backend/edunet_r1_c1.gif');
     background-position: right top;
     background-repeat: no-repeat;
@@ -213,7 +265,7 @@ SELECT {
     padding-right: 40px;
 }
 
-.sitebar{
+.sitebar {
     background-color: #E0E0E0;
     width: 16%;
 }
