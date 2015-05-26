@@ -3,6 +3,11 @@
  include("../class/clases.php");
  $nuevo = new tools('db');
 
+
+/////leyendo la version de cursonet
+$file1 = new File2("../config/version.info");
+$version = $file1->readLastLine();
+
  ///////////////en caso de que este iniciada la sesion como admin
 
    if($_SESSION['PROFILE']=="admin" && !empty($_SESSION['USERID']) && !empty($_SESSION['LENGUAJE'])){
@@ -12,7 +17,7 @@
    }
  //////////////////
 
- $datos = $nuevo->simple_db("select titulo_admin,lenguaje,version,timezone from tbl_setup ");
+ $datos = $nuevo->simple_db("select titulo_admin,lenguaje,timezone from tbl_setup ");
 
  $_SESSION['LENGUAJE'] = $datos['lenguaje'];
  $_SESSION['TIMEZONE'] = $datos['timezone'];
@@ -27,8 +32,7 @@
 <meta charset="utf-8">
 <script language="JavaScript" type="text/javascript" src="../js/browser_detect.js"></script>
 <script language="JavaScript" type="text/javascript" src="../js/jquery/jquery-1.7.2.min.js"></script>
-
-<title><?php echo $datos['titulo_admin'].' '.$datos['version'];  ?></title>
+<title><?php echo $datos['titulo_admin']  ?></title>
 <link rel="stylesheet" type="text/css" href="../css/style_back.css">
 
 
@@ -135,7 +139,7 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
     <td width="23%" align="right"><a href="http://delimce.com" target="_blank"><img src="../images/common/delminilogo.gif" width="80" height="15" border="0" title="deliMce.com"></a></td>
-    <td width="77%" align="left" class="small">&nbsp;<?php echo LANG_license.' '.@date("Y"); ?></td>
+    <td width="77%" align="left" class="small">&nbsp;<?php echo LANG_license.' '.@date("Y").', vers:'.$version; ?></td>
   </tr>
   </table>
   </td>

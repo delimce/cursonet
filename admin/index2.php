@@ -5,18 +5,18 @@ include("../config/setup.php"); ////////setup
 include("../class/clases.php");
 include ("../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 $datos = new tools('db');
-$data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo_admin,(SELECT alias from tbl_curso WHERE id = '{$_SESSION['CURSOID']}'),version,timezone from tbl_setup");
+$data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo_admin,(SELECT alias from tbl_curso WHERE id = '{$_SESSION['CURSOID']}'),timezone from tbl_setup");
 
 
 $_SESSION['DB_FORMATO_DB'] = $data[2];
 $_SESSION['DB_FORMATO'] = $data[1];
 $_SESSION['CURSOALIAS'] = $data[4];
-$_SESSION['TIMEZONE'] = $data[6]; ///zona horaria configurada en la herramienta
+$_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
 ?>
 <html>
     <head>
         <meta charset="utf-8">
-        <title><?php echo $data[3] . ' ' . $data[5]; ?></title>
+        <title><?php echo $data[3]; ?></title>
         <link rel="stylesheet" type="text/css" href="../css/style_back.css">
         <script type="text/javascript" language="JavaScript1.2" src="../js/stm31.js"></script>
         <script type="text/javascript" src="../js/iframe.js"></script>

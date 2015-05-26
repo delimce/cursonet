@@ -61,7 +61,7 @@ $menu = new menu($menu_struct);
 		$query2 = "SELECT pregunta FROM tbl_evaluacion_pregunta e where eval_id = {$_REQUEST['id']}";
 		$pru->query($query2);
 		$i=1;
-		while ($row = mysql_fetch_array($pru->result)) {
+		while ($row = mysqli_fetch_array($pru->result)) {
 		
 		?>	
 			

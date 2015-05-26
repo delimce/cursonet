@@ -87,7 +87,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO'] . ' h:m A'); ///fecha con hora
                                                     <td align="center">
                                                         <?php
                                                         if (empty($data['foto'])) {
-                                                            $link = '../../images/frontend/nofoto.png';
+                                                            $link = '../../recursos/est/fotos/nofoto.png';
                                                             $nombre = LANG_nopicture;
                                                         } else {
                                                             $link = '../../recursos/est/fotos/' . $data['foto'];

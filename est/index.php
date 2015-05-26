@@ -4,9 +4,12 @@ include("../config/setup.php"); ////////setup
 include("../class/clases.php");
 include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
+$file = new File2("../config/version.info");
+$version = $file->readLastLine();
+
 
  $datos = new tools("db");
- $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo,version from tbl_setup");
+ $data = $datos->array_query2("select signature,formato_fecha,formato_fecha_db,titulo from tbl_setup");
  $_SESSION['DB_FORMATO_DB'] = $data[2];
  $_SESSION['DB_FORMATO'] = $data[1];
 
@@ -18,7 +21,7 @@ include ("../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 <script type="text/javascript" src="../js/iframe.js"></script>
 <script type="text/javascript" src="../js/utils.js"></script>
 
-<title><?php echo $data[3].' '.$data[4];  ?></title>
+<title><?php echo $data[3].' '.$version;  ?></title>
 </head>
 
 <body bottommargin="0" leftmargin="0" rightmargin="0" topmargin="0">

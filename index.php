@@ -2,13 +2,18 @@
  include("config/dbconfig.php");
  include("class/clases.php");
  $nuevo = new tools('db');
+
+/////para obtener la version
+$file = new File2("./config/version.info");
+$version = $file->readLastLine();
+
  
- $val = $nuevo->array_query2("select modo,lenguaje,titulo,formato_fecha,formato_fecha_db,version,timezone from tbl_setup"); //// modo
+ $val = $nuevo->array_query2("select modo,lenguaje,titulo,formato_fecha,formato_fecha_db,timezone from tbl_setup"); //// modo
  
  $_SESSION['LENGUAJE'] = $val[1];
  $_SESSION['DB_FORMATO_DB'] = $data[4];
  $_SESSION['DB_FORMATO'] = $data[3];
- $_SESSION['TIMEZONE'] = $data[6];
+ $_SESSION['TIMEZONE'] = $data[5];
  
  $lenguaje1 = 'config/lang/'.$_SESSION['LENGUAJE'];///verifico el lenguaje
  include ($lenguaje1); 
@@ -34,7 +39,7 @@
 ?>
 <html>
 <head> <meta charset="utf-8">
-<title><?php echo $val[2].' '.$val[5];  ?></title>
+<title><?php echo $val[2].' '.$version;  ?></title>
 <link rel="stylesheet" type="text/css" href="css/style_front.css">
 
 <script language="JavaScript" type="text/javascript" src="js/browser_detect.js"></script>

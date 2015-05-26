@@ -184,7 +184,7 @@ $menu = new menu($menu_struct);
       </tr>
     <tr>
       <td align="center">
-	  <?php if(empty($data['foto'])){ $link = '../../images/frontend/nofoto.png'; $nombre = LANG_nopicture;
+	  <?php if(empty($data['foto'])){ $link = '../../recursos/est/fotos/nofoto.png'; $nombre = LANG_nopicture;
 	   }else{
 	  $link = '../../recursos/admin/fotos/'.$data['foto'];  $nombre = $data['foto']; } ?><img style="border:solid 1px" src="<?=$link ?>"></td>
       </tr>

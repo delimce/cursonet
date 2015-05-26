@@ -310,7 +310,7 @@ $crear->query($query);
 
                                                 <?php
                                                 if (empty($row['foto'])) {
-                                                    $link = '../../../images/frontend/nofoto.png';
+                                                    $link = '../../../recursos/est/fotos/nofoto.png';
                                                 } else {
 
                                                     if ($row['tsujeto'] == "admin")
