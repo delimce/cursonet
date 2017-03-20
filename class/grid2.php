@@ -256,7 +256,7 @@ class grid2 extends database {
                         /////////////FORMATEAR FECHAS
                         if (@in_array($ii, $fformat))
                             try {
-                                $valor = fecha::datetime($valor, $_SESSION['DB_FORMATO']);
+                                $valor = @fecha::datetime($valor, $_SESSION['DB_FORMATO']);
                             } catch (Exception $e) {
                                 $valor = "<b>error!</b>";
                             }

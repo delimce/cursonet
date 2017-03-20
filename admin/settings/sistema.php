@@ -13,7 +13,7 @@ $modo = new tools("db");
 
 date_default_timezone_set($_SESSION['TIMEZONE']);
 
-$conn = mysql_connect($HOSTNAME, $DBUSER, $DBPASS);
+$conn = mysqli_connect($HOSTNAME, $DBUSER, $DBPASS);
 
 function admin_usersonline() {
     $sessionfiles = session_save_path() . "/sess_*";

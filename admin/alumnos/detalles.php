@@ -94,7 +94,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO'] . ' h:m A'); ///fecha con hora
                                                             $nombre = $data['foto'];
                                                         }
                                                         ?>
-                                                        <img style="border:solid 1px" src="<?= $link ?>"></td>
+                                                        <img class="avatar" style="border:solid 1px" src="<?= $link ?>"></td>
                                                 </tr>
                                             </table></td>
                                         <td width="25%" class="style1"><span class="style3"><?php echo LANG_name ?></span></td>

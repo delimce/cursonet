@@ -16,6 +16,7 @@ $features = array(
     "style_body" => "td_whbk",
     "style_head" => "table_bk",
     "formato" => "html",
+    "conenlace" => array("pos" => "1", "title" => LANG_team_members, "url" => "details.php?", "target" => "_self", "parametro" => 0, "var_parametro" => "id"),
     "buscador" => true,
     "oculto" => 0,
     "orden" => array(1 => "string", 2 => "string", 3 => "int"),

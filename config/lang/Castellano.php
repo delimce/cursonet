@@ -281,6 +281,7 @@ define(LANG_group_casoseccion,"Debe seleccionar el Módulo para hablitar la secc
 
 define(LANG_team_name,"Nombre del equipo");
 define(LANG_teams,"Equipos");
+define(LANG_team_members,"Miembros del Equipo");
 define(LANG_team_desc,"descripción del equipo");
 define(LANG_team_join,"conformar equipo");
 define(LANG_team_to_apply,"Aplicar nota a todos los miembros del equipo:");

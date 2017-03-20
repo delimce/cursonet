@@ -320,7 +320,7 @@ $crear->query($query);
                                                     $link = "../../../recursos/$dir/fotos/" . $row['foto'];
                                                 }
                                                 ?>
-                                                <img style="border:solid 1px" hspace="7" vspace="7" align="left"
+                                                <img class="avatar" style="border:solid 1px" hspace="7" vspace="7" align="left"
                                                      src="<?= $link ?>">
                                                 <!--fin foto-->
 

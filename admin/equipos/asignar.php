@@ -26,15 +26,15 @@ $datos = $asig->simple_db("SELECT
 if (!empty($_GET['id'])) { ///consultar nombre de equipo y curso.
     ///query para traer los datos de los alumnos que estan en el grupo y si existen en el equipo
     $asig->query("SELECT
-                                                est.id,
-                                                concat(est.apellido,' ',est.nombre) AS nombre,
-                                                est.id_number,
-                                                ifnull((select equipo_id from tbl_equipo_estudiante where est_id = est.id and equipo_id = {$datos['equipoId']} ),0) as existe
-                                                FROM
-                                                tbl_estudiante AS est
-                                                INNER JOIN tbl_grupo_estudiante AS gr ON est.id = gr.est_id
-                                                WHERE
-                                                gr.grupo_id = {$datos['grupoId']}");
+                         est.id,
+                         concat(est.apellido,' ',est.nombre) AS nombre,
+                          est.id_number,
+                           ifnull((select equipo_id from tbl_equipo_estudiante where est_id = est.id and equipo_id = {$datos['equipoId']} ),0) as existe
+                            FROM
+                           tbl_estudiante AS est
+                           INNER JOIN tbl_grupo_estudiante AS gr ON est.id = gr.est_id
+                            WHERE
+                          gr.grupo_id = {$datos['grupoId']}");
 }
 
 
