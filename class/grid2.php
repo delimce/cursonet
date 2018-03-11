@@ -106,7 +106,7 @@ class grid2 extends database {
 
         if (isset($_GET[$this->features['orden']['nombre']]))
             $this->orden = $_GET[$this->features['orden']['nombre']];  ///variable reservada para ordenar el grid
-        else
+        else if (isset($this->features['orden']['defecto']))
             $this->orden = $this->features['orden']['defecto'];  ///campo de orden por defecto
 
 
