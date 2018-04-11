@@ -104,9 +104,9 @@ class grid2 extends database {
         $this->ancho = $ancho;
         $this->features = $features;
 
-        if (isset($_GET[$this->features['orden']['nombre']]))
+        if (@isset($_GET[$this->features['orden']['nombre']]))
             $this->orden = $_GET[$this->features['orden']['nombre']];  ///variable reservada para ordenar el grid
-        else if (isset($this->features['orden']['defecto']))
+        else if (@isset($this->features['orden']['defecto']))
             $this->orden = $this->features['orden']['defecto'];  ///campo de orden por defecto
 
 
@@ -187,7 +187,7 @@ class grid2 extends database {
                 }  ///ocultando si asi se desea
 
 
-                $orden45 = ($this->features['orden'][$i]) ? $this->features['orden'][$i] : 'string';
+                $orden45 = (@$this->features['orden'][$i]) ? @$this->features['orden'][$i] : 'string';
                 echo '<th class="' . $this->features['style_head'] . '" width= "' . $this->features['separacion'][$i] . '"  title="' . LANG_orderby . $this->campos[$i] . '"  data-sort="' . $orden45 . '">' . $this->campos[$i] . '</th>';
 
 
@@ -218,7 +218,7 @@ class grid2 extends database {
                             $valor = strip_tags(trim(stripslashes($tmp[$ii])));
                         else
                             $valor = trim(stripslashes($tmp[$ii]));
-                        if ($tmp[$ii] == $this->features['nulo'])
+                        if ($tmp[$ii] == @$this->features['nulo'])
                             $valor = "{$this->features['celda_vacia']}"; /// en caso de que se desee hacer nulo algun valor
                         if (isset($this->features['conenlace']['popup']))
                             $popup = " onclick=\" return popup2(this,'" . $this->features['conenlace']['popup'] . "');\"";
@@ -233,7 +233,7 @@ class grid2 extends database {
                                 $tituloEnlace = $this->features['conenlace']['title'];
                             
                             
-                            $enlace = '<a href="' . $this->features['conenlace']['url'] . $this->features['conenlace']['var_parametro'] . '=' . $tmp[$this->features['conenlace']['parametro']] . $this->features['conenlace']['extras'] . '" target="' . $this->features['conenlace']['target'] . '" title="' . $tituloEnlace . '"' . $popup . '">';
+                            $enlace = '<a href="' . @$this->features['conenlace']['url'] . @$this->features['conenlace']['var_parametro'] . '=' . @$tmp[$this->features['conenlace']['parametro']] . @$this->features['conenlace']['extras'] . '" target="' . @$this->features['conenlace']['target'] . '" title="' . $tituloEnlace . '"' . $popup . '">';
                             $enlace2 = '</a>';
                         } else {
                             $enlace = '';
@@ -292,8 +292,8 @@ class grid2 extends database {
                             $popup = " onclick=\" return popup2(this,'" . $this->features['nuevo_vinculo1']['popup'] . "');\"";
                         else
                             $popup = '';
-                        echo '<a href="' . $this->features['nuevo_vinculo1']['url'] . $this->features['nuevo_vinculo1']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo1']['parametro']] . $this->features['nuevo_vinculo1']['extras'] . '" target="' . $this->features['nuevo_vinculo1']['target'] . '" title="' . $this->features['nuevo_vinculo1']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo1']['texto'] . '</a>';
-                    }else if (isset($this->features['nuevo_vinculo1']['condicion']) && $tmp[$this->features['nuevo_vinculo1']['condicion']] == 0) { ///no se cumple la condicion
+                        echo '<a href="' . @$this->features['nuevo_vinculo1']['url'] . @$this->features['nuevo_vinculo1']['var_parametro'] . '=' . @$tmp[$this->features['nuevo_vinculo1']['parametro']] . @$this->features['nuevo_vinculo1']['extras'] . '" target="' . @$this->features['nuevo_vinculo1']['target'] . '" title="' . @$this->features['nuevo_vinculo1']['title'] . '"' . $popup . '">' . @$this->features['nuevo_vinculo1']['texto'] . '</a>';
+                    }else if (isset($this->features['nuevo_vinculo1']['condicion']) && @$tmp[$this->features['nuevo_vinculo1']['condicion']] == 0) { ///no se cumple la condicion
                         echo $this->features['nuevo_vinculo1']['texto_condicion'];
                     }
 
@@ -313,7 +313,7 @@ class grid2 extends database {
                         $popup = " onclick=\" return borrar('" . $tmp[$this->features['nuevo_vinculo2']['parametro']] . "','" . $tmp[$this->features['nuevo_vinculo2']['borrar']] . "');\"";
                     else
                         $popup = '';  //// para borrar un registro del grid experimental
-                    echo '<a href="' . $this->features['nuevo_vinculo2']['url'] . $this->features['nuevo_vinculo2']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo2']['parametro']] . $this->features['nuevo_vinculo2']['extras'] . '" target="' . $this->features['nuevo_vinculo2']['target'] . '" title="' . $this->features['nuevo_vinculo2']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo2']['texto'] . '</a>';
+                    echo '<a href="' . @$this->features['nuevo_vinculo2']['url'] . @$this->features['nuevo_vinculo2']['var_parametro'] . '=' . @$tmp[$this->features['nuevo_vinculo2']['parametro']] . @$this->features['nuevo_vinculo2']['extras'] . '" target="' . @$this->features['nuevo_vinculo2']['target'] . '" title="' . @$this->features['nuevo_vinculo2']['title'] . '"' . $popup . '">' . @$this->features['nuevo_vinculo2']['texto'] . '</a>';
 
 
                     echo '</td>';
@@ -331,7 +331,7 @@ class grid2 extends database {
                         $popup = " onclick=\" return borrar('" . $tmp[$this->features['nuevo_vinculo3']['parametro']] . "','" . $tmp[$this->features['nuevo_vinculo3']['borrar']] . "');\"";
                     else
                         $popup = '';  //// para borrar un registro del grid experimental
-                    echo '<a href="' . $this->features['nuevo_vinculo3']['url'] . $this->features['nuevo_vinculo3']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo3']['parametro']] . $this->features['nuevo_vinculo3']['extras'] . '" target="' . $this->features['nuevo_vinculo3']['target'] . '" title="' . $this->features['nuevo_vinculo3']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo3']['texto'] . '</a>';
+                    echo '<a href="' . @$this->features['nuevo_vinculo3']['url'] . @$this->features['nuevo_vinculo3']['var_parametro'] . '=' . @$tmp[$this->features['nuevo_vinculo3']['parametro']] . @$this->features['nuevo_vinculo3']['extras'] . '" target="' . @$this->features['nuevo_vinculo3']['target'] . '" title="' . $this->features['nuevo_vinculo3']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo3']['texto'] . '</a>';
 
 
                     echo '</td>';

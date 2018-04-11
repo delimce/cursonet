@@ -134,7 +134,7 @@
 	 if($estilo)$combo.=' class="'.$estilo.'"';
      $combo.= '>';
      if($select) $combo.= '<option value="">'.$select.'</option>';
-     if(!$seleccion)$seleccion = $_REQUEST[$id];
+     if(!$seleccion)$seleccion = @$_REQUEST[$id];
 
     while ($row = $this->db_vector_nom($this->result)) {
         $combo.= '<option value="';

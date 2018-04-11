@@ -12,8 +12,8 @@ if (isset($_POST['user'])) {
     $curso2 = formulario::getvar("curso", $_POST);
     $pass1 = formulario::getvar("pass", $_POST);
 
-    $sql = "SELECT
-	s.lenguaje,
+   $sql = "SELECT
+	(select lenguaje from tbl_setup) as lenguaje,
 	a.cursos,
 	a.id,
 	CONCAT(nombre, ' ', apellido) AS nombre,
@@ -24,7 +24,7 @@ if (isset($_POST['user'])) {
 	) AS acc
         FROM
         tbl_admin AS a 
-        LEFT JOIN tbl_log_admin AS l ON l.admin_id = a.id, tbl_setup s
+        LEFT JOIN tbl_log_admin AS l ON l.admin_id = a.id
         WHERE
         a.`user` = '$usuario' AND
         a.pass = MD5('$pass1') GROUP BY a.id";

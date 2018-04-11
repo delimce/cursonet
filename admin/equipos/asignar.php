@@ -43,11 +43,9 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
     $asig->abrir_transaccion();
     $asig->query("delete from tbl_equipo_estudiante where equipo_id = {$datos['equipoId']} ");
 
-
     if (count($_POST['select']) > 0) {
 
         $valores[1] = $datos['equipoId'];
-
         for ($z = 0; $z < count($_POST['select']); $z++) {
             $valores[0] = $_POST['select'][$z];
             $asig->insertar2("tbl_equipo_estudiante", "est_id, equipo_id", $valores);

@@ -10,7 +10,7 @@ $version = $file1->readLastLine();
 
  ///////////////en caso de que este iniciada la sesion como admin
 
-   if($_SESSION['PROFILE']=="admin" && !empty($_SESSION['USERID']) && !empty($_SESSION['LENGUAJE'])){
+   if(@$_SESSION['PROFILE']=="admin" && !empty($_SESSION['USERID']) && !empty($_SESSION['LENGUAJE'])){
 
    		$nuevo->redirect('./index2.php');
 
@@ -35,12 +35,11 @@ $version = $file1->readLastLine();
 <title><?php echo $datos['titulo_admin']  ?></title>
 <link rel="stylesheet" type="text/css" href="../css/style_back.css">
 
-
       <script>
           function onSuccess(data)
           {
               data = $.trim(data);
-
+              console.log(data);
               if(data==1){
                   $(location).attr('href','index2.php');
               }else if(data==2){
@@ -116,7 +115,7 @@ $version = $file1->readLastLine();
         <tr>
           <td height="18" align="left" class="small"><strong><?php echo LANG_curso_id?></strong></td>
           <td height="18" align="left" class="small">
-		  <?php echo $nuevo->combo_db("curso","select id,alias from tbl_curso","alias","id",false,$_SESSION['CURSOID'],false,LANG_curso_nocurso.'<input name="curso" type="hidden" id="curso" value="-1">'); ?>		  </td>
+		  <?php echo $nuevo->combo_db("curso","select id,alias from tbl_curso","alias","id",false,@$_SESSION['CURSOID'],false,LANG_curso_nocurso.'<input name="curso" type="hidden" id="curso" value="-1">'); ?>		  </td>
           </tr>
         <tr>
           <td colspan="2" align="left" class="style3">

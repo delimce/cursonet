@@ -42,11 +42,10 @@
      /////////////////////validar el only
      if(!$only){
 
-         $var2 = $_REQUEST[$var];
+         $var2 = @$_REQUEST[$var];
 
      }else{
-
-        if($only==$_GET) $var2 = $_GET[$var]; else $var2 = $_POST[$var];
+         $var2 = ($only==$_GET)?@$_GET[$var]:@$_POST[$var];
 
      }
 
@@ -67,7 +66,7 @@
    $pref: toma el prefijo de cada campo que seran los valores que se van a insertar ejemplo r-nombre "r" 
    $sep es el caracter que separa al nombre del campo y el prefiejo ejemplo r_nombre nota la separacion debe ser un "_"
    $tabla: la tabla de la base de datos que sufrir los cambios
-   $metodo: vectores globales segun el m�todo por el cual vienen los valores del formulario "$_GET" o "$_POST" 
+   $metodo: vectores globales segun el metodo por el cual vienen los valores del formulario "$_GET" o "$_POST"
 	IMPOTANTE: EL NOMBRE DE LOS CAMPOS DEBE SER EL NOMBRE DE LAS VARIABLES DE FORMULARIO PASADAS 
 
  */
@@ -104,8 +103,8 @@
  /*metodo edit_data, que edita valores de un formulario en una tabla de la base de datos
    $pref: toma el prefijo de cada campo que seran los valores que se van a insertar ejemplo r-nombre "r" 
    $sep es el caracter que separa al nombre del campo y el prefiejo ejemplo r_nombre nota la separacion debe ser un "_"
-   $tabla: la tabla de la base de datos que sufrir� los cambios
-   $metodo: vectores globales segun el m�todo por el cual vienen los valores del formulario "$_GET" o "$_POST"  
+   $tabla: la tabla de la base de datos que sufrira los cambios
+   $metodo: vectores globales segun el metodo por el cual vienen los valores del formulario "$_GET" o "$_POST"
    $where: condicion de edicion ejemplo id='1'
 	IMPOTANTE: EL NOMBRE DE LOS CAMPOS DEBE SER EL NOMBRE DE LAS VARIABLES DE FORMULARIO PASADAS
  */
