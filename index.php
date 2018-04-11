@@ -8,9 +8,9 @@ $file = new File2("./config/version.info");
 $version = $file->readLastLine();
 
  
- $val = $nuevo->array_query2("select modo,lenguaje,titulo,formato_fecha,formato_fecha_db,timezone from tbl_setup"); //// modo
+ $data = $nuevo->array_query2("select modo,lenguaje,titulo,formato_fecha,formato_fecha_db,timezone from tbl_setup"); //// modo
  
- $_SESSION['LENGUAJE'] = $val[1];
+ $_SESSION['LENGUAJE'] = $data[1];
  $_SESSION['DB_FORMATO_DB'] = $data[4];
  $_SESSION['DB_FORMATO'] = $data[3];
  $_SESSION['TIMEZONE'] = $data[5];
