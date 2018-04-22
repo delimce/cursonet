@@ -9,7 +9,7 @@ $version = $file->readLastLine();
 
  
  $data = $nuevo->array_query2("select modo,lenguaje,titulo,formato_fecha,formato_fecha_db,timezone from tbl_setup"); //// modo
- 
+
  $_SESSION['LENGUAJE'] = $data[1];
  $_SESSION['DB_FORMATO_DB'] = $data[4];
  $_SESSION['DB_FORMATO'] = $data[3];
@@ -19,11 +19,11 @@ $version = $file->readLastLine();
  include ($lenguaje1); 
   
   //////////////////validar el modo
-   if($val[0]==0){
+   if($data[0]==0){
  
 		$nuevo->redirect("ins/index.php");	
 	 
-   }else if($val[0]==2){
+   }else if($data[0]==2){
    
    		$nuevo->redirect("error/offline.php");	
    
@@ -39,7 +39,7 @@ $version = $file->readLastLine();
 ?>
 <html>
 <head> <meta charset="utf-8">
-<title><?php echo $val[2].' '.$version;  ?></title>
+<title><?php echo $data[2].' '.$version;  ?></title>
 <link rel="stylesheet" type="text/css" href="css/style_front.css">
 
 <script language="JavaScript" type="text/javascript" src="js/browser_detect.js"></script>
