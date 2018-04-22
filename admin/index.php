@@ -90,7 +90,6 @@ $version = $file1->readLastLine();
     </script>
 
 
-
 </head>
 <body>
 <br>
@@ -102,27 +101,35 @@ $version = $file1->readLastLine();
   <tr>
     <td width="206" height="83" valign="middle" bgcolor="#FFFFFF">
 	<form name="form1" id="form1" method="post" action="index2.php">
-	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="small" title="<?php echo LANG_enter_admin ?>">
 
-        <tr>
-          <td width="31%" class="small"><strong><?php echo LANG_user?></strong></td>
-          <td width="69%" align="left"><input name="user" type="text" class="small" id="user"></td>
-        </tr>
-        <tr>
-          <td class="small"><strong><?php echo LANG_pass?></strong></td>
-          <td align="left"><input name="pass" type="password" class="small" id="pass"></td>
-        </tr>
-        <tr>
-          <td height="18" align="left" class="small"><strong><?php echo LANG_curso_id?></strong></td>
-          <td height="18" align="left" class="small">
-		  <?php echo $nuevo->combo_db("curso","select id,alias from tbl_curso","alias","id",false,@$_SESSION['CURSOID'],false,LANG_curso_nocurso.'<input name="curso" type="hidden" id="curso" value="-1">'); ?>		  </td>
-          </tr>
-        <tr>
-          <td colspan="2" align="left" class="style3">
-              <button type="Submit" id="Submit" value="<?php echo LANG_enter ?>"><?php echo LANG_enter ?></button>
-           </td>
-          </tr>
-      </table>
+        <div id="form-container">
+            <div id="form-field">
+                <span id="form-label"><?php echo LANG_user?></span>
+                <span id="form-input"><input name="user" type="text" class="small" id="user"></span>
+            </div>
+
+            <div id="form-field">
+                <span id="form-label"><?php echo LANG_pass?></span>
+                <span id="form-input"><input name="pass" type="password" class="small" id="pass"></span>
+            </div>
+
+            <div id="form-field">
+                <span id="form-label"><?php echo LANG_curso_id?></span>
+                <span id="form-input">
+                     <?php echo $nuevo->combo_db("curso","select id,alias from tbl_curso","alias","id",false,@$_SESSION['CURSOID'],false,LANG_curso_nocurso.'<input name="curso" type="hidden" id="curso" value="-1">'); ?>
+                </span>
+            </div>
+
+<!--            button submit-->
+            <div id="form-field">
+                <span id="form-label">&nbsp;</span>
+                <span id="form-input">
+                     <button type="Submit" id="Submit" value="<?php echo LANG_enter ?>"><?php echo LANG_enter ?></button>
+                </span>
+            </div>
+
+        </div>
+
     </form>
     </td>
     <td width="65" align="left" valign="bottom"><img src="../images/backend/p004.jpg" width="65" height="94"></td>
