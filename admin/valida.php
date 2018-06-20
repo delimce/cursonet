@@ -54,7 +54,7 @@ if (isset($_POST['user'])) {
             ////guarda registro
             $db->setTable("tbl_log_admin");
             $db->setField("admin_id", $_SESSION['USERID']);
-            $db->setField("fecha_in", @date("Y-m-d h:i:s"));
+            $db->setField("fecha_in", @date("Y-m-d H:i:s"));
             $db->setField("ip_acc", $_SERVER['REMOTE_ADDR']);
             $db->setField("info_cliente", $_SERVER['HTTP_USER_AGENT']);
             $db->setField("curso_id", $curso2);

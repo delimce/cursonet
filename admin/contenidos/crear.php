@@ -17,7 +17,7 @@ if ($_POST['nombre']) {
     $valores[1] = $_POST['nombre'];
     $valores[2] = $_POST['content'];
     $valores[3] = $_POST['borrador'];
-    $valores[4] = date("Y-m-d h:i:s");
+    $valores[4] = date("Y-m-d H:i:s");
     $valores[5] = 0;
     $valores[6] = $_SESSION['CURSOID'];
 

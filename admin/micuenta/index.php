@@ -18,7 +18,7 @@ $menu = new menu($menu_struct);
         $_POST['r4user'] = trim($_POST['r4user']);
 		$valores2[4] = md5($_POST['pass1']);
 
-		$_POST['r4fecha'] = date("Y-m-d h:i:s");
+		$_POST['r4fecha'] = date("Y-m-d H:i:s");
 		if(!empty($_POST['pass1'])) $_POST['r4pass'] = md5($_POST['pass1']);
 		
 		

@@ -23,7 +23,7 @@ $menu = new menu($menu_struct);
 	 $valores[0] = $_POST['nombre'];
 	 $valores[1] = $_POST['content'];
 	 $valores[2] = $_POST['borrador'];
-	 $valores[3] = date("Y-m-d h:i:s");
+	 $valores[3] = date("Y-m-d H:i:s");
 	 $valores[4] = $_POST['autor'];
 	 $valores[5] = $_POST['leido'];
 

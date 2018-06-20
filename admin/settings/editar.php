@@ -33,7 +33,7 @@ include("security.php"); ///seguridad para el admin
 		$valores2[4] = $_POST['email'];
 		$valores2[5] = $_POST['telefono'];
 		$valores2[6] = $_POST['fax'];
-		$valores2[7] = date("Y-m-d h:i:s");	
+		$valores2[7] = date("Y-m-d H:i:s");
 		if(count($_POST['curso'])>0)$valores2[8] = implode(",",$_POST['curso']); else $valores2[8] = 0;	
 		$valores2[9] = $_POST['sintesis'];
 		

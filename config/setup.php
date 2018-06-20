@@ -9,13 +9,11 @@
  $SMTPAUTH = true;     // turn on SMTP authentication
  $SMTPUSER= "DELIMCE";  // SMTP username
  $SMTPPASS = "secret"; // SMTP password
- 
- 
- 
- 
+
+ date_default_timezone_set('America/Caracas');
+
  /*************************************************************************/
-  
-  
+
   /****************** NO ALTERE ESTE BLOQUE **************************/
     	  
   require('redirect.php');    	  
@@ -25,8 +23,5 @@
  $ADMINPATH = "/recursos/admin/";
  $USERPATH = "recursos/est/";
  $TMAX = "20" ////TAMANO MAXIMO DE ARCHIVOS A SUBIR EN MB
- 
- 
- 
 
 ?>

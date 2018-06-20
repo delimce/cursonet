@@ -34,7 +34,7 @@ include("security.php"); ///seguridad para el admin
 		$valores2[6] = $_POST['email'];
 		$valores2[7] = $_POST['telefono'];
 		$valores2[8] = $_POST['fax'];
-		$valores2[9] = date("Y-m-d h:i:s");	
+		$valores2[9] = date("Y-m-d H:i:s");
 		if(count($_POST['curso'])>0)$valores2[10] = implode(",",$_POST['curso']); else $valores2[10] = 0;
 		$valores2[11] = $_POST['sintesis'];
 		

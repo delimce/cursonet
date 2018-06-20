@@ -15,7 +15,7 @@ if(isset($_POST['link'])){
 
 	
 	$valores[0] = 1;
-	$valores[1] = date("Y-m-d h:i:s");
+	$valores[1] = date("Y-m-d H:i:s");
 	$valores[2] = $_POST['link'];
 	$valores[3] = 'admin';
 	$valores[4] = $_SESSION['USERID'];

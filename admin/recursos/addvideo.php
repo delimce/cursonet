@@ -33,7 +33,7 @@ if(isset($_POST['enlace'])){
 
 			
 				$valores[0] = 2;
-				$valores[1] = date("Y-m-d h:i:s");
+				$valores[1] = date("Y-m-d H:i:s");
 				$valores[2] = $tama.' MB';
 				$valores[3] = $_FILES['archivo']['name'];
 				$valores[4] = 'admin';
@@ -60,7 +60,7 @@ if(isset($_POST['enlace'])){
 
 		
 		$valores[0] = 2;
-		$valores[1] = date("Y-m-d h:i:s");
+		$valores[1] = date("Y-m-d H:i:s");
 		$valores[2] = $_POST['enlace'];
 		$valores[3] = 'admin';
 		$valores[4] = $_SESSION['USERID'];

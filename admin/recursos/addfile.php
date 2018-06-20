@@ -20,7 +20,7 @@ $menu = new menu($menu_struct);
 				 
 				 				 
 								 $valores[0] = 0;
-								 $valores[1] = date("Y-m-d h:i:s");
+								 $valores[1] = date("Y-m-d H:i:s");
 								 $valores[2] = $tama.' MB';
 								 $valores[3] = $_FILES['archivo']['name'];
 								 $valores[4] = 'admin';

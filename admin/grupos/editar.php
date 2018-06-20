@@ -26,7 +26,7 @@ $menu = new menu($menu_struct);
 	 $valores[1] = $_POST['desc'];
 	 $valores[2] = $_POST['prof_id'];
 	 $valores[3] = $_POST['turno'];
-	 $valores[4] = date("Y-m-d h:i:s");
+	 $valores[4] = date("Y-m-d H:i:s");
 
 	 $crear->update("tbl_grupo",$campos,$valores,"id = '{$_POST['gid']}'",true);
 	 $crear->javaviso(LANG_cambios,"index.php");

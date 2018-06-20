@@ -20,7 +20,7 @@ if ($_POST['nombre']) {
     $valores[2] = $_POST['grupo'];
     $valores[3] = $_POST['enun'];
     $valores[4] = $fecha->fecha_db($_POST['fecha']);
-    $valores[5] = date("Y-m-d h:i:s");
+    $valores[5] = date("Y-m-d H:i:s");
     $valores[6] = $_POST['nota'];
     $valores[7] = $_POST['caso'];
     $valores[8] = $_SESSION['CURSOID'];

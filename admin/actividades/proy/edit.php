@@ -27,7 +27,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
     $valores[3] = $fecha->fecha_db($_POST['fecha']);
     $valores[4] = $_POST['nota'];
     $valores[5] = $_POST['enun'];
-    $valores[6] = date("Y-m-d h:i:s");
+    $valores[6] = date("Y-m-d H:i:s");
     $valores[7] = $_POST['caso'];
 
     $crear->update("tbl_proyecto", $campos, $valores, "id = '{$_POST['id']}'");

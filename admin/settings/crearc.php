@@ -20,7 +20,7 @@ include("security.php"); ///seguridad para el admin
 		$valores2[0] = trim($_REQUEST['nombre']);
 		$valores2[1] = trim($_REQUEST['alias']);
 		$valores2[2] = $_SESSION['USERID'];
-		$valores2[3] = date("Y-m-d h:i:s");	
+		$valores2[3] = date("Y-m-d H:i:s");
 		$valores2[4] = $_REQUEST['duracion'];
 		$valores2[5] = $_REQUEST['desc'];
 		$valores2[6] = $_REQUEST['notas'];
