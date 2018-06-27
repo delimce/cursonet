@@ -163,7 +163,7 @@ $menu = new menu($menu_struct);
             <td colspan="4" class="table_bk"><? echo LANG_eva_evalinfo;?>&nbsp;<a title="<?=LANG_eva_enum ?>" href="#" style="color:#000000" onClick="popup('../../actividades/evaluacion/sel/prueba.php?id=<?php echo $datos[5]; ?>', 'exam','600','500')"><? echo $datos[4] ?></a></td>
           </tr>
           <tr>
-            <td colspan="4" align="left"><?php echo LANG_eva_resultest.' '.$res['buenas'].'/'.$datos[7] //npreg de la evaluacion no el total //$res['total'] ?>&nbsp;<img src="../../../images/common/eval.gif" title="<?php echo LANG_eva_viewresult ?>" style="cursor:pointer" onClick="window.location.href('ver.php');" width="24" height="24"></td>
+            <td colspan="4" align="left"><?php echo LANG_eva_resultest.' '.$res['buenas'].'/'.$datos[7] //npreg de la evaluacion no el total //$res['total'] ?>&nbsp;<img src="../../../images/common/eval.gif" title="<?php echo LANG_eva_viewresult ?>" style="cursor:pointer" onClick="window.location = 'ver.php'" width="24" height="24"></td>
           </tr>
           
           
