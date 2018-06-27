@@ -279,15 +279,23 @@ SELECT {
 /*login form*/
 #form-container {
     padding-left: 5px;
+    line-height: 0px;
+    width: 95%;
 }
 
 #form-field {
     padding: 0.3ex;
     position: relative;
+    text-align: center;
 }
 
 #form-field #submit{
-    width: 120px;
+    width: 150px;
+}
+
+#form-field input{
+    width: 150px;
+    padding: 0.2em;
 }
 
 #form-label {

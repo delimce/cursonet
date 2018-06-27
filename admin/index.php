@@ -103,26 +103,20 @@ $version = $file1->readLastLine();
 	<form name="form1" id="form1" method="post" action="index2.php">
 
         <div id="form-container">
-            <div id="form-field">
-                <span id="form-label"><?php echo LANG_user?></span>
-                <span id="form-input"><input name="user" type="text" class="small" id="user"></span>
+             <div id="form-field">
+                <span><input name="user" type="text" class="small" id="user" placeholder="<?php echo LANG_user?>"></span>
+                <span><input name="pass" type="password" class="small" id="pass" placeholder="<?php echo LANG_pass?>"></span>
             </div>
 
             <div id="form-field">
-                <span id="form-label"><?php echo LANG_pass?></span>
-                <span id="form-input"><input name="pass" type="password" class="small" id="pass"></span>
-            </div>
-
-            <div id="form-field">
-                <span id="form-label"><?php echo LANG_curso_id?></span>
-                <span id="form-input">
+                <span>
+                     <?php echo LANG_curso_id?>
                      <?php echo $nuevo->combo_db("curso","select id,alias from tbl_curso","alias","id",false,@$_SESSION['CURSOID'],false,LANG_curso_nocurso.'<input name="curso" type="hidden" id="curso" value="-1">'); ?>
                 </span>
             </div>
 
 <!--            button submit-->
             <div id="form-field">
-                <span id="form-label">&nbsp;</span>
                 <span id="form-input">
                      <button type="Submit" id="Submit" value="<?php echo LANG_enter ?>"><?php echo LANG_enter ?></button>
                 </span>
