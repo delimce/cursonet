@@ -45,7 +45,7 @@ include("security.php"); ///seguridad para el admin
       <tr>
         <td>
 		
-		<form name="form1" method="post" action="<?=$PHP_SELF; ?>">
+		<form name="form1" method="post" action="<?=$_SERVER['PHP_SELF']; ?>">
 		<table width="99%" border="0" align="center" cellpadding="3" cellspacing="4">
 		  <tr>
 			<td colspan="2" class="style1"><?php echo LANG_modo_selec ?>&nbsp;</td>

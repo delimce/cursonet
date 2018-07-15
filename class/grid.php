@@ -240,7 +240,7 @@ class grid extends database {
 
                         if ($orden[$i] != "") {
 
-                            echo '<td  class="' . $this->features['style_head'] . '" width= "' . $this->features['separacion'][$i] . '" align="center"><a href="' . $PHP_SELF . '?' . $this->features['orden']['nombre'] . '=' . $orden[$i] . $this->features['orden']['extras'] . '" title="' . LANG_orderby . $this->campos[$i] . '">' . $this->campos[$i] . '</a></td>';  //encabezado
+                            echo '<td  class="' . $this->features['style_head'] . '" width= "' . $this->features['separacion'][$i] . '" align="center"><a href="' . $_SERVER['PHP_SELF'] . '?' . $this->features['orden']['nombre'] . '=' . $orden[$i] . $this->features['orden']['extras'] . '" title="' . LANG_orderby . $this->campos[$i] . '">' . $this->campos[$i] . '</a></td>';  //encabezado
                         } else {
 
                             echo '<td align="center">' . $this->campos[$i] . '</td>';
@@ -488,7 +488,7 @@ class grid extends database {
 
                         if ($orden[$i] != "") {
 
-                            $this->capsula.= '<td width= "' . $this->features['separacion'][$i] . '" align="center"><a href="' . $PHP_SELF . '?' . $this->features['orden']['nombre'] . '=' . $orden[$i] . $this->features['orden']['extras'] . '">' . $this->campos[$i] . '</a></td>';  //encabezado
+                            $this->capsula.= '<td width= "' . $this->features['separacion'][$i] . '" align="center"><a href="' . $_SERVER['PHP_SELF'] . '?' . $this->features['orden']['nombre'] . '=' . $orden[$i] . $this->features['orden']['extras'] . '">' . $this->campos[$i] . '</a></td>';  //encabezado
                         } else {
 
                             $this->capsula.= '<td align="center">' . $this->campos[$i] . '</td>';

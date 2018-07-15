@@ -89,7 +89,7 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
                     <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
 
                         <td>
-                            <form name="form1" method="post" action="<?= $PHP_SELF ?>">
+                            <form name="form1" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
                                 <table width="100%" height="104" border="0" cellpadding="3" cellspacing="4" class="style1">
 
                                     <?php

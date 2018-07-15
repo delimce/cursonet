@@ -18,7 +18,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 
 	}else if(isset($_POST['Submit'])){
 
-		/////GUARDAR ACOMPAÑAMIENTO
+		/////GUARDAR ACOMPAï¿½AMIENTO
 
 		$campos = "foro_id,menos,fecha_menos1,fecha_menos2,mas,fecha_mas1,fecha_mas2,faltan,mensaje_menos,mensaje_mas,mensaje_inicio,mensaje_faltan";
 		$valores[0]  = $_POST['eva'];
@@ -119,7 +119,7 @@ $fecha = new fecha($_SESSION['DB_FORMATO']);
 	<table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td><br>
-           <form name="form1" method="post" action="<?=$PHP_SELF ?>">
+           <form name="form1" method="post" action="<?=$_SERVER['PHP_SELF'] ?>">
           <table width="89%" border="0" align="center" cellpadding="2" cellspacing="1">
             <tr>
             <td width="16%" align="center" class="no_back"><b>Foro</b></td>

@@ -85,7 +85,7 @@ $crear = new tools("db");
 
 <body>
 
-<form name="form1" method="post" action="<?=$PHP_SELF ?>" onSubmit="return validar();">
+<form name="form1" method="post" action="<?=$_SERVER['PHP_SELF'] ?>" onSubmit="return validar();">
 
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>

@@ -167,7 +167,7 @@ $menu = new menu($menu_struct);
 	
 	<table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td><form name="form1" method="post" action="<?=$PHP_SELF?>" onSubmit="return validar();">
+        <td><form name="form1" method="post" action="<?=$_SERVER['PHP_SELF']?>" onSubmit="return validar();">
   <table width="100%" border="0" cellspacing="4" cellpadding="3">
   <tr>
   <td colspan="5"><span class="bold"><?php echo LANG_add ?></span></td>

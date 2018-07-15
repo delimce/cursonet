@@ -242,16 +242,15 @@ class database
 
     public function insertar2($tabla, $campos, $vector, $block = false)
     {
-
-
+        $values='';
         for ($i = 0; $i < count($vector); $i++) {
 
             $valor = mysqli_real_escape_string($this->dbc, $vector[$i]);  //// me aseguro de que no se inserten valores invalidos
             $vector[$i] = "'$valor'";
-            $valores .= $vector[$i] . ',';
+            $values .= $vector[$i] . ',';
         }
 
-        $valores = substr($valores, 0, strlen($valores) - 1); // elimina la , al final
+        $valores = substr($values, 0, strlen($values) - 1); // elimina la , al final
 
         $query = 'INSERT INTO ' . $tabla . ' (' . $campos . ') VALUES (' . $valores . ')';
 

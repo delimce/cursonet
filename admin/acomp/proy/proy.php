@@ -16,7 +16,7 @@ $menu = new menu($menu_struct);
 
 	}else if(isset($_POST['Submit'])){
 
-		/////GUARDAR ACOMPAÑAMIENTO
+		/////GUARDAR ACOMPAï¿½AMIENTO
 
 		$campos = "tipo,act_id,nota_min,coment_min,nota_max,coment_max,alerta,coment_alerta";
 		$valores[0] = 'proy';
@@ -99,7 +99,7 @@ $menu = new menu($menu_struct);
 	<table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td><br>
-           <form name="form1" method="post" action="<?=$PHP_SELF ?>">
+           <form name="form1" method="post" action="<?=$_SERVER['PHP_SELF'] ?>">
           <table width="89%" border="0" align="center" cellpadding="2" cellspacing="1">
             <tr>
             <td width="23%" align="center" class="no_back"><b><?= LANG_proy_name ?></b></td>
