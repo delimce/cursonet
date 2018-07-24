@@ -85,60 +85,60 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
             </tr>
             <tr>
                 <td height="19" colspan="2" bgcolor="#F1F2EE">
-
-<script type="text/javascript">
+        
+                <script type="text/javascript">
 <!--
-stm_bm(["menu79ba",900,"","blank.gif",0,"","",0,0,0,0,0,1,0,0,"","",0,0,1,1,"default","hand","",1,25],this);
+stm_bm(["menu79ba",900,"","blank.gif",0,"","",0,0,0,0,0,1,0,0,"","",0,0,1,1,"hand","hand","",1,25],this);
 stm_bp("p0",[0,4,0,0,3,4,0,7,100,"",-2,"",-2,90,0,0,"#000000","#F1F2EE","",3,0,0,"#000000"]);
-stm_ai("p0i0",[0,"Actividades","","",-1,-1,0,"","_self","","","","",0,0,0,"arrow_r.gif","arrow_r.gif",7,7,0,0,1,"#F1F2EE",0,"#AABDCA",0,"","",3,3,0,0,"#FFFFF7","#000000","#000000","#000000","7pt Verdana","7pt Verdana",0,0,"","","","",0,0,0]);
-stm_bpx("p1","p0",[1,4,0,0,3,4,0,7,100,"",-2,"",-2,90,0,0,"#000000","#F1F2EE","",3,5,1]);
-stm_aix("p1i0","p0i0",[0,"Examen","","",-1,-1,0,"","content"]);
-stm_bpx("p2","p1",[1,2,0,0,3,4,0,0]);
-stm_aix("p2i0","p0i0",[0,"Selección","","",-1,-1,0,"actividades/evaluacion/sel/index.php","content","","","","",0,0,0,"","",0,0]);
-stm_aix("p2i1","p2i0",[0,"Desarrollo","","",-1,-1,0,"actividades/evaluacion/des/index.php"]);
-stm_ep();
-stm_aix("p1i1","p2i0",[0,"Proyectos","","",-1,-1,0,"actividades/proy/index.php"]);
-stm_aix("p1i2","p2i0",[0,"Foros","","",-1,-1,0,"actividades/foro/index.php"]);
+stm_ai("p0i0",[0,"Sección","","",-1,-1,0,"","_self","","","","",0,0,0,"arrow_r.gif","arrow_r.gif",7,7,0,0,1,"#F1F2EE",0,"#AABDCA",0,"","",3,3,0,0,"#FFFFF7","#000000","#000000","#000000","7pt Verdana","7pt Verdana",0,0,"","","","",0,0,0]);
+stm_bpx("p1","p0",[1,4,0,0,3,4,0,0,100,"",-2,"",-2,90,0,0,"#000000","#F1F2EE","",3,1,1]);
+stm_aix("p1i0","p0i0",[0,"Administrar","","",-1,-1,0,"grupos/index.php","content","","Administrar secciones","","",0,0,0,"","",0,0]);
+stm_aix("p1i1","p1i0",[0,"Equipos","","",-1,-1,0,"equipos/index.php","content","","Administrar Equipos de estudiantes"]);
 stm_ep();
 stm_ai("p0i1",[6,1,"#000000","",0,0,0]);
-stm_aix("p0i2","p0i0",[0,"Gestión"]);
-stm_bpx("p3","p1",[1,4,0,0,3,4,0,7,100,"",-2,"",-2,90,0,0,"#000000","#F1F2EE","",3,1]);
-stm_aix("p3i0","p2i0",[0,"Temas","","",-1,-1,0,"contenidos/index.php","content","","Temas del curso"]);
-stm_aix("p3i1","p0i0",[0,"Grupos","","",-1,-1,0,"grupos/index.php","content","","Grupos de estudiantes"]);
-stm_bpx("p4","p2",[]);
-stm_aix("p4i0","p2i0",[0,"Equipos","","",-1,-1,0,"equipos/index.php","content","","Equipos de estudiantes para actividades"]);
-stm_ep();
-stm_aix("p3i2","p2i0",[0,"Recursos","","",-1,-1,0,"recursos/index.php","content","","Recursos del curso"]);
-stm_aix("p3i3","p2i0",[0,"Planes","","",-1,-1,0,"planes/index.php","content","","Planes evaluados"]);
-stm_aix("p3i4","p2i0",[0,"Cartelera","","",-1,-1,0,"wall/index.php","content","","Cartelera de Mensajes"]);
+stm_aix("p0i2","p0i0",[0,"Plan de Evaluación"]);
+stm_bpx("p2","p1",[]);
+stm_aix("p2i0","p1i0",[0,"Administrar Planes","","",-1,-1,0,"planes/index.php","content","","Planes evaluados"]);
 stm_ep();
 stm_aix("p0i3","p0i1",[]);
-stm_aix("p0i4","p0i0",[0,"Evaluación"]);
-stm_bpx("p5","p3",[1,4,0,0,3,4,0,0]);
-stm_aix("p5i0","p2i0",[0,"Proyectos","","",-1,-1,0,"post/proy/index.php"]);
-stm_aix("p5i1","p2i0",[0,"Foro","","",-1,-1,0,"post/foro/index.php"]);
-stm_aix("p5i2","p2i0",[0,"Pruebas","","",-1,-1,0,"post/evaluacion/index.php"]);
+stm_aix("p0i4","p0i0",[0,"Aula Virtual"]);
+stm_bpx("p3","p1",[]);
+stm_aix("p3i0","p1i0",[0,"Temas","","",-1,-1,0,"contenidos/index.php","content","","Temas del curso"],2,0);
+stm_aix("p3i1","p1i0",[0,"Recursos","","",-1,-1,0,"recursos/index.php","content","","Recursos del curso"],2,2);
+stm_aix("p3i2","p1i0",[0,"Cartelera","","",-1,-1,0,"wall/index.php","content","","Cartelera de Mensajes"],2,2);
+stm_aix("p3i3","p1i0",[0,"Mensajes","","",-1,-1,0,"mensajes/index.php","content","",""],2,2);
 stm_ep();
 stm_aix("p0i5","p0i1",[]);
-stm_aix("p0i6","p0i0",[0,"Seguimiento"]);
-stm_bpx("p6","p5",[]);
-stm_aix("p6i0","p2i0",[0,"Pruebas","","",-1,-1,0,"seguir/evaluacion/index.php"]);
-stm_aix("p6i1","p2i0",[0,"Proyectos","","",-1,-1,0,"seguir/proy/index.php"]);
-stm_aix("p6i2","p2i0",[0,"Foro","","",-1,-1,0,"seguir/foro/index.php"]);
+stm_aix("p0i6","p0i0",[0,"Actividades"]);
+stm_bpx("p4","p1",[1,4,0,0,3,4,0,7,100,"",-2,"",-2,90,0,0,"#000000","#F1F2EE","",3,5]);
+stm_aix("p4i0","p0i0",[0,"Administrar"]);
+stm_bpx("p5","p4",[1,2]);
+stm_aix("p5i0","p0i0",[0,"Examen","","",-1,-1,0,"","content"]);
+stm_bpx("p6","p4",[1,2,0,0,3,4,0,0]);
+stm_aix("p6i0","p3i3",[0,"Selección","","",-1,-1,0,"actividades/evaluacion/sel/index.php"]);
+stm_aix("p6i1","p3i3",[0,"Desarrollo","","",-1,-1,0,"actividades/evaluacion/des/index.php"]);
+stm_ep();
+stm_aix("p5i1","p3i3",[0,"Proyectos","","",-1,-1,0,"actividades/proy/index.php"]);
+stm_aix("p5i2","p3i3",[0,"Foros","","",-1,-1,0,"actividades/foro/index.php"]);
+stm_ep();
+stm_aix("p4i1","p0i0",[0,"Seguimiento"]);
+stm_bpx("p7","p1",[1,2]);
+stm_aix("p7i0","p3i3",[0,"Examen","","",-1,-1,0,"seguir/evaluacion/index.php"]);
+stm_aix("p7i1","p3i3",[0,"Proyectos","","",-1,-1,0,"seguir/proy/index.php"]);
+stm_aix("p7i2","p3i3",[0,"Foro","","",-1,-1,0,"seguir/foro/index.php"]);
+stm_ep();
+stm_aix("p4i2","p0i0",[0,"Evaluar"]);
+stm_bpx("p8","p7",[]);
+stm_aix("p8i0","p3i3",[0,"Examen","","",-1,-1,0,"post/evaluacion/index.php"]);
+stm_aix("p8i1","p3i3",[0,"Proyectos","","",-1,-1,0,"post/proy/index.php"]);
+stm_aix("p8i2","p3i3",[0,"Foro","","",-1,-1,0,"post/foro/index.php"]);
+stm_ep();
 stm_ep();
 stm_aix("p0i7","p0i1",[]);
-stm_aix("p0i8","p0i0",[0,"Aseroramiento"]);
-stm_bpx("p7","p5",[]);
-stm_aix("p7i0","p2i0",[0,"Pruebas","","",-1,-1,0,"acomp/evaluacion/index.php"]);
-stm_aix("p7i1","p2i0",[0,"Foro","","",-1,-1,0,"acomp/foro/index.php"]);
-stm_aix("p7i2","p2i0",[0,"Proyectos","","",-1,-1,0,"acomp/proy/index.php"]);
-stm_aix("p7i3","p2i0",[0,"Mensajes personalizados","","",-1,-1,0,"mensajes/index.php"]);
-stm_ep();
-stm_aix("p0i9","p0i1",[]);
-stm_aix("p0i10","p0i0",[0,"Ayuda"]);
-stm_bpx("p8","p5",[]);
-stm_aix("p8i0","p2i0",[0,"Temas de ayuda","","",-1,-1,0,"ayuda/index.php"]);
-stm_aix("p8i1","p2i0",[0,"A cerca de","","",-1,-1,0,"ayuda/about.php"]);
+stm_aix("p0i8","p0i0",[0,"Ayuda"]);
+stm_bpx("p9","p1",[]);
+stm_aix("p9i0","p3i3",[0,"Temas de ayuda","","",-1,-1,0,"ayuda/index.php"]);
+stm_aix("p9i1","p3i3",[0,"A cerca de","","",-1,-1,0,"ayuda/about.php"]);
 stm_ep();
 stm_ep();
 stm_em();
@@ -146,15 +146,12 @@ stm_em();
 </script>
 
 
-
-
-
                 </td>
                 <td colspan="2" align="right" valign="top" bgcolor="#F1F2EE"><img src="../images/backend/edunet_r4_c3.gif" width="192" height="19"></td>
                 <td><img src="../images/backend/spacer.gif" width="1" height="19" border="0" alt=""></td>
             </tr>
             <tr>
-                <td height="16" colspan="4" align="right" bgcolor="#FFFFFF"><img src="../images/backend/edunet_r5_c1.gif" width="800" height="16"></td>
+                <td height="16" colspan="4" align="right" bgcolor="#FFFFFF"><img src="../images/backend/edunet_r5_c1.gif" width="100%" height="16"></td>
                 <td><img src="../images/backend/spacer.gif" width="1" height="16" border="0" alt=""></td>
             </tr>
             <tr>
