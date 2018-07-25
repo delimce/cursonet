@@ -34,6 +34,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
     $crear->javaviso(LANG_cambios, "index.php");
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">

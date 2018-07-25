@@ -33,6 +33,7 @@ FROM
 WHERE
   (a.est_id = e.id)  and a.proy_id = '{$_SESSION['PRO_ID']}' order by apellido, nombre");
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 
@@ -50,7 +51,6 @@ WHERE
                 }
             }
         </script>
-
 
         <link rel="stylesheet" type="text/css"
               href="../../../css/style_back.css">

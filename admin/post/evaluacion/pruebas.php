@@ -32,6 +32,7 @@ FROM
 WHERE
   (a.est_id = e.id)  and a.eval_id = {$_SESSION['EVAL_ID']} order by e.apellido, e.nombre");
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

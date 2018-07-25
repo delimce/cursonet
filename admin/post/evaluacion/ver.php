@@ -40,6 +40,7 @@ $opciones = $tool->estructura_db("select
 
 
 ?>
+    <!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8">

@@ -11,6 +11,7 @@ $file = new File2("../../config/version.info");
 $version = $file->readLastLine();
 
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
         <script language="JavaScript" type="text/javascript" src="../../js/utils.js"></script>

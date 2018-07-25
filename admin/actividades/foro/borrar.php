@@ -31,6 +31,7 @@ if (isset($_GET['itemID'])) {
     tools::javaviso(LANG_drop_msg, "index.php");
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../css/style_back.css">

@@ -36,6 +36,7 @@ $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
 $query = "select id,nombre,descripcion,ifnull((select concat(nombre,' ',apellido) from tbl_admin where id = prof_id),'" . LANG_content_autor_unknow . "') as Resp, (select count(*) from tbl_grupo_estudiante where grupo_id = p.id and curso_id = {$_SESSION['CURSOID']}) as alumnos from tbl_grupo p where p.curso_id = {$_SESSION['CURSOID']}";
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

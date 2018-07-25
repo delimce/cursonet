@@ -35,6 +35,7 @@ $query = "select id,nombre,ifnull((select nombre from tbl_grupo where id = p.gru
   (select count(*) from tbl_proyecto_recurso where proy_id = p.id and tipo = 0 ) as archivos,
   (select count(*) from tbl_proyecto_recurso where proy_id = p.id and tipo = 1 ) as enlaces from tbl_proyecto p where p.curso_id = {$_SESSION['CURSOID']} ";
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">

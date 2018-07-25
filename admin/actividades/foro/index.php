@@ -37,6 +37,7 @@ $grid->autoconexion();
 $query = "select id,titulo,IFNULL((select nombre from tbl_grupo where id = p.grupo_id),'" . LANG_all . "') as grupo,(select titulo from tbl_contenido where id = p.contenido_id) as tema,fecha_post as Inicio,fecha_fin as Vence
    from tbl_foro p where p.curso_id = {$_SESSION['CURSOID']} ";
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
     <script src="../../../js/jquery/jquery-1.7.2.min.js"></script>

@@ -31,6 +31,7 @@ $tool->query("SELECT DISTINCT
     WHERE
       p.plan_id = {$_REQUEST['id']} order by p.titulo");
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

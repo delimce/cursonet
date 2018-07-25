@@ -34,6 +34,7 @@ $grid->autoconexion();
 $query = "select id,titulo,IFNULL((select nombre from tbl_grupo where id = p.grupo_id),'" . LANG_all . "') as grupo, en_base as total from tbl_plan_evaluador p
             where grupo_id in (select id from tbl_grupo where curso_id = {$_SESSION['CURSOID']}) ";
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

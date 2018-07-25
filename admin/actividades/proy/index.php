@@ -35,6 +35,7 @@ $grid->autoconexion();
 $query = "select id,nombre,IFNULL((select nombre from tbl_grupo where id = p.grupo),'" . LANG_all . "') as seccion,fecha_entrega as entrega, concat(format(p.nota,1),'%') as porc
    from tbl_proyecto p where p.curso_id = {$_SESSION['CURSOID']} ";
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">

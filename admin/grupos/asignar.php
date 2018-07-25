@@ -40,6 +40,7 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
     $asig->javaviso(LANG_cambios, "index.php");
 }
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

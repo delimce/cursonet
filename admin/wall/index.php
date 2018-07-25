@@ -37,6 +37,7 @@ $query = "select id,fecha_c as fecha,IFNULL((select nombre from tbl_grupo where 
   SUBSTRING(mensaje,1,100) as mensaje
    from tbl_cartelera p where p.curso_id = {$_SESSION['CURSOID']} ";
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

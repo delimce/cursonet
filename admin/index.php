@@ -27,6 +27,7 @@ $version = $file1->readLastLine();
  include ($lenguaje1);
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">

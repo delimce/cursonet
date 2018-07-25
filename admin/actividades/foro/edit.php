@@ -35,6 +35,7 @@ if (isset($_POST['nombre'])) {
     $datos = $crear->simple_db("select id, titulo, grupo_id, equipo_id, contenido_id, fecha_post, fecha_fin, nota, resumen, content from tbl_foro where id = '{$_GET['ItemID']}'");
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">

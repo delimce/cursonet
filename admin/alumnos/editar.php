@@ -116,6 +116,7 @@ if (isset($_POST['login12'])) {
 
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

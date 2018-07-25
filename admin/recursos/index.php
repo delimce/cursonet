@@ -41,6 +41,7 @@ $query = "select id,dir as archivo,size as peso,fecha,download as descargas,
  $grid->query($query); //////se ejecuta el query  
    
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

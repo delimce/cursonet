@@ -31,6 +31,7 @@ $menu = new menu($menu_struct);
 
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../../../../css/style_back.css">
@@ -109,7 +110,7 @@ $menu = new menu($menu_struct);
 	      <script type="text/javascript">
 
 			/***********************************************
-			* Local Time script- © Dynamic Drive (http://www.dynamicdrive.com)
+			* Local Time script- ï¿½ Dynamic Drive (http://www.dynamicdrive.com)
 			* This notice MUST stay intact for legal use
 			* Visit http://www.dynamicdrive.com/ for this script and 100s more.
 			***********************************************/

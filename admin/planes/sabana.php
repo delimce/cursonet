@@ -45,6 +45,7 @@ $menu = new menu($menu_struct);
 		  $APRO=0; $APLA=0;
 
 ?>
+<!DOCTYPE html>
 <html>
 <head> <meta charset="utf-8">
 <title><?php echo LANG_planes_evalsheet.' '.$planinfo['titulo'] ?></title>

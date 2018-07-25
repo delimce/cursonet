@@ -36,6 +36,7 @@ $_SESSION['tema_id'] = ''; /////tema
 
 
 ?>
+<!DOCTYPE html>
 <html>
 <head> <meta charset="utf-8">
 

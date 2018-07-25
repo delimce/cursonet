@@ -12,6 +12,7 @@ $menu = new menu($menu_struct);
 $crear = new tools("db");
 $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_n . "," . LANG_msg_priority_h);
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../css/style_back.css">

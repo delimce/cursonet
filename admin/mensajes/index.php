@@ -46,6 +46,7 @@ $query = "select id,if(leido=0,concat('<b>',subject,'</b>'),subject) as titulo,
 
 $grid->query($query); //////se ejecuta el query
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

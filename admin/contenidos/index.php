@@ -42,6 +42,7 @@ $query = "select c.id,c.titulo,
 
 $grid->query($query); //////se ejecuta el query
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

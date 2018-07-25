@@ -82,6 +82,7 @@ if (isset($_REQUEST['nombre'])) {
     $grid->query($query); //////se ejecuta el query
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

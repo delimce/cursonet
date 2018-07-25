@@ -53,6 +53,7 @@ include("security.php"); ///seguridad para el admin
  $datos = $modo->simple_db("select  admin_email,titulo,titulo_admin,titulo_ins, SUBSTRING_INDEX(lenguaje, '.',1) as lenguaje, formato_fecha,envio_email,signature,bienvenido_est,fin_inscripcion,uni_nombre,uni_telefono,uni_fax,uni_website,uni_dir,timezone,dif_hora from tbl_setup");
 
 ?>
+<!DOCTYPE html>
 <html>
 <head> <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../css/style_back.css">

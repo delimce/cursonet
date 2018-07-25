@@ -37,6 +37,7 @@ $query = "select id,dir as enlace,fecha,descripcion  from tbl_recurso where tipo
 
 $grid->query($query); //////se ejecuta el query
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

@@ -14,6 +14,7 @@ $menu = new menu($menu_struct);
  $datos = $pru->array_query2($query);
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">

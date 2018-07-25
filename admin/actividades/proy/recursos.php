@@ -33,6 +33,7 @@ $grid->autoconexion();
 $query = "select c.id,nombre,IFNULL((select nombre from tbl_grupo where id = c.grupo),'" . LANG_all . "') as seccion,(select count(*) from tbl_proyecto_recurso where proy_id = c.id and tipo = 0 ) as archivos,
   (select count(*) from tbl_proyecto_recurso where proy_id = c.id and tipo = 1 ) as enlaces from tbl_proyecto c where c.curso_id = {$_SESSION['CURSOID']} ";
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">

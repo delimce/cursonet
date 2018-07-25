@@ -33,6 +33,7 @@ l.id DESC limit $top";
 
 $db->query($query);
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">

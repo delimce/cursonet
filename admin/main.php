@@ -25,6 +25,7 @@ $data = $datos->simple_db("select c.id,c.nombre,c.alias,date_format(fecha_creado
 
 $_SESSION['CURSOALIAS'] = $data['alias'];
 ?>
+    <!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8">
@@ -56,10 +57,10 @@ $_SESSION['CURSOALIAS'] = $data['alias'];
             <div class="style1"><?= LANG_curso_actual ?>&nbsp;<span class="style3"><?php echo $data['nombre'] ?></span>
             </div>
             <div class="style1"><?= LANG_content_create ?>:&nbsp;<span
-                    class="style3"><?php echo $data['fechac'] ?></span>
+                        class="style3"><?php echo $data['fechac'] ?></span>
             </div>
             <div class="style1"><?= LANG_content_create_by ?>:&nbsp;<span
-                    class="style3"><?php echo $data['creador'] ?></span></div>
+                        class="style3"><?php echo $data['creador'] ?></span></div>
             <div class="style1"><?= LANG_curso_long ?>:&nbsp;<span class="style3"><?php echo $data['duracion'] ?></span>
             </div>
             <br>
@@ -90,7 +91,7 @@ $_SESSION['CURSOALIAS'] = $data['alias'];
                 <table width="100%" border="0" cellspacing="2" cellpadding="2">
                     <tr>
                         <td width="98%"
-                            class="style3"><?php echo $mensajes ?> <? echo ($mensajes > 1) ? LANG_msgs_unread : LANG_msg_unread ?></td>
+                            class="style3"><?php echo $mensajes ?><? echo ($mensajes > 1) ? LANG_msgs_unread : LANG_msg_unread ?></td>
                         <td width="2%"><img src="../images/backend/mens2.gif" width="32" height="32"></td>
                     </tr>
                     <tr>

@@ -62,6 +62,7 @@ if (isset($_POST['id'])) {
     $tool->query($query);
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

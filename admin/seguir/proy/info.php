@@ -26,6 +26,7 @@ $query = " SELECT concat(e.apellido,' ',e.nombre,' - ',id_number) as nombre2,
 $pru->query($query);
 ?>
 
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">

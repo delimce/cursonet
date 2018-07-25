@@ -35,6 +35,7 @@ $query = "select id, concat(nombre,' ',apellido) as nombre, user as usuario, ema
    if(es_admin=1,'" . LANG_yes . "','" . LANG_no . "') as admin
    from tbl_admin where id != {$_SESSION['USERID']} ";
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 

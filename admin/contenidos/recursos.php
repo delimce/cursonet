@@ -34,6 +34,7 @@ $query = "select c.id,titulo,ifnull((select concat(nombre,' ',apellido) from tbl
   (select count(*) from tbl_contenido_recurso where contenido_id = c.id and tipo = 1 ) as enlaces,
   (select count(*) from tbl_contenido_recurso where contenido_id = c.id and tipo = 2 ) as Videos from tbl_contenido c where c.curso_id = {$_SESSION['CURSOID']} ";
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">

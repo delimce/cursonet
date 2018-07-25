@@ -35,6 +35,7 @@ if ($_POST['nombre']) {
 }
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

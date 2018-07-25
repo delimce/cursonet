@@ -37,6 +37,7 @@ if (isset($_POST['nombre'])) {
     $crear->javaviso(LANG_foro_created, "index.php");
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">

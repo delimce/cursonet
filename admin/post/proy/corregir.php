@@ -106,6 +106,7 @@ if (isset($_POST['nota'])) {
     $equipos = $prueba->estructura_db($selectEquipos);
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head> <meta charset="utf-8">
 
