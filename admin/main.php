@@ -48,7 +48,7 @@ $_SESSION['CURSOALIAS'] = $data['alias'];
 
     <div style="background-image:url('../images/backend/main.jpg');
              background-repeat: no-repeat; 
-             background-position: right, bottom;  height: 460; width: 100%">
+             background-position: right, bottom;  min-height: 460px; width: 100%">
 
 
         <!--           informacion del curso -->
