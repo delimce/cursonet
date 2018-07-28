@@ -3,62 +3,38 @@ $profile = 'admin'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
 include("../../class/clases.php");
 
-	$datos = new formulario('db');
-	
-		$id = $datos->getvar("id");
-		$dir = $datos->simple_db("select dir from tbl_recurso where id = '$id' ");
-	
-	$datos->cerrar();
-	
+$datos = new formulario('db');
 
-$filename = "../..$ADMINPATH/archivos/".$dir;
+$id = $datos->getvar("id");
+$fileProps = $datos->simple_db("select dir,mime,size from tbl_recurso where id = '$id' ");
 
-// required for IE, otherwise Content-disposition is ignored
-if(ini_get('zlib.output_compression'))
-ini_set('zlib.output_compression', 'Off');
+$datos->cerrar();
+$url = 'http://zserver/cursonet2/api/' . 'admin/file/' . $id;
 
-// addition by Jorg Weske
-$file_extension = strtolower(substr(strrchr($filename,"."),1));
+$curl = curl_init();
+// Set some options - we are passing in a useragent too here
+curl_setopt_array($curl, array(
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_URL => $url,
+    CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+));
+// Send the request & save response to $resp
+$resp = curl_exec($curl);
+// Close request to clear up some resources
+curl_close($curl);
 
-if( $filename == "" )
-{
-echo "<html><body>ERROR: el archivo no esta especificado</body></html>";
+
+header('Content-Description: File Transfer');
+header("Content-Type: {$fileProps['mime']}");
+header("Content-Disposition: attachment; filename=" . basename($fileProps['dir']));
+header('Content-Transfer-Encoding: binary');
+header('Expires: 0');
+header('Cache-Control: must-revalidate');
+header('Pragma: public');
+header('Content-Length: ' . strlen($resp));
+ob_clean();
+flush();
+echo $resp;
 exit;
-} elseif ( ! file_exists( $filename ) )
-{
-echo "<html><body>ERROR: El archivo que intenta abrir no existe en el servidor.</body></html>";
-exit;
-};
-switch( $file_extension )
-{
-case "pdf": $ctype="application/pdf"; break;
-case "msi": $ctype="application/octet-stream"; break; /// i am already using this but file is not downloading properly.
-case "exe": $ctype="application/octet-stream"; break;
-case "zip": $ctype="application/zip"; break;
-case "doc": $ctype="application/msword"; break;
-case "docx": $ctype="application/msword"; break;
-case "xls": $ctype="application/vnd.ms-excel"; break;
-case "xlsx": $ctype="application/vnd.ms-excel"; break;
-case "ppt": $ctype="application/vnd.ms-powerpoint"; break;
-case "pptx": $ctype="application/vnd.ms-powerpoint"; break;
-case "gif": $ctype="image/gif"; break;
-case "png": $ctype="image/png"; break;
-case "jpeg":
-case "jpg": $ctype="image/jpg"; break;
-default: $ctype="application/force-download";
-}
-header("Pragma: public"); // required
-header("Expires: 0");
-header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-header("Cache-Control: private",false); // required for certain browsers
-header("Content-Type: $ctype");
-header("Content-Disposition: attachment; filename=".basename($filename).";" );
-header("Content-Transfer-Encoding: binary");
-header("Content-Length: ".filesize($filename));
-readfile("$filename");
-
-exit();
-
-
 
 ?>
