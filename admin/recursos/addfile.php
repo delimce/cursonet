@@ -79,7 +79,7 @@ $menu = new menu($menu_struct);
         form_data.append("file", file_data)              // Appending parameter named file with properties of file_field to form_data
         form_data.append("persona", $("#persona").val())
         form_data.append("descripcion", $("#descripcion").val())
-        var url = 'http://zserver/cursonet2/api/admin/class/file';
+        var url = '<?= api_url ?>class/file';
         $.ajax({
             url: url,
             type: 'post',
@@ -88,7 +88,7 @@ $menu = new menu($menu_struct);
             contentType : false,
             processData : false,
             success: function (data) {
-                alert('<?=LANG_cambios ?>');
+                alert('<?= LANG_cambios ?>');
                 location.replace('index.php');
             },
             error: function (error) {

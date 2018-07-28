@@ -9,7 +9,7 @@ $id = $datos->getvar("id");
 $fileProps = $datos->simple_db("select dir,mime,size from tbl_recurso where id = '$id' ");
 
 $datos->cerrar();
-$url = 'http://zserver/cursonet2/api/' . 'admin/file/' . $id;
+$url = api_url . 'file/' . $id;
 
 $curl = curl_init();
 // Set some options - we are passing in a useragent too here
