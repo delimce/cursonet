@@ -2,27 +2,27 @@
 $profile = 'admin'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
-include ("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
+include("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
 
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
 
-  $grabar = new tools("db");
-  
-   if(isset($_GET['itemID'])){
-   
-   $file = $grabar->array_query("select dir from tbl_recurso where id = '{$_GET['itemID']}'");
-    
-   $grabar->query("delete from tbl_recurso where id = '{$_GET['itemID']}'");
-   $path = "../../".$ADMINPATH.'archivos/'.$file[0];
-   @unlink($path);
-   $grabar->javaviso(LANG_content_delfiles,"index.php");
-  
-     
-   
-  }
-  
-  
+$grabar = new tools();
+
+if (isset($_GET['itemID'])) {
+
+  $url = api_url . 'file/delete/' . $_GET['itemID'];
+
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+  $result = curl_exec($ch);
+  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+
+  $grabar->javaviso(LANG_content_delfiles, "index.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,9 +48,5 @@ $menu = new menu($menu_struct);
     </table>	</td>
   </tr>
 </table>
-<?php 
 
- $grabar->cerrar(); 
-
-?>
 
