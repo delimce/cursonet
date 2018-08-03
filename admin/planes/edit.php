@@ -19,7 +19,7 @@ $menu = new menu($menu_struct);
 						$valores[0] = $_POST['nombre'];
 				  		$valores[1] = $_POST['grupo'];
 				  		$valores[2] = $_POST['nota'];
-						$valores[3] = $_POST['redondeo'];
+						$valores[3] = intval($_POST['redondeo']);
 				
 					$crear->update("tbl_plan_evaluador",$campos,$valores,"id = '{$_POST['id']}'",true);
 					 

@@ -17,7 +17,7 @@ $menu = new menu($menu_struct);
 				  $valores[0] = $_POST['nombre'];
 				  $valores[1] = $_POST['grupo'];
 				  $valores[2] = $_POST['nota'];
-				  $valores[3] = $_POST['redondeo'];
+				  $valores[3] = intval($_POST['redondeo']);
 
 				  $crear->insertar2("tbl_plan_evaluador","titulo,grupo_id,en_base,redondeo",$valores);
 				  $id = $crear->ultimoID;
