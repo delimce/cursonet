@@ -23,22 +23,20 @@ include("security.php"); ///seguridad para el admin
 		
 		 
 		 }else{ ////inserta el estudiante
-		 
-		 
-		$valores2[0] = '';
-		$valores2[1] = $_POST['nombre'];
-		$valores2[2] = $_POST['apellido'];
-		$valores2[3] = trim($_POST['login12']);
-		$valores2[4] = md5($_POST['pass1']);
-		$valores2[5] = $_POST['admin'];
-		$valores2[6] = $_POST['email'];
-		$valores2[7] = $_POST['telefono'];
-		$valores2[8] = $_POST['fax'];
-		$valores2[9] = date("Y-m-d H:i:s");
-		if(count($_POST['curso'])>0)$valores2[10] = implode(",",$_POST['curso']); else $valores2[10] = 0;
-		$valores2[11] = $_POST['sintesis'];
+
+		$valores2[0] = $_POST['nombre'];
+		$valores2[1] = $_POST['apellido'];
+		$valores2[2] = trim($_POST['login12']);
+		$valores2[3] = md5($_POST['pass1']);
+		$valores2[4] = ($_POST['admin']) ?? 0;
+		$valores2[5] = $_POST['email'];
+		$valores2[6] = $_POST['telefono'];
+		$valores2[7] = $_POST['fax'];
+		$valores2[8] = date("Y-m-d H:i:s");
+		if(count($_POST['curso'])>0)$valores2[9] = implode(",",$_POST['curso']); else $valores2[9] = 0;
+		$valores2[10] = @$_POST['sintesis'];
 		
-		$crear->insertar2("tbl_admin","id, nombre, apellido, user, pass, es_admin, email, telefono, fax, fecha,cursos,sintesis",$valores2); 
+		$crear->insertar2("tbl_admin","nombre, apellido, user, pass, es_admin, email, telefono, fax, fecha,cursos,sintesis",$valores2);
 		$crear->javaviso(LANG_cambios,"index.php");
 				
 		 
@@ -173,27 +171,27 @@ include("security.php"); ///seguridad para el admin
 </tr>
   <tr>
   <td colspan="2" class="style3"><?php echo LANG_name ?></td>
-  <td><input name="nombre" type="text" id="nombre" value="<?=$_POST['nombre']?>"></td>
+  <td><input name="nombre" type="text" id="nombre"></td>
   <td>&nbsp;</td>
   <td colspan="2" class="style3"><?php echo LANG_lastname ?></td>
-  <td><input name="apellido" type="text" id="apellido" value="<?=$_POST['apellido']?>"></td>
+  <td><input name="apellido" type="text" id="apellido"></td>
   </tr>
   <tr>
   <td colspan="2" class="style3"><strong>
     <?=LANG_email ?>
   </strong></td>
-  <td width="29%"><input name="email" type="text" id="email" value="<?=$_POST['email']?>" size="25"></td>
+  <td width="29%"><input name="email" type="text" id="email" size="25"></td>
   <td width="4%">&nbsp;</td>
   <td colspan="2" class="style3"><strong>
     <?=LANG_phone ?>
   </strong></td>
-  <td width="30%"><input name="telefono" type="text" id="telefono" value="<?=$_POST['telefono']?>"></td>
+  <td width="30%"><input name="telefono" type="text" id="telefono"></td>
   </tr>
   <tr>
   <td colspan="2" class="style3"><strong>
-    <?=Fax ?>
+    Fax
   </strong></td>
-  <td><input name="fax" type="text" id="fax" value="<?=$_POST['fax']?>"></td>
+  <td><input name="fax" type="text" id="fax"></td>
   <td colspan="4">&nbsp;</td>
   </tr>
   <tr>
@@ -202,7 +200,10 @@ include("security.php"); ///seguridad para el admin
     </strong></td>
     </tr>
   <tr>
-    <td colspan="7" class="style3"><textarea name="sintesis" cols="80" rows="5" class="style1" id="sintesis"><?php echo $_POST['sintesis']; ?></textarea></td>
+    <td colspan="7" class="style3">
+        <textarea name="sintesis" cols="80" rows="5" class="style1" id="sintesis">
+        </textarea>
+    </td>
     </tr>
   <tr>
     <td colspan="7" class="table_bk"><strong><?php echo LANG_loginfo ?></strong></td>
@@ -212,7 +213,7 @@ include("security.php"); ///seguridad para el admin
       <?=LANG_login ?>
     </strong></td>
     <td><span class="style3"><strong>
-      <input name="login12" type="text" id="login12" value="<?=$_POST['login12']?>">
+      <input name="login12" type="text" id="login12">
     </strong></span></td>
     <td>&nbsp;</td>
     <td colspan="3" valign="middle" class="small"><?=LANG_be_administrator?></td>

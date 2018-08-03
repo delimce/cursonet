@@ -13,7 +13,7 @@ include("security.php"); ///seguridad para el admin
 
 
     if(isset($_REQUEST['ItemID'])){
-	
+
 	 $query = "select nombre,apellido,email,telefono,fax,user,es_admin,cursos,sintesis from tbl_admin where id = '{$_REQUEST['ItemID']}'";
 	 $data = $crear->array_query2($query);
 	 $cursos2 = @explode(',',$data[7]);
@@ -22,34 +22,34 @@ include("security.php"); ///seguridad para el admin
 
 
 
- if(isset($_POST['login12'])){ 
-		
+ if(isset($_POST['login12'])){
+
 		$campos = explode(",","nombre, apellido, user, es_admin, email, telefono, fax, fecha,cursos,sintesis");
-		 
+
 		$valores2[0] = $_POST['nombre'];
 		$valores2[1] = $_POST['apellido'];
 		$valores2[2] = trim($_POST['login12']);
-		$valores2[3] = $_POST['admin'];
+		$valores2[3] = ($_POST['admin']) ?? 0;
 		$valores2[4] = $_POST['email'];
 		$valores2[5] = $_POST['telefono'];
 		$valores2[6] = $_POST['fax'];
 		$valores2[7] = date("Y-m-d H:i:s");
-		if(count($_POST['curso'])>0)$valores2[8] = implode(",",$_POST['curso']); else $valores2[8] = 0;	
+		if(count($_POST['curso'])>0)$valores2[8] = implode(",",$_POST['curso']); else $valores2[8] = 0;
 		$valores2[9] = $_POST['sintesis'];
-		
-		$crear->update("tbl_admin",$campos,$valores2,"id = '{$_POST['id']}'"); 
-		
+
+		$crear->update("tbl_admin",$campos,$valores2,"id = '{$_POST['id']}'");
+
 		 if($_POST['boton']==1){
-	
+
 	        $npass = md5($_POST['pass1']);
 	        $crear->query("update tbl_admin set pass = '$npass' where id = '{$_POST['id']}'");
-		 
+
 		 }
-		
-		
+
+
 		$crear->javaviso(LANG_cambios,"index.php");
-				
- 
+
+
  }
 
 
@@ -62,123 +62,123 @@ include("security.php"); ///seguridad para el admin
 
  <script language="JavaScript" type="text/javascript">
 	function cambio(boton) {
-	
+
 	   if(boton.checked == true)  {
-	
+
 			  document.form1.pass1.disabled = false;
 			  document.form1.pass1.value = '';
 			  document.form1.pass12.disabled = false;
 			  document.form1.pass12.value = '';
-					 
-	
+
+
 	   }else{
-	
+
 			 document.form1.pass1.disabled = true;
 			 document.form1.pass12.disabled = true;
-	
+
 	   }
-	
+
 	 }
  </script>
- 
- 
+
+
 	  <script language="JavaScript" type="text/javascript">
 		  function validar(){
-		  
-		  
+
+
 		   var login2 = document.form1.login12.value;
 		   var i;
-		  			 
+
 			 if (document.form1.nombre.value == ''){
 			   alert("<?=LANG_VAL_name?>");
 			   document.form1.nombre.focus();
 			   return (false);
 			 }
-			 
+
 			  if (document.form1.apellido.value == ''){
 			   alert("<?=LANG_VAL_lastname?>");
 			   document.form1.apellido.focus();
 			   return (false);
 			 }
-			  
-			 
+
+
 			 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.form1.email.value)==false){
 			  alert("<?=LANG_VAL_email?>");
 			  document.form1.email.focus();
 			  return (false);
 			 }
-			 
-			 
+
+
 			  if (login2 == '' || login2.indexOf(" ")>=0){
 			   alert("<?=LANG_VAL_login?>");
 			   document.form1.login12.focus();
 			   return (false);
 			 }
-			 
-			 			 
-		   if(document.form1.boton.checked==true){ 
-						 
+
+
+		   if(document.form1.boton.checked==true){
+
 				if (document.form1.pass1.value.length < 5){
 				   alert("<?=LANG_VAL_pass?>");
 				   document.form1.pass1.focus();
 				   return (false);
 				 }
-				 
-				 
+
+
 				 if (document.form1.pass1.value != document.form1.pass12.value){
 				   alert("<?=LANG_VAL_repass?>");
 				   document.form1.pass12.focus();
 				   return (false);
 				 }
-				 
-				 
+
+
 			}
-			
-			
-			
-			if(document.form1.anterior.value!=document.form1.login12.value){ 
-			
+
+
+
+			if(document.form1.anterior.value!=document.form1.login12.value){
+
 				////////ajax
 						oXML = AJAXCrearObjeto();
 						oXML.open('POST', 'validalogin.php');
-						oXML.setRequestHeader('Content-Type','application/x-www-form-urlencoded');					
+						oXML.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 						oXML.onreadystatechange = function(){
 								if (oXML.readyState == 4 && oXML.status == 200) {
-								
+
 									if(oXML.responseText=="1"){
-									
+
 										alert('El login ya se encuentra registrado');
 										document.form1.login12.focus();
 										return false;
-																	
+
 									}else{
-									
+
 										document.form1.submit();
-									
+
 									}
-									
-									vaciar(oXML); ////eliminando objeto ajax	
-										
+
+									vaciar(oXML); ////eliminando objeto ajax
+
 								}
-								
-								
+
+
 						}
-						
-						oXML.send('nombre='+login2); 
+
+						oXML.send('nombre='+login2);
 				 /////////////
 			}else{
-		  
+
 		  		document.form1.submit();
-			
-		    } 
-			 
-					 
-			 			 
+
+		    }
+
+
+
 			   return (true);
 		   }
 		</script>
 
-	
+
 </head>
 
 <body>
@@ -191,7 +191,7 @@ include("security.php"); ///seguridad para el admin
   </tr>
   <tr>
     <td>
-	
+
 	<table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td><form name="form1" method="post" action="editar.php">
@@ -219,7 +219,7 @@ include("security.php"); ///seguridad para el admin
   </tr>
   <tr>
   <td colspan="2" class="style3"><strong>
-    <?=Fax ?>
+    Fax
   </strong></td>
   <td><input name="fax" type="text" id="fax" value="<?=$data[4]?>"></td>
   <td>&nbsp;</td>
@@ -286,18 +286,18 @@ include("security.php"); ///seguridad para el admin
     <td colspan="2" class="style3"><input name="id" type="hidden" value="<?=$_REQUEST['ItemID']?>"></td>
     <td>&nbsp;</td>
   </tr>
-  
-  
+
+
    <tr>
     <td colspan="8" class="table_bk"><strong>
       <?= LANG_ADMIN_cursos ?>
     </strong></td>
     </tr>
-	
-	<?php 
-	
+
+	<?php
+
 	for($j=0;$j<count($cursos);$j++){
-	
+
 	?>
   <tr>
     <td width="6%" align="center" valign="top" class="style3"><input name="curso[]" type="checkbox" value="<?=$cursos[$j]['id']?>" <?php if(@in_array($cursos[$j]['id'],$cursos2)) echo 'checked';  ?>></td>
@@ -305,14 +305,14 @@ include("security.php"); ///seguridad para el admin
       <span class="style3"><?=$cursos[$j]['nombre']?>
       </span> <span class="small">(<?=$cursos[$j]['alias']?>)</span>    </td>
     </tr>
-  
-  <?php 
-  
+
+  <?php
+
   }
-  
+
   ?>
-  
-  
+
+
   <tr>
     <td colspan="8" class="style3">&nbsp;</td>
     </tr>
@@ -330,7 +330,7 @@ include("security.php"); ///seguridad para el admin
 </table>
 </body>
 </html>
-<?php 
+<?php
 
  $crear->cerrar();
 
