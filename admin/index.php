@@ -30,6 +30,7 @@ $version = $file1->readLastLine();
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="../images/backend/favicon.png">
 <script language="JavaScript" type="text/javascript" src="../js/browser_detect.js"></script>
 <script language="JavaScript" type="text/javascript" src="../js/jquery/jquery-1.7.2.min.js"></script>
 <title><?php echo $datos['titulo_admin']  ?></title>

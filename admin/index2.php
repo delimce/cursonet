@@ -18,6 +18,7 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
     <head>
         <meta charset="utf-8">
         <title><?php echo $data[3]; ?></title>
+        <link rel="shortcut icon" href="../images/backend/favicon.png">
         <link rel="stylesheet" type="text/css" href="../css/style_back.css">
         <script type="text/javascript" language="JavaScript1.2" src="../js/stm31.js"></script>
         <script type="text/javascript" src="../js/iframe.js"></script>
