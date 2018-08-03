@@ -12,7 +12,7 @@
 
  date_default_timezone_set('America/Caracas');
 
- const api_url = 'http://zserver/cursonet2/api/admin/'; //ruta para consumir servicios rest
+ const api_url = 'http://www.cursonet.net/api/admin/'; //ruta para consumir servicios rest
 
  /*************************************************************************/
 
