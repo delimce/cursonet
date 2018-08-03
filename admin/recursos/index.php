@@ -34,7 +34,7 @@ $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
 
 
-$query = "select id,dir as archivo,size as peso,fecha,download as descargas,
+$query = "select id,dir as archivo,size as peso,created_at as fecha,download as descargas,
    if({$_SESSION['ADMIN']}>0,'1','0') as condicion_editar, descripcion
    from tbl_recurso where tipo = 0 and add_by = 'admin'";
    

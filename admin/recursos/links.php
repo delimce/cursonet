@@ -33,7 +33,7 @@ $features = array(
 
 $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
-$query = "select id,dir as enlace,fecha,descripcion  from tbl_recurso where tipo = 1 and add_by = 'admin'";
+$query = "select id,dir as enlace,created_at as fecha,descripcion  from tbl_recurso where tipo = 1 and add_by = 'admin'";
 
 $grid->query($query); //////se ejecuta el query
 ?>
