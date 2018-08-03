@@ -16,21 +16,14 @@ if ($_POST['nombre']) {
     $valores[0] = $_POST['autor'];
     $valores[1] = $_POST['nombre'];
     $valores[2] = $_POST['content'];
-    $valores[3] = $_POST['borrador'];
+    $valores[3] = intval($_POST['borrador']);
     $valores[4] = date("Y-m-d H:i:s");
     $valores[5] = 0;
     $valores[6] = $_SESSION['CURSOID'];
 
-    $crear->query("SET AUTOCOMMIT=0"); ////iniciando la transaccion
-    $crear->query("START TRANSACTION");
-
     $crear->insertar2("tbl_contenido", "autor, titulo, contenido, borrador, fecha, leido,curso_id", $valores);
 
-
-    $crear->query("COMMIT");
-
     $crear->javaviso(LANG_cambios, "index.php");
-
 
 }
 
