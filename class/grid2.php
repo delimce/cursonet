@@ -153,7 +153,7 @@ class grid2 extends database {
 
             echo "<b>{$this->features['no_registers']}</b>";
         } else { ////SE CONSTRUYE EL GRID
-            echo '<div id="wrapper" style="width:' . $this->ancho . ';">'; ////////contenedor
+            echo '<div class="wrapper-table" style="width:' . $this->ancho . ';">'; ////////contenedor
 
             if (isset($this->features['mostrar_nresult'])) { ////MOSTRAR NUM DE REGISTROS
                 echo '<div class="' . $this->features['mostrar_nresult']['style'] . '" style="text-align:left; margin-bottom:10px; margin-left:8px;">';

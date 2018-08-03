@@ -3,7 +3,6 @@
  include("../class/clases.php");
  $nuevo = new tools('db');
 
-
 /////leyendo la version de cursonet
 $file1 = new File2("../config/version.info");
 $version = $file1->readLastLine();
@@ -94,7 +93,7 @@ $version = $file1->readLastLine();
 </head>
 <body>
 <br>
-<table width="637" height="307" border="0" align="center" cellpadding="0" cellspacing="0">
+<table class="welcome-admin" width="637" height="307" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="366" rowspan="3" valign="bottom"><img src="../images/backend/p001.jpg" width="366" height="313"></td>
     <td height="170" colspan="2" valign="bottom"><img src="../images/backend/p002.jpg" width="271" height="170"></td>

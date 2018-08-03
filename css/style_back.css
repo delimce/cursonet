@@ -289,8 +289,8 @@ SELECT {
     text-align: center;
 }
 
-#form-field #submit{
-    width: 150px;
+#form-field button{
+    min-width: 80%;
 }
 
 #form-field input{
@@ -303,6 +303,16 @@ SELECT {
     width: 58px;
     float: left;
     margin-top: 2px;
+}
+
+.welcome-admin{
+    line-height: 1px;
+    margin: auto;
+}
+
+/* grid styles */
+.wrapper-table td{
+    font-weight: normal;
 }
 
 
