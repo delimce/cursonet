@@ -181,66 +181,65 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
 
 
             </td>
-            <td class="sitebar" valign="top" align="center">
-                <table width="94%" border="0" align="center" cellpadding="0" cellspacing="2">
-                    <tr>
-                        <td width="75%" align="right">&nbsp;</td>
-                        <td width="25%" align="right">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            <a href="micuenta/index.php" target="content"><?php echo LANG_account; ?></a>
-                        </td>
-                        <td align="right"><img src="../images/backend/account.gif" width="32" height="32"></td>
-                    </tr>
+            <td class="sidebar">
+                <div>
+                    <div class="sub-menu">
+                         <span class="title">
+                            <a href="micuenta/index.php" target="content"><?= LANG_account; ?></a>
+                        </span>
+                           <img src="../images/backend/menu/profile.png">
+                    </div>
 
-                    <tr>
-                        <td align="right" valign="middle"><span class="style1"><a href="alumnos/index.php"
-                                                                                  target="content"><div
-                                            id="nestudents"><?php echo LANG_students; ?> (<span id="nest">&nbsp;</span>)</div></a></span>
-                        </td>
-                        <td align="right"><img src="../images/backend/Users.gif" width="32" height="32"></td>
-                    </tr>
+                    <div class="sub-menu">
+                         <span class="title">
+                            <a href="alumnos/index.php" target="content"><?= LANG_students; ?> (<span
+                                        id="nest">&nbsp;</span>)</a>
+                        </span>
+                        <span class="icon">
+                           <img src="../images/backend/menu/students.png">
+                        </span>
+                    </div>
 
-                    <tr>
-                        <td align="right"><a href="mensajes/index.php" target="content">
-                                <div id="nmessages" style="line-height:inherit"><?php echo LANG_messages; ?> (<span
-                                            id="nmsgs">&nbsp;</span>)
-                                </div>
-                            </a></td>
-                        <td align="right"><img src="../images/backend/mens.gif" width="32" height="32"></td>
-                    </tr>
-                    <tr>
-                        <td align="right"><a href="recursos/index.php" target="content">
-                                <div id="nrecs" style="line-height:inherit"><?php echo LANG_resources; ?> (<span
-                                            id="nrecus">&nbsp;</span>)
-                                </div>
-                            </a></td>
-                        <td align="right"><img src="../images/backend/Recs.png" width="32" height="32"></td>
-                    </tr>
-                    <tr>
-                        <td align="right" class="style1"><span class="style1"><a href="estadisticas/index.php"
-                                                                                 target="content"><?php echo LANG_estat; ?></a>
-                        </td>
-                        <td align="right"><img src="../images/backend/estad.gif" width="32" height="32"></td>
-                    </tr>
+                    <div class="sub-menu">
+                         <span class="title">
+                            <a href="mensajes/index.php" target="content"><?php echo LANG_messages; ?> (<span
+                                        id="nmsgs">&nbsp;</span>)</a>
+                        </span>
+                        <span class="icon">
+                           <img src="../images/backend/menu/messages.png">
+                        </span>
+                    </div>
 
+                    <div class="sub-menu">
+                         <span class="title">
+                            <a href="recursos/index.php" target="content"><?= LANG_resources; ?> (<span id="nrecus">&nbsp;</span>) </a>
+                        </span>
+                        <span class="icon">
+                           <img src="../images/backend/menu/resources.png">
+                        </span>
+                    </div>
 
-                    <?php
-                    if ($_SESSION['ADMIN'] == 1) {
-                        ?>
-                        <tr>
-                            <td align="right"><span class="style1"><a href="settings/index.php"
-                                                                      target="content"><?php echo LANG_ADMIN_admin; ?></a></span>
-                            </td>
-                            <td align="right"><img src="../images/backend/amini.gif" width="32" height="32"></td>
-                        </tr>
-                        <?php
-                    }
-                    ?>
+                    <div class="sub-menu">
+                         <span class="title">
+                            <a href="estadisticas/index.php" target="content"><?= LANG_estat; ?></a>
+                        </span>
+                        <span class="icon">
+                           <img src="../images/backend/menu/chart.png">
+                        </span>
+                    </div>
 
+                    <?php if ($_SESSION['ADMIN']) { ?>
+                        <div class="sub-menu">
+                         <span class="title">
+                            <a href="settings/index.php" target="content"><?= LANG_ADMIN_admin; ?></a>
+                        </span>
+                            <span class="icon">
+                           <img src="../images/backend/menu/admin.png">
+                        </span>
+                        </div>
+                    <? } ?>
+                </div>
 
-                </table>
             </td>
             <td><img src="../images/backend/spacer.gif" width="1" height="368" border="0" alt=""></td>
         </tr>

@@ -188,7 +188,7 @@ class grid2 extends database {
 
 
                 $orden45 = (@$this->features['orden'][$i]) ? @$this->features['orden'][$i] : 'string';
-                echo '<th class="' . $this->features['style_head'] . '" width= "' . $this->features['separacion'][$i] . '"  title="' . LANG_orderby . $this->campos[$i] . '"  data-sort="' . $orden45 . '">' . $this->campos[$i] . '</th>';
+                echo '<th class="' . $this->features['style_head'] . '" width= "' . @$this->features['separacion'][$i] . '"  title="' . LANG_orderby . $this->campos[$i] . '"  data-sort="' . $orden45 . '">' . $this->campos[$i] . '</th>';
 
 
                 if ($OCU == 1) {

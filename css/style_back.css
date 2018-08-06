@@ -265,10 +265,33 @@ SELECT {
     padding-right: 40px;
 }
 
-.sitebar {
+.sidebar {
     background-color: #E0E0E0;
     width: 16%;
+    text-align: right;
+    padding-top: 14px;
+    vertical-align: top;
+    padding-right: 15px;
+
 }
+
+.sidebar .sub-menu{
+    padding-top: 13px;
+    align-items:center;
+}
+
+.sidebar .sub-menu span{
+    cursor: pointer;
+    padding-right: 3px;
+}
+
+.sidebar .sub-menu img{
+    width: 20px;
+    display: inline;
+    cursor: pointer;
+    vertical-align:middle
+}
+
 
 .avatar {
     border-radius: 50%;
