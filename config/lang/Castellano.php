@@ -113,7 +113,7 @@ define("LANG_resourses","Recursos");
 define("LANG_resume","Curriculum");
 define("LANG_feedback","Encuesta");
 define("LANG_orderby","ordenar por ");
-define("LANG_account","Mis Datos");
+define("LANG_account","Mi Perfil");
 define("LANG_loginfo","Datos de Acceso");
 define("LANG_profilephoto","Mi foto de perfil");
 define("LANG_open_file","Abrir archivo");
