@@ -10,7 +10,7 @@ $menu = new menu($menu_struct);
 
 $crear = new formulario("db");
 
-if ($_POST['r2nombre']) {
+if (isset($_POST['r2nombre'])) {
     $crear->insert_data("r", "2", "tbl_equipo", $_POST);
     $id2 = $crear->ultimoID;
     $crear->redirect("asignar.php?id=" . $id2);///redireccionando a asignar los estudiantes
@@ -54,7 +54,7 @@ if ($_POST['r2nombre']) {
     <body>
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(1); ?></td>
@@ -71,7 +71,7 @@ if ($_POST['r2nombre']) {
                                         </tr>
                                         <tr>
                                             <td class="style3"><?php echo LANG_group; ?></td>
-                                            <td><? echo $crear->combo_db("r2grupo_id", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_select); ?></td>
+                                            <td><?php echo $crear->combo_db("r2grupo_id", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_select); ?></td>
                                         </tr>
                                         <tr>
                                             <td width="27%" class="style3"><?php echo LANG_team_name; ?></td>

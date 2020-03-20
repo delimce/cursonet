@@ -107,7 +107,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
 
                 if (compara_fechas('<?= date($_SESSION['DB_FORMATO']); ?>', document.form1.fecha.value) == 1) {
 
-                    alert('<? echo LANG_eva_val_fecha2 . ' ' . date($_SESSION['DB_FORMATO']); ?>');
+                    alert('<?php echo LANG_eva_val_fecha2 . ' ' . date($_SESSION['DB_FORMATO']); ?>');
                     document.form1.fecha.focus();
                     return false;
                 }
@@ -187,7 +187,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
     <body>
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(0); ?></td>
@@ -222,7 +222,7 @@ if (isset($_GET['ItemID']) && !isset($_POST['nombre'])) {
                                             <td valign="top" class="style1"><span class="style3"><?php echo LANG_proy_date_e ?></span></td>
                                             <td class="style1">
 
-                                                <input name="fecha" type="text" id="fecha" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<? echo $fecha->datetime($datos[3]); ?>" size="12">
+                                                <input name="fecha" type="text" id="fecha" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<?php echo $fecha->datetime($datos[3]); ?>" size="12">
                                                 <img src="../../../images/frontend/cal.gif" name="f_trigger_d" width="16" height="16" id="f_trigger_d" style="cursor: hand; border: 0px;" title="<?= LANG_calendar ?>">
                                                 <script type="text/javascript">
                                                     Calendar.setup({

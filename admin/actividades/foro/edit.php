@@ -163,7 +163,7 @@ if (isset($_POST['nombre'])) {
 
                 if (compara_fechas('<?= date($_SESSION['DB_FORMATO']); ?>', document.form1.inicio.value) == 1) {
 
-                    alert('<? echo LANG_eva_val_fecha2 . ' ' . date($_SESSION['DB_FORMATO']); ?>');
+                    alert('<?php echo LANG_eva_val_fecha2 . ' ' . date($_SESSION['DB_FORMATO']); ?>');
                     document.form1.inicio.focus();
 
                     return false;
@@ -174,7 +174,7 @@ if (isset($_POST['nombre'])) {
 
                 if (compara_fechas(document.form1.inicio.value, document.form1.fin.value) == 1) {
 
-                    alert('<? echo LANG_eva_val_fecha2 ?> ' + document.form1.inicio.value);
+                    alert('<?php echo LANG_eva_val_fecha2 ?> ' + document.form1.inicio.value);
                     document.form1.fin.focus();
 
                     return false;
@@ -226,7 +226,7 @@ if (isset($_POST['nombre'])) {
     <body>
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(0); ?></td>

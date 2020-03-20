@@ -141,7 +141,7 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
     <body>
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(1); ?></td>
@@ -182,7 +182,7 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
                                         </tr>
                                         <tr>
                                             <td width="23%" valign="top" class="style1"><span class="style3"><?php echo LANG_subjet ?></span></td>
-                                            <td class="style1"><input name="titulo" type="text" id="titulo" value="" size="55">      <? echo $crear->combo_array("priori", $prioridad, $prioridad, false, LANG_msg_priority_n); ?>&nbsp;</td>
+                                            <td class="style1"><input name="titulo" type="text" id="titulo" value="" size="55">      <?php echo $crear->combo_array("priori", $prioridad, $prioridad, false, LANG_msg_priority_n); ?>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2" class="style3"><textarea name="content" cols="70" rows="10" id="content"></textarea></td>

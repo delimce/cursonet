@@ -42,6 +42,7 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
 
@@ -62,9 +63,9 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
     <script src="../../js/jquery/jquery.fastLiveFilter.js"></script>
 
     <script>
-        $(function () {
+        $(function() {
             $('#search_input').fastLiveFilter('#search_list', {
-                callback: function (total) {
+                callback: function(total) {
                     $('#num_results').html(total);
                 }
             });
@@ -75,78 +76,70 @@ if (isset($_POST['select']) or isset($_POST['id'])) {
 </head>
 
 <body>
-<table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr>
-        <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
-    </tr>
-    <tr>
-        <td><?php $menu->mostrar(0); ?></td>
-    </tr>
-    <tr>
-        <td>
+    <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
+        </tr>
+        <tr>
+            <td><?php $menu->mostrar(0); ?></td>
+        </tr>
+        <tr>
+            <td>
 
-            <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;"
-                   width="100%" border="0" cellspacing="0" cellpadding="0">
+                <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
 
-                <td>
-                    <form name="form1" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
-                        <table width="100%" height="104" border="0" cellpadding="3" cellspacing="4" class="style1">
+                    <td>
+                        <form name="form1" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
+                            <table width="100%" height="104" border="0" cellpadding="3" cellspacing="4" class="style1">
 
-                            <?php
-                            /////////si no existen registros
-                            if ($asig->nreg == 0) {
-                                echo '<p style="margin-left:15;">' . LANG_group_nostudent;
-                            } else {
-                            ?>
+                                <?php
+                                /////////si no existen registros
+                                if ($asig->nreg == 0) {
+                                    echo '<p style="margin-left:15;">' . LANG_group_nostudent;
+                                } else {
+                                ?>
 
-                            <tr>
-                                <td colspan="4">
-                            </tr>
-                            <tr>
-                            <tr>
-                                <div class="style3" style="margin-left:26; margin-top: 11;"><input id="search_input"
-                                                                                                   placeholder="<?= LANG_search ?>">&nbsp;<?= LANG_total ?>
-                                    :&nbsp;<span id="num_results"></span></div>
-                                <div class="style3" style="cursor: hand; margin-left:26;"
-                                     onClick="javascript:CheckAll();"><?= LANG_select_all ?></div>
-                                <ul id="search_list" style="list-style-type: none;">
-                                    <?
-                                    while ($row = $asig->db_vector_nom($asig->result)) {
-                                        ?>
+                                    <tr>
+                                        <td colspan="4">
+                                    </tr>
+                                    <tr>
+                                    <tr>
+                                        <div class="style3" style="margin-left:26; margin-top: 11;"><input id="search_input" placeholder="<?= LANG_search ?>">&nbsp;<?= LANG_total ?>
+                                            :&nbsp;<span id="num_results"></span></div>
+                                        <div class="style3" style="cursor: hand; margin-left:26;" onClick="javascript:CheckAll();"><?= LANG_select_all ?></div>
+                                        <ul id="search_list" style="list-style-type: none;">
+                                            <?php
+                                            while ($row = $asig->db_vector_nom($asig->result)) {
+                                            ?>
 
-                                        <li>
-                                            <span width="6%" class="style1"><input name="select[]" type="checkbox"
-                                                                                   id="select[]"
-                                                                                   value="<?= $row['id'] ?>" <?php if ($_REQUEST['ItemID'] == $row['grupo']) echo 'checked="checked"'; ?>></span>
-                                            <span width="34%" class="style1"
-                                                  style="text-transform: capitalize"><?= $row['nombre']; ?></span>
-                                            <span style="font-weight: bold" width="17%"
-                                                  class="style1"><?= $row['id_number']; ?></span>
-                                        </li>
+                                                <li>
+                                                    <span width="6%" class="style1"><input name="select[]" type="checkbox" id="select[]" value="<?= $row['id'] ?>" <?php if ($_REQUEST['ItemID'] == $row['grupo']) echo 'checked="checked"'; ?>></span>
+                                                    <span width="34%" class="style1" style="text-transform: capitalize"><?= $row['nombre']; ?></span>
+                                                    <span style="font-weight: bold" width="17%" class="style1"><?= $row['id_number']; ?></span>
+                                                </li>
 
                                         <?php
-                                    }
-                                    }
-                                    ?>
-                                </ul>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><input type="button" name="Submit2" value="<?= LANG_back ?>"
-                                                       onClick="javascript:history.back();">
-                                    <?php if ($asig->nreg > 0) { ?> <input type="submit" name="Submit"
-                                                                           value="<?= LANG_save ?>"><?php } ?>
-                                    <input name="id" type="hidden" id="id" value="<?= $_REQUEST['ItemID'] ?>"></td>
-                            </tr>
-                        </table>
+                                            }
+                                        }
+                                        ?>
+                                        </ul>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"><input type="button" name="Submit2" value="<?= LANG_back ?>" onClick="javascript:history.back();">
+                                            <?php if ($asig->nreg > 0) { ?> <input type="submit" name="Submit" value="<?= LANG_save ?>"><?php } ?>
+                                            <input name="id" type="hidden" id="id" value="<?= $_REQUEST['ItemID'] ?>"></td>
+                                    </tr>
+                            </table>
 
-                    </form>
-                </td>
-                </tr>
-            </table>
-        </td>
+                        </form>
+                    </td>
+        </tr>
+    </table>
+    </td>
     </tr>
-</table>
+    </table>
 </body>
+
 </html>
 
 <?php

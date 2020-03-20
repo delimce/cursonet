@@ -1,4 +1,4 @@
-<?
+<?php
 	  
   /**************** PARAMETROS MODIFICABLES************************/
  $DIRAPP = "cursonet"; //// nombre del directorio de la aplicacion, en caso de que sea el raiz se obvia por ""
@@ -19,7 +19,6 @@
   /****************** NO ALTERE ESTE BLOQUE **************************/
     	  
   require('redirect.php');    	  
-  require_once('dbconfig.php');
 
  /******************PARA SUBIR ARCHIVOS*************************/
  $ADMINPATH = "/recursos/admin/";

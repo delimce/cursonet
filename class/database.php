@@ -59,13 +59,8 @@ class database
 
     function autoconexion()
     {
-
+        include_once __DIR__.'/../config/dbconfig.php';
         //estructura de autoconexion , variableS global de conexion a la db
-        global $HOSTNAME;
-        global $DBUSER;
-        global $DBPASS;
-        global $DATABASE;
-
         $this->conectar($HOSTNAME, $DBUSER, $DBPASS, $DATABASE);
     }
 
@@ -271,7 +266,7 @@ class database
     public function update($tabla, $campos, $vector, $where, $block = false)
     {
 
-
+        $valores = '';
         for ($i = 0; $i < count($vector); $i++) {
 
             $valor = mysqli_real_escape_string($this->dbc, $vector[$i]);  //// me aseguro de que no se inserten valores invalidos
@@ -386,6 +381,4 @@ class database
 
 }
 
-;   //fin de la super clase
-
-?>
+ //fin de la super clase

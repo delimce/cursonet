@@ -98,7 +98,7 @@ $menu = new menu($menu_struct);
 <form name="form1" method="post" action="editap.php">
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+    <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
   </tr>
   <tr>
     <td><?php $menu->mostrar(0); ?></td>
@@ -120,10 +120,10 @@ $menu = new menu($menu_struct);
 		   ?>
 
 		    <tr>
-              <td class="style3"><? echo LANG_enum; echo ' '.$i+1; ?> </td>
+              <td class="style3"><?php echo LANG_enum; echo ' '.$i+1; ?> </td>
             </tr>
             <tr>
-              <td><textarea name="<? if($datos[$i]['id']!=""){ echo $datos[$i]['id']; }else{ echo 'N'.$i;  } ?>" cols="92" rows="2" class="style1"><?=$datos[$i]['pregunta'] ?></textarea></td>
+              <td><textarea name="<?php if($datos[$i]['id']!=""){ echo $datos[$i]['id']; }else{ echo 'N'.$i;  } ?>" cols="92" rows="2" class="style1"><?=$datos[$i]['pregunta'] ?></textarea></td>
             </tr>
 
 			<?php

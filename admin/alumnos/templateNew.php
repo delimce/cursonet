@@ -18,7 +18,7 @@ $menu = new menu($menu_struct);
     </head>
     <body>
         <div id="curso_wrapper">
-            <div style="height: 26px"><?php echo $menu->nombre; ?></div>
+            <div style="height: 26px"> <span class="menu-title"><?= $menu->nombre; ?></span></div>
             <div id="curso_menu">
                 <?php $menu->mostrar(3); ?>
             </div>

@@ -11,7 +11,8 @@
  * nueva implementacion del grid para aguantar mas funciones
  * @author delimce
  */
-class grid2 extends database {
+class grid2 extends database
+{
 
     //***********************************************formato
     private $id;
@@ -23,9 +24,10 @@ class grid2 extends database {
 
     //*************************************************** propiedades
     //funciones para descanectarse o liberar recursos
-/// funcion que valida si los campos deseados son iguales a los campos por defecto
+    /// funcion que valida si los campos deseados son iguales a los campos por defecto
 
-    function validar_head($campos) {
+    function validar_head($campos)
+    {
 
         $campos2 = explode(",", $campos);
 
@@ -38,12 +40,13 @@ class grid2 extends database {
     }
 
     /// funcion para saber el total de campos consultados del query
-    function total_campos() {
+    function total_campos()
+    {
 
         return count($this->campos);
     }
 
-//********************construccion del grid   parametros
+    //********************construccion del grid   parametros
     /*
       /* ***********************   colocar los siguientes parametros para formar el grid
       /*
@@ -84,13 +87,6 @@ class grid2 extends database {
       );
       /*
       /*
-      /*
-      /*
-      /*
-      /*
-      /*
-      /*
-      /*
       /******************************************************************* */
 
     /**
@@ -99,7 +95,8 @@ class grid2 extends database {
      * @param type $ancho
      * @param type $features
      */
-    public function __construct($id, $ancho, $features) {     //constructor
+    public function __construct($id, $ancho, $features)
+    {     //constructor
         $this->id = $id;
         $this->ancho = $ancho;
         $this->features = $features;
@@ -128,7 +125,8 @@ class grid2 extends database {
 
      * **************************************************************************************** */
 
-    function cargar($query) {
+    function cargar($query)
+    {
 
 
         $this->query($query);  //llamando las funciones de la clase database heredada
@@ -214,7 +212,7 @@ class grid2 extends database {
                     if ($tmp[$ii] != '') {
 
 
-                        if ($this->features['formato'] != "html")
+                        if (isset($this->features['formato']) && $this->features['formato'] != "html")
                             $valor = strip_tags(trim(stripslashes($tmp[$ii])));
                         else
                             $valor = trim(stripslashes($tmp[$ii]));
@@ -225,14 +223,14 @@ class grid2 extends database {
                         else
                             $popup = '';
                         if (isset($this->features['conenlace']) && $this->features['conenlace']['pos'] == $ii) {
-                            
+
                             ////verificacion de parametros conenlace
-                            if(is_int($this->features['conenlace']['title'])) ///si tiene la posicion de una columna
-                                $tituloEnlace = $tmp[$this->features['conenlace']['title']];
-                            else 
-                                $tituloEnlace = $this->features['conenlace']['title'];
-                            
-                            
+                            if (isset($this->features['conenlace']['title']) && is_int($this->features['conenlace']['title'])) ///si tiene la posicion de una columna
+                                $tituloEnlace = @$tmp[$this->features['conenlace']['title']];
+                            else
+                                $tituloEnlace = @$this->features['conenlace']['title'];
+
+
                             $enlace = '<a href="' . @$this->features['conenlace']['url'] . @$this->features['conenlace']['var_parametro'] . '=' . @$tmp[$this->features['conenlace']['parametro']] . @$this->features['conenlace']['extras'] . '" target="' . @$this->features['conenlace']['target'] . '" title="' . $tituloEnlace . '"' . $popup . '">';
                             $enlace2 = '</a>';
                         } else {
@@ -240,7 +238,6 @@ class grid2 extends database {
                             $enlace2 = '';
                         }
                     } else {
-
                         $valor = "{$this->features['celda_vacia']}";
                     }
 
@@ -293,7 +290,7 @@ class grid2 extends database {
                         else
                             $popup = '';
                         echo '<a href="' . @$this->features['nuevo_vinculo1']['url'] . @$this->features['nuevo_vinculo1']['var_parametro'] . '=' . @$tmp[$this->features['nuevo_vinculo1']['parametro']] . @$this->features['nuevo_vinculo1']['extras'] . '" target="' . @$this->features['nuevo_vinculo1']['target'] . '" title="' . @$this->features['nuevo_vinculo1']['title'] . '"' . $popup . '">' . @$this->features['nuevo_vinculo1']['texto'] . '</a>';
-                    }else if (isset($this->features['nuevo_vinculo1']['condicion']) && @$tmp[$this->features['nuevo_vinculo1']['condicion']] == 0) { ///no se cumple la condicion
+                    } else if (isset($this->features['nuevo_vinculo1']['condicion']) && @$tmp[$this->features['nuevo_vinculo1']['condicion']] == 0) { ///no se cumple la condicion
                         echo $this->features['nuevo_vinculo1']['texto_condicion'];
                     }
 
@@ -306,11 +303,11 @@ class grid2 extends database {
 
 
                     if (isset($this->features['nuevo_vinculo2']['popup']))
-                        $popup = " onclick=\" return popup2(this,'" . $this->features['nuevo_vinculo2']['popup'] . "');\"";
+                        $popup = " onclick=\" return popup2(this,'" . @$this->features['nuevo_vinculo2']['popup'] . "');\"";
                     else
                         $popup = '';
                     if (isset($this->features['nuevo_vinculo2']['borrar']))
-                        $popup = " onclick=\" return borrar('" . $tmp[$this->features['nuevo_vinculo2']['parametro']] . "','" . $tmp[$this->features['nuevo_vinculo2']['borrar']] . "');\"";
+                        $popup = " onclick=\" return borrar('" . @$tmp[$this->features['nuevo_vinculo2']['parametro']] . "','" . @$tmp[$this->features['nuevo_vinculo2']['borrar']] . "');\"";
                     else
                         $popup = '';  //// para borrar un registro del grid experimental
                     echo '<a href="' . @$this->features['nuevo_vinculo2']['url'] . @$this->features['nuevo_vinculo2']['var_parametro'] . '=' . @$tmp[$this->features['nuevo_vinculo2']['parametro']] . @$this->features['nuevo_vinculo2']['extras'] . '" target="' . @$this->features['nuevo_vinculo2']['target'] . '" title="' . @$this->features['nuevo_vinculo2']['title'] . '"' . $popup . '">' . @$this->features['nuevo_vinculo2']['texto'] . '</a>';
@@ -324,14 +321,14 @@ class grid2 extends database {
 
 
                     if (isset($this->features['nuevo_vinculo3']['popup']))
-                        $popup = " onclick=\" return popup2(this,'" . $this->features['nuevo_vinculo3']['popup'] . "');\"";
+                        $popup = " onclick=\" return popup2(this,'" . @$this->features['nuevo_vinculo3']['popup'] . "');\"";
                     else
                         $popup = '';
                     if (isset($this->features['nuevo_vinculo3']['borrar']))
-                        $popup = " onclick=\" return borrar('" . $tmp[$this->features['nuevo_vinculo3']['parametro']] . "','" . $tmp[$this->features['nuevo_vinculo3']['borrar']] . "');\"";
+                        $popup = " onclick=\" return borrar('" . @$tmp[$this->features['nuevo_vinculo3']['parametro']] . "','" . @$tmp[$this->features['nuevo_vinculo3']['borrar']] . "');\"";
                     else
                         $popup = '';  //// para borrar un registro del grid experimental
-                    echo '<a href="' . @$this->features['nuevo_vinculo3']['url'] . @$this->features['nuevo_vinculo3']['var_parametro'] . '=' . @$tmp[$this->features['nuevo_vinculo3']['parametro']] . @$this->features['nuevo_vinculo3']['extras'] . '" target="' . @$this->features['nuevo_vinculo3']['target'] . '" title="' . $this->features['nuevo_vinculo3']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo3']['texto'] . '</a>';
+                    echo '<a href="' . @$this->features['nuevo_vinculo3']['url'] . @$this->features['nuevo_vinculo3']['var_parametro'] . '=' . @$tmp[$this->features['nuevo_vinculo3']['parametro']] . @$this->features['nuevo_vinculo3']['extras'] . '" target="' . @$this->features['nuevo_vinculo3']['target'] . '" title="' . $this->features['nuevo_vinculo3']['title'] . '"' . $popup . '">' . @$this->features['nuevo_vinculo3']['texto'] . '</a>';
 
 
                     echo '</td>';
@@ -341,7 +338,7 @@ class grid2 extends database {
 
                 /////////////////////////opera si se desea obtener totalizado
                 if (isset($this->features['totalizado']))
-                    $this->totalizado+= $tmp[$this->features['totalizado']];
+                    $this->totalizado += floatval($tmp[$this->features['totalizado']]);
             } ////loop de columnas
 
             echo '</tbody>';
@@ -358,7 +355,7 @@ class grid2 extends database {
         } ////mostrar data
     }
 
-////metodo cargar
+    ////metodo cargar
 }
 
 ////fin de la clase

@@ -3,7 +3,7 @@ session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../../config/setup.php"); ////////setup
 include("../../../class/clases.php"); ////////clase
-include ("../../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
+include("../../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
@@ -63,12 +63,9 @@ if (isset($_REQUEST['ItemID'])) {
     $grid->cerrar();
 
     if (!empty($_REQUEST['item'])) { ///viene desde planes
-        ?>
-        <script type="text/javascript">
-            history.go(-2);
-        </script>
-
-        <?
+        echo ' <script type="text/javascript">
+                window.history.go(-2);
+            </script>';
     } else {
         $grid->javaviso(LANG_foro_tema_ok, "index.php");
     }
@@ -76,108 +73,120 @@ if (isset($_REQUEST['ItemID'])) {
 ?>
 <!DOCTYPE html>
 <html>
-    <head> <meta charset="utf-8">
-        <script language="JavaScript" type="text/javascript">
-            function validar() {
-                var error, pos;
 
-                error = 0;
-                for (i = 0; i < document.form1.length; i++) {
-                    if (document.form1.elements[i].type == "text" && (document.form1.elements[i].value == "" || isNaN(document.form1.elements[i].value))) {
-                        error = 1;
-                        pos = (i + 1) / 2;
-                        break;
-                    }
+<head>
+    <meta charset="utf-8">
+    <script language="JavaScript" type="text/javascript">
+        function validar() {
+            var error, pos;
+
+            error = 0;
+            for (i = 0; i < document.form1.length; i++) {
+                if (document.form1.elements[i].type == "text" && (document.form1.elements[i].value == "" || isNaN(document.form1.elements[i].value))) {
+                    error = 1;
+                    pos = (i + 1) / 2;
+                    break;
                 }
+            }
 
 
-                if (error == 1) {
+            if (error == 1) {
 
-                    alert('<?= LANG_foro_nonota ?>' + pos);
-                    return false;
+                alert('<?= LANG_foro_nonota ?>' + pos);
+                return false;
 
-                } else {
+            } else {
 
-                    return true;
-
-                }
-
+                return true;
 
             }
-        </script>
 
 
-        <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
-    </head>
-
-    <body>
-
-        <form name="form1" method="post" action="foro.php" onSubmit="return validar();">
-            <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td height="26" valign="top"><?php echo $menu->nombre; ?>&nbsp;<span class="style3">
-                            <?= $_REQUEST['item'] ?>
-                        </span></td>
-                </tr>
-                <tr>
-                    <td><?php $menu->mostrar(0); ?></td>
-                </tr>
-                <tr>
-                    <td>
-
-                        <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td><br>
-
-                                    <table width="99%" height="*" align="center" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td>
-                                                <table class="table_bk" width="100%" height="100%" cellpadding="0"  cellspacing="0">
-                                                    <tr><td align="center"><table width="100%" height="100%" class="" border="0" cellspacing="1" cellpadding="2">
-                                                                <tr>  <td width="45%" align="center" class="style3"><?= LANG_name ?></td>
-                                                                    <td width="16%" align="center" class="style3"><?= LANG_ci ?></td>
-                                                                    <td width="16%" align="center" class="style3"><?= LANG_comment ?></td>
-                                                                    <td width="16%" align="center" class="style3"><?= LANG_foro_nval ?></td>
-                                                                    <td width="*" align="center" class="style3"><?= LANG_nota ?></td>
-                                                                </tr> 
-
-                                                                <?php
-                                                                $j = 0;
+        }
+    </script>
 
 
-                                                                while ($row = $grid->db_vector_nom($grid->result)) {
-                                                                    ?>
-                                                                    <tr class="td_whbk" onMouseOver="this.style.backgroundColor = '#CCCCCC'" onMouseOut="this.style.backgroundColor = '#FFFFFF'">
+    <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
+</head>
 
-                                                                        <td class="style1" align="left" style="text-transform:capitalize "><?= $row['nombre'] ?>
-                                                                            <input name="est[]" type="hidden" id="est[]" value="<?= $row['id'] ?>"></td>
-                                                                        <td title="<?= $row['id_number'] ?>" class="style1" align="center"><?= $row['id_number'] ?></td>
-                                                                        <td class="style1" align="center"><?= $row['comentarios'] ?></td>
-                                                                        <td class="style1" align="center"><?= $row['val'] ?></td>
-                                                                        <td class="style1" align="center"><input name="notas[]" type="text" id="notas[]" style="text-align:center;" value="<?= $row['nota'] ?>" size="6" maxlength="5"></td>
-                                                                    </tr>
-                                                                    <?php
-                                                                    $j++;
-                                                                }
-                                                                ?>
+<body>
 
-                                                            </table>
-                                                        </td></tr></table></td></tr></table>&nbsp;<br>
-                                    <input type="button" name="Submit2" onClick="history.back();" value="<?= LANG_back ?>">
-                                    <input type="submit" name="Submit" value="<?= LANG_save ?>">
-                                    <input name="foroid" type="hidden" id="foroid" value="<?= $_REQUEST['ItemID'] ?>">
-                                    <input name="item" type="hidden" id="item" value="<?= $_REQUEST['item'] ?>">
-                                    <br>
-                                    <br></td>
-                            </tr>
-                        </table>	
-                    </td>
-                </tr>
-            </table>
+    <form name="form1" method="post" action="foro.php" onSubmit="return validar();">
+        <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span>&nbsp;<span class="style3">
+                        <?= $_REQUEST['item'] ?>
+                    </span></td>
+            </tr>
+            <tr>
+                <td><?php $menu->mostrar(0); ?></td>
+            </tr>
+            <tr>
+                <td>
 
-        </form>
+                    <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td><br>
 
-    </body>
+                                <table width="99%" height="*" align="center" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <table class="table_bk" width="100%" height="100%" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td align="center">
+                                                        <table width="100%" height="100%" class="" border="0" cellspacing="1" cellpadding="2">
+                                                            <tr>
+                                                                <td width="45%" align="center" class="style3"><?= LANG_name ?></td>
+                                                                <td width="16%" align="center" class="style3"><?= LANG_ci ?></td>
+                                                                <td width="16%" align="center" class="style3"><?= LANG_comment ?></td>
+                                                                <td width="16%" align="center" class="style3"><?= LANG_foro_nval ?></td>
+                                                                <td width="*" align="center" class="style3"><?= LANG_nota ?></td>
+                                                            </tr>
+
+                                                            <?php
+                                                            $j = 0;
+
+
+                                                            while ($row = $grid->db_vector_nom($grid->result)) {
+                                                            ?>
+                                                                <tr class="td_whbk" onMouseOver="this.style.backgroundColor = '#CCCCCC'" onMouseOut="this.style.backgroundColor = '#FFFFFF'">
+
+                                                                    <td class="style1" align="left" style="text-transform:capitalize "><?= $row['nombre'] ?>
+                                                                        <input name="est[]" type="hidden" id="est[]" value="<?= $row['id'] ?>"></td>
+                                                                    <td title="<?= $row['id_number'] ?>" class="style1" align="center"><?= $row['id_number'] ?></td>
+                                                                    <td class="style1" align="center"><?= $row['comentarios'] ?></td>
+                                                                    <td class="style1" align="center"><?= $row['val'] ?></td>
+                                                                    <td class="style1" align="center"><input name="notas[]" type="text" id="notas[]" style="text-align:center;" value="<?= $row['nota'] ?>" size="6" maxlength="5"></td>
+                                                                </tr>
+                                                            <?php
+                                                                $j++;
+                                                            }
+                                                            ?>
+
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>&nbsp;<br>
+                                <input type="button" name="Submit2" onClick="history.back();" value="<?= LANG_back ?>">
+                                <input type="submit" name="Submit" value="<?= LANG_save ?>">
+                                <input name="foroid" type="hidden" id="foroid" value="<?= $_REQUEST['ItemID'] ?>">
+                                <input name="item" type="hidden" id="item" value="<?= $_REQUEST['item'] ?>">
+                                <br>
+                                <br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+</body>
+
 </html>
 <?php
 $grid->cerrar();

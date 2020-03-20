@@ -184,7 +184,7 @@
 	 if($estilo)$combo.=' class="'.$estilo.'"';
      $combo.= '>';
      if($select) $combo.= '<option value="">'.$select.'</option>';
-     if(!$seleccion)$seleccion = $_REQUEST[$id];
+     if(!$seleccion)$seleccion = @$_REQUEST[$id];
      $i=0;
 
     while($i<count($array)) {
@@ -678,7 +678,3 @@ function burbuja($array,$modo=0){
 
 
  } //// fin de la clase tool
-
-
-
-?>

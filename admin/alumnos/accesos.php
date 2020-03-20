@@ -68,7 +68,7 @@ $db->query($query);
     </head>
     <body>
         <div id="curso_wrapper">
-            <div style="height: 26px"><?php echo $menu->nombre; ?></div>
+            <div style="height: 26px"> <span class="menu-title"><?= $menu->nombre; ?></span></div>
             <div id="curso_menu">
                 <?php $menu->mostrar(3); ?>
             </div>
@@ -80,10 +80,10 @@ $db->query($query);
                     <div><input id="search_input" placeholder="<?= LANG_search ?>">&nbsp;<?= LANG_total ?>:&nbsp;<span id="num_results"></span></div>
                     <div style="padding-top: 12px; padding-bottom: 10px">
                         <?= LANG_show ?>&nbsp;
-                        <input type="radio" name="group1" class="shapeButton" value="20" <? if ($top == 20) echo 'checked'; ?>>20&nbsp;
-                        <input type="radio" name="group1" class="shapeButton" value="30" <? if ($top == 30) echo 'checked'; ?>>30&nbsp; 
-                        <input type="radio" name="group1" class="shapeButton" value="40" <? if ($top == 40) echo 'checked'; ?>>40&nbsp; 
-                        <input type="radio" name="group1" class="shapeButton" value="50" <? if ($top == 50) echo 'checked'; ?>>50&nbsp;
+                        <input type="radio" name="group1" class="shapeButton" value="20" <?php if ($top == 20) echo 'checked'; ?>>20&nbsp;
+                        <input type="radio" name="group1" class="shapeButton" value="30" <?php if ($top == 30) echo 'checked'; ?>>30&nbsp; 
+                        <input type="radio" name="group1" class="shapeButton" value="40" <?php if ($top == 40) echo 'checked'; ?>>40&nbsp; 
+                        <input type="radio" name="group1" class="shapeButton" value="50" <?php if ($top == 50) echo 'checked'; ?>>50&nbsp;
 
 
                     </div>
@@ -91,7 +91,7 @@ $db->query($query);
                 </div>
 
                 <ul id="search_list" style="list-style-type: none;">
-                    <?
+                    <?php
                     while ($row = $db->db_vector_nom($db->result)) {
                         ?>
 

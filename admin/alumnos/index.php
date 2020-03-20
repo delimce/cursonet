@@ -113,7 +113,7 @@ $grid->query($query); //////se ejecuta el query
 
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(0); ?></td>
@@ -122,7 +122,7 @@ $grid->query($query); //////se ejecuta el query
                 <td>
                     <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                            <td><br>&nbsp;<?= LANG_group_filter ?> <form name="se" action="index.php" method="get"><? echo $combo->combo_db("seccion", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_all, false, "submit();"); ?></form><br>
+                            <td><br>&nbsp;<?= LANG_group_filter ?> <form name="se" action="index.php" method="get"><?php echo $combo->combo_db("seccion", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_all, false, "submit();"); ?></form><br>
                                 <br><?php $grid->cargar($query); ?>&nbsp;
                             </td>
                         </tr>
@@ -132,6 +132,4 @@ $grid->query($query); //////se ejecuta el query
         </table>
     </body>
 </html>
-<?
-$grid->cerrar();
-?>
+<?php $grid->cerrar(); ?>

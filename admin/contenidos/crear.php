@@ -1,8 +1,9 @@
-<?php session_start();
+<?php
+session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
-include("../../config/lang/{$_SESSION['LENGUAJE']}");////lenguaje
+include("../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
@@ -11,7 +12,7 @@ $menu = new menu($menu_struct);
 $crear = new tools('db');
 
 
-if ($_POST['nombre']) {
+if (isset($_POST['nombre'])) {
 
     $valores[0] = $_POST['autor'];
     $valores[1] = $_POST['nombre'];
@@ -24,12 +25,12 @@ if ($_POST['nombre']) {
     $crear->insertar2("tbl_contenido", "autor, titulo, contenido, borrador, fecha, leido,curso_id", $valores);
 
     $crear->javaviso(LANG_cambios, "index.php");
-
 }
 
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
@@ -53,17 +54,11 @@ if ($_POST['nombre']) {
 
     <script language="JavaScript" type="text/javascript">
         function validar() {
-
             if (document.form1.nombre.value == '') {
-
-                alert('<?=LANG_group_error1 ?>');
+                alert('<?= LANG_group_error1 ?>');
                 document.form1.nombre.focus();
-
                 return false;
-
             }
-
-
             return true;
 
         }
@@ -73,79 +68,75 @@ if ($_POST['nombre']) {
 </head>
 
 <body>
-<table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr>
-        <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
-    </tr>
-    <tr>
-        <td><?php $menu->mostrar(1); ?></td>
-    </tr>
-    <tr>
-        <td>
+    <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
+        </tr>
+        <tr>
+            <td><?php $menu->mostrar(1); ?></td>
+        </tr>
+        <tr>
+            <td>
 
-            <table
-                style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;"
-                width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td>
-                        <form name="form1" method="post" action="crear.php" onSubmit="return validar();">
-                            <table width="100%" border="0" cellspacing="4" cellpadding="3">
-                                <tr>
-                                    <td colspan="2">&nbsp;</td>
-                                </tr>
+                <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+                            <form name="form1" method="post" action="crear.php" onSubmit="return validar();">
+                                <table width="100%" border="0" cellspacing="4" cellpadding="3">
+                                    <tr>
+                                        <td colspan="2">&nbsp;</td>
+                                    </tr>
 
 
-                                <tr>
-                                    <td><span class="style3"><?php echo LANG_content_autor ?></span></td>
-                                    <td>
-                                        <?php
+                                    <tr>
+                                        <td><span class="style3"><?php echo LANG_content_autor ?></span></td>
+                                        <td>
+                                            <?php
 
-                                        $querya = "SELECT   concat(a.nombre,' ',a.apellido) as nombre, a.id from tbl_admin a where (a.cursos LIKE '%{$_SESSION['CURSOID']}%')";
+                                            $querya = "SELECT   concat(a.nombre,' ',a.apellido) as nombre, a.id from tbl_admin a where (a.cursos LIKE '%{$_SESSION['CURSOID']}%')";
 
-                                        if ($_SESSION['PROFILE'] == 'admin')
-                                            $querya .= " or (es_admin=1)";
+                                            if ($_SESSION['PROFILE'] == 'admin')
+                                                $querya .= " or (es_admin=1)";
 
-                                        echo $crear->combo_db("autor", $querya, "nombre", "id", false, $_SESSION['USERID']);
+                                            echo $crear->combo_db("autor", $querya, "nombre", "id", false, $_SESSION['USERID']);
 
-                                        ?>
-                                    </td>
-                                </tr>
+                                            ?>
+                                        </td>
+                                    </tr>
 
 
-                                <tr>
-                                    <td width="18%" valign="middle" class="style3"><?php echo LANG_content_name ?></td>
-                                    <td width="82%"><textarea name="nombre" cols="50" rows="2" id="nombre"></textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="style3"><textarea class="content" name="content" cols="73"
-                                                                             rows="20" id="content"></textarea></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="style3">
+                                    <tr>
+                                        <td width="18%" valign="middle" class="style3"><?php echo LANG_content_name ?></td>
+                                        <td width="82%"><textarea name="nombre" cols="50" rows="2" id="nombre"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="style3"><textarea class="content" name="content" cols="73" rows="20" id="content"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="style3">
 
-                                        <input name="borrador" type="checkbox" id="borrador" value="1">
-                                        <?php echo LANG_content_noactive ?></td>
-                                </tr>
+                                            <input name="borrador" type="checkbox" id="borrador" value="1">
+                                            <?php echo LANG_content_noactive ?></td>
+                                    </tr>
 
-                                <tr>
-                                    <td colspan="2"><input type="button" name="Submit2" value="<?= LANG_back ?>"
-                                                           onClick="javascript:history.back();">
-                                        <input type="submit" name="Submit" value="<?= LANG_save ?>">
-    <span class="style1">
-    <input type="button" name="Submit3" value="<?php echo LANG_content_uploadfiles ?>"
-           onClick="javascript:popup('../recursos/index.php','new',350,500);">
-    </span></td>
-                                </tr>
-                            </table>
-                        </form>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
+                                    <tr>
+                                        <td colspan="2"><input type="button" name="Submit2" value="<?= LANG_back ?>" onClick="javascript:history.back();">
+                                            <input type="submit" name="Submit" value="<?= LANG_save ?>">
+                                            <span class="style1">
+                                                <input type="button" name="Submit3" value="<?php echo LANG_content_uploadfiles ?>" onClick="javascript:popup('../recursos/index.php','new',350,500);">
+                                            </span></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>
 <?php
 

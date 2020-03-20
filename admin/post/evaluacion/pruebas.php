@@ -42,7 +42,7 @@ WHERE
     <body>
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(0); ?></td>
@@ -55,10 +55,10 @@ WHERE
                             <td align="center"><br>
                                 <table width="100%" border="0" cellspacing="2" cellpadding="2">
                                     <tr>
-                                        <td width="50%" class="table_bk"><? echo LANG_eva_porevaluar;
+                                        <td width="50%" class="table_bk"><?php echo LANG_eva_porevaluar;
 echo '  ' . $totales[0];
 ?></td>
-                                        <td width="50%" class="table_bk"><? echo LANG_eva_evaluados;
+                                        <td width="50%" class="table_bk"><?php echo LANG_eva_evaluados;
 echo' ' . $totales[1];
 ?></td>
                                     </tr>
@@ -80,7 +80,7 @@ if ($totales[0] == 0) {
         if ($pruebas[$i]['nota'] == '-1') {
             ?>
                                                             <tr>
-                                                                <td><? echo "<a href=\"corregir.php?id={$pruebas[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $pruebas[$i]['nombre'] . " " . $pruebas[$i]['id_number'] . "</a>"; ?></td>
+                                                                <td><?php echo "<a href=\"corregir.php?id={$pruebas[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $pruebas[$i]['nombre'] . " " . $pruebas[$i]['id_number'] . "</a>"; ?></td>
                                                             </tr>
 
             <?php
@@ -110,7 +110,7 @@ if ($totales[0] == 0) {
         if ($pruebas[$i]['nota'] > '-1') {
             ?>
                                                             <tr>
-                                                                <td class="style1" style="text-transform: capitalize"><? echo "<a href=\"corregir.php?id={$pruebas[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $pruebas[$i]['nombre'] . " " . $pruebas[$i]['id_number'] . "</a>"; ?></td>
+                                                                <td class="style1" style="text-transform: capitalize"><?php echo "<a href=\"corregir.php?id={$pruebas[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $pruebas[$i]['nombre'] . " " . $pruebas[$i]['id_number'] . "</a>"; ?></td>
                                                             </tr>
 
                                                         <?php

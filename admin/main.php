@@ -69,7 +69,7 @@ $_SESSION['CURSOALIAS'] = $data['alias'];
             <br>
             <?php if (str_word_count($data['notas']) > 1) { ?>
                 <div class="notes"><?= $data['notas'] ?></div>
-            <? } ?>
+            <?php } ?>
 
         <?php } else { ////no puede cargar la info del curso ?>
 
@@ -91,7 +91,7 @@ $_SESSION['CURSOALIAS'] = $data['alias'];
                 <table width="100%" border="0" cellspacing="2" cellpadding="2">
                     <tr>
                         <td width="98%"
-                            class="style3"><?php echo $mensajes ?><? echo ($mensajes > 1) ? LANG_msgs_unread : LANG_msg_unread ?></td>
+                            class="style3"><?php echo $mensajes ?><?php echo ($mensajes > 1) ? LANG_msgs_unread : LANG_msg_unread ?></td>
                         <td width="2%"><img src="../images/backend/mens2.gif" width="32" height="32"></td>
                     </tr>
                     <tr>
@@ -101,7 +101,7 @@ $_SESSION['CURSOALIAS'] = $data['alias'];
                 </table>
             </div>
 
-        <? } ?>
+        <?php } ?>
 
 
     </div>

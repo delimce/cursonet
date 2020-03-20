@@ -58,7 +58,7 @@ if ($_POST['r2nombre']) {
     <body>
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(0); ?></td>
@@ -75,7 +75,7 @@ if ($_POST['r2nombre']) {
                                         </tr>
                                         <tr>
                                             <td class="style3"><?php echo LANG_group; ?></td>
-                                            <td><? echo $crear->combo_db("r2grupo_id", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_select,$data["grupo_id"]); ?></td>
+                                            <td><?php echo $crear->combo_db("r2grupo_id", "select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre", "nombre", "id", LANG_select,$data["grupo_id"]); ?></td>
                                         </tr>
                                         <tr>
                                             <td width="27%" class="style3"><?php echo LANG_team_name; ?></td>

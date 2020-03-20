@@ -338,4 +338,12 @@ SELECT {
     font-weight: normal;
 }
 
+/* section title */
+.menu-title{
+    font-weight: bold;
+    font-size: 17px;
+    display: block;
+    margin: 5px 0 14px 2px;
+}
+
 

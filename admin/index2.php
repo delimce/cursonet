@@ -37,8 +37,8 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
         </script>
 
     </head>
-    <body bgcolor="#858585" bottommargin="0" <? if ($_SESSION['CURSOID'] < 1) { ?>onLoad="nocaso();" <? } ?>>
-    <table width="1000" height="550" border="0" align="center" cellpadding="0" cellspacing="0" valign="top">
+    <body bgcolor="#858585" bottommargin="0" <?php if ($_SESSION['CURSOID'] < 1) { ?>onLoad="nocaso();" <?php } ?>>
+    <table width="1050" height="550" border="0" align="center" cellpadding="0" cellspacing="0" valign="top">
 
         <tr>
             <td width="369"><img src="../images/backend/spacer.gif" width="369" height="1" border="0" alt=""></td>
@@ -237,7 +237,7 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
                            <img src="../images/backend/menu/admin.png">
                         </span>
                         </div>
-                    <? } ?>
+                    <?php } ?>
                 </div>
 
             </td>

@@ -24,7 +24,7 @@ $menu = new menu($menu_struct);
 <body>
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+    <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
   </tr>
   <tr>
     <td><?php $menu->mostrar(2); ?></td>
@@ -43,7 +43,7 @@ $menu = new menu($menu_struct);
     <td class="style3"><?php echo LANG_planes_selectplan ?>&nbsp;</td>
     </tr>
   <tr>
-    <td><? echo $crear->combo_db("plan","select id,titulo from tbl_plan_evaluador where grupo_id in (select id from tbl_grupo where curso_id = {$_SESSION['CURSOID']})","titulo","id",LANG_select,false,false); ?></td>
+    <td><?php echo $crear->combo_db("plan","select id,titulo from tbl_plan_evaluador where grupo_id in (select id from tbl_grupo where curso_id = {$_SESSION['CURSOID']})","titulo","id",LANG_select,false,false); ?></td>
     </tr>
 </table>
 <br>

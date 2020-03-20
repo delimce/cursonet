@@ -3,7 +3,7 @@ session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
-include ("../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
+include("../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
@@ -36,15 +36,15 @@ if (isset($_POST['id'])) {
 
 
     $tool->javaviso(LANG_planes_evalok);
-    ?>
+?>
     <script type="text/javascript">
         history.go(-2);
     </script>
-    <?
+<?php
     die();
 } else {
 
-  $query = "SELECT DISTINCT 
+    $query = "SELECT DISTINCT 
          concat(e.apellido, ' ', e.nombre) AS nombre,
           e.id_number,
           e.id,
@@ -64,86 +64,93 @@ if (isset($_POST['id'])) {
 ?>
 <!DOCTYPE html>
 <html>
-    <head> <meta charset="utf-8">
 
-        <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
-    </head>
+<head>
+    <meta charset="utf-8">
 
-    <body>
+    <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
+</head>
 
-
-        <form action="" method="post" name="form1" target="_self">
-
-
-            <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
-                </tr>
-                <tr>
-                    <td><?php $menu->mostrar(2); ?></td>
-                </tr>
-                <tr>
-                    <td>
-
-                        <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td>
-
-                                    <p><br>    
+<body>
 
 
-                                    </p>
+    <form action="" method="post" name="form1" target="_self">
 
 
-                                    <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td class="no_back"><?php echo LANG_planes_item_name . ': ' . $_REQUEST['item'] ?></td>
-                                        </tr>
-                                        <tr>
+        <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
+            </tr>
+            <tr>
+                <td><?php $menu->mostrar(2); ?></td>
+            </tr>
+            <tr>
+                <td>
 
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table_bk"><table width="100%" border="0" align="center" cellpadding="2" cellspacing="1">
-                                                    <tr>
-                                                        <td width="83%" align="center" class="table_bk"><?php echo LANG_est ?></td>
-                                                        <td width="17%" align="center" class="table_bk"><?php echo LANG_nota ?></td>
+                    <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+
+                                <p><br>
+
+
+                                </p>
+
+
+                                <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td class="no_back"><?php echo LANG_planes_item_name . ': ' . $_REQUEST['item'] ?></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table_bk">
+                                            <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1">
+                                                <tr>
+                                                    <td width="83%" align="center" class="table_bk"><?php echo LANG_est ?></td>
+                                                    <td width="17%" align="center" class="table_bk"><?php echo LANG_nota ?></td>
+                                                </tr>
+                                                <?php
+                                                while ($row = $tool->db_vector_nom($tool->result)) {
+                                                ?>
+                                                    <tr class="td_whbk" onMouseOver="this.style.backgroundColor = '#CCCCCC'" onMouseOut="this.style.backgroundColor = '#FFFFFF'">
+                                                        <td class="style1" style="text-transform: capitalize"><b><?php echo $row['nombre'] ?></b> - <?php echo $row['id_number'] ?>
+                                                            <input name="esid[]" type="hidden" id="esid[]" value="<?= $row['id'] ?>"></td>
+                                                        <td align="center"><input name="nota[]" type="text" style="text-align:center" id="nota[]" value="<?= $row['nota'] ?>" size="5" maxlength="6"></td>
                                                     </tr>
-                                                    <?php
-                                                    while ($row = $tool->db_vector_nom($tool->result)) {
-                                                        ?>
-                                                        <tr class="td_whbk" onMouseOver="this.style.backgroundColor = '#CCCCCC'" onMouseOut="this.style.backgroundColor = '#FFFFFF'">
-                                                            <td class="style1" style="text-transform: capitalize"><b><?php echo $row['nombre'] ?></b> - <?php echo $row['id_number'] ?>
-                                                                <input name="esid[]" type="hidden" id="esid[]" value="<?= $row['id'] ?>"></td>
-                                                            <td align="center"><input name="nota[]" type="text" style="text-align:center" id="nota[]" value="<?= $row['nota'] ?>" size="5" maxlength="6"></td>
-                                                        </tr>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </table></td>
-                                        </tr>
-                                    </table>
+                                                <?php
+                                                }
+                                                ?>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
 
 
-                                    <p align="center">
-                                        <input type="button" name="Button" onClick="history.back();" value="<?= LANG_back ?>">
-                                        <input type="submit" name="Submit" value="<?= LANG_save ?>">
-                                        <input name="id" type="hidden" id="id" value="<?= $_REQUEST['id'] ?>">
-                                    </p>
-                                    <p><br>
+                                <p align="center">
+                                    <input type="button" name="Button" onClick="history.back();" value="<?= LANG_back ?>">
+                                    <input type="submit" name="Submit" value="<?= LANG_save ?>">
+                                    <input name="id" type="hidden" id="id" value="<?= $_REQUEST['id'] ?>">
+                                </p>
+                                <p><br>
 
 
 
-                                    </p></td>
-                            </tr>
-                        </table>	</td>
-                </tr>
-            </table>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
 
-        </form>
+    </form>
 
 
 
-    </body>
+</body>
+
 </html>
 <?php $tool->cerrar(); ?>

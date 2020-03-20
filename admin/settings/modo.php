@@ -34,7 +34,7 @@ include("security.php"); ///seguridad para el admin
 <body>
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+    <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
   </tr>
   <tr>
     <td><?php $menu->mostrar(2); ?></td>

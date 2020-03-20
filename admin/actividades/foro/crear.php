@@ -171,7 +171,7 @@ if (isset($_POST['nombre'])) {
 
                 if (compara_fechas('<?= date($_SESSION['DB_FORMATO']); ?>', document.form1.inicio.value) == 1) {
 
-                    alert('<? echo LANG_eva_val_fecha2 . ' ' . date($_SESSION['DB_FORMATO']); ?>');
+                    alert('<?php echo LANG_eva_val_fecha2 . ' ' . date($_SESSION['DB_FORMATO']); ?>');
                     document.form1.inicio.focus();
 
                     return false;
@@ -182,7 +182,7 @@ if (isset($_POST['nombre'])) {
 
                 if (compara_fechas(document.form1.inicio.value, document.form1.fin.value) == 1) {
 
-                    alert('<? echo LANG_eva_val_fecha2 ?> ' + document.form1.inicio.value);
+                    alert('<?php echo LANG_eva_val_fecha2 ?> ' + document.form1.inicio.value);
                     document.form1.fin.focus();
 
                     return false;
@@ -232,7 +232,9 @@ if (isset($_POST['nombre'])) {
     <body>
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top">
+                    <span class="menu-title"><?= $menu->nombre; ?></span>
+                </td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(1); ?></td>
@@ -252,7 +254,7 @@ if (isset($_POST['nombre'])) {
                                         </tr>
                                         <tr>
                                             <td width="28%" class="style3"><?php echo LANG_content_name; ?></td>
-                                            <td><? echo $crear->combo_db("caso", "select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0", "titulo", "id", LANG_select, false); ?></td>
+                                            <td><?php echo $crear->combo_db("caso", "select id,IF(LENGTH(titulo)>60,concat(SUBSTRING(titulo,1,50),'...'),titulo) as titulo from tbl_contenido where curso_id = {$_SESSION['CURSOID']} and borrador = 0", "titulo", "id", LANG_select, false); ?></td>
                                         </tr>
 
                                         <tr>
@@ -268,7 +270,7 @@ if (isset($_POST['nombre'])) {
 
                                         <tr>
                                             <td class="style3"><?php echo LANG_foro_date1; ?></td>
-                                            <td><input name="inicio" type="text" id="inicio" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<? echo date($_SESSION['DB_FORMATO']); ?>" size="12">
+                                            <td><input name="inicio" type="text" id="inicio" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<?php echo date($_SESSION['DB_FORMATO']); ?>" size="12">
                                                 <img src="../../../images/frontend/cal.gif" name="f_trigger_d" width="16" height="16" id="f_trigger_d" style="cursor: hand; border: 0px;" title="<?= LANG_calendar ?>">
                                                 <script type="text/javascript">
                                                     Calendar.setup({
@@ -281,7 +283,7 @@ if (isset($_POST['nombre'])) {
                                         </tr>
                                         <tr>
                                             <td class="style3"><?php echo LANG_foro_date2; ?></td>
-                                            <td><input name="fin" type="text" id="fin" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<? echo date($_SESSION['DB_FORMATO']); ?>" size="12">
+                                            <td><input name="fin" type="text" id="fin" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<?php echo date($_SESSION['DB_FORMATO']); ?>" size="12">
                                                 <img src="../../../images/frontend/cal.gif" name="f_trigger_e" width="16" height="16" id="f_trigger_e" style="cursor: hand; border: 0px;" title="<?= LANG_calendar ?>">
                                                 <script type="text/javascript">
                                                     Calendar.setup({

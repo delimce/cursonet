@@ -8,7 +8,8 @@
   de no ser asi se debe llamar el constructor 2
  * ************************************************************************** */
 
-class grid extends database {
+class grid extends database
+{
 
     //***********************************************formato
     var $campos; //vector de campos que se solicitan en el query
@@ -22,8 +23,9 @@ class grid extends database {
 
     //*************************************************** propiedades
     //funciones para descanectarse o liberar recursos
-/// funcion que valida si los campos deseados son iguales a los campos por defecto
-    function validar_head($campos) {
+    /// funcion que valida si los campos deseados son iguales a los campos por defecto
+    function validar_head($campos)
+    {
 
         $campos2 = explode(",", $campos);
 
@@ -36,12 +38,13 @@ class grid extends database {
     }
 
     /// funcion para saber el total de campos consultados del query
-    function total_campos() {
+    function total_campos()
+    {
 
         return count($this->campos);
     }
 
-//********************construccion del grid   parametros
+    //********************construccion del grid   parametros
     /*
       /* ***********************   colocar los siguientes parametros para formar el grid
       /*
@@ -80,19 +83,13 @@ class grid extends database {
       );
       /*
       /*
-      /*
-      /*
-      /*
-      /*
-      /*
-      /*
-      /*
       /******************************************************************* */
 
 
-//********************************************* metodos
+    //********************************************* metodos
 
-    function grid($ancho, $largo, $align, $features) {     //costructor
+    function grid($ancho, $largo, $align, $features)
+    {     //costructor
         $this->ancho = $ancho;
         $this->largo = $largo;
         $this->align = $align;
@@ -111,7 +108,8 @@ class grid extends database {
 
     ////////////////// para fechas de tipo db datatime '0000-00-00 00:00:00' para usar sin heredar la clase fecha
 
-    function datetime($datetime, $formato = false) {
+    function datetime($datetime, $formato = false)
+    {
 
         if ($formato)
             $format = $formato;
@@ -135,11 +133,12 @@ class grid extends database {
     /////////////////// override del metodo query de database.class para el grid
 
 
-    function query($query) {
+    function queryGrid($query)
+    {
 
         if (isset($this->orden))
-            $query.=' ORDER BY ' . $this->orden;
-        Database::query($query);
+            $query .= ' ORDER BY ' . $this->orden;
+        parent::query($query);
     }
 
     /*     * ****************************************************************************************
@@ -155,11 +154,12 @@ class grid extends database {
 
      * **************************************************************************************** */
 
-    function cargar($query, $campos = false, $result = false) {
+    function cargar($query, $campos = false, $result = false)
+    {
 
 
         if ($result == false)
-            $this->query($query);  //llamando las funciones de la clase database heredada
+            $this->queryGrid($query);  //llamando las funciones de la clase database heredada
         $this->campos = $this->campos_query($this->result);
         if (isset($this->orden))
             $orden = $this->campos; ////vector para ordenar columnas
@@ -184,17 +184,17 @@ class grid extends database {
             if ($campos)
                 $this->validar_head($campos); ///campos de cabecera
 
-                
-/////////////////vinculos independientes de los valores del grid (hasta ahora solo 2 permitidos)
+
+            /////////////////vinculos independientes de los valores del grid (hasta ahora solo 2 permitidos)
             //////////////////////////////////////////// feature nuevo vinculo 1
             if (isset($this->features['nuevo_vinculo1']))
                 $this->campos[count($this->campos)] = $this->features['nuevo_vinculo1']['nombre'];  ///colocando la posicion del campo
-                
-//////////////////////////////////////////// feature nuevo vinculo 2
+
+            //////////////////////////////////////////// feature nuevo vinculo 2
             if (isset($this->features['nuevo_vinculo2']))
                 $this->campos[count($this->campos)] = $this->features['nuevo_vinculo2']['nombre'];  ///colocando la posicion del campo
-                
-////////////////////////////////////////////////////////////////////////////////////
+
+            ////////////////////////////////////////////////////////////////////////////////////
 
 
             echo '<table width="' . $this->ancho . '" height="' . $this->largo . '" align="' . $this->align . '" border="0" cellspacing="0" cellpadding="0">';  ////tabla principal
@@ -238,9 +238,9 @@ class grid extends database {
                             $OCU = 1;
                         }  ///ocultando si asi se desea
 
-                        if ($orden[$i] != "") {
+                        if (isset($orden[$i])) {
 
-                            echo '<td  class="' . $this->features['style_head'] . '" width= "' . $this->features['separacion'][$i] . '" align="center"><a href="' . $_SERVER['PHP_SELF'] . '?' . $this->features['orden']['nombre'] . '=' . $orden[$i] . $this->features['orden']['extras'] . '" title="' . LANG_orderby . $this->campos[$i] . '">' . $this->campos[$i] . '</a></td>';  //encabezado
+                            echo '<td  class="' . $this->features['style_head'] . '" width= "' . $this->features['separacion'][$i] . '" align="center"><a href="' . $_SERVER['PHP_SELF'] . '?' . $this->features['orden']['nombre'] . '=' . $orden[$i] . @$this->features['orden']['extras'] . '" title="' . LANG_orderby . $this->campos[$i] . '">' . $this->campos[$i] . '</a></td>';  //encabezado
                         } else {
 
                             echo '<td align="center">' . $this->campos[$i] . '</td>';
@@ -272,14 +272,14 @@ class grid extends database {
                             $valor = strip_tags(trim(stripslashes($tmp[$ii])));
                         else
                             $valor = trim(stripslashes($tmp[$ii]));
-                        if ($tmp[$ii] == $this->features['nulo'])
+                        if ($tmp[$ii] == @$this->features['nulo'])
                             $valor = "{$this->features['celda_vacia']}"; /// en caso de que se desee hacer nulo algun valor
                         if (isset($this->features['conenlace']['popup']))
                             $popup = " onclick=\" return popup2(this,'" . $this->features['conenlace']['popup'] . "');\"";
                         else
                             $popup = '';
                         if (isset($this->features['conenlace']) && $this->features['conenlace']['pos'] == $ii) {
-                            $enlace = '<a href="' . $this->features['conenlace']['url'] . $this->features['conenlace']['var_parametro'] . '=' . $tmp[$this->features['conenlace']['parametro']] . $this->features['conenlace']['extras'] . '" target="' . $this->features['conenlace']['target'] . '" title="' . $this->features['conenlace']['title'] . '"' . $popup . '">';
+                            $enlace = '<a href="' . $this->features['conenlace']['url'] . $this->features['conenlace']['var_parametro'] . '=' . $tmp[$this->features['conenlace']['parametro']] . @$this->features['conenlace']['extras'] . '" target="' . @$this->features['conenlace']['target'] . '" title="' . $this->features['conenlace']['title'] . '"' . $popup . '">';
                             $enlace2 = '</a>';
                         } else {
                             $enlace = '';
@@ -304,7 +304,7 @@ class grid extends database {
                             $valor = $this->datetime($valor, $this->features['dateformat']["formato"]);
 
                         echo '<td class="td_whbk1" align="' . $this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
-                    }else {
+                    } else {
 
                         if (strlen($valor) > $this->features['abreviar'][$ii])
                             $valor = substr($tmp[$ii], 0, $this->features['abreviar'][$ii]) . '...';
@@ -332,8 +332,8 @@ class grid extends database {
                             $popup = " onclick=\" return popup2(this,'" . $this->features['nuevo_vinculo1']['popup'] . "');\"";
                         else
                             $popup = '';
-                        echo '<a href="' . $this->features['nuevo_vinculo1']['url'] . $this->features['nuevo_vinculo1']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo1']['parametro']] . $this->features['nuevo_vinculo1']['extras'] . '" target="' . $this->features['nuevo_vinculo1']['target'] . '" title="' . $this->features['nuevo_vinculo1']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo1']['texto'] . '</a>';
-                    }else if (isset($this->features['nuevo_vinculo1']['condicion']) && $tmp[$this->features['nuevo_vinculo1']['condicion']] == 0) { ///no se cumple la condicion
+                        echo '<a href="' . $this->features['nuevo_vinculo1']['url'] . $this->features['nuevo_vinculo1']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo1']['parametro']] . @$this->features['nuevo_vinculo1']['extras'] . '" target="' . $this->features['nuevo_vinculo1']['target'] . '" title="' . $this->features['nuevo_vinculo1']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo1']['texto'] . '</a>';
+                    } else if (isset($this->features['nuevo_vinculo1']['condicion']) && $tmp[$this->features['nuevo_vinculo1']['condicion']] == 0) { ///no se cumple la condicion
                         echo $this->features['nuevo_vinculo1']['texto_condicion'];
                     }
 
@@ -353,7 +353,7 @@ class grid extends database {
                         $popup = " onclick=\" return borrar('" . $tmp[$this->features['nuevo_vinculo2']['parametro']] . "','" . $tmp[$this->features['nuevo_vinculo2']['borrar']] . "');\"";
                     else
                         $popup = '';  //// para borrar un registro del grid experimental
-                    echo '<a href="' . $this->features['nuevo_vinculo2']['url'] . $this->features['nuevo_vinculo2']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo2']['parametro']] . $this->features['nuevo_vinculo2']['extras'] . '" target="' . $this->features['nuevo_vinculo2']['target'] . '" title="' . $this->features['nuevo_vinculo2']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo2']['texto'] . '</a>';
+                    echo '<a href="' . $this->features['nuevo_vinculo2']['url'] . $this->features['nuevo_vinculo2']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo2']['parametro']] . @$this->features['nuevo_vinculo2']['extras'] . '" target="' . $this->features['nuevo_vinculo2']['target'] . '" title="' . $this->features['nuevo_vinculo2']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo2']['texto'] . '</a>';
 
 
                     echo '</td>';
@@ -383,7 +383,7 @@ class grid extends database {
                 $registros++; ///incrementando contador
                 /////////////////////////opera si se desea obtener totalizado
                 if (isset($this->features['totalizado']))
-                    $this->totalizado+= $tmp[$this->features['totalizado']];
+                    $this->totalizado += $tmp[$this->features['totalizado']];
             } ///////////////////// fin while
 
 
@@ -402,7 +402,7 @@ class grid extends database {
         $this->liberar();
     }
 
-//// FIN DEL METODO
+    //// FIN DEL METODO
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////METODO QUE ENCAPSULA EL GRID EN UNA VARIABLE PARA SER OPERADA LUEGO
     ///////////////////crea una variable con todo el contenido del grid para su mejor manipulacion
@@ -414,11 +414,12 @@ class grid extends database {
 
 
 
-    function encapsular($query, $campos = false, $result = false) {     ///////// ENCAPSULA EL GRID EN UNA VARIABLE
+    function encapsular($query, $campos = false, $result = false)
+    {     ///////// ENCAPSULA EL GRID EN UNA VARIABLE
         if (isset($this->orden))
-            $query.=' ORDER BY ' . $this->orden;
+            $query .= ' ORDER BY ' . $this->orden;
         if ($result == false)
-            $this->query($query);  //llamando las funciones de la clase database heredada
+            $this->queryGrid($query);  //llamando las funciones de la clase database heredada
         $this->campos = $this->campos_query($this->result);
         if (isset($this->orden))
             $orden = $this->campos; ////vector para ordenar columnas
@@ -430,72 +431,72 @@ class grid extends database {
         /////si no se encuentran registros
         if ($this->nreg == 0) {
 
-            $this->capsula.= "<b>{$this->features['no_registers']}</b>";
+            $this->capsula .= "<b>{$this->features['no_registers']}</b>";
         } else {
 
 
             if ($campos)
                 $this->validar_head($campos); ///campos de cabecera
 
-                
-/////////////////vinculos independientes de los valores del grid (hasta ahora solo 2 permitidos)
+
+            /////////////////vinculos independientes de los valores del grid (hasta ahora solo 2 permitidos)
             //////////////////////////////////////////// feature nuevo vinculo 1
             if (isset($this->features['nuevo_vinculo1']))
                 $this->campos[count($this->campos)] = $this->features['nuevo_vinculo1']['nombre'];  ///colocando la posicion del campo
-                
-//////////////////////////////////////////// feature nuevo vinculo 2
+
+            //////////////////////////////////////////// feature nuevo vinculo 2
             if (isset($this->features['nuevo_vinculo2']))
                 $this->campos[count($this->campos)] = $this->features['nuevo_vinculo2']['nombre'];  ///colocando la posicion del campo
-                
-////////////////////////////////////////////////////////////////////////////////////
+
+            ////////////////////////////////////////////////////////////////////////////////////
 
 
-            $this->capsula.= '<table width="' . $this->ancho . '" height="' . $this->largo . '" align="' . $this->align . '" border="0" cellspacing="0" cellpadding="0">';  ////tabla principal
+            $this->capsula .= '<table width="' . $this->ancho . '" height="' . $this->largo . '" align="' . $this->align . '" border="0" cellspacing="0" cellpadding="0">';  ////tabla principal
             ////////////////// si se desea mostrar el numero de registros conseguidos
 
             if (isset($this->features['mostrar_nresult'])) {
 
-                $this->capsula.= '<tr class="' . $this->features['mostrar_nresult']['style'] . '">';
+                $this->capsula .= '<tr class="' . $this->features['mostrar_nresult']['style'] . '">';
 
-                $this->capsula.= '<td align="' . $this->features['mostrar_nresult']['align'] . '">' . $this->features['mostrar_nresult']['nombre'] . ': ' . $this->nreg . '</td>';
+                $this->capsula .= '<td align="' . $this->features['mostrar_nresult']['align'] . '">' . $this->features['mostrar_nresult']['nombre'] . ': ' . $this->nreg . '</td>';
 
-                $this->capsula.= '</tr>';
+                $this->capsula .= '</tr>';
             }
 
-            $this->capsula.= '<tr><td>';
+            $this->capsula .= '<tr><td>';
 
             if (isset($this->features['borde'])) {
 
-                $this->capsula.= '<table class="' . $this->features['borde']['style'] . '" width="100%" height="100%" cellpadding="0"  cellspacing="0">
+                $this->capsula .= '<table class="' . $this->features['borde']['style'] . '" width="100%" height="100%" cellpadding="0"  cellspacing="0">
    <tr><td align="center">';
             }
 
 
             ///armando grid
 
-            $this->capsula.= '<table width="100%" height="100%" class="" border="0" cellspacing="' . $this->features['borde']['cellspacing'] . '" cellpadding="' . $this->features['borde']['cellpadding'] . '">';
+            $this->capsula .= '<table width="100%" height="100%" class="" border="0" cellspacing="' . $this->features['borde']['cellspacing'] . '" cellpadding="' . $this->features['borde']['cellpadding'] . '">';
 
             while ($tmp = $this->db_vector_num($this->result)) {
 
-                $this->capsula.= '<tr>';  //////////////////inicio fila de datos
+                $this->capsula .= '<tr>';  //////////////////inicio fila de datos
 
 
                 if (!is_float($registros / $this->features['r_header']) && $registros / $this->features['r_header'] >= 0) {   ///condicion para desplegar el header
                     ///////////////////////////////////////////////// header
-                    $this->capsula.= '<tr class="' . $this->features['style_head'] . '">';
+                    $this->capsula .= '<tr class="' . $this->features['style_head'] . '">';
 
                     for ($i = 0; $i < count($this->campos); $i++) {
 
                         if ($orden[$i] != "") {
 
-                            $this->capsula.= '<td width= "' . $this->features['separacion'][$i] . '" align="center"><a href="' . $_SERVER['PHP_SELF'] . '?' . $this->features['orden']['nombre'] . '=' . $orden[$i] . $this->features['orden']['extras'] . '">' . $this->campos[$i] . '</a></td>';  //encabezado
+                            $this->capsula .= '<td width= "' . $this->features['separacion'][$i] . '" align="center"><a href="' . $_SERVER['PHP_SELF'] . '?' . $this->features['orden']['nombre'] . '=' . $orden[$i] . $this->features['orden']['extras'] . '">' . $this->campos[$i] . '</a></td>';  //encabezado
                         } else {
 
-                            $this->capsula.= '<td align="center">' . $this->campos[$i] . '</td>';
+                            $this->capsula .= '<td align="center">' . $this->campos[$i] . '</td>';
                         }
                     }
 
-                    $this->capsula.= '</tr>';
+                    $this->capsula .= '</tr>';
 
 
                     ////////////////////////////////////////////////
@@ -503,9 +504,7 @@ class grid extends database {
                 ////////////////////////////////////////mostrando la data de la base de datos
                 for ($ii = 0; $ii < $tamvardb; $ii++) {
 
-
                     if ($tmp[$ii] != '') {
-
 
                         if ($this->features['formato'] != "html")
                             $valor = strip_tags(trim($tmp[$ii]));
@@ -515,39 +514,34 @@ class grid extends database {
                             $valor = "{$this->features['celda_vacia']}"; /// en caso de que se desee hacer nulo algun valor
                         if (isset($this->features['conenlace']) && $this->features['conenlace']['pos'] == $ii)
                             $valor = '<a href="' . $this->features['conenlace']['url'] . $this->features['conenlace']['var_parametro'] . '=' . $tmp[$this->features['conenlace']['parametro']] . $this->features['conenlace']['extras'] . '" target="' . $this->features['conenlace']['target'] . '" title="' . $this->features['conenlace']['title'] . '"' . $popup2 . '">' . $valor . '</a>';
-                    }else {
+                    } else {
 
                         $valor = "{$this->features['celda_vacia']}";
                     }
 
-
-
                     if (!isset($this->features['abreviar'][$ii])) { //// en caso de abreviacion de clumnas
-                        $this->capsula.= '<td class="' . $this->features['style_body'] . '" align="' . $this->features['alineacion'][$ii] . '">' . $valor . '</td>';
+                        $this->capsula .= '<td class="' . $this->features['style_body'] . '" align="' . $this->features['alineacion'][$ii] . '">' . $valor . '</td>';
                     } else {
 
                         if (strlen($valor) > $this->features['abreviar'][$ii])
                             $valor = substr($tmp[$ii], 0, $this->features['abreviar'][$ii]) . '...';
-                        $this->capsula.= '<td title="' . $tmp[$ii] . '" class="' . $this->features['style_body'] . '" align="' . $this->features['alineacion'][$ii] . '">' . $valor . '</td>';
+                        $this->capsula .= '<td title="' . $tmp[$ii] . '" class="' . $this->features['style_body'] . '" align="' . $this->features['alineacion'][$ii] . '">' . $valor . '</td>';
                     }
                 }
 
-
-
-
                 ///////////////////////////////////////mostrando la data del nuevo vinculo 1
                 if (isset($this->features['nuevo_vinculo1'])) {
-                    $this->capsula.= '<td class="' . $this->features['style_body'] . '" align="center">';
+                    $this->capsula .= '<td class="' . $this->features['style_body'] . '" align="center">';
                     if (isset($this->features['nuevo_vinculo1']['popup']))
                         $popup = " onclick=\" return popup2(this,'" . $this->features['nuevo_vinculo1']['popup'] . "');\"";
                     else
                         $popup = '';
-                    $this->capsula.= '<a href="' . $this->features['nuevo_vinculo1']['url'] . $this->features['nuevo_vinculo1']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo1']['parametro']] . $this->features['nuevo_vinculo1']['extras'] . '" target="' . $this->features['nuevo_vinculo1']['target'] . '" title="' . $this->features['nuevo_vinculo1']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo1']['texto'] . '</a>';
-                    $this->capsula.= '</td>';
+                    $this->capsula .= '<a href="' . $this->features['nuevo_vinculo1']['url'] . $this->features['nuevo_vinculo1']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo1']['parametro']] . $this->features['nuevo_vinculo1']['extras'] . '" target="' . $this->features['nuevo_vinculo1']['target'] . '" title="' . $this->features['nuevo_vinculo1']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo1']['texto'] . '</a>';
+                    $this->capsula .= '</td>';
                 } //////////////// fin mostrando la data del nuevo vinculo 1
                 ///////////////////////////////////////mostrando la data del nuevo vinculo 2
                 if (isset($this->features['nuevo_vinculo2'])) {
-                    $this->capsula.= '<td class="' . $this->features['style_body'] . '" align="center">';
+                    $this->capsula .= '<td class="' . $this->features['style_body'] . '" align="center">';
                     if (isset($this->features['nuevo_vinculo2']['popup']))
                         $popup = " onclick=\" return popup2(this,'" . $this->features['nuevo_vinculo2']['popup'] . "');\"";
                     else
@@ -556,39 +550,31 @@ class grid extends database {
                         $popup = " onclick=\" return borrar('" . $tmp[$this->features['nuevo_vinculo2']['parametro']] . "');\"";
                     else
                         $popup = '';  //// para borrar un registro del grid experimental
-                    $this->capsula.= '<a href="' . $this->features['nuevo_vinculo2']['url'] . $this->features['nuevo_vinculo2']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo2']['parametro']] . $this->features['nuevo_vinculo2']['extras'] . '" target="' . $this->features['nuevo_vinculo2']['target'] . '" title="' . $this->features['nuevo_vinculo2']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo2']['texto'] . '</a>';
-                    $this->capsula.= '</td>';
+                    $this->capsula .= '<a href="' . $this->features['nuevo_vinculo2']['url'] . $this->features['nuevo_vinculo2']['var_parametro'] . '=' . $tmp[$this->features['nuevo_vinculo2']['parametro']] . $this->features['nuevo_vinculo2']['extras'] . '" target="' . $this->features['nuevo_vinculo2']['target'] . '" title="' . $this->features['nuevo_vinculo2']['title'] . '"' . $popup . '">' . $this->features['nuevo_vinculo2']['texto'] . '</a>';
+                    $this->capsula .= '</td>';
                 } //////////////// fin mostrando la data del nuevo vinculo 2
 
-
-
-
-                $this->capsula.= '</tr>'; ///////////////////////fin fila de datos
+                $this->capsula .= '</tr>'; ///////////////////////fin fila de datos
 
                 $registros++; ///incrementando contador
                 /////////////////////////opera si se desea obtener totalizado
                 if (isset($this->features['totalizado']))
-                    $this->totalizado+= $tmp[$this->features['totalizado']];
+                    $this->totalizado += $tmp[$this->features['totalizado']];
             } ///////////////////// fin while
 
-
-
-            $this->capsula.= '</table>';
-
+            $this->capsula .= '</table>';
 
             if (isset($this->features['borde'])) {
-
-                $this->capsula.= '</td></tr></table>';
+                $this->capsula .= '</td></tr></table>';
             }
         } //si no se encuentran registros
 
-        $this->capsula.= '</td></tr>';
-        $this->capsula.= '</table>'; ////tabla principal
+        $this->capsula .= '</td></tr>';
+        $this->capsula .= '</table>'; ////tabla principal
         $this->liberar();
     }
 
-//// FIN DEL METODO
+    //// FIN DEL METODO
 }
 
 // fin de la clase grid
-?>

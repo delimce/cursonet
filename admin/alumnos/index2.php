@@ -98,7 +98,7 @@ $grid->query($query); //////se ejecuta el query
 
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(1); ?></td>
@@ -116,6 +116,4 @@ $grid->query($query); //////se ejecuta el query
         </table>
     </body>
 </html>
-<?
-$grid->cerrar();
-?>
+<?php $grid->cerrar(); ?>

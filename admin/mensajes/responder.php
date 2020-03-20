@@ -67,7 +67,7 @@ $menu = new menu($menu_struct);
 <body>
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+    <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
   </tr>
   <tr>
     <td><?php $menu->mostrar(0); ?></td>
@@ -96,7 +96,7 @@ $menu = new menu($menu_struct);
   </tr>
   <tr>
     <td valign="top" class="style1"><span class="style3"><?php echo LANG_msg_priori ?></span></td>
-    <td width="40%" class="style1"><? echo $crear->combo_array("priori",$prioridad,$prioridad,false,LANG_msg_priority_n); ?></td>
+    <td width="40%" class="style1"><?php echo $crear->combo_array("priori",$prioridad,$prioridad,false,LANG_msg_priority_n); ?></td>
     <td width="40%" class="style1">&nbsp;</td>
   </tr>
   <tr>

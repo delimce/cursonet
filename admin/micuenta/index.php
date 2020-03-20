@@ -160,7 +160,7 @@ $menu = new menu($menu_struct);
 <body>
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+    <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
   </tr>
   <tr>
     <td><?php $menu->mostrar(0); ?></td>
@@ -218,7 +218,7 @@ $menu = new menu($menu_struct);
     </tr>
   <tr>
     <td class="style3"><strong>
-      <?=Fax ?>
+    <?=LANG_fax ?>
     </strong></td>
     <td><input name="r4fax" type="text" id="r4fax" value="<?=$data['fax']?>"></td>
     <td width="391" colspan="3" rowspan="4" valign="top"><textarea name="r4sintesis" id="r4sintesis" cols="35" rows="8"><?php echo $data['sintesis']?></textarea></td>

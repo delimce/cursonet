@@ -60,7 +60,7 @@ WHERE
         <table width="96%" border="0" align="center" cellpadding="0"
                cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(0); ?></td>
@@ -75,10 +75,10 @@ WHERE
                             <td align="center"><br>
                                 <table width="100%" border="0" cellspacing="2" cellpadding="2">
                                     <tr>
-                                        <td width="50%" class="table_bk"><? echo LANG_proy_poreval;
+                                        <td width="50%" class="table_bk"><?php echo LANG_proy_poreval;
 echo '  ' . $totales[0];
 ?></td>
-                                        <td width="50%" class="table_bk"><? echo LANG_proy_eval2;
+                                        <td width="50%" class="table_bk"><?php echo LANG_proy_eval2;
 echo' ' . $totales[1];
 ?></td>
                                     </tr>
@@ -101,7 +101,7 @@ if ($totales[0] == 0) {
             ?>
                                                             <tr>
                                                                 <td width="6%" align="center" valign="top"><img src="../../../images/backend/button_drop.png" title="<?= LANG_drop . ' ' . $proys[$i]['nombre'] ?>" onClick="borrar('<?php echo $proys[$i]['id']; ?>', '<?php echo $proys[$i]['nombre']; ?>');" style="cursor:pointer"></td>
-                                                                <td width="94%" style="text-transform: capitalize"><? echo "<a href=\"corregir.php?id={$proys[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $proys[$i]['nombre'] . " " . $proys[$i]['id_number'] . "</a>"; ?></td>
+                                                                <td width="94%" style="text-transform: capitalize"><?php echo "<a href=\"corregir.php?id={$proys[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $proys[$i]['nombre'] . " " . $proys[$i]['id_number'] . "</a>"; ?></td>
                                                             </tr>
 
             <?php
@@ -133,7 +133,7 @@ if ($totales[0] == 0) {
                                                             <tr>
 
                                                                 <td width="6%" align="center" valign="top"><img src="../../../images/backend/button_drop.png" title="<?= LANG_drop . ' ' . $proys[$i]['nombre'] ?>" onClick="borrar('<?php echo $proys[$i]['id']; ?>', '<?php echo $proys[$i]['nombre']; ?>');" style="cursor:pointer"></td>
-                                                                <td width="94%" style="text-transform: capitalize"><? echo "<a href=\"corregir.php?id={$proys[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $proys[$i]['nombre'] . " " . $proys[$i]['id_number'] . "</a>"; ?></td>
+                                                                <td width="94%" style="text-transform: capitalize"><?php echo "<a href=\"corregir.php?id={$proys[$i]['id']}\" title=\"" . LANG_eva_corregir . "\">" . $proys[$i]['nombre'] . " " . $proys[$i]['id_number'] . "</a>"; ?></td>
                                                             </tr>
 
                                                         <?php

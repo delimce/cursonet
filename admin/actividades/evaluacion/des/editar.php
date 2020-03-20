@@ -75,7 +75,7 @@ $menu = new menu($menu_struct);
 
          if(compara_fechas(document.form1.fecha.value,document.form1.fecha2.value)==1 || document.form1.fecha.value=="" || document.form1.fecha2.value==""){
 
-         alert('<? echo LANG_eva_val_fecha2 ?>');
+         alert('<?php echo LANG_eva_val_fecha2 ?>');
          document.form1.fecha.focus();
 
          return false;
@@ -121,7 +121,7 @@ $menu = new menu($menu_struct);
 			if (!document.getElementById || !document.getElementById(container)) return
 			this.container=document.getElementById(container)
 			this.displayversion=displayversion
-			var servertimestring=(servermode=="server-php")? '<? print date("F d, Y H:i:s", time())?>' : (servermode=="server-ssi")? '<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->' : '<%= Now() %>'
+			var servertimestring=(servermode=="server-php")? '<?php print date("F d, Y H:i:s", time())?>' : (servermode=="server-ssi")? '<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->' : '<%= Now() %>'
 			this.localtime=this.serverdate=new Date(servertimestring)
 			this.localtime.setTime(this.serverdate.getTime()+offsetMinutes*60*1000) //add user offset to server time
 			this.updateTime()
@@ -165,7 +165,7 @@ $menu = new menu($menu_struct);
 <body>
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+    <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
   </tr>
   <tr>
     <td><?php $menu->mostrar(0); ?></td>
@@ -186,7 +186,7 @@ $menu = new menu($menu_struct);
   </tr>
   <tr>
   <td width="28%" class="style3"><?php echo LANG_content_name; ?></td>
-  <td colspan="2"><? echo $crear->combo_db("caso","select id,titulo from tbl_contenido where borrador = 0","titulo","id",false,$_SESSION['eva_caso'],"ajaxcombo('grupox','seccion','../../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
+  <td colspan="2"><?php echo $crear->combo_db("caso","select id,titulo from tbl_contenido where borrador = 0","titulo","id",false,$_SESSION['eva_caso'],"ajaxcombo('grupox','seccion','../../../grupos/gruposc.php?ide='+this.value,'seccion','nombre','valor');"); ?></td>
 </tr>
   <tr>
   <td class="style3"><?php echo LANG_group_nombre; ?></td>

@@ -115,7 +115,7 @@ $menu = new menu($menu_struct);
 
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+    <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
   </tr>
   <tr>
     <td><?php $menu->mostrar(0); ?></td>
@@ -141,7 +141,7 @@ $menu = new menu($menu_struct);
 		  while ($row = $prueba->db_vector_nom()) {
 		  ?>
           <tr>
-            <td colspan="4" class="table_bk"><? echo LANG_eva_resp;?>&nbsp;<a title="<?=LANG_eva_enum ?>" href="#" style="color:#000000" onClick="popup('enunciado.php?id=<?=$row['preg_id']?>', 'enumpregunta','160','600')"><? echo LANG_eva_question; echo $i?></a></td>
+            <td colspan="4" class="table_bk"><?php echo LANG_eva_resp;?>&nbsp;<a title="<?=LANG_eva_enum ?>" href="#" style="color:#000000" onClick="popup('enunciado.php?id=<?=$row['preg_id']?>', 'enumpregunta','160','600')"><?php echo LANG_eva_question; echo $i?></a></td>
           </tr>
           <tr>
             <td colspan="4" align="center"><textarea name="textarea" cols="93" rows="4" class="style1"><?=stripslashes($row['respuesta']); ?></textarea></td>
@@ -161,7 +161,7 @@ $menu = new menu($menu_struct);
 		 ////traigo preguntas de selección ?> 
           
            <tr>
-            <td colspan="4" class="table_bk"><? echo LANG_eva_evalinfo;?>&nbsp;<a title="<?=LANG_eva_enum ?>" href="#" style="color:#000000" onClick="popup('../../actividades/evaluacion/sel/prueba.php?id=<?php echo $datos[5]; ?>', 'exam','600','500')"><? echo $datos[4] ?></a></td>
+            <td colspan="4" class="table_bk"><?php echo LANG_eva_evalinfo;?>&nbsp;<a title="<?=LANG_eva_enum ?>" href="#" style="color:#000000" onClick="popup('../../actividades/evaluacion/sel/prueba.php?id=<?php echo $datos[5]; ?>', 'exam','600','500')"><?php echo $datos[4] ?></a></td>
           </tr>
           <tr>
             <td colspan="4" align="left"><?php echo LANG_eva_resultest.' '.$res['buenas'].'/'.$datos[7] //npreg de la evaluacion no el total //$res['total'] ?>&nbsp;<img src="../../../images/common/eval.gif" title="<?php echo LANG_eva_viewresult ?>" style="cursor:pointer" onClick="window.location = 'ver.php'" width="24" height="24"></td>

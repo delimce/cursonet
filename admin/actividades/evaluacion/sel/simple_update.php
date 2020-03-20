@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../../../config/setup.php"); ////////setup
 include("../../../../class/clases.php"); ////////clase
@@ -84,7 +84,7 @@ $_SESSION['PREGUNTA_ID'] = $_REQUEST['ItemID'];
 
     <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-            <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+            <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
         </tr>
         <tr>
             <td><?php $menu->mostrar(2); ?></td>
@@ -106,7 +106,7 @@ $_SESSION['PREGUNTA_ID'] = $_REQUEST['ItemID'];
                                     <tr>
                                         <td width="35%" class="style3"><?php echo LANG_eva_name_sel ?></td>
                                         <td width="65%"
-                                            class="small"><? echo $eva->combo_db("evalu", "select id,nombre from tbl_evaluacion where tipo = 1 AND curso_id = {$_SESSION['CURSOID']}", "nombre", "id", LANG_select, $datos['eval_id'], false, '<input name="eval" type="hidden" value="">' . LANG_eva_noquestions); ?></td>
+                                            class="small"><?php echo $eva->combo_db("evalu", "select id,nombre from tbl_evaluacion where tipo = 1 AND curso_id = {$_SESSION['CURSOID']}", "nombre", "id", LANG_select, $datos['eval_id'], false, '<input name="eval" type="hidden" value="">' . LANG_eva_noquestions); ?></td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><?php echo LANG_eva_level; ?></td>

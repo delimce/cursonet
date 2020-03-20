@@ -93,7 +93,7 @@ $menu = new menu($menu_struct);
 <body>
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+    <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
   </tr>
   <tr>
     <td><?php $menu->mostrar(0); ?></td>
@@ -120,7 +120,7 @@ $menu = new menu($menu_struct);
   <tr>
 
     <td width="28%" class="style3"><?php echo LANG_planes_group; ?></td>
-  <td><? echo $crear->combo_db("grupo","select id,nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,$datos['grupo_id'],false,LANG_group_nogroup.'<input name="grupo" type="hidden" value="">'); ?></td>
+  <td><?php echo $crear->combo_db("grupo","select id,nombre from tbl_grupo where curso_id = {$_SESSION['CURSOID']}","nombre","id",LANG_select,$datos['grupo_id'],false,LANG_group_nogroup.'<input name="grupo" type="hidden" value="">'); ?></td>
 </tr>
 
   <tr>

@@ -27,5 +27,3 @@ if (isset($_GET['itemID'])) {
 $grabar->cerrar();
 
 $grabar->javaviso(LANG_drop_msg, "index.php");
-?>
-

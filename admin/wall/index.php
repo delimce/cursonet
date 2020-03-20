@@ -80,7 +80,7 @@ $query = "select id,fecha_c as fecha,IFNULL((select nombre from tbl_grupo where 
     <body>
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
             </tr>
             <tr>
                 <td><?php $menu->mostrar(0); ?></td>
@@ -97,6 +97,4 @@ $query = "select id,fecha_c as fecha,IFNULL((select nombre from tbl_grupo where 
         </table>
     </body>
 </html>
-<?
-$grid->cerrar();
-?>
+<?php $grid->cerrar(); ?>

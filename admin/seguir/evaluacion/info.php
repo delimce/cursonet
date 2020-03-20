@@ -34,7 +34,7 @@ $menu = new menu($menu_struct);
 
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="26" valign="top"><?php echo $menu->nombre; ?></td>
+    <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
   </tr>
   <tr>
     <td><?php $menu->mostrar(0); ?></td>
@@ -65,13 +65,13 @@ $menu = new menu($menu_struct);
                 <tr>
                   <td bgcolor="#FFFFFF" class="style1" style="text-transform: capitalize"><?=$row['nombre2']?></td>
                   <td align="center" bgcolor="#FFFFFF">
-                    <? if($row['presento']!='NO') echo '<img src="../../../images/backend/checkmark.gif" width="11" height="13">'; else echo '<img src="../../../images/backend/x.gif" width="14" height="16">'; ?>
+                    <?php if($row['presento']!='NO') echo '<img src="../../../images/backend/checkmark.gif" width="11" height="13">'; else echo '<img src="../../../images/backend/x.gif" width="14" height="16">'; ?>
                   </td>
                   <td align="center" bgcolor="#FFFFFF">
-				  <? if($row['revision']!='NO' && $row['revision']>-1) echo '<img src="../../../images/backend/checkmark.gif" width="11" height="13">'; else echo '<img src="../../../images/backend/x.gif" width="14" height="16">'; ?>
+				  <?php if($row['revision']!='NO' && $row['revision']>-1) echo '<img src="../../../images/backend/checkmark.gif" width="11" height="13">'; else echo '<img src="../../../images/backend/x.gif" width="14" height="16">'; ?>
 				  </td>
                   <td align="center" bgcolor="#FFFFFF">
-				   <? if($row['revision']!='NO' && $row['revision']>-1) echo $row['revision']; else echo '<img src="../../../images/backend/x.gif" width="14" height="16">'; ?>
+				   <?php if($row['revision']!='NO' && $row['revision']>-1) echo $row['revision']; else echo '<img src="../../../images/backend/x.gif" width="14" height="16">'; ?>
 				  </td>
                 </tr>
 				

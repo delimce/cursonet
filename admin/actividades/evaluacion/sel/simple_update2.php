@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 include("../../../../config/setup.php");
 include("../../../../clases/clases.php");
 

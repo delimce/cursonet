@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-include("../config/dbconfig.php");
 include("../class/clases.php");
 
 if (isset($_POST['user'])) {
