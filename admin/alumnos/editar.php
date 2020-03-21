@@ -85,12 +85,6 @@ if (isset($_POST['login12'])) {
     /////////////
 
 
-    if ($_POST['boton'] == 1) {
-
-        $npass = md5($_POST['pass1']);
-        $crear->query("update tbl_estudiante set pass = '$npass' where id = '{$_POST['id']}'");
-    }
-
     $crear->cerrar_transaccion();
 
     $crear->cerrar();
@@ -113,24 +107,6 @@ if (isset($_POST['login12'])) {
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
     <script language="JavaScript" type="text/javascript" src="../../js/utils.js"></script>
-
-    <script language="JavaScript" type="text/javascript">
-        function cambio(boton) {
-
-            if (boton.checked == true) {
-
-                document.form1.pass1.disabled = false;
-                document.form1.pass12.disabled = false;
-
-            } else {
-
-                document.form1.pass1.disabled = true;
-                document.form1.pass12.disabled = true;
-
-            }
-
-        }
-    </script>
 
 
     <script language="JavaScript" type="text/javascript">
@@ -175,24 +151,6 @@ if (isset($_POST['login12'])) {
                 alert("<?= LANG_VAL_login ?>");
                 document.form1.login12.focus();
                 return (false);
-            }
-
-
-            if (document.form1.boton.checked == true) {
-
-                if (document.form1.pass1.value.length < 5) {
-                    alert("<?= LANG_VAL_pass ?>");
-                    document.form1.pass1.focus();
-                    return (false);
-                }
-
-
-                if (document.form1.pass1.value != document.form1.pass12.value) {
-                    alert("<?= LANG_VAL_repass ?>");
-                    document.form1.pass12.focus();
-                    return (false);
-                }
-
             }
 
             deshabilitar(document.getElementById('submit3'));
@@ -289,28 +247,13 @@ if (isset($_POST['login12'])) {
                                         <td><input name="carrera" type="text" id="carrera" value="<?= $data[9] ?>" size="30"></td>
                                     </tr>
                                     <tr>
-                                        <td class="style3"><strong><strong>
-                                                    <?= LANG_pass ?>
-                                                    <strong><strong><strong><strong>
-                                                                    <input name="boton" type="checkbox" class="small" onClick="cambio(this);" value="1">
-                                                                </strong></strong></strong></strong></strong></strong></td>
-                                        <td><span class="style3"><strong><strong><strong><strong>
-                                                                <input name="pass1" type="password" id="pass1" disabled="disabled">
-                                                            </strong></strong></strong></strong></span></td>
-                                        <td>&nbsp;</td>
+                                
                                         <td class="style3"><strong>
                                                 <?= LANG_faculty_level ?>
                                             </strong></td>
                                         <td><input name="nivel" type="text" id="nivel" value="<?= $data[10] ?>"></td>
                                     </tr>
                                     <tr>
-                                        <td class="style3"><strong><strong><strong><strong><strong>
-                                                                <?= LANG_pass2 ?>
-                                                            </strong></strong></strong></strong></strong></td>
-                                        <td><span class="style3"><strong><strong><strong><strong>
-                                                                <input name="pass12" type="password" id="pass12" disabled="disabled">
-                                                            </strong></strong></strong></strong></span></td>
-                                        <td>&nbsp;</td>
                                         <td class="style3"><strong>
                                                 <?= LANG_university ?>
                                             </strong></td>
@@ -370,5 +313,6 @@ if (isset($_POST['login12'])) {
     </table>
     </div>
 </body>
+
 </html>
 <?php $crear->cerrar(); ?>
