@@ -1,5 +1,4 @@
 <?php 
- include("../config/dbconfig.php");
  include("../class/clases.php");
  $nuevo = new tools('db');
  $lengua = $nuevo->simple_db("select lenguaje,modo from tbl_setup"); //// modo

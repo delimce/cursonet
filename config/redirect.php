@@ -1,21 +1,17 @@
 <?php
- if($_SESSION['PROFILE']!=$profile){ ////valida la sesion si ha sido creada por un usuario valido!!!
+if (!isset($_SESSION['PROFILE'])) { ////valida la sesion si ha sido creada por un usuario valido!!!
 
- $LOGINPAGE = $_SERVER['HTTP_HOST']."/".$DIRAPP."/error/error.php";
- session_destroy();
- $LOGINPAGE = "http://$LOGINPAGE";
+    $LOGINPAGE = $_SERVER['HTTP_HOST'] . "/error/error.php";
+    session_destroy();
+    $LOGINPAGE = "http://$LOGINPAGE";
 
- ?>
+?>
 
- <script language="JavaScript" type="text/javascript">
+    <script language="JavaScript" type="text/javascript">
+        top.location.replace('<?= $LOGINPAGE ?>');
+    </script>
 
- top.location.replace('<?=$LOGINPAGE ?>');
-
- </script>
-
- <?php
- 
- die();
- 
- }
+<?php
+    die();
+}
 ?>
