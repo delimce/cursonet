@@ -103,7 +103,6 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
             <td height="19" colspan="2" bgcolor="#F1F2EE">
 
                 <script type="text/javascript">
-                    <!--
                     stm_bm(["menu79ba", 900, "", "blank.gif", 0, "", "", 0, 0, 0, 0, 0, 1, 0, 0, "", "", 0, 0, 1, 1, "hand", "hand", "", 1, 25], this);
                     stm_bp("p0", [0, 4, 0, 0, 3, 4, 0, 7, 100, "", -2, "", -2, 90, 0, 0, "#000000", "#F1F2EE", "", 3, 0, 0, "#000000"]);
                     stm_ai("p0i0", [0, "Sección", "", "", -1, -1, 0, "", "_self", "", "", "", "", 0, 0, 0, "arrow_r.gif", "arrow_r.gif", 7, 7, 0, 0, 1, "#F1F2EE", 0, "#AABDCA", 0, "", "", 3, 3, 0, 0, "#FFFFF7", "#000000", "#000000", "#000000", "7pt Verdana", "7pt Verdana", 0, 0, "", "", "", "", 0, 0, 0]);
@@ -158,7 +157,6 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
                     stm_ep();
                     stm_ep();
                     stm_em();
-                    //-->
                 </script>
 
 

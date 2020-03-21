@@ -44,6 +44,7 @@
 
       $this->query($query);  //llamando las funciones de la clase database heredada
       $campos = $this->campos_query();
+      $a = [];
 
       $i=0;
 
@@ -215,6 +216,7 @@
    function array_query($query){
 
         $i=0;
+        $vector = [];
         $this->query($query); //ejecuta el query
         while ($row = $this->db_vector_num($this->result)){
                 $vector[$i] =  stripslashes($row[0]);
