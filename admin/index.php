@@ -92,7 +92,7 @@ $version = $file1->readLastLine();
 
 </head>
 <body>
-<br>
+<p style="padding-bottom: 60px">&nbsp;</p>
 <table class="welcome-admin" width="637" height="307" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="366" rowspan="3" valign="bottom"><img src="../images/backend/p001.jpg" width="366" height="313"></td>
@@ -147,8 +147,4 @@ $version = $file1->readLastLine();
 </table>
 </body>
 </html>
-<?php
-
-$nuevo->cerrar();
-
-?>
+<?php $nuevo->cerrar(); ?>
