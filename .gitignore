@@ -1,3 +1,4 @@
 /.idea/
 /.vscode/
 /recursos
+/config/dbconfig.php

@@ -1,0 +1,13 @@
+<?php 
+
+ $HOSTNAME =  "localhost";  //host
+ $DBUSER   =   "root";      //user
+ $DBPASS   =   "";          //pswd
+ $DATABASE =   "" ;         // database name
+
+
+ 
+ $SESSION_TIMEOUT= 1400; // one day 
+
+
+?>
