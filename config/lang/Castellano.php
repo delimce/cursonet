@@ -49,7 +49,7 @@ define("LANG_enter_nocurse","Disculpe, la información del curso seleccionado no
 define("LANG_wellcome","User.");
 define("LANG_messages","Mensajes");
 define("LANG_estat","Estadisticas");
-define("LANG_subjects","Módulos");
+define("LANG_subjects","Temas");
 define("LANG_resources","Recursos");
 define("LANG_students","Estudiantes");
 define("LANG_student","Estudiante");
@@ -222,10 +222,10 @@ define("LANG_RES_stutable","Estudiantes");
 define("LANG_RES_stutable_des","Borrar todos los estudiantes inscritos");
 define("LANG_RES_group","Secciones");
 define("LANG_RES_group_des","Borrar todas las secciones de estudiantes");
-define("LANG_RES_content","Módulos");
-define("LANG_RES_content_des","Borrar todos los Módulos creados");
+define("LANG_RES_content","Temas");
+define("LANG_RES_content_des","Borrar todos los Temas creados");
 define("LANG_RES_foro","Foro");
-define("LANG_RES_foro_des","Borrar todos los Módulos del foro creados");
+define("LANG_RES_foro_des","Borrar todos los temas del foro creados");
 define("LANG_RES_eva","Evaluaciones");
 define("LANG_RES_eva_des","Borrar todas las Evaluaciones creadas");
 define("LANG_RES_sel","Preguntas");
@@ -270,7 +270,7 @@ define("LANG_group_groupasig","Asginar secciones para el caso ");
 define("LANG_group_noselect","Debe seleccionar al menos una sección");
 define("LANG_group_nostudent","No existen estudiantes para ubicar a la sección");
 define("LANG_group_nogroup","No existen Secciones creadas, intente crear una nueva sección");
-define("LANG_group_casoseccion","Debe seleccionar el Módulo para hablitar la sección");
+define("LANG_group_casoseccion","Debe seleccionar el tema para hablitar la sección");
 
 ///////equipos
 
@@ -285,13 +285,13 @@ define("LANG_team_error_group","el equipo debe pertenecer a una sección");
 define("LANG_team_error_name","ingrese un nombre para el equipo");
 
 //////////tema
-define("LANG_content_name","Módulo");
+define("LANG_content_name","Tema");
 define("LANG_content","Temas");
 define("LANG_content_noactive","Guardar como borrador");
 define("LANG_content_links","Enlaces");
 define("LANG_content_nogroup","Es necesario crear una sección para poder continuar");
-define("LANG_content_nolinks","El Módulo no posee enlaces por visitar");
-define("LANG_content_novideos","El Módulo no posee videos");
+define("LANG_content_nolinks","El tema no posee enlaces por visitar");
+define("LANG_content_novideos","El tema no posee videos");
 define("LANG_content_files2","Archivos");
 define("LANG_content_upload","Subir");
 define("LANG_content_upload_error","Error al subir el archivo, intentelo de nuevo");
@@ -303,7 +303,7 @@ define("LANG_content_videolink","Enlace del video");
 define("LANG_content_videoyoutubevalid",'ingrese un enlace youtube valido Ej: "http://www.youtube.com/watch?v=QCVxQ_3Ejkg" ');
 define("LANG_content_videoveohvalid",'ingrese un enlace VeoH valido Ej: "http://www.veoh.com/videoDetails.html?v=e96658xAEQGBty" ');
 define("LANG_content_videoup","Ingrese el Video a subir");
-define("LANG_content_theme","Debe crear un Módulo para el curso");
+define("LANG_content_theme","Debe crear un tema para el curso");
 
 
 define("LANG_content_error","introduzca una ruta válida de un archivo a subir");
@@ -421,27 +421,27 @@ define("LANG_eva_following_nota","Nota");
 
 
 ////////////foro
-define("LANG_foro_name","Módulo de discusión");
+define("LANG_foro_name","Tema de discusión");
 define("LANG_foro_newname","Nombre del foro");
 define("LANG_foro_date1","Fecha inicio");
 define("LANG_foro_date2","Fecha Fin");
 define("LANG_foro_por","Porcentaje");
 define("LANG_foro_resumen","Resumen");
-define("LANG_foro_contenido","Módulo de discusión");
-define("LANG_foro_created","Ha sido creado un Módulo de foro");
+define("LANG_foro_contenido","Tema de discusión");
+define("LANG_foro_created","Ha sido creado un tema de foro");
 define("LANG_foro_com_created","Comentario añadido con exito");
-define("LANG_foro_val_caso","Seleccione un Módulo");
+define("LANG_foro_val_caso","Seleccione un tema");
 define("LANG_foro_val_fecha","Ingrese una fecha valida");
 define("LANG_foro_val_resumen","Ingrese un Resumen");
-define("LANG_foro_val_content","Ingrese un Módulo");
+define("LANG_foro_val_content","Ingrese un tema");
 define("LANG_foro_val_co","debe ingresar un comentario");
 define("LANG_foro_val_fechas","Imposible insertar, la fecha de final debe ser mayor a la de inicio");
-define("LANG_foro_select_topic","Seleccione un Módulo");
+define("LANG_foro_select_topic","Seleccione un tema");
 define("LANG_foro_ver","Ver comentarios");
 define("LANG_foro_add","Añadir comentario");
 define("LANG_foro_nocomments","No existen comentarios");
 define("LANG_foro_crear_comm","Crear comentario");
-define("LANG_foro_tema","Seleccione un Módulo de discusión");
+define("LANG_foro_tema","Seleccione un tema de discusión");
 define("LANG_foro_publicado","Publicado");
 define("LANG_foro_n_comm","N# comentarios");
 define("LANG_foro_n_words","N# palabras/comentario:");
@@ -449,18 +449,18 @@ define("LANG_foro_comunread","Comentarios sin leer");
 define("LANG_foro_status_v","Comentario Válido");
 define("LANG_foro_status_nv","Comentario No válido");
 define("LANG_foro_status_change","Desea cambiar el estatus ");
-define("LANG_foro_edit_comment","Editar el comentario del Módulo");
+define("LANG_foro_edit_comment","Editar el comentario del tema");
 define("LANG_foro_del_comment","confirma que desea borrar el comentario de ");
 define("LANG_foro_delreg","Comentario Borrado");
 define("LANG_foro_nonota","error en la nota del renglon ");
-define("LANG_foro_tema_ok","Módulo de discusión Corregido con exito");
+define("LANG_foro_tema_ok","tema de discusión Corregido con exito");
 define("LANG_foro_ncom","N coments.");
 define("LANG_foro_nval","Validos");
 define("LANG_foro_response","Responder a este comentario");
 define("LANG_foro_cok_title"," Ha sido aprobado.");
-define("LANG_foro_comm1","Su ultimo comentario en el Módulo ");
+define("LANG_foro_comm1","Su ultimo comentario en el tema ");
 define("LANG_foro_cok_thanx","Gracias por participar en el foro");
-define("LANG_foro_noitem","No existen Módulos de discusión");
+define("LANG_foro_noitem","No existen temas de discusión");
 define("LANG_foro_deleteall","Borrar todos los comentarios");
 define("LANG_foro_deleteallqt","Está seguro que desea Borrar todos los comentarios de este foro?");
 
@@ -475,13 +475,13 @@ define("LANG_esta_ultvisit","Fecha Última Visita");
 define("LANG_esta_downloads","Descargas realizadas");
 define("LANG_esta_est","Estadisticas por Estudiante");
 define("LANG_esta_est_select","Seleccione Estudiante");
-define("LANG_esta_contvistos","Módulos visitados");
+define("LANG_esta_contvistos","temas visitados");
 define("LANG_esta_configclient","Configuración cliente");
 
 define("LANG_esta_indi","Estadisticas por indicadores");
 define("LANG_esta_supporta","Solicitudes de soporte Académico:");
 define("LANG_esta_supporte","Solicitudes de soporte Técnico:");
-define("LANG_esta_ntemas","Módulos visitados");
+define("LANG_esta_ntemas","temas visitados");
 define("LANG_esta_ndown","Descargas realizadas");
 
 
@@ -615,22 +615,22 @@ define("LANG_est_info_desc","Descripción");
 define("LANG_est_info_long","Duración");
 define("LANG_est_info_scur","Seleccione el curso para iniciar <br> (ubíquelo en la parte superior de la ventana)");
 
-define("LANG_est_scurso","Seleccionar Módulo");
+define("LANG_est_scurso","Seleccionar tema");
 define("LANG_est_tcontent","Titulo");
-define("LANG_est_info_content","Módulos asociados");
-define("LANG_est_info_nocontent","No existen Módulos");
+define("LANG_est_info_content","temas asociados");
+define("LANG_est_info_nocontent","No existen temas");
 define("LANG_est_cont_fecha","Fecha de creación");
 define("LANG_est_cont_autor","Facilitador");
 define("LANG_est_cont_nrec","Cantidad de recursos");
-define("LANG_est_cont_ver","Ver Módulo");
+define("LANG_est_cont_ver","Ver temas");
 define("LANG_est_retro","Retroalimentación");
 define("LANG_est_nogroup","Actualmente no posee sección asignada");
-define("LANG_est_nogroup_cont","No existen Módulos asociados a este curso");
+define("LANG_est_nogroup_cont","No existen temas asociados a este curso");
 define("LANG_est_welcome","Introduzca sus credenciales de estudiante para iniciar una nueva sesión.");
 
 
 /////temas est
-define("LANG_est_cont_alt","Módulo");
+define("LANG_est_cont_alt","Temas");
 define("LANG_est_file_alt","Archivos");
 define("LANG_est_foro_alt","Foros");
 define("LANG_est_eval_alt","Evaluaciones");

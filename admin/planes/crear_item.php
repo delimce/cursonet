@@ -161,7 +161,7 @@ if (!empty($_POST['nombre'])) {
 
                                 <form action="" method="post" name="form1" onSubmit="return validar();">
 
-                                    <table width="100%" border="0" cellspacing="4" cellpadding="3">
+                                    <table width="100%" height="300px" border="0" cellspacing="4" cellpadding="3">
                                         <tr>
                                             <td colspan="2" class="td_whbk2"><?php echo LANG_planes_item_create ?> <?php echo LANG_planes_plan ?>:&nbsp;<span class="style3"><?php echo $datos['titulo'] ?></span></td>
                                         </tr>
