@@ -2,7 +2,7 @@
 	  
   /**************** PARAMETROS MODIFICABLES************************/
  $DIRAPP = "cursonet"; //// nombre del directorio de la aplicacion, en caso de que sea el raiz se obvia por ""
- $FEEDBACK = "http://cursonet.net/est/fg.php"; ///la direccion a donde va el post del formulario de feedback es unico para todas las versiones de cursonet
+ $FEEDBACK = "https://cursonet.net/est/fg.php"; ///la direccion a donde va el post del formulario de feedback es unico para todas las versiones de cursonet
 	
  //////////////CORREO SMTP///////////////////////////////////////////////
  $HOSTSMTP = ''; ///smtp1.example.com;smtp2.example.com";  // specify main and backup server
@@ -12,7 +12,7 @@
 
  date_default_timezone_set('America/Caracas');
 
- const api_url = 'http://www.cursonet.net/api/admin/'; //ruta para consumir servicios rest
+ const api_url = 'https://cursonet.net/api/admin/'; //ruta para consumir servicios rest
 
  /*************************************************************************/
 
