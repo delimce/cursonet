@@ -1,4 +1,7 @@
-<?php session_start();
+<?php
+@session_set_cookie_params(['samesite' => 'None']);
+session_start();
+
 $profile = 'admin'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
@@ -74,12 +77,17 @@ $menu = new menu($menu_struct);
     $("#form1").submit(function (eve) {
 
         eve.preventDefault();
-        var file_data = $("#file").prop("files")[0];   // Getting the properties of file from file field
-        var form_data = new FormData();                  // Creating object of FormData class
+        let file_data = $("#file").prop("files")[0];   // Getting the properties of file from file field
+        let form_data = new FormData();                  // Creating object of FormData class
         form_data.append("file", file_data)              // Appending parameter named file with properties of file_field to form_data
         form_data.append("persona", $("#persona").val())
-        form_data.append("descripcion", $("#descripcion").val())
-        var url = '<?= api_url ?>class/file';
+        let desc = $("#descripcion").val();
+        form_data.append("descripcion",desc)
+        if(desc.length<=5){
+            alert("la descripción debe ser mayor a 5 letras");
+            return false;
+        }
+        let url = '<?= api_url ?>class/file';
         $.ajax({
             url: url,
             type: 'post',
@@ -92,7 +100,7 @@ $menu = new menu($menu_struct);
                 location.replace('index.php');
             },
             error: function (error) {
-                var msg = error.responseJSON.message;
+                let msg = 'Error subiendo el archivo';
                 alert(msg);
             }
         });

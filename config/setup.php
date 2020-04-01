@@ -13,6 +13,7 @@
  date_default_timezone_set('America/Caracas');
 
  const api_url = 'https://cursonet.net/api/admin/'; //ruta para consumir servicios rest
+ header('Set-Cookie: HttpOnly; SameSite=None;Secure');
 
  /*************************************************************************/
 
