@@ -258,7 +258,7 @@ class grid2 extends database
                                 $valor = "<b>error!</b>";
                             }
 
-                        echo '<td class="td_whbk1" align="' . $this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
+                        echo '<td class="td_whbk1" align="' . @$this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
                     } else {
 
                         if (strlen($valor) > $this->features['abreviar'][$ii])

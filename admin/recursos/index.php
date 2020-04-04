@@ -3,7 +3,7 @@ session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../config/setup.php"); ////////setup
 include("../../class/clases.php"); ////////clase
-include ("../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
+include("../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
 require_once("menu.php"); ////////menu
 $menu = new menu($menu_struct);
@@ -34,76 +34,79 @@ $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
 
 
-$query = "select id,dir as archivo,size as peso,created_at as fecha,download as descargas,
+$query = "select id,dir as archivo,size as peso,
+ifnull(fecha,created_at) as fecha,
+downloads as descargas,
    if({$_SESSION['ADMIN']}>0,'1','0') as condicion_editar, descripcion
    from tbl_recurso where tipo = 0 and add_by = 'admin'";
-   
- $grid->query($query); //////se ejecuta el query  
-   
+
+$grid->query($query); //////se ejecuta el query  
+
 ?>
 <!DOCTYPE html>
 <html>
-    <head> <meta charset="utf-8">
 
-        <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
-        <script src="../../js/jquery/jquery.grid.functions.js"></script>
+<head>
+    <meta charset="utf-8">
 
-        <script type="text/javascript">
+    <script src="../../js/jquery/jquery-1.7.2.min.js"></script>
+    <script src="../../js/jquery/jquery.grid.functions.js"></script>
 
-            // When document is ready: this gets fired before body onload :)
-            $(document).ready(function() {
-                // Write on keyup event of keyword input element
-                buscarGrid('grid1');
-                $("#grid1").ordenarTabla();
-                 $('#nrecus', window.parent.document).html(<?=$grid->nreg?>);
+    <script type="text/javascript">
+        // When document is ready: this gets fired before body onload :)
+        $(document).ready(function() {
+            // Write on keyup event of keyword input element
+            buscarGrid('grid1');
+            $("#grid1").ordenarTabla();
+            $('#nrecus', window.parent.document).html(<?= $grid->nreg ?>);
 
-            });
-
-
-        </script>
-
-
-        <script language="JavaScript" type="text/javascript">
-            function borrar(id, nombre) {
-
-                if (confirm("<?= LANG_borrar ?> " + nombre + " ?")) {
-
-                    location.replace('borrar_file.php?itemID=' + id);
-
-                } else {
+        });
+    </script>
 
 
-                    return false;
+    <script language="JavaScript" type="text/javascript">
+        function borrar(id, nombre) {
 
-                }
+            if (confirm("<?= LANG_borrar ?> " + nombre + " ?")) {
+
+                location.replace('borrar_file.php?itemID=' + id);
+
+            } else {
+
+
+                return false;
+
             }
-        </script>
+        }
+    </script>
 
 
-        <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
-    </head>
+    <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
+</head>
 
-    <body>
-        <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-                <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
-            </tr>
-            <tr>
-                <td><?php $menu->mostrar(0); ?></td>
-            </tr>
-            <tr>
-                <td>
+<body>
+    <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span></td>
+        </tr>
+        <tr>
+            <td><?php $menu->mostrar(0); ?></td>
+        </tr>
+        <tr>
+            <td>
 
-                    <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td><br>
-                                <a href="addfile.php" class="style1"> <img src="../../images/backend/nuevo.gif" width="16" height="16" border="0" align="left"><?php echo LANG_add ?></a><br>
-                                <br>
-                                <?php $grid->cargar($query); ?>&nbsp;</td>
-                        </tr>
-                    </table>	</td>
-            </tr>
-        </table>
-    </body>
+                <table style="border-right:#000000 solid 1px; border-left:#000000 solid 1px; border-bottom:#000000 solid 1px;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td><br>
+                            <a href="addfile.php" class="style1"> <img src="../../images/backend/nuevo.gif" width="16" height="16" border="0" align="left"><?php echo LANG_add ?></a><br>
+                            <br>
+                            <?php $grid->cargar($query); ?>&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
 </html>
 <?php $grid->cerrar(); ?>
