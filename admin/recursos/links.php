@@ -33,7 +33,11 @@ $features = array(
 
 $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
-$query = "select id,dir as enlace,created_at as fecha,descripcion  from tbl_recurso where tipo = 1 and add_by = 'admin'";
+$query = "select id,dir as enlace,ifnull(fecha,created_at) as fecha, descripcion 
+ from tbl_recurso 
+ where tipo = 1 and add_by = 'admin'";
+
+$query.=(empty($_SESSION['ADMIN']))?" and persona = {$_SESSION['USERID']}":"";
 
 $grid->query($query); //////se ejecuta el query
 ?>

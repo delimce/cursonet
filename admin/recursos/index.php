@@ -34,13 +34,13 @@ $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
 
 
-$query = "select id,dir as archivo,
-descripcion as descripción,
-size as peso,
-ifnull(fecha,created_at) as fecha,
-downloads as vistas,
-   if({$_SESSION['ADMIN']}>0,'1','0') as condicion_editar
-   from tbl_recurso where tipo = 0 and add_by = 'admin'";
+$query = "select id,dir as archivo, descripcion as descripción, size as peso, ifnull(fecha,created_at) as fecha, 
+downloads as vistas, if({$_SESSION['ADMIN']}>0,'1','0') as condicion_editar
+from tbl_recurso
+where tipo = 0 and add_by = 'admin'";
+
+$query.=(empty($_SESSION['ADMIN']))?" and persona = {$_SESSION['USERID']}":"";
+
 
 $grid->query($query); //////se ejecuta el query  
 

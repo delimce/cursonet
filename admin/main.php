@@ -13,9 +13,12 @@ if (isset($_REQUEST['curso'])) {
 }
 
 ///////////////////
-$datamenu = $datos->simple_db("select (select count(*) from tbl_estudiante) as nest, (select count(*) from tbl_mensaje_admin where para = {$_SESSION['USERID']} ) as nmens,
+$person =(empty($_SESSION['ADMIN']))?" and persona = {$_SESSION['USERID']}":"";
+
+$datamenu = $datos->simple_db("select (select count(*) from tbl_estudiante) as nest,
+ (select count(*) from tbl_mensaje_admin where para = {$_SESSION['USERID']} ) as nmens,
  (select count(*) from tbl_contenido where curso_id = '{$_SESSION['CURSOID']}') as ntemas, 
- (select count(*) from tbl_recurso where add_by = 'admin') as recursos  ");
+ (select count(*) from tbl_recurso where add_by = 'admin' $person ) as recursos  ");
 
 
 $data = $datos->simple_db("select c.id,c.nombre,c.alias,date_format(fecha_creado,'{$_SESSION['DB_FORMATO_DB']}') as fechac,
