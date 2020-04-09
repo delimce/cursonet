@@ -13,7 +13,7 @@ IMPORTANTE: por defecto se asume que se esta conectado a la base de datos
 en caso de que desee llamar herramientas del tipo database
 ****************************************************************************/
 
-class image extends  database {
+class image extends  Database {
 
 
 

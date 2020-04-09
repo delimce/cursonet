@@ -8,7 +8,7 @@
   en caso de que desee llamar herramientas del tipo database
  ****************************************************************************/
 
- class tools extends  database {
+ class tools extends  Database {
 
  //**********************************************atributos
 

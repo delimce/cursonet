@@ -11,7 +11,7 @@
  * nueva implementacion del grid para aguantar mas funciones
  * @author delimce
  */
-class grid2 extends database
+class grid2 extends Database
 {
 
     //***********************************************formato

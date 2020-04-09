@@ -7,7 +7,7 @@
  * Time: 9:54 AM
  * To change this template use File | Settings | File Templates.
  */
-class ObjectDB extends database {
+class ObjectDB extends Database {
 
     private $table; ///tabla de base de datos
     private $fields = array(); ///campos de la tabla (vector asociativo)

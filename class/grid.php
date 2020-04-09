@@ -8,7 +8,7 @@
   de no ser asi se debe llamar el constructor 2
  * ************************************************************************** */
 
-class grid extends database
+class grid extends Database
 {
 
     //***********************************************formato
