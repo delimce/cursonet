@@ -18,15 +18,15 @@ $features = array(
     "style_head" => "table_bk",
     "formato" => "html",
     "conenlace" => array("parametro" => 0, "var_parametro" => "id", "pos" => "1", "title" => 6, "url" => "abrir.php?", "target" => "_self"),
-    "oculto" => '0,5,6',
-    "orden" => array(1 => "string", 2 => "float", 3 => "date", 4 => "int"),
-    "abreviar" => array(1 => 65, 2 => 20),
+    "oculto" => '0,6',
+    "orden" => array(1 => "string", 2 => "float", 3 => "int", 4 => "date"),
+    "abreviar" => array(1 => 50, 2 => 60),
     // "nuevo_vinculo1"  => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?","target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
-    "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1, "condicion" => 5, "texto_condicion" => "<img border=\"0\" src=\"../../images/backend/button_nodel.png\">"),
-    "separacion" => array(0 => "1%", 1 => "60%", 2 => "15%", 3 => "12%"), //separacion de columnas
-    "alineacion" => array(0 => "center", 1 => "left", 2 => "center", 3 => "center", 4 => "center"),
+    "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1, "condicion" => 6, "texto_condicion" => "<img border=\"0\" src=\"../../images/backend/button_nodel.png\">"),
+    "separacion" => array(0 => "1%", 1 => "33%", 2 => "40%", 4 => "8%"), //separacion de columnas
+    "alineacion" => array(0 => "center", 1 => "left", 2 => "left", 3 => "center", 4 => "center", 5 => "center"),
     "celda_vacia" => '<div align="center">-</div>',
-    "dateformat" => '3'
+    "dateformat" => '4'
 );
 
 
@@ -34,10 +34,12 @@ $grid = new grid2("grid1", "99%", $features);
 $grid->autoconexion();
 
 
-$query = "select id,dir as archivo,size as peso,
+$query = "select id,dir as archivo,
+descripcion as descripción,
+size as peso,
 ifnull(fecha,created_at) as fecha,
-downloads as descargas,
-   if({$_SESSION['ADMIN']}>0,'1','0') as condicion_editar, descripcion
+downloads as vistas,
+   if({$_SESSION['ADMIN']}>0,'1','0') as condicion_editar
    from tbl_recurso where tipo = 0 and add_by = 'admin'";
 
 $grid->query($query); //////se ejecuta el query  
