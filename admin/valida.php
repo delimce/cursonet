@@ -12,7 +12,7 @@ if (isset($_POST['user'])) {
 
    $sql = "SELECT
 	(select lenguaje from tbl_setup) as lenguaje,
-	a.cursos,
+    ifnull(group_concat(ac.curso_id),'') as cursos,
 	a.id,
 	CONCAT(nombre, ' ', apellido) AS nombre,
 	a.es_admin,
@@ -23,6 +23,7 @@ if (isset($_POST['user'])) {
         FROM
         tbl_admin AS a 
         LEFT JOIN tbl_log_admin AS l ON l.admin_id = a.id
+        LEFT JOIN tbl_admin_curso as ac ON a.id = ac.admin_id
         WHERE
         a.`user` = '$usuario' AND
         a.pass = MD5('$pass1') GROUP BY a.id";
@@ -30,13 +31,9 @@ if (isset($_POST['user'])) {
     $db->setSql($sql);
     $db->getResultFields();
 
-
     if ($db->getNumRows() > 0) {
 
-
-        if ($db->getField("cursos") != "")
-            $loscursos = explode(',', $db->getField("cursos"));
-
+        $loscursos = ($db->getField("cursos") != "")? explode(',', $db->getField("cursos")):[];
         $_SESSION['LENGUAJE'] = $db->getField("lenguaje"); //lenguaje
 
         if (($db->getField("es_admin") == 1) or ( in_array($curso2, $loscursos))) {
@@ -60,14 +57,11 @@ if (isset($_POST['user'])) {
 
             echo "1"; ///puede entrar
         } else {
-
             echo "2";
         }
     } else {
-
         echo "0";
     }
 }
 
 $db->cerrar();
-?>

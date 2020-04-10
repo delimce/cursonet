@@ -317,6 +317,14 @@ class Database
         $this->ultimoID = mysqli_insert_id($this->getDbc()) or die('<font color=#FF0000> Error en ID generado de insert</font>' . mysqli_error($this->getDbc()));
     }
 
+    /**
+     * @return int
+     */
+    public function getLastIdInserted()
+    {
+       return  $this->ultimoID;
+    }
+
 
     public function getDbc()
     {

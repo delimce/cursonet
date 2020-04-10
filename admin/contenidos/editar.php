@@ -141,10 +141,12 @@ $menu = new menu($menu_struct);
     <td>
     <?php 
 	
-	$querya = "SELECT 
+	$querya = "SELECT distinct
 			  concat(a.nombre,' ',a.apellido) as nombre,
 			  a.id
-			from tbl_admin a where (a.cursos LIKE '%{$_SESSION['CURSOID']}%')";
+			from tbl_admin a 
+      inner join tbl_admin_curso ac on a.id = ac.admin_id
+      where ac.curso_id = {$_SESSION['CURSOID']}";
 			  
 	if($_SESSION['PROFILE'] == 'admin')
 	$querya.=  " or (es_admin=1)" ;
