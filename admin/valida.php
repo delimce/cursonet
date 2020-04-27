@@ -20,9 +20,9 @@ if (isset($_POST['user'])) {
     FROM
 	tbl_admin AS a
 	LEFT JOIN tbl_admin_curso AS ac ON a.id = ac.admin_id 
-        WHERE
-        a.`user` = '$usuario' AND
-        a.pass = MD5('$pass1') GROUP BY a.id";
+    WHERE
+    a.`user` = '$usuario' AND a.pass = MD5('$pass1') 
+    GROUP BY a.id";
 
     $db->setSql($sql);
     $db->getResultFields();

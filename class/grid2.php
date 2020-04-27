@@ -128,9 +128,7 @@ class grid2 extends Database
     function cargar($query)
     {
 
-
         $this->query($query);  //llamando las funciones de la clase database heredada
-
 
         $this->campos = $this->campos_query($this->result);
         if (isset($this->orden))
@@ -301,13 +299,14 @@ class grid2 extends Database
                 if (isset($this->features['nuevo_vinculo2'])) {
                     echo '<td align="center">';
 
-
                     if (isset($this->features['nuevo_vinculo2']['popup']))
                         $popup = " onclick=\" return popup2(this,'" . @$this->features['nuevo_vinculo2']['popup'] . "');\"";
                     else
                         $popup = '';
-                    if (isset($this->features['nuevo_vinculo2']['borrar']))
+                    if (isset($this->features['nuevo_vinculo2']['borrar']) && ($tmp[$this->features['nuevo_vinculo2']['condicion']]==1))
                         $popup = " onclick=\" return borrar('" . @$tmp[$this->features['nuevo_vinculo2']['parametro']] . "','" . @$tmp[$this->features['nuevo_vinculo2']['borrar']] . "');\"";
+                    else if (isset($this->features['nuevo_vinculo2']['borrar']) && (@$tmp[$this->features['nuevo_vinculo2']['condicion']]!=1))    
+                    $popup = " onclick=\" return alert('Operación no permitida');\"";
                     else
                         $popup = '';  //// para borrar un registro del grid experimental
                     echo '<a href="' . @$this->features['nuevo_vinculo2']['url'] . @$this->features['nuevo_vinculo2']['var_parametro'] . '=' . @$tmp[$this->features['nuevo_vinculo2']['parametro']] . @$this->features['nuevo_vinculo2']['extras'] . '" target="' . @$this->features['nuevo_vinculo2']['target'] . '" title="' . @$this->features['nuevo_vinculo2']['title'] . '"' . $popup . '">' . @$this->features['nuevo_vinculo2']['texto'] . '</a>';

@@ -38,6 +38,7 @@ $grid->autoconexion();
 $combo = new tools();
 $combo->dbc = $grid->dbc;
 
+$isAdmin = intval($_SESSION['ADMIN']);
 $query = "select id,concat(nombre,' ',apellido) as nombre,id_number as cedula,user,
   (SELECT 
   g.nombre
@@ -46,7 +47,7 @@ FROM
   INNER JOIN `tbl_grupo` g ON (ge.grupo_id = g.id)
 where ge.curso_id = {$_SESSION['CURSOID']} and est_id = e.id )as seccion,
   (if (activo=1,'". LANG_is_active ."','" . LANG_is_noactive . "')) as Activo,
-   if({$_SESSION['ADMIN']}>2,'1','0') as condicion_editar
+  '$isAdmin' as condicion_editar
   from tbl_estudiante e where e.id not in (select est_id from tbl_grupo_estudiante where curso_id = '{$_SESSION['CURSOID']}' )";
 
 

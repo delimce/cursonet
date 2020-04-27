@@ -47,7 +47,7 @@ if (empty($_GET['seccion'])) {
     $filtro = "where e.id in (select est_id from tbl_grupo_estudiante where grupo_id = {$_GET['seccion']} and curso_id = {$_SESSION['CURSOID']} )";
 }
 ////////////
-
+$isAdmin = intval($_SESSION['ADMIN']);
 $query = "select id,concat(nombre,' ',apellido) as Nombre,id_number as Cedula,user as Usuario,
   (SELECT 
   g.nombre
@@ -56,7 +56,7 @@ FROM
   INNER JOIN `tbl_grupo` g ON (ge.grupo_id = g.id)
 where ge.curso_id = {$_SESSION['CURSOID']} and est_id = e.id )as Grupo,
   (if (activo=1,'". LANG_is_active ."','" . LANG_is_noactive . "')) as Activo,
-   if({$_SESSION['ADMIN']}>2,'1','0') as condicion_editar
+  '$isAdmin' as condicion_editar
   from tbl_estudiante e $filtro ";
 
 
