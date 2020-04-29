@@ -23,7 +23,10 @@ $crear->query("update tbl_foro set leido = (select count(*) from tbl_foro_coment
 $query = "	  ( SELECT DISTINCT 
 							   c.id,
 							   r.content,
-							   (select concat('" . LANG_msg_prefa . " ',nombre, ' ', apellido) from tbl_admin where id = r.sujeto_id and r.tipo_sujeto='admin') as sujeto,
+                               ( 
+                                if(r.tipo_sujeto='admin',(SELECT concat( ' ', nombre, ' ', apellido ) FROM tbl_admin WHERE id = r.sujeto_id),
+                                (SELECT concat( ' ', nombre, ' ', apellido ) FROM tbl_estudiante WHERE id = r.sujeto_id))
+                                ) AS sujeto,
 							   '' as foto,
 							   'No aplica' as grupo,
 							   'admin' as tsujeto,
@@ -64,7 +67,6 @@ $query = "	  ( SELECT DISTINCT
 				  
 				  ) order by id desc, tipo, fecha asc
 				   ";
-
 
 $crear->query($query);
 

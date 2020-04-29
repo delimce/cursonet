@@ -303,7 +303,7 @@ class grid2 extends Database
                         $popup = " onclick=\" return popup2(this,'" . @$this->features['nuevo_vinculo2']['popup'] . "');\"";
                     else
                         $popup = '';
-                    if (isset($this->features['nuevo_vinculo2']['borrar']) && ($tmp[$this->features['nuevo_vinculo2']['condicion']]==1))
+                    if (isset($this->features['nuevo_vinculo2']['borrar']) && (@$tmp[$this->features['nuevo_vinculo2']['condicion']]==1))
                         $popup = " onclick=\" return borrar('" . @$tmp[$this->features['nuevo_vinculo2']['parametro']] . "','" . @$tmp[$this->features['nuevo_vinculo2']['borrar']] . "');\"";
                     else if (isset($this->features['nuevo_vinculo2']['borrar']) && (@$tmp[$this->features['nuevo_vinculo2']['condicion']]!=1))    
                     $popup = " onclick=\" return alert('Operación no permitida');\"";
