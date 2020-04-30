@@ -275,13 +275,13 @@ $crear->query($query);
                                                                                         } else {
                                                                                             echo LANG_est_foro_respto;
                                                                                         ?>:&nbsp;<?php echo $row['sujeto'];
-                                                                                            if ($row['tipo'] == "respuesta")
+                                                                                                    if ($row['tipo'] == "respuesta")
 
-                                                                                                //  echo ' ' . LANG_foro_publicado . ' ' . $fecha->datetime($row['fecha']);
+                                                                                                        //  echo ' ' . LANG_foro_publicado . ' ' . $fecha->datetime($row['fecha']);
 
-                                                                                                echo ' ' . LANG_foro_publicado
+                                                                                                        echo ' ' . LANG_foro_publicado
 
-                                                            ?>
+                                                                                                    ?>
                                                 <abbr class="timeago" title="<?= $row['fecha'] ?>"><?= $fecha->datetime($row['fecha']) ?></abbr>
                                                 <?php
 
@@ -303,12 +303,7 @@ $crear->query($query);
                                                     if (empty($row['foto'])) {
                                                         $link = '../../../recursos/est/fotos/nofoto.png';
                                                     } else {
-
-                                                        if ($row['tsujeto'] == "admin")
-                                                            $dir = 'admin';
-                                                        else
-                                                            $dir = 'est';
-                                                        $link = "../../../recursos/$dir/fotos/" . $row['foto'];
+                                                        $link = $row['foto'];
                                                     }
                                                     ?>
                                                     <img class="avatar" style="border:solid 1px" hspace="7" vspace="7" align="left" src="<?= $link ?>">
@@ -401,6 +396,7 @@ $crear->query($query);
     </table>
 
 </body>
+
 </html>
 
 <?php $crear->cerrar(); ?>
