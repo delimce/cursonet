@@ -23,8 +23,8 @@ if (isset($_POST['nombre'])) {
     $valores[2] = $_POST['seccion'];
     $valores[3] = $_POST['equipo'];
     $valores[4] = $_POST['content1'];
-    $valores[5] = $fecha->fecha_db($_POST['inicio'], 1);
-    $valores[6] = $fecha->fecha_db($_POST['fin']);
+    $valores[5] = $_POST['inicio'];
+    $valores[6] = $_POST['fin'];
     $valores[7] = $_POST['nota'];
 
     $crear->update("tbl_foro", $campos, $valores, "id = {$_POST['id']}");
@@ -32,7 +32,7 @@ if (isset($_POST['nombre'])) {
 } else {
 
 
-    $datos = $crear->simple_db("select id, titulo, grupo_id, equipo_id, contenido_id, fecha_post, fecha_fin, nota, resumen, content from tbl_foro where id = '{$_GET['ItemID']}'");
+    $datos = $crear->simple_db("select id, titulo, grupo_id, equipo_id, contenido_id, date(fecha_post) as fecha_post, date(fecha_fin) as fecha_fin, nota, resumen, content from tbl_foro where id = '{$_GET['ItemID']}'");
 }
 ?>
 <!DOCTYPE html>
@@ -160,23 +160,10 @@ if (isset($_POST['nombre'])) {
 
                 }
 
-
-                if (compara_fechas('<?= date($_SESSION['DB_FORMATO']); ?>', document.form1.inicio.value) == 1) {
-
-                    alert('<?php echo LANG_eva_val_fecha2 . ' ' . date($_SESSION['DB_FORMATO']); ?>');
-                    document.form1.inicio.focus();
-
-                    return false;
-
-                }
-
-
-
-                if (compara_fechas(document.form1.inicio.value, document.form1.fin.value) == 1) {
-
+   
+                if (compareDates2(document.form1.inicio.value, document.form1.fin.value) == 1) {
                     alert('<?php echo LANG_eva_val_fecha2 ?> ' + document.form1.inicio.value);
                     document.form1.fin.focus();
-
                     return false;
 
                 }
@@ -266,29 +253,15 @@ if (isset($_POST['nombre'])) {
 
                                         <tr>
                                             <td class="style3"><?php echo LANG_foro_date1; ?></td>
-                                            <td><input name="inicio" type="text" id="inicio" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<?= $fecha->datetime($datos['fecha_post']) ?>" size="12">
-                                                <img src="../../../images/frontend/cal.gif" name="f_trigger_d" width="16" height="16" id="f_trigger_d" style="cursor: hand; border: 0px;" title="<?= LANG_calendar ?>">
-                                                <script type="text/javascript">
-                                                    Calendar.setup({
-                                                        inputField: "inicio", // id of the input field
-                                                        ifFormat: "<?= strtolower($_SESSION['DB_FORMATO']) ?>", // format of the input field
-                                                        button: "f_trigger_d", // trigger for the calendar (button ID)
-                                                        singleClick: true
-                                                    });
-                                                </script></td>
+                                            <td>
+                                                <input name="inicio" type="date" id="inicio" value="<?=$datos['fecha_post'] ?>" size="12">
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="style3"><?php echo LANG_foro_date2; ?></td>
-                                            <td><input name="fin" type="text" id="fin" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<?= $fecha->datetime($datos['fecha_fin']) ?>" size="12">
-                                                <img src="../../../images/frontend/cal.gif" name="f_trigger_f" width="16" height="16" id="f_trigger_f" style="cursor: hand; border: 0px;" title="<?= LANG_calendar ?>">
-                                                <script type="text/javascript">
-                                                    Calendar.setup({
-                                                        inputField: "fin", // id of the input field
-                                                        ifFormat: "<?= strtolower($_SESSION['DB_FORMATO']) ?>", // format of the input field
-                                                        button: "f_trigger_f", // trigger for the calendar (button ID)
-                                                        singleClick: true
-                                                    });
-                                                </script></td>
+                                            <td>
+                                                <input name="fin" type="date" id="fin" value="<?=$datos['fecha_fin'] ?>" size="12">
+                                            </td>
                                         </tr>
 
                                         <tr>
@@ -315,7 +288,9 @@ if (isset($_POST['nombre'])) {
                                                 <input type="submit" name="Submit" value="<?= LANG_save ?>"></td>
                                         </tr>
                                     </table>
-                                </form></td>
+                                </form>
+                                <p>&nbsp;</p>
+                            </td>
                         </tr>
                     </table>	</td>
             </tr>

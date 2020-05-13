@@ -137,10 +137,7 @@ if (isset($_POST['nombre'])) {
             function compara_fechas(desde, hasta) {
 
                 var formaty = '<?= str_replace("m", "M", strtolower($_SESSION['DB_FORMATO'])); ?>';
-
                 return compareDates(desde, formaty, hasta, formaty);
-
-
             }
 
 
@@ -167,28 +164,12 @@ if (isset($_POST['nombre'])) {
                 }
 
 
-
-
-                if (compara_fechas('<?= date($_SESSION['DB_FORMATO']); ?>', document.form1.inicio.value) == 1) {
-
-                    alert('<?php echo LANG_eva_val_fecha2 . ' ' . date($_SESSION['DB_FORMATO']); ?>');
-                    document.form1.inicio.focus();
-
-                    return false;
-
-                }
-
-
-
-                if (compara_fechas(document.form1.inicio.value, document.form1.fin.value) == 1) {
-
+                if (compareDates2(document.form1.inicio.value, document.form1.fin.value) == 1) {
                     alert('<?php echo LANG_eva_val_fecha2 ?> ' + document.form1.inicio.value);
                     document.form1.fin.focus();
-
                     return false;
 
                 }
-
 
 
                 if (isNaN(document.form1.nota.value) || document.form1.nota.value > 100 || document.form1.nota.value < 0 || document.form1.nota.value == '') {
@@ -205,12 +186,9 @@ if (isset($_POST['nombre'])) {
 
                     alert('<?= LANG_foro_val_content ?>');
                     document.form1.content.focus();
-
                     return false;
 
                 }
-
-
 
                 return true;
 
@@ -270,29 +248,15 @@ if (isset($_POST['nombre'])) {
 
                                         <tr>
                                             <td class="style3"><?php echo LANG_foro_date1; ?></td>
-                                            <td><input name="inicio" type="text" id="inicio" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<?php echo date($_SESSION['DB_FORMATO']); ?>" size="12">
-                                                <img src="../../../images/frontend/cal.gif" name="f_trigger_d" width="16" height="16" id="f_trigger_d" style="cursor: hand; border: 0px;" title="<?= LANG_calendar ?>">
-                                                <script type="text/javascript">
-                                                    Calendar.setup({
-                                                        inputField: "inicio", // id of the input field
-                                                        ifFormat: "<?= strtolower($_SESSION['DB_FORMATO']) ?>", // format of the input field
-                                                        button: "f_trigger_d", // trigger for the calendar (button ID)
-                                                        singleClick: true
-                                                    });
-                                                </script></td>
+                                            <td>
+                                                <input name="inicio" type="date" id="inicio" size="12">   
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="style3"><?php echo LANG_foro_date2; ?></td>
-                                            <td><input name="fin" type="text" id="fin" OnFocus="this.blur()" onClick="alert('<?= LANG_calendar_use ?>')" value="<?php echo date($_SESSION['DB_FORMATO']); ?>" size="12">
-                                                <img src="../../../images/frontend/cal.gif" name="f_trigger_e" width="16" height="16" id="f_trigger_e" style="cursor: hand; border: 0px;" title="<?= LANG_calendar ?>">
-                                                <script type="text/javascript">
-                                                    Calendar.setup({
-                                                        inputField: "fin", // id of the input field
-                                                        ifFormat: "<?= strtolower($_SESSION['DB_FORMATO']) ?>", // format of the input field
-                                                        button: "f_trigger_e", // trigger for the calendar (button ID)
-                                                        singleClick: true
-                                                    });
-                                                </script></td>
+                                            <td>
+                                                <input name="fin" type="date" id="fin" size="12">
+                                            </td>
                                         </tr>
 
                                         <tr>
@@ -300,9 +264,6 @@ if (isset($_POST['nombre'])) {
                                             <td><input name="nota" type="text" id="nota" size="5" maxlength="5">
                                                 <span class="bold">%</span></td>
                                         </tr>
-
-
-
 
                                         <tr>
                                             <td colspan="2" class="td_whbk2"><b><?php echo LANG_foro_contenido ?></b></td>
@@ -316,7 +277,9 @@ if (isset($_POST['nombre'])) {
                                                 <input type="submit" name="Submit" value="<?= LANG_save ?>"></td>
                                         </tr>
                                     </table>
-                                </form></td>
+                                </form>
+                                <p>&nbsp;</p>
+                            </td>
                         </tr>
                     </table>	</td>
             </tr>
