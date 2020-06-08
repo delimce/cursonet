@@ -21,11 +21,11 @@ $features = array(
     "oculto" => '0,6',
     "conenlace" => array("pos" => "1", "title" => LANG_vdetails, "url" => "detalles.php?", "target" => "_self", "parametro" => 0, "var_parametro" => "id", "extras" => "&origen=0"),
     "orden" => array(2=>"int"),
-    "abreviar" => array(1 => 46, 3 => 25),
+    "abreviar" => array(1 => 46, 3 => 30),
     "decoracion" => array(1 => "capitalize",3=>"lowercase"),
     "nuevo_vinculo1" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_edit.png\">", "url" => "editar.php?orig=0&", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_edit),
     "nuevo_vinculo2" => array("nombre" => "&nbsp;", "texto" => "<img border=\"0\" src=\"../../images/backend/button_drop.png\">", "url" => "#", "target" => "_self", "parametro" => 0, "var_parametro" => 'ItemID', "title" => LANG_drop, "borrar" => 1, "condicion" => 6, "texto_condicion" => "<img border=\"0\" src=\"../../images/backend/button_nodel.png\">"),
-    "separacion" => array(0 => "1%", 1 => "46%", 2 => "13%", 3 => "17%", 4 => "20%", 5 => "9%"), //separacion de columnas
+    "separacion" => array(0 => "1%", 1 => "35%", 2 => "13%", 3 => "25%", 4 => "15%", 5 => "10%"), //separacion de columnas
     "alineacion" => array(0 => "center", 1 => "left", 2 => "center", 3 => "center", 3 => "center", 4 => "center", 5 => "center"),
     "celda_vacia" => '<div align="center"><font color="#CC0000">' . LANG_ungroup . '</font></div>'
 );
@@ -48,7 +48,7 @@ if (empty($_GET['seccion'])) {
 }
 ////////////
 $isAdmin = intval($_SESSION['ADMIN']);
-$query = "select id,concat(nombre,' ',apellido) as Nombre,id_number as Cedula,user as Usuario,
+$query = "select id,concat(nombre,' ',apellido) as Nombre,id_number as Cedula,email,
   (SELECT 
   g.nombre
 FROM

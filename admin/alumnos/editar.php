@@ -22,12 +22,12 @@ if (isset($_REQUEST['ItemID'])) {
 }
 
 
-if (isset($_POST['login12'])) {
+if (isset($_POST['email'])) {
 
     ////edit el estudiante
 
 
-    $campos = explode(",", "id_number, nombre, apellido, sexo, fecha_nac, email, carrera, nivel, universidad, user, fecha_creado,activo,clave_preg,clave_resp");
+    $campos = explode(",", "id_number, nombre, apellido, sexo, fecha_nac, email, nivel, universidad, fecha_creado,activo,clave_preg,clave_resp");
 
     $valores2[0] = $_POST['ci'];
     $valores2[1] = $_POST['nombre'];
@@ -35,14 +35,12 @@ if (isset($_POST['login12'])) {
     $valores2[3] = $_POST['sexo'];
     $valores2[4] = $fecha->fecha_db($_POST['fecha_nac']);
     $valores2[5] = $_POST['email'];
-    $valores2[6] = $_POST['carrera'];
-    $valores2[7] = $_POST['nivel'];
-    $valores2[8] = $_POST['universidad'];
-    $valores2[9] = $_POST['login12'];
-    $valores2[10] = date("Y-m-d H:i:s");
-    $valores2[11] = $_POST['activo'];
-    $valores2[12] = trim($_POST['spreg']);
-    $valores2[13] = trim($_POST['sresp']);
+    $valores2[6] = $_POST['nivel'];
+    $valores2[7] = $_POST['universidad'];
+    $valores2[8] = date("Y-m-d H:i:s");
+    $valores2[9] = $_POST['activo'];
+    $valores2[10] = trim($_POST['spreg']);
+    $valores2[11] = trim($_POST['sresp']);
 
 
     $crear->abrir_transaccion();
@@ -50,11 +48,11 @@ if (isset($_POST['login12'])) {
 
     //validadndo user y cedula
 
-    $crear->query("select id from tbl_estudiante where (user = '{$_POST['login12']}' and id != {$_POST['id']} ) or (id_number = '{$_POST['ci']}' and id != {$_POST['id']} )   ");
+    $crear->query("select id from tbl_estudiante where (email = '{$_POST['email']}' and id != {$_POST['id']} ) or (id_number = '{$_POST['ci']}' and id != {$_POST['id']} )   ");
     if ($crear->nreg > 0) {
         $crear->cerrar_transaccion(false);
         $crear->cerrar();
-        $aviso = $_POST['login12'] . LANG_VAL_user2;
+        $aviso = $_POST['email'] . LANG_VAL_user2;
         $crear->javaviso($aviso);
         $crear->redirect("editar.php?ItemID=" . $_POST['id']);
     }
@@ -84,7 +82,6 @@ if (isset($_POST['login12'])) {
     }
     /////////////
 
-
     $crear->cerrar_transaccion();
 
     $crear->cerrar();
@@ -112,8 +109,6 @@ if (isset($_POST['login12'])) {
     <script language="JavaScript" type="text/javascript">
         function validar() {
 
-            //var login2 = document.form1.login12.value;
-            var login2 = document.getElementById("login12").value;
 
             if (document.form1.nombre.value == '') {
                 alert("<?= LANG_VAL_name ?>");
@@ -146,12 +141,6 @@ if (isset($_POST['login12'])) {
                 return (false);
             }
 
-
-            if (login2 == '' || login2.indexOf(" ") >= 0) {
-                alert("<?= LANG_VAL_login ?>");
-                document.form1.login12.focus();
-                return (false);
-            }
 
             deshabilitar(document.getElementById('submit3'));
             return (true);
@@ -234,20 +223,7 @@ if (isset($_POST['login12'])) {
                                         <td class="style3">&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td class="style3"><strong>
-                                                <?= LANG_login ?>
-                                            </strong></td>
-                                        <td><span class="style3"><strong>
-                                                    <input name="login12" type="text" id="login12" value="<?= $data[7] ?>">
-                                                </strong></span></td>
-                                        <td>&nbsp;</td>
-                                        <td class="style3"><strong>
-                                                <?= LANG_carreer ?>
-                                            </strong></td>
-                                        <td><input name="carrera" type="text" id="carrera" value="<?= $data[9] ?>" size="30"></td>
-                                    </tr>
-                                    <tr>
-                                
+
                                         <td class="style3"><strong>
                                                 <?= LANG_faculty_level ?>
                                             </strong></td>

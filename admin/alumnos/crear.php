@@ -16,13 +16,13 @@ $sexo1 = $crear->llenar_array("" . LANG_male . "," . LANG_female . "");
 $sexo2 = $crear->llenar_array("M,F");
 
 
-if (isset($_POST['login12'])) {
+if (isset($_POST['email'])) {
 
-  $crear->query("select id from tbl_estudiante where user = '{$_POST['login12']}' or id_number = '{$_POST['ci']}'");
+  $crear->query("select id from tbl_estudiante where email = '{$_POST['email']}' or id_number = '{$_POST['ci']}'");
 
   if ($crear->nreg > 0) {
 
-    $aviso = $_POST['login12'] . LANG_VAL_user2;
+    $aviso = $_POST['email'] . LANG_VAL_user2;
 
     $crear->javaviso($aviso);
   } else { ////inserta el estudiante
@@ -38,20 +38,19 @@ if (isset($_POST['login12'])) {
     $valores2[7] = $_POST['email'];
     $valores2[8] = $_POST['msn'];
     $valores2[9] = $_POST['twitter'];
-    $valores2[10] = $_POST['carrera'];
+    $valores2[10] = '';
     $valores2[11] = $_POST['nivel'];
     $valores2[12] = $_POST['universidad'];
     $valores2[13] = $_POST['iacc'];
     $valores2[14] = $_POST['dacc'];
-    $valores2[15] = $_POST['login12'];
-    $valores2[16] = md5($_POST['pass1']);
-    $valores2[17] = date("Y-m-d H:i:s");
-    $valores2[18] = $_POST['activo'];
-    $valores2[19] = trim($_POST['spreg']);
-    $valores2[20] = trim($_POST['sresp']);
+    $valores2[15] = md5($_POST['pass1']);
+    $valores2[16] = date("Y-m-d H:i:s");
+    $valores2[17] = $_POST['activo'];
+    $valores2[18] = trim($_POST['spreg']);
+    $valores2[19] = trim($_POST['sresp']);
 
 
-    $crear->insertar2("tbl_estudiante", "id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, twitter, carrera, nivel, universidad, internet_acc, internet_zona, user, pass, fecha_creado,activo,clave_preg,clave_resp", $valores2);
+    $crear->insertar2("tbl_estudiante", "id_number, nombre, apellido, sexo, fecha_nac, telefono_p, telefono_c, email, msn, twitter, carrera, nivel, universidad, internet_acc, internet_zona, pass, fecha_creado,activo,clave_preg,clave_resp", $valores2);
 
     if ($_POST['grupo'] > 0) {
 
@@ -77,9 +76,6 @@ if (isset($_POST['login12'])) {
 
   <script language="JavaScript" type="text/javascript">
     function validar() {
-
-      //var login2 = document.form1.login12.value;
-      var login2 = document.getElementById("login12").value;
 
       if (document.form1.nombre.value == '') {
         alert("<?= LANG_VAL_name ?>");
@@ -109,13 +105,6 @@ if (isset($_POST['login12'])) {
       if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.form1.email.value) == false) {
         alert("<?= LANG_VAL_email ?>");
         document.form1.email.focus();
-        return (false);
-      }
-
-
-      if (login2 == '' || login2.indexOf(" ") >= 0) {
-        alert("<?= LANG_VAL_login ?>");
-        document.form1.login12.focus();
         return (false);
       }
 
@@ -204,19 +193,6 @@ if (isset($_POST['login12'])) {
                     <td class="style3">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td class="style3"><strong>
-                        <?= LANG_login ?>
-                      </strong></td>
-                    <td><span class="style3"><strong>
-                          <input name="login12" type="text" id="login12" value="">
-                        </strong></span></td>
-                    <td>&nbsp;</td>
-                    <td class="style3"><strong>
-                        <?= LANG_carreer ?>
-                      </strong></td>
-                    <td><input name="carrera" type="text" id="carrera" value="" size="30"></td>
-                  </tr>
-                  <tr>
                     <td class="style3"><strong><strong>
                           <?= LANG_pass ?>
                         </strong></strong></td>
@@ -300,7 +276,5 @@ if (isset($_POST['login12'])) {
 
 </html>
 <?php
-
 $crear->cerrar();
-
 ?>
