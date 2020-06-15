@@ -45,12 +45,15 @@ $menu = new menu($menu_struct);
     <script type="text/javascript">
         tinymce.init({
             selector: "textarea.content",
+            language: "es",
+            images_upload_url: 'postAcceptor.php',
+            automatic_uploads: false,
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor",
                 "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu paste youtube"
+                "insertdatetime media table contextmenu paste"
             ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image| youtube"
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | media"
         });
     </script>
 
@@ -160,7 +163,7 @@ $menu = new menu($menu_struct);
 
   <tr>
   <td width="24%" valign="middle" class="style3"><?php echo LANG_content_name ?></td>
-  <td width="76%"><textarea name="nombre" cols="50" rows="2" id="nombre"><?=$datos[0]?>
+  <td width="76%"><textarea name="nombre" cols="80" rows="2" id="nombre"><?=$datos[0]?>
   </textarea></td>
   </tr>
 

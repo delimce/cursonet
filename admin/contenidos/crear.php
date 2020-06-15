@@ -36,33 +36,23 @@ if (isset($_POST['nombre'])) {
     <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
     <script language="JavaScript" type="text/javascript" src="../../js/jquery/jquery-1.7.2.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="../../editor2/tinymce.min.js"></script>
-
     <script type="text/javascript">
         tinymce.init({
             selector: "textarea.content",
+            language: "es",
+            images_upload_url: 'postAcceptor.php',
+            automatic_uploads: false,
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor",
                 "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu paste youtube"
+                "insertdatetime media table contextmenu paste"
             ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image| youtube"
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | media"
         });
     </script>
 
 
     <script language="JavaScript" type="text/javascript" src="../../js/utils.js"></script>
-
-    <script language="JavaScript" type="text/javascript">
-        function validar() {
-            if (document.form1.nombre.value == '') {
-                alert('<?= LANG_group_error1 ?>');
-                document.form1.nombre.focus();
-                return false;
-            }
-            return true;
-
-        }
-    </script>
 
 
 </head>
@@ -111,11 +101,11 @@ if (isset($_POST['nombre'])) {
 
                                     <tr>
                                         <td width="18%" valign="middle" class="style3"><?php echo LANG_content_name ?></td>
-                                        <td width="82%"><textarea name="nombre" cols="50" rows="2" id="nombre"></textarea>
+                                        <td width="82%"><textarea name="nombre" cols="80" rows="2" id="nombre"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="style3"><textarea class="content" name="content" cols="73" rows="20" id="content"></textarea></td>
+                                        <td colspan="2" class="style3"><textarea class="content" name="content" cols="100" rows="20" id="content"></textarea></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="style3">
@@ -139,6 +129,17 @@ if (isset($_POST['nombre'])) {
             </td>
         </tr>
     </table>
+    <script language="JavaScript" type="text/javascript">
+        function validar() {
+            if (document.form1.nombre.value == '') {
+                alert('<?= LANG_group_error1 ?>');
+                document.form1.nombre.focus();
+                return false;
+            }
+            return true;
+
+        }
+    </script>
 </body>
 
 </html>

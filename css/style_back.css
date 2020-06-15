@@ -8,69 +8,70 @@
 /***********************************************/
 
 body {
-    overflow: auto;
-    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  overflow: auto;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 
-    color: #000000;
-    font-size: 10px;
-    scrollbar-base-color: #999999;
-    scrollbar-track-color: color;
-    scrollbar-face-color: #AABDCA;
-    scrollbar-highlight-color: #858585;
-    scrollbar-3dlight-color: #999999;
-    scrollbar-darkshadow-color: #858585;
-    scrollbar-shadow-color: #000000;
-    scrollbar-arrow-color: #000000;
-
+  color: #000000;
+  font-size: 10px;
+  scrollbar-base-color: #999999;
+  scrollbar-track-color: color;
+  scrollbar-face-color: #aabdca;
+  scrollbar-highlight-color: #858585;
+  scrollbar-3dlight-color: #999999;
+  scrollbar-darkshadow-color: #858585;
+  scrollbar-shadow-color: #000000;
+  scrollbar-arrow-color: #000000;
 }
 
 .welcome {
-    font-size: 12pt;
-    font-family: geneva, arial;
-    color: #ffffff
+  font-size: 12pt;
+  font-family: geneva, arial;
+  color: #ffffff;
 }
 
 .small {
-    font-size: 8pt;
-    font-family: geneva, arial;
+  font-size: 8pt;
+  font-family: geneva, arial;
 }
 
 td {
-    font-family: geneva, arial;
-    font-size: 10pt
+  font-family: geneva, arial;
+  font-size: 10pt;
 }
 
 .bold {
-    font-weight: bold;
-    font-family: geneva, arial;
-    font-size: 10pt
+  font-weight: bold;
+  font-family: geneva, arial;
+  font-size: 10pt;
 }
 
 .large {
-    font-size: 12pt;
+  font-size: 12pt;
 }
 
 .style2 {
-    color: #FFFFFF;
-    font-size: 9px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
+  color: #ffffff;
+  font-size: 9px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
 }
 
-a:link, a:visited, a:hover {
-    text-decoration: none;
-    color: #333333;
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: #333333;
 }
 
 a:hover {
-    color: #000000;
-    font-weight: normal;
-    text-decoration: underline;
+  color: #000000;
+  font-weight: normal;
+  text-decoration: underline;
 }
 
 TD {
-    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 11px;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 11px;
 }
 
 /* overrides decoration from previous rule for hovered links */
@@ -78,272 +79,271 @@ TD {
 /************** #headlines styles **************/
 
 .style1 {
-    font-family: verdana, Arial, Helvetica, sans-serif;
-    text-indent: 2px;
-    color: #333333;
-    font-size: 11px;
+  font-family: verdana, Arial, Helvetica, sans-serif;
+  text-indent: 2px;
+  color: #333333;
+  font-size: 11px;
 }
 
 input {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: normal;
-    color: #333333;
-    background-color: #FFFFFF;
-    background-repeat: repeat-x;
-    border: inherit #7A98AD;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  color: #333333;
+  background-color: #ffffff;
+  background-repeat: repeat-x;
+  border: inherit #7a98ad;
 }
 
 .style2 {
-    color: #FFFFFF;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    text-indent: 2px;
-    font-size: 10px;
+  color: #ffffff;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-indent: 2px;
+  font-size: 10px;
 }
 
 .style3 {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    text-indent: 2px;
-    font-size: 10px;
-    font-weight: bold;
-    color: #333333;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-indent: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333333;
 }
 
 .style4 {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    text-indent: 2px;
-    font-size: 11px;
-    font-weight: bold;
-    font-style: italic;
-    color: #333333;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-indent: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: italic;
+  color: #333333;
 }
 
 form {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    display: inline;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  display: inline;
 }
 
 .table_bk {
-    font-family: Tahoma, Helvetica, Verdana, Arial;
-    font-size: 11px;
-    background: #B1C4CF;
-    font-weight: bold;
+  font-family: Tahoma, Helvetica, Verdana, Arial;
+  font-size: 11px;
+  background: #b1c4cf;
+  font-weight: bold;
 }
 
 .table_bk th {
-    text-transform: capitalize;
-    text-decoration: underline;
-    cursor: pointer;
+  text-transform: capitalize;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .table_bk td {
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-    border-color: #B1C4CF;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #b1c4cf;
 }
 
 #gridborder {
-    border-left: 1px solid;
-    border-color: #B1C4CF;
+  border-left: 1px solid;
+  border-color: #b1c4cf;
 }
 
 .notes {
-    margin: 5px 2px;
-    padding-top: 10px;
-    padding-left: 8px;
-    padding-bottom: 10px;
-    width: 90%;
-    background-color: #ffffff;
-    border: 1px solid grey;
-    opacity: 0.7;
-    filter: alpha(opacity=70); /* For IE8 and earlier */
+  margin: 5px 2px;
+  padding-top: 10px;
+  padding-left: 8px;
+  padding-bottom: 10px;
+  width: 90%;
+  background-color: #ffffff;
+  border: 1px solid grey;
+  opacity: 0.7;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
 }
 
 .messages {
-    margin: 5px 2px;
-    position: relative;
-    top: 20px;
-    left: 10px;
-    width: 27%;
-    background-color: #ffffff;
-    border: 1px solid black;
-    opacity: 0.7;
-    filter: alpha(opacity=70); /* For IE8 and earlier */
+  margin: 5px 2px;
+  position: relative;
+  top: 20px;
+  left: 10px;
+  width: 27%;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.7;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
 }
 
 #wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    border: 0px
+  margin-left: auto;
+  margin-right: auto;
+  border: 0px;
 }
 
 .td_whbk {
-    text-indent: 2px;
-    font-family: Tahoma, Helvetica, Verdana, Arial;
-    font-size: 8.3pt;
-    background: #FFFFFF;
+  text-indent: 2px;
+  font-family: Tahoma, Helvetica, Verdana, Arial;
+  font-size: 8.3pt;
+  background: #ffffff;
 }
 
 .td_whbk1 {
-    text-indent: 2px;
-    font-family: Tahoma, Helvetica, Verdana, Arial;
-    font-size: 8.3pt;
+  text-indent: 2px;
+  font-family: Tahoma, Helvetica, Verdana, Arial;
+  font-size: 8.3pt;
 }
 
 .td_whbk2 {
-    font-family: Tahoma, Helvetica, Verdana, Arial;
-    font-size: 8.3pt;
-    background: #CCCCCC;
+  font-family: Tahoma, Helvetica, Verdana, Arial;
+  font-size: 8.3pt;
+  background: #cccccc;
 }
 
 .td_whbk3 {
-    font-family: Tahoma, Helvetica, Verdana, Arial;
-    font-size: 8.3pt;
-    background: #CCFFFF;
+  font-family: Tahoma, Helvetica, Verdana, Arial;
+  font-size: 8.3pt;
+  background: #ccffff;
 }
 
 .no_back {
-    background: #F0F0F0;
-    font-family: verdana, Arial, Helvetica, sans-serif;
-    text-indent: 2px;
-    color: #333333;
-    font-size: 11px;
+  background: #f0f0f0;
+  font-family: verdana, Arial, Helvetica, sans-serif;
+  text-indent: 2px;
+  color: #333333;
+  font-size: 11px;
 }
 
 SELECT {
-    BORDER-RIGHT: #000000 1px solid;
-    BORDER-LEFT: #000000 1px solid;
-    BORDER-TOP: #000000 1px solid;
-    BORDER-BOTTOM: #000000 1px solid;
-    MARGIN-TOP: 2px;
-    MARGIN-RIGHT: 2px;
-    MARGIN-BOTTOM: 2px;
-    MARGIN-LEFT: 2px;
-    BACKGROUND-COLOR: #FFFFFF;
-    COLOR: #000000;
-    FONT-FAMILY: verdana, arial, helvetica;
-    FONT-SIZE: 10px
+  border-right: #000000 1px solid;
+  border-left: #000000 1px solid;
+  border-top: #000000 1px solid;
+  border-bottom: #000000 1px solid;
+  margin-top: 2px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: verdana, arial, helvetica;
+  font-size: 10px;
 }
 
 /* para dyntar */
 .dyntar-active {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .dyntar-wrapper {
-    border: 1px dashed #808080;
+  border: 1px dashed #808080;
 }
 
 .dyntar-resizer {
-    height: 11px;
-    font-size: 11px;
-    line-height: 11px;
-    background: #E0E0E0 url(../images/common/dyntar.gif) no-repeat 100% 100%;
-    border: 1px solid #B0B0B0;
-    /* cursor: n-resize; */
+  height: 11px;
+  font-size: 11px;
+  line-height: 11px;
+  background: #e0e0e0 url(../images/common/dyntar.gif) no-repeat 100% 100%;
+  border: 1px solid #b0b0b0;
+  /* cursor: n-resize; */
 }
 
 #curso_content {
-    border-right: #000000 solid 1px;
-    border-left: #000000 solid 1px;
-    border-bottom: #000000 solid 1px;
-    margin-top: 30px;
+  border-right: #000000 solid 1px;
+  border-left: #000000 solid 1px;
+  border-bottom: #000000 solid 1px;
+  margin-top: 30px;
 }
 
 #curso_wrapper {
-    padding: 0px 14px 0px 14px;
-    font-size: 11px;
-
+  padding: 0px 14px 0px 14px;
+  font-size: 11px;
 }
 
 .topbar {
-    background-image: url('../images/backend/edunet_r1_c1.gif');
-    background-position: right top;
-    background-repeat: no-repeat;
-    background-color: #ffffff;
-    padding-right: 40px;
+  background-image: url("../images/backend/edunet_r1_c1.gif");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  padding-right: 40px;
 }
 
 .sidebar {
-    background-color: #E0E0E0;
-    width: 16%;
-    text-align: right;
-    padding-top: 14px;
-    vertical-align: top;
-    padding-right: 15px;
-
+  background-color: #e0e0e0;
+  width: 16%;
+  text-align: right;
+  padding-top: 14px;
+  vertical-align: top;
+  padding-right: 15px;
 }
 
-.sidebar .sub-menu{
-    padding-top: 13px;
-    align-items:center;
+.sidebar .sub-menu {
+  padding-top: 13px;
+  align-items: center;
 }
 
-.sidebar .sub-menu span{
-    cursor: pointer;
-    padding-right: 3px;
+.sidebar .sub-menu span {
+  cursor: pointer;
+  padding-right: 3px;
 }
 
-.sidebar .sub-menu img{
-    width: 20px;
-    display: inline;
-    cursor: pointer;
-    vertical-align:middle
+.sidebar .sub-menu img {
+  width: 20px;
+  display: inline;
+  cursor: pointer;
+  vertical-align: middle;
 }
-
 
 .avatar {
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
 }
 
 /*login form*/
 #form-container {
-    padding-left: 5px;
-    line-height: 0px;
-    width: 95%;
+  padding-left: 5px;
+  line-height: 0px;
+  width: 95%;
 }
 
 #form-field {
-    padding: 0.3ex;
-    position: relative;
-    text-align: center;
+  padding: 0.3ex;
+  position: relative;
+  text-align: center;
 }
 
-#form-field button{
-    min-width: 80%;
+#form-field button {
+  min-width: 80%;
 }
 
-#form-field input{
-    width: 150px;
-    padding: 0.2em;
+#form-field input {
+  width: 150px;
+  padding: 0.2em;
 }
 
 #form-label {
-    font-weight: bold;
-    width: 58px;
-    float: left;
-    margin-top: 2px;
+  font-weight: bold;
+  width: 58px;
+  float: left;
+  margin-top: 2px;
 }
 
-.welcome-admin{
-    line-height: 1px;
-    margin: auto;
+.welcome-admin {
+  line-height: 1px;
+  margin: auto;
 }
 
 /* grid styles */
-.wrapper-table td{
-    font-weight: normal;
+.wrapper-table td {
+  font-weight: normal;
 }
 
 /* section title */
-.menu-title{
-    font-weight: bold;
-    font-size: 17px;
-    display: block;
-    margin: 5px 0 14px 2px;
+.menu-title {
+  font-weight: bold;
+  font-size: 17px;
+  display: block;
+  margin: 5px 0 14px 2px;
 }
 
-
+textarea#content {
+  height: 600px;
+}
