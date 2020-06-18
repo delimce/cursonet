@@ -32,7 +32,7 @@ $features = array(
 
 $grid = new grid2("grid1","99%",$features);
 $grid->autoconexion();
-$query = "select id, nombre, alias, fecha_creado as fecha from tbl_curso";
+$query = "select id, nombre, alias, fecha_creado as fecha, if(publico=1,'SI','NO') as `público` from tbl_curso";
 ?>
 <!DOCTYPE html>
 <html>

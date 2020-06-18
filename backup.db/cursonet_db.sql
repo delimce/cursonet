@@ -11,7 +11,7 @@
  Target Server Version : 50729
  File Encoding         : 65001
 
- Date: 12/04/2020 13:47:31
+ Date: 18/06/2020 23:59:46
 */
 
 SET NAMES utf8mb4;
@@ -36,7 +36,7 @@ CREATE TABLE `tbl_admin`  (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ',
   `apellido` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ',
-  `foto` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'foto del profesor/administrador',
+  `foto` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'foto del profesor/administrador',
   `img` blob NULL,
   `user` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `pass` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
@@ -68,7 +68,7 @@ CREATE TABLE `tbl_admin_curso`  (
   INDEX `curso_id`(`curso_id`) USING BTREE,
   CONSTRAINT `tbl_admin_curso_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `tbl_admin` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tbl_admin_curso_ibfk_2` FOREIGN KEY (`curso_id`) REFERENCES `tbl_curso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tbl_cartelera
@@ -87,7 +87,7 @@ CREATE TABLE `tbl_cartelera`  (
   INDEX `curso_id`(`curso_id`) USING BTREE,
   INDEX `grupo_id`(`grupo_id`) USING BTREE,
   CONSTRAINT `cartelera_fk` FOREIGN KEY (`curso_id`) REFERENCES `tbl_curso` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'mensajes en la cartelera para las secciones' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'mensajes en la cartelera para las secciones' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_contenido
@@ -109,7 +109,7 @@ CREATE TABLE `tbl_contenido`  (
   INDEX `fecha`(`fecha`) USING BTREE,
   INDEX `curso_id`(`curso_id`) USING BTREE,
   CONSTRAINT `contenido_fk` FOREIGN KEY (`curso_id`) REFERENCES `tbl_curso` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 80 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de contenidos x curso\r\nrevision VE' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 81 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de contenidos x curso\r\nrevision VE' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_contenido_grupo
@@ -142,7 +142,7 @@ CREATE TABLE `tbl_contenido_recurso`  (
   INDEX `recurso_id`(`recurso_id`) USING BTREE,
   CONSTRAINT `tbl_contenido_recurso_fk` FOREIGN KEY (`contenido_id`) REFERENCES `tbl_contenido` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `tbl_contenido_recurso_fk1` FOREIGN KEY (`recurso_id`) REFERENCES `tbl_recurso` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 856 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de recursos x contenidos\r\nrevision VE' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 859 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de recursos x contenidos\r\nrevision VE' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_curso
@@ -157,6 +157,7 @@ CREATE TABLE `tbl_curso`  (
   `descripcion` tinytext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `resp` int(10) UNSIGNED NULL DEFAULT NULL,
   `notas` tinytext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `publico` tinyint(1) NOT NULL DEFAULT 0,
   `activo` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` datetime(0) NULL DEFAULT NULL,
   `updated_at` datetime(0) NULL DEFAULT NULL,
@@ -164,7 +165,7 @@ CREATE TABLE `tbl_curso`  (
   UNIQUE INDEX `alias`(`alias`) USING BTREE,
   INDEX `tbl_curso_resp_foreign`(`resp`) USING BTREE,
   CONSTRAINT `tbl_curso_resp_foreign` FOREIGN KEY (`resp`) REFERENCES `tbl_admin` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla con la informacion de los cursos (materias a dictar)\r\n' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla con la informacion de los cursos (materias a dictar)\r\n' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_equipo
@@ -233,9 +234,9 @@ CREATE TABLE `tbl_estudiante`  (
   `updated_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `id_number`(`id_number`) USING BTREE,
-  INDEX `activo`(`activo`) USING BTREE,
-  INDEX `user`(`user`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 488 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de estudiantes de los cursos' ROW_FORMAT = Compact;
+  UNIQUE INDEX `token`(`token`) USING BTREE,
+  INDEX `activo`(`activo`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 499 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de estudiantes de los cursos' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_evaluacion
@@ -326,26 +327,6 @@ CREATE TABLE `tbl_evaluacion_respuesta_s`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Table structure for tbl_feedback
--- ----------------------------
-DROP TABLE IF EXISTS `tbl_feedback`;
-CREATE TABLE `tbl_feedback`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(125) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT 'nombre completo',
-  `perfil` enum('est','admin') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'est' COMMENT 'est o admin',
-  `email` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `fecha` date NULL DEFAULT NULL,
-  `tipo_com` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 general, 2 sugerencia, 3 bug',
-  `comentario` mediumtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'el comentario',
-  `pro` tinytext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'pros de la herramienta',
-  `contra` tinytext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'contras de la herramienta',
-  `suject_extra_info` tinytext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'informacion extra del sujeto',
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `id`(`id`) USING BTREE,
-  INDEX `perfil`(`perfil`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de comentarios,mejoras, sugerencias o felicitaciones d' ROW_FORMAT = Dynamic;
-
--- ----------------------------
 -- Table structure for tbl_foro
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_foro`;
@@ -383,7 +364,7 @@ CREATE TABLE `tbl_foro_comentario`  (
   `tipo_sujeto` enum('admin','est') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'est' COMMENT 'si responde un estudiante o un admin',
   `sujeto_id` int(10) UNSIGNED NOT NULL,
   `content` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `fecha_post` datetime(0) NOT NULL,
+  `fecha_post` datetime(0) NULL DEFAULT NULL,
   `valido` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'si es 0 no ha sido evaluado, 1 fue aceptado',
   `response` int(11) NOT NULL DEFAULT 0 COMMENT 'para saber si el coment es resp de otro post',
   `created_at` datetime(0) NULL DEFAULT NULL,
@@ -392,7 +373,7 @@ CREATE TABLE `tbl_foro_comentario`  (
   INDEX `sujeto`(`tipo_sujeto`, `sujeto_id`) USING BTREE,
   INDEX `foro_id`(`foro_id`) USING BTREE,
   CONSTRAINT `foro_comentario_fk` FOREIGN KEY (`foro_id`) REFERENCES `tbl_foro` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1267 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = 'tabla de comentarios x foro' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1292 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = 'tabla de comentarios x foro' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_foro_comentario_like
@@ -409,7 +390,7 @@ CREATE TABLE `tbl_foro_comentario_like`  (
   INDEX `comentario_id`(`comentario_id`) USING BTREE,
   INDEX `tipo_sujeto`(`tipo_sujeto`, `sujeto_id`) USING BTREE,
   CONSTRAINT `tbl_foro_comentario_like_ibfk_1` FOREIGN KEY (`comentario_id`) REFERENCES `tbl_foro_comentario` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 177 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 186 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tbl_foro_estudiante
@@ -446,7 +427,7 @@ CREATE TABLE `tbl_foro_respuesta`  (
   INDEX `com_id`(`comentario_id`) USING BTREE,
   INDEX `tipo_sujeto`(`tipo_sujeto`, `sujeto_id`) USING BTREE,
   CONSTRAINT `tbl_foro_respuesta_ibfk_1` FOREIGN KEY (`comentario_id`) REFERENCES `tbl_foro_comentario` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 614 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = 'las respuesta que hace el profesor a los comentarios en el f' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 641 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = 'las respuesta que hace el profesor a los comentarios en el f' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_grupo
@@ -468,7 +449,7 @@ CREATE TABLE `tbl_grupo`  (
   INDEX `prof_id`(`prof_id`) USING BTREE,
   CONSTRAINT `tbl_grupo_fk` FOREIGN KEY (`curso_id`) REFERENCES `tbl_curso` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `tbl_grupo_ibfk_1` FOREIGN KEY (`prof_id`) REFERENCES `tbl_admin` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de grupos o secciones\r\nrevision VE' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de grupos o secciones\r\nrevision VE' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_grupo_estudiante
@@ -488,7 +469,7 @@ CREATE TABLE `tbl_grupo_estudiante`  (
   CONSTRAINT `grupo_estudiante_fk` FOREIGN KEY (`curso_id`) REFERENCES `tbl_curso` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `grupo_estudiante_fk1` FOREIGN KEY (`est_id`) REFERENCES `tbl_estudiante` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `tbl_grupo_estudiante_fk` FOREIGN KEY (`grupo_id`) REFERENCES `tbl_grupo` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 192 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 224 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_log_admin
@@ -504,7 +485,7 @@ CREATE TABLE `tbl_log_admin`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `admin_log_id`(`admin_id`) USING BTREE,
   CONSTRAINT `admin_log_id` FOREIGN KEY (`admin_id`) REFERENCES `tbl_admin` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 565 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 634 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_log_est
@@ -529,7 +510,7 @@ CREATE TABLE `tbl_log_est`  (
   INDEX `estudiante_id`(`est_id`) USING BTREE,
   INDEX `fecha`(`fecha_in`) USING BTREE,
   CONSTRAINT `log_est_fk` FOREIGN KEY (`est_id`) REFERENCES `tbl_estudiante` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de log de ingreso al sistema x estudiante\r\nrevision VE' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 206 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de log de ingreso al sistema x estudiante\r\nrevision VE' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_mensaje_admin
@@ -553,7 +534,7 @@ CREATE TABLE `tbl_mensaje_admin`  (
   INDEX `para`(`para`) USING BTREE,
   INDEX `de`(`de`) USING BTREE,
   CONSTRAINT `FK_mensaje_admin_1` FOREIGN KEY (`para`) REFERENCES `tbl_admin` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 95 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 7168 kB; (`to`) REFER `edunet2/admin`(`id`) ON ' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 97 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 7168 kB; (`to`) REFER `edunet2/admin`(`id`) ON ' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_mensaje_est
@@ -575,7 +556,7 @@ CREATE TABLE `tbl_mensaje_est`  (
   INDEX `tipo`(`tipo`) USING BTREE,
   INDEX `para`(`para`) USING BTREE,
   CONSTRAINT `FK_mensaje_est_1` FOREIGN KEY (`para`) REFERENCES `tbl_estudiante` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 189 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 7168 kB; (`to`) REFER `edunet2/estudiante`(`id`' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 205 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 7168 kB; (`to`) REFER `edunet2/estudiante`(`id`' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_mensaje_est_enviado
@@ -594,7 +575,7 @@ CREATE TABLE `tbl_mensaje_est_enviado`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `tipo`(`tipo`) USING BTREE,
   INDEX `para`(`para`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 7168 kB; (`to`) REFER `edunet2/estudiante`(`id`' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 7168 kB; (`to`) REFER `edunet2/estudiante`(`id`' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_plan_estudiante
@@ -612,7 +593,7 @@ CREATE TABLE `tbl_plan_estudiante`  (
   INDEX `est_id`(`est_id`) USING BTREE,
   CONSTRAINT `plan_estudiante_fk` FOREIGN KEY (`item_id`) REFERENCES `tbl_plan_item` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `plan_estudiante_fk1` FOREIGN KEY (`est_id`) REFERENCES `tbl_estudiante` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla que almacena la nota del estudiante en cada item segun' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla que almacena la nota del estudiante en cada item segun' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_plan_evaluador
@@ -740,7 +721,7 @@ CREATE TABLE `tbl_recurso`  (
   UNIQUE INDEX `id`(`id`) USING BTREE,
   INDEX `tipo`(`tipo`) USING BTREE,
   INDEX `add_by_persona`(`add_by`, `persona`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 592 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de recursos subidos por el admin o estudiantes\r\nrevisi' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 596 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'tabla de recursos subidos por el admin o estudiantes\r\nrevisi' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_setup
@@ -772,5 +753,20 @@ CREATE TABLE `tbl_setup`  (
   `dif_hora` smallint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'revision VE' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tbl_soporte
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_soporte`;
+CREATE TABLE `tbl_soporte`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `persona_id` int(10) NOT NULL,
+  `tipo` enum('est','admin') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `titulo` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `contenido` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `created_at` datetime(0) NOT NULL,
+  `updated_at` datetime(0) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
