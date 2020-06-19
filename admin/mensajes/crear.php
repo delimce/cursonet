@@ -18,8 +18,8 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
-    <script type="text/javascript" src="../../editor/tiny_mce.js"></script>
     <script type="text/javascript" src="../../js/jquery/jquery-1.7.2.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../../editor2/tinymce.min.js"></script>
     <script>
         $(document).ready(function() {
 
@@ -113,21 +113,16 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
     </script>
 
 
-
-    <script language="javascript" type="text/javascript">
-        tinyMCE.init({
-            mode: "textareas",
-            theme: "advanced",
-            plugins: "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
-            theme_advanced_buttons1_add_before: "newdocument,preview,separator,cut,copy,paste,undo,redo,separator,bold,italic,underline,separator,justifyleft,justifycenter,justifyright,justifyfull,separator",
-            theme_advanced_buttons1: ",outdent,indent,bullist,numlist,separator,forecolor,backcolor",
-            theme_advanced_buttons2: "",
-            plugin_insertdate_dateFormat: "<?= $_SESSION['DB_FORMATO_DB'] ?> ",
-            plugin_insertdate_timeFormat: "%H:%M:%S",
-            theme_advanced_toolbar_location: "top",
-            theme_advanced_toolbar_align: "left",
-            theme_advanced_statusbar_location: "bottom",
-            theme_advanced_resizing: true
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea.content",
+            language: "es",
+            height:"360px",
+            plugins: [
+                "advlist autolink lists link",
+                "table paste"
+            ],
+            toolbar: " alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"
         });
     </script>
 
@@ -185,7 +180,9 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
                                         <td class="style1"><input name="titulo" type="text" id="titulo" value="" size="55"> <?php echo $crear->combo_array("priori", $prioridad, $prioridad, false, LANG_msg_priority_n); ?>&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="style3"><textarea name="content" cols="70" rows="10" id="content"></textarea></td>
+                                        <td colspan="2" class="style3" style="text-align: center;">
+                                            <textarea class="content" name="content" id="content" style="width: 99%;"></textarea>
+                                        </td>
                                     </tr>
 
                                     <tr>
