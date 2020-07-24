@@ -127,8 +127,7 @@ if (isset($_POST['id'])) {
                                 <td width="5%" class="style1"><input name="archi[]" type="checkbox" id="archi[]"
                                                                      value="<?= $files[$i]['id'] ?>" <?php if (@in_array($files[$i]['id'], $arselect)) echo 'checked="checked"'; ?>>
                                 </td>
-                                <td class="style1"><b><?= substr($files[$i]['dir'], 0, 70); ?></b>&nbsp;<br>
-                                    <?= $files[$i]['descripcion']; ?></td>
+                                <td class="style1"><b><?= substr($files[$i]['dir'], 0, 70); ?></b></td>
                             </tr>
                             <?php
                         }
