@@ -49,7 +49,7 @@ if (empty($_GET['seccion'])) {
 ////////////
 $isAdmin = intval($_SESSION['ADMIN']);
 $query = "select id,concat(nombre,' ',apellido) as Nombre,id_number as Cedula,email,
-  (SELECT 
+  (SELECT  distinct
   g.nombre
 FROM
   `tbl_grupo_estudiante` ge
@@ -58,7 +58,6 @@ where ge.curso_id = {$_SESSION['CURSOID']} and est_id = e.id )as Grupo,
   (if (activo=1,'". LANG_is_active ."','" . LANG_is_noactive . "')) as Activo,
   '$isAdmin' as condicion_editar
   from tbl_estudiante e $filtro ";
-
 
 $grid->query($query); //////se ejecuta el query
 ?>
