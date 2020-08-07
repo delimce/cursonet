@@ -347,3 +347,17 @@ SELECT {
 textarea#content {
   height: 600px;
 }
+
+.header-admin{
+background-color: #7a98ad;
+height: 54px;
+display: table-row;
+}
+
+
+.header-admin img{
+  padding: 16px 0 16px 25px;
+  width: 148px;
+}
+
+

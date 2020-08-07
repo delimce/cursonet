@@ -80,27 +80,15 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
             </td>
             <td><img src="../images/backend/spacer.gif" width="1" height="29" border="0" alt=""></td>
         </tr>
-        <tr>
-            <td colspan="4"></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td height="40" colspan="4" valign="bottom" bgcolor="#7A98AD">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td width="75%" height="40" align="left"><img src="../images/backend/head_01.jpg" width="600"
-                                                                      height="40"></td>
-                        <td width="25%" align="right" valign="bottom"><a href="main.php" target="content"
-                                                                         title="<?= LANG_mainback ?>"><img
-                                        src="../images/backend/edunet_r6_c5.gif" width="140" height="40" border="0"></a>
-                        </td>
-                    </tr>
-                </table>
+      <!--header-->
+      <tr class="header-admin">
+            <td colspan="4">
+                    <a href="main.php" target="content"><img src="../images/common/logo.png"></a>
             </td>
-            <td><img src="../images/backend/spacer.gif" width="1" height="40" border="0" alt=""></td>
-        </tr>
+      </tr>
+
         <tr>
-            <td height="19" colspan="2" bgcolor="#F1F2EE">
+            <td colspan="4" style="width: 100%;"  bgcolor="#F1F2EE">
 
                 <script type="text/javascript">
                     stm_bm(["menu79ba", 900, "", "blank.gif", 0, "", "", 0, 0, 0, 0, 0, 1, 0, 0, "", "", 0, 0, 1, 1, "hand", "hand", "", 1, 25], this);
@@ -158,18 +146,9 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
                     stm_ep();
                     stm_em();
                 </script>
-
-
             </td>
-            <td colspan="2" align="right" valign="top" bgcolor="#F1F2EE"><img src="../images/backend/edunet_r4_c3.gif"
-                                                                              width="192" height="19"></td>
-            <td><img src="../images/backend/spacer.gif" width="1" height="19" border="0" alt=""></td>
         </tr>
-        <tr>
-            <td height="16" colspan="4" align="right" bgcolor="#FFFFFF"><img src="../images/backend/edunet_r5_c1.gif"
-                                                                             width="100%" height="16"></td>
-            <td><img src="../images/backend/spacer.gif" width="1" height="16" border="0" alt=""></td>
-        </tr>
+  
         <tr>
             <td colspan="3" valign="top" background="../images/backend/edunet_r6_c1.gif">
                 <!-- Code for Main Body Content Goes Here -->
