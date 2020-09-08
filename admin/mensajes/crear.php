@@ -117,7 +117,7 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
         tinymce.init({
             selector: "textarea.content",
             language: "es",
-            height:"360px",
+            height:"300px",
             plugins: [
                 "advlist autolink lists link",
                 "table paste"
@@ -180,7 +180,7 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
                                         <td class="style1"><input name="titulo" type="text" id="titulo" value="" size="55"> <?php echo $crear->combo_array("priori", $prioridad, $prioridad, false, LANG_msg_priority_n); ?>&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="style3" style="text-align: center;">
+                                        <td  colspan="2" class="style3" style="text-align: center;">
                                             <textarea class="content" name="content" id="content" style="width: 99%;"></textarea>
                                         </td>
                                     </tr>
@@ -197,8 +197,7 @@ $prioridad = $crear->llenar_array(LANG_msg_priority_l . "," . LANG_msg_priority_
             </td>
         </tr>
     </table>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
+    <p style="margin-bottom: 70px;">&nbsp;</p>
 </body>
 
 </html>

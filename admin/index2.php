@@ -150,11 +150,11 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
         </tr>
   
         <tr>
-            <td colspan="3" valign="top" background="../images/backend/edunet_r6_c1.gif">
+            <td heigth="700"  colspan="3" valign="top" background="../images/backend/edunet_r6_c1.gif">
                 <!-- Code for Main Body Content Goes Here -->
 
                 <iframe name="content" id="content" width="99%" scrolling="NO" frameborder="0"
-                        onLoad="changeHeight(this);" src="main.php" width="99%"></iframe>
+                        onLoad="changeHeight(this);" src="main.php"></iframe>
 
 
             </td>
