@@ -76,6 +76,12 @@ if (isset($_POST['id'])) {
   <meta charset="utf-8">
 
   <link rel="stylesheet" type="text/css" href="../../css/style_back.css">
+  <style>
+    .search-table {
+      margin: 20px 0 0 40px;
+      padding-left: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -93,7 +99,14 @@ if (isset($_POST['id'])) {
 
           <td>
             <form name="form1" method="post" action="asignar.php">
-              <table width="100%" height="104" border="0" cellpadding="3" cellspacing="4" class="style1">
+
+              <div class="search-table">
+                <b>Buscar:</b><br>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filtrar recursos...">
+              </div>
+
+
+              <table id="myTable" width="100%" height="104" border="0" cellpadding="3" cellspacing="4" class="style1">
                 <tr>
                   <td colspan="2">
                 </tr>
@@ -105,21 +118,15 @@ if (isset($_POST['id'])) {
                 </tr>
 
                 <?php
-
                 for ($i = 0; $i < count($files); $i++) {
-
                 ?>
-
-
                   <tr>
                     <td width="6%" class="style1"><input name="archi[]" type="checkbox" id="archi[]" value="<?= $files[$i]['id'] ?>" <?php if (@in_array($files[$i]['id'], $arselect)) echo 'checked="checked"'; ?>></td>
                     <td width="94%" class="style1"><b><?= substr($files[$i]['dir'], 0, 70); ?></b><br>
                       <?= $files[$i]['descripcion']; ?></td>
                   </tr>
                 <?php
-
                 }
-
                 ?>
 
                 <tr>
@@ -128,11 +135,8 @@ if (isset($_POST['id'])) {
 
 
                 <?php
-
                 for ($j = 0; $j < count($links); $j++) {
-
                 ?>
-
                   <tr>
                     <td class="style1"><input name="enlace[]" type="checkbox" id="enlace[]" value="<?= $links[$j]['id'] ?>" <?php if (@in_array($links[$j]['id'], $linkselect)) echo 'checked="checked"'; ?>></td>
                     <td class="style1"><b><?= substr($links[$j]['dir'], 0, 70); ?></b>&nbsp;<br>
@@ -140,36 +144,23 @@ if (isset($_POST['id'])) {
                   </tr>
 
                 <?php
-
                 }
-
                 ?>
-
-
 
                 <tr>
                   <td colspan="2" class="table_bk"><?= LANG_content_video ?>&nbsp;</td>
                 </tr>
 
-
                 <?php
-
                 for ($j = 0; $j < count($vid); $j++) {
-
                 ?>
-
                   <tr>
                     <td class="style1"><input name="videos[]" type="checkbox" id="videos[]" value="<?= $vid[$j]['id'] ?>" <?php if (@in_array($vid[$j]['id'], $vidselect)) echo 'checked="checked"'; ?>></td>
                     <td class="style1"><b><?= substr($vid[$j]['dir'], 0, 70); ?></b>&nbsp;<br> <?= $vid[$j]['descripcion']; ?></td>
                   </tr>
-
                 <?php
-
                 }
-
                 ?>
-
-
 
                 <tr>
                   <td colspan="2"><input type="button" name="Submit2" value="<?= LANG_back ?>" onClick="javascript:history.back();">
@@ -185,6 +176,30 @@ if (isset($_POST['id'])) {
   </td>
   </tr>
   </table>
+
+  <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>

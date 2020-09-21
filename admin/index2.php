@@ -13,31 +13,30 @@ $_SESSION['DB_FORMATO'] = $data[1];
 $_SESSION['CURSOALIAS'] = $data[4];
 $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
 ?>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8">
-        <title><?php echo $data[3]; ?></title>
-        <link rel="shortcut icon" href="../images/backend/favicon.png">
-        <link rel="stylesheet" type="text/css" href="../css/style_back.css">
-        <script type="text/javascript" language="JavaScript1.2" src="../js/stm31.js"></script>
-        <script type="text/javascript" src="../js/iframe.js"></script>
+<!DOCTYPE html>
+<html>
 
-        <script language="JavaScript" type="text/javascript">
+<head>
+    <meta charset="utf-8">
+    <title><?php echo $data[3]; ?></title>
+    <link rel="shortcut icon" href="../images/backend/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../css/style_back.css">
+    <script type="text/javascript" language="JavaScript1.2" src="../js/stm31.js"></script>
+    <script type="text/javascript" src="../js/iframe.js"></script>
 
-            function nocaso() {
-                var answer = confirm("<?= LANG_curso_nocreated ?>");
-                if (answer) {
-
-                    content.location.replace('settings/crearc.php');
-
-                }
-
+    <script language="JavaScript" type="text/javascript">
+        function nocaso() {
+            var answer = confirm("<?= LANG_curso_nocreated ?>");
+            if (answer) {
+                content.location.replace('settings/crearc.php');
             }
-        </script>
 
-    </head>
-    <body bgcolor="#858585" bottommargin="0" <?php if ($_SESSION['CURSOID'] < 1) { ?>onLoad="nocaso();" <?php } ?>>
+        }
+    </script>
+
+</head>
+
+<body bgcolor="#858585" bottommargin="0" <?php if ($_SESSION['CURSOID'] < 1) { ?>onLoad="nocaso();" <?php } ?>>
     <table width="1050" height="550" border="0" align="center" cellpadding="0" cellspacing="0" valign="top">
 
         <tr>
@@ -59,36 +58,32 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
 
                     echo $datos->combo_db("curso", "select id,alias from tbl_curso where id in ({$_SESSION['CURSOSP']})", "alias", "id", false, $_SESSION['CURSOID'], "content.location.replace('main.php?curso='+this.value)", LANG_curso_nocurso);
                 }
-                ?>    </td>
+                ?> </td>
             <td colspan="3" bgcolor="#000000">
                 <!-- Content Code for the top right black box goes here. -->
                 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td width="90%" align="right"><span class="small"
-                                                            style="color:#FFFFFF">&nbsp;<b><?= $_SESSION['NOMBRE'] ?></b>&nbsp;
+                        <td width="90%" align="right"><span class="small" style="color:#FFFFFF">&nbsp;<b><?= $_SESSION['NOMBRE'] ?></b>&nbsp;
                                 <?php if ($_SESSION['FECHACC'] != "") { ?><?= LANG_last_access ?>
                                 &nbsp;<b><?= $_SESSION['FECHACC'] ?><?php } ?></b>
-                                    &nbsp;|&nbsp;</span></td>
-                        <td width="6%" align="right" class="style2"><a href="cerrar.php"
-                                                                       style="color:#FFFFFF; display:compact;"><?php echo LANG_ADMIN_cerrar; ?></a>
+                                &nbsp;|&nbsp;</span></td>
+                        <td width="6%" align="right" class="style2"><a href="cerrar.php" style="color:#FFFFFF; display:compact;"><?php echo LANG_ADMIN_cerrar; ?></a>
                         </td>
-                        <td width="4%" align="center"><img title="<?php echo LANG_ADMIN_cerrar; ?>"
-                                                           src="../images/backend/cerrar.gif" width="12" height="12"
-                                                           border="0"></td>
+                        <td width="4%" align="center"><img title="<?php echo LANG_ADMIN_cerrar; ?>" src="../images/backend/cerrar.gif" width="12" height="12" border="0"></td>
                     </tr>
                 </table>
             </td>
             <td><img src="../images/backend/spacer.gif" width="1" height="29" border="0" alt=""></td>
         </tr>
-      <!--header-->
-      <tr class="header-admin">
+        <!--header-->
+        <tr class="header-admin">
             <td colspan="4">
-                    <a href="main.php" target="content"><img src="../images/common/logo.png"></a>
+                <a href="main.php" target="content"><img src="../images/common/logo.png"></a>
             </td>
-      </tr>
+        </tr>
 
         <tr>
-            <td colspan="4" style="width: 100%;"  bgcolor="#F1F2EE">
+            <td colspan="4" style="width: 100%;" bgcolor="#F1F2EE">
 
                 <script type="text/javascript">
                     stm_bm(["menu79ba", 900, "", "blank.gif", 0, "", "", 0, 0, 0, 0, 0, 1, 0, 0, "", "", 0, 0, 1, 1, "hand", "hand", "", 1, 25], this);
@@ -148,71 +143,68 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
                 </script>
             </td>
         </tr>
-  
+
         <tr>
-            <td heigth="700"  colspan="3" valign="top" background="../images/backend/edunet_r6_c1.gif">
+            <td heigth="700" colspan="3" valign="top" background="../images/backend/edunet_r6_c1.gif">
                 <!-- Code for Main Body Content Goes Here -->
 
-                <iframe name="content" id="content" width="99%" scrolling="NO" frameborder="0"
-                        onLoad="changeHeight(this);" src="main.php"></iframe>
+                <iframe name="content" id="content" width="99%" scrolling="NO" frameborder="0" onLoad="changeHeight(this);" src="main.php"></iframe>
 
 
             </td>
             <td class="sidebar">
                 <div>
                     <div class="sub-menu">
-                         <span class="title">
+                        <span class="title">
                             <a href="micuenta/index.php" target="content"><?= LANG_account; ?></a>
                         </span>
-                           <img src="../images/backend/menu/profile.png">
+                        <img src="../images/backend/menu/profile.png">
                     </div>
 
                     <div class="sub-menu">
-                         <span class="title">
-                            <a href="alumnos/index.php" target="content"><?= LANG_students; ?> (<span
-                                        id="nest">&nbsp;</span>)</a>
+                        <span class="title">
+                            <a href="alumnos/index.php" target="content"><?= LANG_students; ?> (<span id="nest">&nbsp;</span>)</a>
                         </span>
                         <span class="icon">
-                           <img src="../images/backend/menu/students.png">
+                            <img src="../images/backend/menu/students.png">
                         </span>
                     </div>
 
                     <div class="sub-menu">
-                         <span class="title">
-                            <a href="mensajes/index.php" target="content"><?php echo LANG_messages; ?> (<span
-                                        id="nmsgs">&nbsp;</span>)</a>
+                        <span class="title">
+                            <a href="mensajes/index.php" target="content"><?php echo LANG_messages; ?> (<span id="nmsgs">&nbsp;</span>)</a>
                         </span>
                         <span class="icon">
-                           <img src="../images/backend/menu/messages.png">
+                            <img src="../images/backend/menu/messages.png">
                         </span>
                     </div>
 
                     <div class="sub-menu">
-                         <span class="title">
+                        <span class="title">
                             <a href="recursos/index.php" target="content"><?= LANG_resources; ?> (<span id="nrecus">&nbsp;</span>) </a>
                         </span>
                         <span class="icon">
-                           <img src="../images/backend/menu/resources.png">
+                            <img src="../images/backend/menu/resources.png">
                         </span>
                     </div>
 
                     <div class="sub-menu">
-                         <span class="title">
+                        <span class="title">
                             <a href="estadisticas/index.php" target="content"><?= LANG_estat; ?></a>
                         </span>
                         <span class="icon">
-                           <img src="../images/backend/menu/chart.png">
+                            <img src="../images/backend/menu/chart.png">
                         </span>
                     </div>
 
                     <?php if ($_SESSION['ADMIN']) { ?>
                         <div class="sub-menu">
-                         <span class="title">
-                            <a href="settings/index.php" target="content"><?= LANG_ADMIN_admin; ?></a>
-                        </span>
+                            <span class="title">
+                                <a href="settings/index.php" target="content"><?= LANG_ADMIN_admin; ?></a>
+                            </span>
                             <span class="icon">
-                           <img src="../images/backend/menu/admin.png">
-                        </span>
+                                <img src="../images/backend/menu/admin.png">
+                            </span>
                         </div>
                     <?php } ?>
                 </div>
@@ -225,6 +217,7 @@ $_SESSION['TIMEZONE'] = $data[5]; ///zona horaria configurada en la herramienta
         </tr>
     </table>
     <br>
-    </body>
-    </html>
+</body>
+
+</html>
 <?php $datos->cerrar(); ?>
