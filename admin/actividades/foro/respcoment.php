@@ -6,19 +6,6 @@ include("../../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
 $tool = new formulario("db");
 
-if (isset($_POST['Submit'])) {
-
-  $_POST['r-content'] = $tool->getvar('r-content',$_POST);
-  $_POST['r-created_at'] = @date("Y-m-d H:i:s");
-  $_POST['r-updated_at'] = @date("Y-m-d H:i:s");
-  $tool->insert_data("r", "-", "tbl_foro_respuesta", $_POST);
-?>
-  <script language="JavaScript" type="text/javascript">
-    window.opener.location.reload();
-    window.close();
-  </script>
-<?php
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,17 +13,18 @@ if (isset($_POST['Submit'])) {
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../../../css/style_back.css">
-
+  <script src="../../../js/jquery/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
-  <form name="form1" method="post" action="respcoment.php">
+  <form name="form1" id="form1" method="post" action="savePostResponse.php">
     <table width="100%" border="0" cellspacing="3" cellpadding="2">
       <tr>
         <td class="style3"><input name="r-comentario_id" type="hidden" id="r-comentario_id" value="<?= $_REQUEST['id'] ?>">
           <input name="r-sujeto_id" type="hidden" id="r-sujeto_id" value="<?= $_SESSION['USERID'] ?>">
           <input name="r-tipo_sujeto" type="hidden" id="r-tipo_sujeto" value="admin">
-          &nbsp;<?php echo LANG_foro_response . ': ' . $_REQUEST['nombre'] ?></td>
+          &nbsp;<?php echo LANG_foro_response . ': ' . $_REQUEST['nombre'] ?>
+        </td>
       </tr>
       <tr>
         <td align="center">
@@ -45,13 +33,32 @@ if (isset($_POST['Submit'])) {
       </tr>
       <tr>
         <td><input type="button" name="Submit2" value="<?= LANG_close ?>" onClick="window.close();">
-          <input type="submit" name="Submit" value="<?= LANG_save ?>"></td>
+          <input type="submit" name="Submit" value="<?= LANG_save ?>">
+        </td>
       </tr>
     </table>
   </form>
-
-
 </body>
+<script>
+  $(function() {
+    $('#form1').submit(function(e) {
+      let myData = $('#form1').serialize();
+      jQuery.ajax({
+        type: "POST",
+        url: "savePostResponse.php",
+        data: myData,
+        cache: false,
+        success: function(res) {
+          window.opener.location.reload();
+          window.close();
+        }
+      })
+      e.preventDefault();
+    });
+
+  });
+</script>
+
 
 </html>
 <?php $tool->cerrar(); ?>
