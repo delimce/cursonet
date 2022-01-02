@@ -88,7 +88,7 @@ class grid extends Database
 
     //********************************************* metodos
 
-    function grid($ancho, $largo, $align, $features)
+    public function __construct($ancho, $largo, $align, $features)
     {     //costructor
         $this->ancho = $ancho;
         $this->largo = $largo;

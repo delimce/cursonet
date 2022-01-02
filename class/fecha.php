@@ -1,12 +1,14 @@
 <?php
 
-class fecha {
+class fecha
+{
 
     var $fecha;
     var $meses;
     var $formato;
 
-    function fecha($formato) {     //costructor
+    public function __construct($formato)
+    {     //costructor
         $this->formato = $formato;
         $ano = @date("Y");
         if ($this->es_bisiesto($ano))
@@ -30,11 +32,12 @@ class fecha {
         );
     }
 
-///// fin constructor
+    ///// fin constructor
     //// funcion para determinar si el a�o es bisiesto o no devuelve true o false
 
 
-    function es_bisiesto($ano) {
+    function es_bisiesto($ano)
+    {
 
         if (($ano % 4 == 0) && (($ano % 100 != 0) || ($ano % 400 == 0)))
             return true;
@@ -42,7 +45,7 @@ class fecha {
             return false;
     }
 
-///fin es_bisiesto
+    ///fin es_bisiesto
     // funcion que devuelve el formato correcto datatime de la db
     // dado el formato de la fecha descompone el formato a datatime y lo muestra
     // segun el formato empleado para mostrar las fechas del sistema
@@ -50,7 +53,8 @@ class fecha {
     // formato  db datatime '0000-00-00 00:00:00'
     // util para adecuar la fecha a operaciones a nivel de la base de datos
 
-    function fecha_db($fecha, $ini = false, $trunca = false) {
+    function fecha_db($fecha, $ini = false, $trunca = false)
+    {
 
         $fecha1 = explode("/", $fecha);
         if ($ini)
@@ -74,7 +78,8 @@ class fecha {
     ////////////////////////////////////////////////////////////////////////////////
     /// funcion para obtener el tiempo unix de una fecha
     ////  ///////////////////////////////////////////////////////////////////////
-    function unix_time($fecha) {
+    function unix_time($fecha)
+    {
         $fecha1 = explode("/", $fecha);
 
         if ($this->formato == "d/m/Y") {
@@ -94,7 +99,8 @@ class fecha {
     ////  ///////////////////////////////////////////////////////////////////////
     ///////////// para fechas de tipo timestamp
 
-    function timestamp($stamp) {
+    function timestamp($stamp)
+    {
         $pattern = "/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})$/i";
         if (preg_match($pattern, $stamp, $st) && checkdate($st[2], $st[3], $st[1])) {
             return @date($this->formato, mktime($st[4], $st[5], $st[6], $st[2], $st[3], $st[1]));
@@ -104,31 +110,32 @@ class fecha {
 
     ////////////////// para fechas de tipo db datatime '0000-00-00 00:00:00'
 
-    public function datetime($datetime, $formato = false) {
-
+    static public function datetime($datetime, $formato = false)
+    {
         date_default_timezone_set($_SESSION['TIMEZONE']);
         $date = date_create($datetime);
-        return ($formato) ? date_format($date, $formato) : date_format($date, $this->formato);
+        return ($formato) ? date_format($date, $formato) : date_format($date, "D/M/Y");
     }
 
     //////////////////// escribe la fecha actual en formato datetime como lo almacena mysql
 
-    function fecha_datetime() {
+    function fecha_datetime()
+    {
 
         return @date("Y-m-d H:m:s");
     }
 
-    static function currentDateDb() {
+    static function currentDateDb()
+    {
 
         return @date("Y-m-d");
     }
 
-    static function currentDateTimeDb() {
+    static function currentDateTimeDb()
+    {
 
         return @date("Y-m-d H:m:s");
     }
-
 }
 
 /////fin de la clase FECHA
-?>

@@ -26,7 +26,7 @@ class image extends  Database
 	var $datos;
 
 
-	function image($path)
+	public function __construct($path)
 	{     //costructor
 
 		$this->path =  $path;

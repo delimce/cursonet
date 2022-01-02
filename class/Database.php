@@ -1,4 +1,5 @@
 <?php
+
 /******************************************************************
  * SUPER CLASE DATABASE
  * clase que crea todas las funciones necesarias para trabajr con bases de datos
@@ -31,27 +32,24 @@ class Database
         $this->db_USER = '';
         $this->db_PASS = '';
         $this->dbase = '';
-
     }
 
 
-//********************************************************cierra conexion y liberar recursos
+    //********************************************************cierra conexion y liberar recursos
 
 
     ///metodo para cerrar la conexion con la base de datos
     public function cerrar()
-    {//cierra la conexion
+    { //cierra la conexion
 
-        $this->liberar();
+        //$this->liberar();
         mysqli_close($this->dbc);
-
     }
 
     ///metodo para liberar el objeto que retorna el valor del query
     public function liberar()
-    {//cierra la conexion
+    { //cierra la conexion
         @mysqli_free_result($this->result);
-
     }
 
 
@@ -59,7 +57,7 @@ class Database
 
     function autoconexion()
     {
-        include_once __DIR__.'/../config/dbconfig.php';
+        include_once __DIR__ . '/../config/dbconfig.php';
         //estructura de autoconexion , variableS global de conexion a la db
         $this->conectar($HOSTNAME, $DBUSER, $DBPASS, $DATABASE);
     }
@@ -70,7 +68,6 @@ class Database
     {  ///enlace a la conexion abierta
 
         $this->dbc = $link;
-
     }
 
 
@@ -81,7 +78,7 @@ class Database
     //utilizado ideal para sentencias insert, update, delete etc
 
     public function query($sql, $lib = false)
-    {// ejecuta un query o devuelve un error
+    { // ejecuta un query o devuelve un error
         $this->result = @mysqli_query($this->dbc, $sql) or die('<font color=#FF0000> error en query: </font>' . mysqli_error($this->dbc));
         $this->nreg = $this->total_registros();
 
@@ -95,7 +92,6 @@ class Database
     {
 
         return @mysqli_fetch_row($this->result);
-
     }
 
     ////funcion para obtener el valor del registro en tipo cadena o nombre
@@ -104,8 +100,6 @@ class Database
     {
 
         return @mysqli_fetch_assoc($this->result);
-
-
     }
 
 
@@ -156,7 +150,7 @@ class Database
 
 
     public function numero_filas_afecc()
-    {//retorna el numero de las filas afectadas por el ultimo query
+    { //retorna el numero de las filas afectadas por el ultimo query
         $tmp = mysqli_affected_rows($this->dbc);
         return ($tmp);
     }
@@ -165,12 +159,11 @@ class Database
     ///lista el numero de registros traidos en el ultimo query
     public function total_registros()
     {
-        $tmp = @mysqli_num_rows($this->result);
-        return ($tmp);
+        return (!empty($this->result) && $this->result instanceof mysqli_result) ? mysqli_num_rows($this->result) : 0;
     }
 
 
-//devuelve un arreglo con el nombre de los campos consultados enpezando desde la pos 0
+    //devuelve un arreglo con el nombre de los campos consultados enpezando desde la pos 0
 
     public function campos_query()
     {
@@ -184,13 +177,12 @@ class Database
         }
 
         return $resultado;
-
     }
 
 
     ///funcion que elimina la base de datos
     function borrar($dbase)
-    {//elimina la base de datos
+    { //elimina la base de datos
         return mysql_drop_db($dbase, $this->dbc);
     }
 
@@ -198,10 +190,10 @@ class Database
 
 
 
-///**************************************** METODOS para insertar seguramente  */
+    ///**************************************** METODOS para insertar seguramente  */
 
-// funcion que realiza un insert simple
-// tabla, campos, valores y boqueo true o false (opcional)
+    // funcion que realiza un insert simple
+    // tabla, campos, valores y boqueo true o false (opcional)
 
     public function insertar($tabla, $campos, $valores, $block = false)
     {
@@ -212,7 +204,6 @@ class Database
 
             $valor = mysqli_real_escape_string($this->dbc, $valores2[$i]);  //// me aseguro de que no se inserten valores invalidos
             $valores2[$i] = "'$valor'";
-
         }
 
 
@@ -225,7 +216,6 @@ class Database
         $this->query($query);
         $this->ultimoID = mysqli_insert_id($this->dbc);
         if ($block) $this->query("UNLOCK TABLES");
-
     }
 
 
@@ -237,7 +227,7 @@ class Database
 
     public function insertar2($tabla, $campos, $vector, $block = false)
     {
-        $values='';
+        $values = '';
         for ($i = 0; $i < count($vector); $i++) {
 
             $valor = mysqli_real_escape_string($this->dbc, $vector[$i]);  //// me aseguro de que no se inserten valores invalidos
@@ -254,7 +244,6 @@ class Database
         $this->query($query);
         $this->ultimoID = mysqli_insert_id($this->dbc);
         if ($block) $this->query("UNLOCK TABLES");
-
     }
 
 
@@ -285,7 +274,6 @@ class Database
         if ($block) $this->query("LOCK TABLES " . $tabla . " WRITE");
         $this->query($query);
         if ($block) $this->query("UNLOCK TABLES");
-
     }
 
 
@@ -296,14 +284,14 @@ class Database
 
         ////iniciando la transaccion
         mysqli_autocommit($this->dbc, FALSE);
-
     }
 
 
     public function cerrar_transaccion($result = true)
     {
 
-        if ($result) mysqli_commit($this->dbc); else mysqli_rollback($this->dbc); ////finalizando la transaccion
+        if ($result) mysqli_commit($this->dbc);
+        else mysqli_rollback($this->dbc); ////finalizando la transaccion
         mysqli_autocommit($this->dbc, TRUE);
     }
 
@@ -322,7 +310,7 @@ class Database
      */
     public function getLastIdInserted()
     {
-       return  $this->ultimoID;
+        return  $this->ultimoID;
     }
 
 
@@ -385,8 +373,6 @@ class Database
     {
         return $this->nreg;
     }
-
-
 }
 
  //fin de la super clase

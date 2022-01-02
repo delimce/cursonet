@@ -140,8 +140,8 @@ class grid2 extends Database
             $ocultos = explode(',', $this->features['oculto']);
 
         ////////// para FORMATEAR FECHAS
-        if (isset($this->features['dateformat']))
-            $fformat = explode(',', $this->features['dateformat']);
+        $fformat =  (isset($this->features['dateformat'])) ?
+            explode(',', $this->features['dateformat']) : false;
 
 
         /////si no se encuentran registros
@@ -249,12 +249,14 @@ class grid2 extends Database
 
                     if (!isset($this->features['abreviar'][$ii])) { //// en caso de abreviacion de clumnas
                         /////////////FORMATEAR FECHAS
-                        if (@in_array($ii, $fformat))
+
+                        if ($fformat && in_array($ii, $fformat)) {
                             try {
-                                $valor = @fecha::datetime($valor, $_SESSION['DB_FORMATO']);
+                                $valor = fecha::datetime($valor, $_SESSION['DB_FORMATO']);
                             } catch (Exception $e) {
                                 $valor = "<b>error!</b>";
                             }
+                        }
 
                         echo '<td class="td_whbk1" align="' . @$this->features['alineacion'][$ii] . '">' . $enlace . $valor . $enlace2 . '</td>';
                     } else {
@@ -303,10 +305,10 @@ class grid2 extends Database
                         $popup = " onclick=\" return popup2(this,'" . @$this->features['nuevo_vinculo2']['popup'] . "');\"";
                     else
                         $popup = '';
-                    if (isset($this->features['nuevo_vinculo2']['borrar']) && (@$tmp[$this->features['nuevo_vinculo2']['condicion']]==1))
+                    if (isset($this->features['nuevo_vinculo2']['borrar']) && (@$tmp[$this->features['nuevo_vinculo2']['condicion']] == 1))
                         $popup = " onclick=\" return borrar('" . @$tmp[$this->features['nuevo_vinculo2']['parametro']] . "','" . @$tmp[$this->features['nuevo_vinculo2']['borrar']] . "');\"";
-                    else if (isset($this->features['nuevo_vinculo2']['borrar']) && (@$tmp[$this->features['nuevo_vinculo2']['condicion']]!=1))    
-                    $popup = " onclick=\" return alert('Operación no permitida');\"";
+                    else if (isset($this->features['nuevo_vinculo2']['borrar']) && (@$tmp[$this->features['nuevo_vinculo2']['condicion']] != 1))
+                        $popup = " onclick=\" return alert('Operación no permitida');\"";
                     else
                         $popup = '';  //// para borrar un registro del grid experimental
                     echo '<a href="' . @$this->features['nuevo_vinculo2']['url'] . @$this->features['nuevo_vinculo2']['var_parametro'] . '=' . @$tmp[$this->features['nuevo_vinculo2']['parametro']] . @$this->features['nuevo_vinculo2']['extras'] . '" target="' . @$this->features['nuevo_vinculo2']['target'] . '" title="' . @$this->features['nuevo_vinculo2']['title'] . '"' . $popup . '">' . @$this->features['nuevo_vinculo2']['texto'] . '</a>';

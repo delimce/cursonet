@@ -6,6 +6,7 @@ include("../../class/clases.php"); ////////clase
 include("../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
 require_once("menu.php"); ////////menu
+
 $menu = new menu($menu_struct);
 
 

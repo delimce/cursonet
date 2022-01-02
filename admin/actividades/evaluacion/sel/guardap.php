@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 $profile = 'admin'; /////////////// perfil requerido
 include("../../../../config/setup.php"); ////////setup
 include("../../../../class/clases.php"); ////////clase
@@ -14,22 +15,24 @@ if (isset($_POST['enum'])) {
     $valores[3] = $_POST['nivel'];
     $valores[4] = $_SESSION['CURSOID']; ///se guarda la pregunta por curso
 
-    $eva->abrir_transaccion();
+    try{
 
-    $eva->insertar2("tbl_evaluacion_pregunta", "eval_id,tipo,pregunta,nivel,curso_id", $valores);
-    $nuevap = $eva->ultimoID;
+        $eva->abrir_transaccion();
+        $eva->insertar2("tbl_evaluacion_pregunta", "eval_id,tipo,pregunta,nivel,curso_id", $valores);
+        $nuevap = $eva->ultimoID;
+    
+        for ($j = 0; $j < count($_POST['respuestas']); $j++) {
+            $valores2[0] = $nuevap;
+            $valores2[1] = $_POST['respuestas'][$j]; //seleccion
+            $valores2[2] = ($j == $_POST['correcta']) ? 1 : 0;
+            $eva->insertar2("tbl_pregunta_opcion", "preg_id,opcion,correcta", $valores2);
+        }
+        $eva->cerrar_transaccion();
 
-    for ($j = 0; $j < count($_POST['respuestas']); $j++) {
-
-        $valores2[0] = $nuevap;
-        $valores2[1] = $_POST['respuestas'][$j]; //seleccion
-        $valores2[2] = ($j == $_POST['correcta']) ? 1 : 0;
-
-        $eva->insertar2("tbl_pregunta_opcion", "preg_id,opcion,correcta", $valores2);
-
+    }catch(Exception $ex){
+        throw new Exception($ex->getMessage(),500);
     }
-
-    $eva->cerrar_transaccion();
+  
 
     unset($_SESSION['OPCIONES']);
     unset($_SESSION['CORRECT']);
@@ -37,5 +40,3 @@ if (isset($_POST['enum'])) {
 }
 
 $eva->cerrar();
-
-?>

@@ -15,7 +15,6 @@ $nivelv = $eva->llenar_array('1,2,3');
 
 
 $datos = $eva->simple_db("select eval_id,pregunta,nivel from tbl_evaluacion_pregunta where id = {$_REQUEST['ItemID']} ");
-
 $datos2 = $eva->estructura_db("select opcion,correcta from tbl_pregunta_opcion where preg_id = {$_REQUEST['ItemID']} ");
 
 for ($j = 0; $j < count($datos2); $j++) {
