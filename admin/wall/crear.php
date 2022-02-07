@@ -12,11 +12,16 @@ $menu = new menu($menu_struct);
 
 	if(isset($_POST['Submit'])){
 	
-		$_POST['r-fecha_c']  = @date("Y-m-d H:i:s");
-		$_POST['r-curso_id'] =  $_SESSION['CURSOID'];
-	
-		$crear->insert_data("r","-","tbl_cartelera",$_POST);
-		
+    $valores[0] = $_SESSION['CURSOID'];
+    $valores[1] = $_POST['grupo_id'];
+    $valores[2] = $_POST['mensaje'];
+    $valores[3] = date("Y-m-d H:i:s");
+    $valores[4] = $_POST['destaca'];
+    $valores[5] = date("Y-m-d H:i:s");
+    $valores[6] = date("Y-m-d H:i:s");
+
+    $fields = "curso_id,grupo_id,mensaje,fecha_c,destaca,created_at,updated_at";
+    $crear->insertar2("tbl_cartelera", $fields, $valores);
 		$crear->javaviso(LANG_wall_created,"index.php");
 	
 	}
@@ -49,7 +54,6 @@ $menu = new menu($menu_struct);
 
 
 
-
 </head>
 
 <body>
@@ -74,17 +78,17 @@ $menu = new menu($menu_struct);
     </tr>
   <tr>
     <td width="29%" valign="top" class="style3"><?php echo LANG_seccion_select ?></td>
-    <td width="71%"><?php echo $crear->combo_db("r-grupo_id","(select '".LANG_all."' as nombre, 0 as id)union(select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre)","nombre","id",false,false,false,LANG_nogroup);  ?></td>
+    <td width="71%"><?php echo $crear->combo_db("grupo_id","(select '".LANG_all."' as nombre, 0 as id)union(select nombre,id from tbl_grupo where curso_id = '{$_SESSION['CURSOID']}' order by nombre)","nombre","id",false,false,false,LANG_nogroup);  ?></td>
   </tr>
   <tr>
     <td valign="top" class="style3"><?php echo LANG_wall_desc ?></td>
-    <td><input name="r-destaca" type="checkbox" id="r-destaca" value="1" checked></td>
+    <td><input name="destaca" type="checkbox" id="destaca" value="1" checked></td>
   </tr>
   <tr>
     <td colspan="2" valign="top" class="style3"><?php echo LANG_wall_message ?></td>
     </tr>
   <tr>
-  <td colspan="2" class="style3"><textarea name="r-mensaje" cols="73" rows="15" id="r-mensaje"></textarea></td>
+  <td colspan="2" class="style3"><textarea name="mensaje" cols="73" rows="15" id="mensaje"></textarea></td>
   </tr>
 
   <tr>

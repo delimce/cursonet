@@ -339,6 +339,16 @@ class ObjectDB extends Database {
 
      */
 
+
+    /**
+     * @deprecated version
+     * @param mixed $pref
+     * @param mixed $sep
+     * @param mixed $table
+     * @param mixed $vars
+     * 
+     * @return [type]
+     */
     public function dataInsert($pref, $sep, $table, $vars) {
 
         ////objeto de base de datos
@@ -378,6 +388,16 @@ class ObjectDB extends Database {
       $metodo: vectores globales segun el metodo por el cual vienen los valores del formulario "$_GET" o "$_POST"
       $where: condicion de edicion ejemplo id='1'
       IMPOTANTE: EL NOMBRE DE LOS CAMPOS DEBE SER EL NOMBRE DE LAS VARIABLES DE FORMULARIO PASADAS
+     */
+    /**
+     * @deprecated version
+     * @param mixed $pref
+     * @param mixed $sep
+     * @param mixed $table
+     * @param mixed $vars
+     * @param string $where
+     * 
+     * @return [type]
      */
     public function dataUpdate($pref, $sep, $table, $vars, $where = "") {
 
