@@ -231,7 +231,7 @@ class Database
         for ($i = 0; $i < count($vector); $i++) {
 
             $valor = mysqli_real_escape_string($this->dbc, $vector[$i]);  //// me aseguro de que no se inserten valores invalidos
-            $vector[$i] = "'$valor'";
+            $vector[$i] = (!is_numeric($valor)) ? "'$valor'" : $valor;
             $values .= $vector[$i] . ',';
         }
 
@@ -259,7 +259,8 @@ class Database
         for ($i = 0; $i < count($vector); $i++) {
 
             $valor = mysqli_real_escape_string($this->dbc, $vector[$i]);  //// me aseguro de que no se inserten valores invalidos
-            $data = "$campos[$i] = '$valor'";
+            $value = (!is_numeric($valor)) ? "'$valor'" : $valor;
+            $data = "$campos[$i] = $value";
             $valores .= $data . ',';
         }
 
