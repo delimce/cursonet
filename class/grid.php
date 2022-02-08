@@ -300,6 +300,7 @@ class grid extends Database
 
                     if (!isset($this->features['abreviar'][$ii])) { //// en caso de abreviacion de clumnas
                         /////////////FORMATEAR FECHAS
+                        $fformat = $fformat??[];
                         if (@in_array($ii, $fformat) && isset($this->features['dateformat']))
                             $valor = $this->datetime($valor, $this->features['dateformat']["formato"]);
 

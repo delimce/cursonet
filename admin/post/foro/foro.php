@@ -115,7 +115,7 @@ if (isset($_REQUEST['ItemID'])) {
         <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
                 <td height="26" valign="top"> <span class="menu-title"><?= $menu->nombre; ?></span>&nbsp;<span class="style3">
-                        <?= $_REQUEST['item'] ?>
+                        <?= $_REQUEST['item'] ?? "" ?>
                     </span></td>
             </tr>
             <tr>
@@ -152,7 +152,8 @@ if (isset($_REQUEST['ItemID'])) {
                                                                 <tr class="td_whbk" onMouseOver="this.style.backgroundColor = '#CCCCCC'" onMouseOut="this.style.backgroundColor = '#FFFFFF'">
 
                                                                     <td class="style1" align="left" style="text-transform:capitalize "><?= $row['nombre'] ?>
-                                                                        <input name="est[]" type="hidden" id="est[]" value="<?= $row['id'] ?>"></td>
+                                                                        <input name="est[]" type="hidden" id="est[]" value="<?= $row['id'] ?>">
+                                                                    </td>
                                                                     <td title="<?= $row['id_number'] ?>" class="style1" align="center"><?= $row['id_number'] ?></td>
                                                                     <td class="style1" align="center"><?= $row['comentarios'] ?></td>
                                                                     <td class="style1" align="center"><?= $row['val'] ?></td>
@@ -172,8 +173,8 @@ if (isset($_REQUEST['ItemID'])) {
                                 </table>&nbsp;<br>
                                 <input type="button" name="Submit2" onClick="history.back();" value="<?= LANG_back ?>">
                                 <input type="submit" name="Submit" value="<?= LANG_save ?>">
-                                <input name="foroid" type="hidden" id="foroid" value="<?= $_REQUEST['ItemID'] ?>">
-                                <input name="item" type="hidden" id="item" value="<?= $_REQUEST['item'] ?>">
+                                <input name="foroid" type="hidden" id="foroid" value="<?= $_REQUEST['ItemID'] ?? '' ?>">
+                                <input name="item" type="hidden" id="item" value="<?= $_REQUEST['item'] ?? '' ?>">
                                 <br>
                                 <br>
                             </td>
