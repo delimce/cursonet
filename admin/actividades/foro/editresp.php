@@ -33,7 +33,7 @@ $com = $tool->array_query("select content from tbl_foro_respuesta where id = '{$
       </tr>
       <tr>
         <td>
-          <textarea name="r-content" id="r-content" cols="96" rows="9" class="style3" id="comm"><?php echo $com[0]; ?>
+          <textarea name="content" id="content" cols="96" rows="9" class="style3"><?php echo $com[0]; ?>
         </textarea>
         </td>
       </tr>

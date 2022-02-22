@@ -4,8 +4,6 @@ include("../../../config/setup.php"); ////////setup
 include("../../../class/clases.php"); ////////clase
 include("../../../config/lang/{$_SESSION['LENGUAJE']}"); ////lenguaje
 
-$tool = new formulario("db");
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,15 +18,15 @@ $tool = new formulario("db");
   <form name="form1" id="form1" method="post" action="savePostResponse.php">
     <table width="100%" border="0" cellspacing="3" cellpadding="2">
       <tr>
-        <td class="style3"><input name="r-comentario_id" type="hidden" id="r-comentario_id" value="<?= $_REQUEST['id'] ?>">
-          <input name="r-sujeto_id" type="hidden" id="r-sujeto_id" value="<?= $_SESSION['USERID'] ?>">
-          <input name="r-tipo_sujeto" type="hidden" id="r-tipo_sujeto" value="admin">
+        <td class="style3"><input name="comentario_id" type="hidden" id="comentario_id" value="<?= $_REQUEST['id'] ?>">
+          <input name="sujeto_id" type="hidden" id="sujeto_id" value="<?= $_SESSION['USERID'] ?>">
+          <input name="tipo_sujeto" type="hidden" id="tipo_sujeto" value="admin">
           &nbsp;<?php echo LANG_foro_response . ': ' . $_REQUEST['nombre'] ?>
         </td>
       </tr>
       <tr>
         <td align="center">
-          <textarea name="r-content" cols="96" rows="9" class="style3" id="r-content"></textarea>
+          <textarea name="content" cols="96" rows="9" class="style3" id="content"></textarea>
         </td>
       </tr>
       <tr>
@@ -61,4 +59,3 @@ $tool = new formulario("db");
 
 
 </html>
-<?php $tool->cerrar(); ?>
