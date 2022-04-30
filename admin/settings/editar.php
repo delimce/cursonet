@@ -44,7 +44,7 @@ if (isset($_POST['login12'])) {
   // add courses to admin
   $crear->query("delete from tbl_admin_curso where admin_id = {$_POST['id']}");
 
-  $courses = (count($_POST['curso']) > 0) ? $_POST['curso'] : [];
+  $courses = $_POST['curso'] ?? [];
   array_walk($courses, function ($id) use ($crear) {
     $adminCourse[0] = $_POST['id'];
     $adminCourse[1] = $id;
@@ -316,7 +316,8 @@ if (isset($_POST['login12'])) {
                       <td width="6%" align="center" valign="top" class="style3"><input name="curso[]" type="checkbox" value="<?= $cursos[$j]['id'] ?>" <?php if (@in_array($cursos[$j]['id'], $cursos2)) echo 'checked';  ?>></td>
                       <td colspan="7" align="left" class="style3">
                         <span class="style3"><?= $cursos[$j]['nombre'] ?>
-                        </span> <span class="small">(<?= $cursos[$j]['alias'] ?>)</span> </td>
+                        </span> <span class="small">(<?= $cursos[$j]['alias'] ?>)</span>
+                      </td>
                     </tr>
 
                   <?php
@@ -333,7 +334,8 @@ if (isset($_POST['login12'])) {
                     <td colspan="7" align="center" class="style3"><br>
                       <input type="button" name="Submit2" value="<?= LANG_back ?>" onClick="javascript:history.back();">
                       <input type="button" name="Button" value="<?= LANG_edit ?>" onClick="validar();">
-                      <br></td>
+                      <br>
+                    </td>
                   </tr>
                 </table>
               </form>
