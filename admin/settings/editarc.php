@@ -24,11 +24,11 @@ if (isset($_POST['alias'])) {
 
   $valores2[0] = trim($_POST['nombre']);
   $valores2[1] = trim($_POST['alias']);
-  $valores2[2] = $_SESSION['USERID'];
+  $valores2[2] = trim($_POST['resp']);
   $valores2[3] = $_POST['duracion'];
   $valores2[4] = $_POST['desc'];
   $valores2[5] = $_POST['notas'];
-  $valores2[6] = ($_POST['public']) ? 1 : 0;
+  $valores2[6] = (isset($_POST['public'])) ? 1 : 0;
 
   $crear->update("tbl_curso", $campos, $valores2, "id = '{$_POST['id']}'");
   $crear->javaviso(LANG_cambios, "curso.php");
@@ -127,7 +127,12 @@ if (isset($_POST['alias'])) {
                       </strong></td>
                     <td><textarea name="notas" class="style1" cols="50" rows="4" id="notas"><?= $data['notas'] ?></textarea></td>
                   </tr>
-
+                  <tr>
+                    <td class="style3"><strong>
+                        <?= LANG_curso_resp ?>
+                      </strong></td>
+                      <td><?php echo $crear->combo_db("resp", "select id,concat(nombre,' ',apellido) as nombre from tbl_admin", "nombre", "id", false, $data['resp']); ?></td>
+                  </tr>
                   <tr>
                     <td class="style3"><strong>
                         <?= LANG_curso_public ?>

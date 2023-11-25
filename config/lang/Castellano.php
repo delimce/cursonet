@@ -156,6 +156,7 @@ define("LANG_curso_longv","ingrese la Duración del curso");
 define("LANG_curso_alias_des","debe ser menor igual a 20 caracteres");
 define("LANG_curso_desc","Descripción");
 define("LANG_curso_notes","Notas adicionales");
+define("LANG_curso_resp","Responsable");
 define("LANG_curso_public","¿Es público?");
 define("LANG_curso_deleted","Ha sido borrado el curso actual seleccionado, Cursonet se reiniciara nuevamente");
 
