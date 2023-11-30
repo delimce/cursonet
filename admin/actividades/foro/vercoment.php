@@ -228,7 +228,8 @@ $crear->query($query);
                                         &nbsp;
                                         <input name="Button2" type="button" class="no_back" onClick="window.location.href = 'vercoment.php';" value="<?= LANG_refresh ?>">
                                         <br>
-                                        <br></td>
+                                        <br>
+                                    </td>
                                 </tr>
 
                                 <?php
@@ -321,7 +322,7 @@ $crear->query($query);
                                                                                                     else echo 'style4'; ?>">
                                                     <table width="4%" border="0" cellpadding="2" cellspacing="0" class="style1">
                                                         <tr>
-                                                            <td width="26%" align="center"><a href="#" onClick="javascript:popup('editresp.php?id=<?= $row['id2'] ?>', 'new', 220, 640);"><img border="0" src="../../../images/backend/button_edit.png" width="12" height="13" title="<?= LANG_est_foro_resptoupdate ?>"></a></td>
+                                                            <td width="26%" align="center"><a href="#" onClick="javascript:popup('editresp.php?id=<?= $row['id2'] ?>', 'new', 300, 640);"><img border="0" src="../../../images/backend/button_edit.png" width="12" height="13" title="<?= LANG_est_foro_resptoupdate ?>"></a></td>
                                                             <td width="20%" align="center"><a href="#" onClick="javascript:borrar2('<?= $row['id2'] ?>', '<?= strip_tags($row['sujeto']) ?>');"><img border="0" src="../../../images/backend/button_drop.png" width="11" height="13"></a></td>
                                                         </tr>
                                                     </table>
@@ -344,11 +345,12 @@ $crear->query($query);
                                                                 </td>
                                                             <?php } ?>
                                                             <td width="26%" align="center">
-                                                                <a href="#" onClick="javascript:popup('editcoment.php?id=<?= $row['id'] ?>', 'new', 220, 640);"><img border="0" src="../../../images/backend/button_edit.png" width="12" height="13" title="<?= LANG_edit ?>"></a>
+                                                                <a href="#" onClick="javascript:popup('editcoment.php?id=<?= $row['id'] ?>', 'new', 300, 640);"><img border="0" src="../../../images/backend/button_edit.png" width="12" height="13" title="<?= LANG_edit ?>"></a>
                                                             </td>
                                                             <td width="20%" align="center"><a href="#" onClick="javascript:borrar('<?= $row['id'] ?>', '<?= strip_tags($row['sujeto']) ?>');"><img border="0" src="../../../images/backend/button_drop.png" width="11" height="13"></a></td>
                                                             <td width="29%" align="center"><?php if ($row['tsujeto'] != "admin") { ?>
-                                                                    <img style="cursor:pointer" title="<?= LANG_foro_response ?>" onClick="popup('respcoment.php?id=<?= $row['id'] ?>&nombre=<?= $row['sujeto'] ?>', 'new', 220, 640);" src="../../../images/backend/icon-prod-copy.gif" width="16" height="16"><?php } ?></td>
+                                                                    <img style="cursor:pointer" title="<?= LANG_foro_response ?>" onClick="popup('respcoment.php?id=<?= $row['id'] ?>&nombre=<?= $row['sujeto'] ?>', 'new', 300, 640);" src="../../../images/backend/icon-prod-copy.gif" width="16" height="16"><?php } ?>
+                                                            </td>
                                                         </tr>
                                                     </table>
                                                 </td>
@@ -382,7 +384,8 @@ $crear->query($query);
                                         &nbsp;
                                         <input type="button" name="Button" value="<?= LANG_foro_add ?>" onClick="window.location.href = 'agregar.php';">
                                         &nbsp;
-                                        <input name="Button3" type="button" class="no_back" onClick="window.location.href = 'vercoment.php';" value="<?= LANG_refresh ?>"></td>
+                                        <input name="Button3" type="button" class="no_back" onClick="window.location.href = 'vercoment.php';" value="<?= LANG_refresh ?>">
+                                    </td>
                                 </tr>
                             </table>
                             <br>&nbsp;

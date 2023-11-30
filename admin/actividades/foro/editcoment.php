@@ -11,7 +11,7 @@ if (isset($_REQUEST['id'])) {
   $com = $tool->array_query("select content from tbl_foro_comentario where id = '{$_REQUEST['id']}'");
 } else {
 
-  $comentario = mysqli_real_escape_string($_POST['comm']);
+  $comentario = mysqli_real_escape_string($tool->getDbc(), $_POST['comm']);
   $tool->query("update tbl_foro_comentario set content = '$comentario' where id = {$_POST['id2']} ");
 
 ?>
